@@ -97,7 +97,7 @@ function createApp (options = {}) {
 
   // Add a start method to the app that makes it easy to start listening for
   // connections.
-  app.start = address => {
+  app.start = function start (address) {
     const url = app.context.baseUrl = new URL(address || 'http://localhost')
     const protocol = url.protocol === 'https:' ? https : http
     const server = protocol.createServer(app.callback())
@@ -110,4 +110,12 @@ function createApp (options = {}) {
   return app
 }
 
-module.exports = { createApp }
+function authRequired (ctx, next) {
+  if (ctx.session.user) {
+    next()
+  } else {
+    ctx.status = 401
+  }
+}
+
+module.exports = { createApp, authRequired }
