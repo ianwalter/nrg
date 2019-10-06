@@ -1,8 +1,28 @@
 {
+  "name": "@ianwalter/ace",
+  "description": "A batteries-included Node.js web framework",
+  "version": "0.0.1",
+  "author": "Ian Walter <public@iankwalter.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "index.js",
   "scripts": {
     "example:hello": "node examples/helloWorld.js | npx pino-print",
     "example:uncaught": "node examples/uncaughtException.js | npx pino-print",
     "example:error": "node examples/error.js | npx pino-print"
+  },
+  "homepage": "https://github.com/ianwalter/ace#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianwalter/ace.git"
+  },
+  "keywords": [
+    "web",
+    "framework",
+    "node",
+    "koa"
+  ],
+  "bugs": {
+    "url": "https://github.com/ianwalter/ace/issues"
   },
   "dependencies": {
     "@ianwalter/merge": "^5.0.0",
