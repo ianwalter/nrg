@@ -8,7 +8,8 @@
   "scripts": {
     "example:hello": "node examples/helloWorld.js | npx pino-print",
     "example:uncaught": "node examples/uncaughtException.js | npx pino-print",
-    "example:error": "node examples/error.js | npx pino-print"
+    "example:error": "node examples/error.js | npx pino-print",
+    "example:prod": "node examples/production.js | npx pino-print"
   },
   "homepage": "https://github.com/ianwalter/ace#readme",
   "repository": {

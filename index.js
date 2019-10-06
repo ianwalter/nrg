@@ -1,4 +1,5 @@
 const http = require('http')
+const https = require('https')
 const merge = require('@ianwalter/merge')
 const Koa = require('koa')
 const json = require('koa-json')
@@ -18,7 +19,7 @@ function createApp (options = {}) {
 
   // Create the isProduction variable so sane configuration can be used when
   // running in a production environment without having to be user-supplied.
-  const isProduction = options.env === 'production'
+  const isProduction = options.isProduction = options.env === 'production'
   
   // Create the Koa app instance.
   const app = new Koa()
@@ -40,6 +41,10 @@ function createApp (options = {}) {
   options.log.redact = !options.log.redact && isProduction
     ? ['req.headers.cookie', 'res.headers["set-cookie"]']
     : options.log.redact
+  
+  // Add the options to the app context so that they can be referenced elsewhere
+  // in the app.
+  app.context.options = options
 
   // Use Pino for logging.
   const logger = pino(options.log)
@@ -71,7 +76,8 @@ function createApp (options = {}) {
   // connections.
   app.start = address => {
     const url = app.context.baseUrl = new URL(address || 'http://localhost')
-    const server = http.createServer(app.callback())
+    const protocol = url.protocol === 'https:' ? https : http
+    const server = protocol.createServer(app.callback())
     server.listen(address ? url.port : undefined, url.hostname)
     logger.info('Ace started. Serving requests at:', url.href)
     app.server = server
