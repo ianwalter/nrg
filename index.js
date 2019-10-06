@@ -10,7 +10,9 @@ const pinoMiddleware = require('koa-pino-logger')
 
 const defaults = {
   env: process.env.ACE_ENV || process.env.NODE_ENV,
-  log: { unhandled: true }
+  log: { unhandled: true },
+  health: { path: '/health' },
+  hash: { bytes: 48, rounds: 12 }
 }
 
 function createApp (options = {}) {
@@ -32,6 +34,15 @@ function createApp (options = {}) {
       ctx.status = err.statusCode || err.status || 500
       ctx.body = err.message || 'Internal Server Error'
       ctx.app.emit('error', err, ctx)
+    }
+  })
+
+  // Add health check middleware.
+  server.use((ctx, next) => {
+    if (ctx.request.url === options.health.path) {
+      ctx.status = 200
+    } else {
+      return next()
     }
   })
 
