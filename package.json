@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/ace",
   "description": "A batteries-included Node.js web framework",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "author": "Ian Walter <public@iankwalter.com>",
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
@@ -37,6 +37,7 @@
     "pino": "^5.13.4"
   },
   "devDependencies": {
-    "@ianwalter/pino-print": "^1.1.1"
+    "@ianwalter/pino-print": "^1.1.1",
+    "@ianwalter/release": "^3.0.5"
   }
 }
