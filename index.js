@@ -12,6 +12,7 @@ const defaults = {
   env: process.env.ACE_ENV || process.env.NODE_ENV,
   log: { unhandled: true },
   health: { path: '/health' },
+  session: { keys: false },
   hash: { bytes: 48, rounds: 12 }
 }
 
@@ -38,7 +39,7 @@ function createApp (options = {}) {
   })
 
   // Add health check middleware.
-  server.use((ctx, next) => {
+  app.use((ctx, next) => {
     if (ctx.request.url === options.health.path) {
       ctx.status = 200
     } else {
@@ -82,6 +83,17 @@ function createApp (options = {}) {
   // Return compressed responses for clients that indentify as being able to
   // handle them.
   app.use(compress())
+
+  // TODO
+  if (options.session.keys) {
+    const redisStore = require('koa-redis')
+    const session = require('koa-session')
+    const CSRF = require('koa-csrf')
+    const store = redisStore({ url: options.session.redisUrl })
+    app.keys = options.session.keys
+    app.use(session({ store }, app))
+    app.use(new CSRF())
+  }
 
   // Add a start method to the app that makes it easy to start listening for
   // connections.
