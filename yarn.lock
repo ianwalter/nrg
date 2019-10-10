@@ -25,6 +25,14 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@ianwalter/ace-router@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/ace-router/-/ace-router-0.0.1.tgz#174ac6296f8c5dec3e939459ed85d02801fe6f3e"
+  integrity sha512-BOMsSc8bfWSWBLftYPCN0eCj51YyInwkxc7qIksz+ASA7GMpevJyV6JLVHYci4xaiSn+imWHBBFNV0q2y/5Rtw==
+  dependencies:
+    "@ianwalter/print" "^3.6.0"
+    koa-compose "^4.1.0"
+
 "@ianwalter/chromafi@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@ianwalter/chromafi/-/chromafi-1.0.1.tgz#6df9f38719cbfea689e820e04c5d292da38f15ca"
@@ -91,7 +99,7 @@
     "@ianwalter/print" "^3.5.0"
     strip-ansi "^5.2.0"
 
-"@ianwalter/print@^3.3.1":
+"@ianwalter/print@^3.3.1", "@ianwalter/print@^3.6.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.6.0.tgz#2de0528d599f241f1ea5560fa04220b057f5d43c"
   integrity sha512-/ceB61lZaH6vap6R1oI0aLKLUtcu2yL/StZdRH47Yxbxu1beUAkMTKI5iYd4M50bsxhvX4WuLihIMQFVz/kFDQ==

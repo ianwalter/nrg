@@ -2,6 +2,7 @@ const { createApp, authRequired } = require('../')
 
 const app = createApp()
 
-app.use(authRequired, ctx => (ctx.body = 'Hello World!'))
+app.get('/', ctx => (ctx.body = 'Hello World!'))
+app.get('/private', authRequired, ctx => (ctx.body = 'Secrets secrets secrets'))
 
 app.start('http://localhost:3000')

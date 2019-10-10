@@ -10,7 +10,8 @@
     "example:uncaught": "node examples/uncaughtException.js | npx pino-print",
     "example:error": "node examples/error.js | npx pino-print",
     "example:prod": "node examples/production.js | npx pino-print",
-    "example:sessions": "node examples/sessions.js | npx pino-print"
+    "example:sessions": "node examples/sessions.js | npx pino-print",
+    "example:auth": "node examples/authRequired.js | npx pino-print"
   },
   "homepage": "https://github.com/ianwalter/ace#readme",
   "repository": {
@@ -27,6 +28,7 @@
     "url": "https://github.com/ianwalter/ace/issues"
   },
   "dependencies": {
+    "@ianwalter/ace-router": "^0.0.1",
     "@ianwalter/merge": "^5.0.0",
     "koa": "^2.8.2",
     "koa-bodyparser": "^4.2.1",

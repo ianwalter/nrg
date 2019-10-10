@@ -7,6 +7,7 @@ const bodyParser = require('koa-bodyparser')
 const compress = require('koa-compress')
 const pino = require('pino')
 const pinoMiddleware = require('koa-pino-logger')
+const addRouter = require('@ianwalter/ace-router')
 
 const defaults = {
   env: process.env.ACE_ENV || process.env.NODE_ENV,
@@ -38,15 +39,6 @@ function createApp (options = {}) {
     }
   })
 
-  // Add health check middleware.
-  app.use((ctx, next) => {
-    if (ctx.request.url === options.health.path) {
-      ctx.status = 200
-    } else {
-      return next()
-    }
-  })
-
   // Configure logging based on user-supplied configuration and/or the runtime
   // environment.
   options.log.level = options.log.level || (isProduction ? 'info' : 'debug')
@@ -61,6 +53,12 @@ function createApp (options = {}) {
   // Use Pino for logging.
   const logger = pino(options.log)
   app.use(pinoMiddleware({ logger }))
+
+  // Add routing to the app via ace-router.
+  addRouter(app)
+
+  // Add a simple health check route.
+  app.get('/health', (ctx, next) => (ctx.status = 200))
 
   // If configured, set up handlers for any uncaught exceptions and unhandled
   // Promise rejections that happen within the current process.
@@ -111,7 +109,7 @@ function createApp (options = {}) {
 }
 
 function authRequired (ctx, next) {
-  if (ctx.session.user) {
+  if (ctx.session && ctx.session.user) {
     next()
   } else {
     ctx.status = 401
