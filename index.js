@@ -7,7 +7,9 @@ const bodyParser = require('koa-bodyparser')
 const compress = require('koa-compress')
 const pino = require('pino')
 const pinoMiddleware = require('koa-pino-logger')
-const addRouter = require('@ianwalter/ace-router')
+const { addRouter } = require('@ianwalter/ace-router')
+const knex = require('knex')
+const { Model } = require('objection')
 
 const defaults = {
   env: process.env.ACE_ENV || process.env.NODE_ENV,
@@ -49,6 +51,14 @@ function createApp (options = {}) {
   // Add the options to the app context so that they can be referenced elsewhere
   // in the app.
   app.context.options = options
+
+  // Add a knex database instance to the server context and tell Objection to 
+  // use that instance.
+  const { db, env } = options
+  if (db) {
+    app.context.db = knex(typeof db === 'string' ? db || db[env])
+    Model.knex(app.context.db)
+  }
 
   // Use Pino for logging.
   const logger = pino(options.log)
