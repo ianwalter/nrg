@@ -6,6 +6,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "example:hello": "node examples/helloWorld.js | npx pino-print",
     "example:uncaught": "node examples/uncaughtException.js | npx pino-print",
     "example:error": "node examples/error.js | npx pino-print",
@@ -44,7 +45,14 @@
     "pino": "^5.13.4"
   },
   "devDependencies": {
+    "@ianwalter/eslint-config": "^3.0.0",
     "@ianwalter/pino-print": "^1.1.1",
     "@ianwalter/release": "^3.0.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@ianwalter"
+    ]
   }
 }

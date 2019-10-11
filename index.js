@@ -26,7 +26,7 @@ function createApp (options = {}) {
   // Create the isProduction variable so sane configuration can be used when
   // running in a production environment without having to be user-supplied.
   const isProduction = options.isProduction = options.env === 'production'
-  
+
   // Create the Koa app instance.
   const app = new Koa()
 
@@ -47,16 +47,16 @@ function createApp (options = {}) {
   options.log.redact = !options.log.redact && isProduction
     ? ['req.headers.cookie', 'res.headers["set-cookie"]']
     : options.log.redact
-  
+
   // Add the options to the app context so that they can be referenced elsewhere
   // in the app.
   app.context.options = options
 
-  // Add a knex database instance to the server context and tell Objection to 
+  // Add a knex database instance to the server context and tell Objection to
   // use that instance.
   const { db, env } = options
   if (db) {
-    app.context.db = knex(typeof db === 'string' ? db || db[env])
+    app.context.db = knex(typeof db === 'string' ? db : db[env])
     Model.knex(app.context.db)
   }
 
