@@ -11,12 +11,22 @@ const { addRouter } = require('@ianwalter/ace-router')
 const knex = require('knex')
 const { Model } = require('objection')
 
+const Account = require('./lib/Account')
+const Token = require('./lib/Token')
+
 const defaults = {
   env: process.env.ACE_ENV || process.env.NODE_ENV,
   log: { unhandled: true },
   health: { path: '/health' },
   session: { keys: false },
-  hash: { bytes: 48, rounds: 12 }
+  hash: { bytes: 48, rounds: 12 },
+  accounts: {
+    enabled: false,
+    models: {
+      account: Account,
+      token: Token
+    }
+  }
 }
 
 function createApp (options = {}) {
@@ -52,6 +62,11 @@ function createApp (options = {}) {
   // in the app.
   app.context.options = options
 
+  // Use Pino for logging.
+  const logger = pino(options.log)
+  app.use(pinoMiddleware({ logger }))
+  logger.debug({ options })
+
   // Add a knex database instance to the server context and tell Objection to
   // use that instance.
   const { db, env } = options
@@ -59,10 +74,6 @@ function createApp (options = {}) {
     app.context.db = knex(typeof db === 'string' ? db : db[env])
     Model.knex(app.context.db)
   }
-
-  // Use Pino for logging.
-  const logger = pino(options.log)
-  app.use(pinoMiddleware({ logger }))
 
   // Add routing to the app via ace-router.
   addRouter(app)
@@ -119,11 +130,11 @@ function createApp (options = {}) {
 }
 
 function authRequired (ctx, next) {
-  if (ctx.session && ctx.session.user) {
+  if (ctx.session && ctx.session.account) {
     next()
   } else {
     ctx.status = 401
   }
 }
 
-module.exports = { createApp, authRequired }
+module.exports = { createApp, authRequired, Account, Token }
