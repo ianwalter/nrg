@@ -1,7 +1,10 @@
-const ace = require('../..')
+const { createApp, Account } = require('../')
 
-const app = ace.createApp()
+const app = createApp({ accounts: { enabled: true } })
 
-app.use(ctx => (ctx.body = 'Hello World!'))
+app.use(async ctx => {
+  const accounts = await Account.query()
+  ctx.body = accounts.map(account => account.getOwnData())
+})
 
 app.start('http://localhost:3000')

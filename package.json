@@ -31,6 +31,7 @@
   "dependencies": {
     "@ianwalter/ace-router": "^0.0.2",
     "@ianwalter/merge": "^5.0.0",
+    "ajv": "^6.10.2",
     "knex": "^0.19.5",
     "koa": "^2.8.2",
     "koa-bodyparser": "^4.2.1",
