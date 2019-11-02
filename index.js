@@ -4,18 +4,23 @@ const {
 } = require('./middleware/account')
 const { hashPassword } = require('./middleware/password')
 const {
-  sendVerificationEmail
+  generateEmailVerificationEmail,
+  generatePasswordResetEmail,
+  sendEmail
 } = require('./middleware/email')
 
 module.exports = {
   validateRegistration,
   hashPassword,
   createAccount,
-  sendVerificationEmail,
+  generateEmailVerificationEmail,
+  generatePasswordResetEmail,
+  sendEmail,
   registration: [
     validateRegistration,
     hashPassword,
     createAccount,
-    sendVerificationEmail
+    generateEmailVerificationEmail,
+    sendEmail
   ]
 }
