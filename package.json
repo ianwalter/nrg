@@ -10,7 +10,7 @@
     "example:hello": "node examples/helloWorld.js | npx pino-print",
     "example:uncaught": "node examples/uncaughtException.js | npx pino-print",
     "example:error": "node examples/error.js | npx pino-print",
-    "example:warn": "node examples/warn.js | npx pino-print",
+    "example:warn": "node examples/warning.js | npx pino-print",
     "example:prod": "node examples/production.js | npx pino-print",
     "example:sessions": "node examples/sessions.js | npx pino-print",
     "example:auth": "node examples/authRequired.js | npx pino-print"
