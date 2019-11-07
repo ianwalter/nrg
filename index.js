@@ -1,22 +1,41 @@
+const createApp = require('./lib/app')
+const {
+  GeneralError,
+  HttpError,
+  BadRequestError,
+  UnauthorizedError,
+  NotFoundError,
+  ValidationError
+} = require('./lib/errors')
 const {
   validateRegistration,
   createAccount,
   getAccount
-} = require('./middleware/account')
-const { hashPassword } = require('./middleware/password')
-const { generateToken, insertToken } = require('./middleware/token')
+} = require('./lib/middleware/account')
+const { hashPassword } = require('./lib/middleware/password')
+const { generateToken, insertToken } = require('./lib/middleware/token')
 const {
   generateEmailVerificationEmail,
   generatePasswordResetEmail,
   sendEmail
-} = require('./middleware/email')
+} = require('./lib/middleware/email')
 const {
   validateLogin,
   authenticateLogin,
   handleAuthentication
-} = require('./middleware/session')
+} = require('./lib/middleware/session')
 
 module.exports = {
+  // Creates the application:
+  createApp,
+  // Error classes:
+  GeneralError,
+  HttpError,
+  BadRequestError,
+  UnauthorizedError,
+  NotFoundError,
+  ValidationError,
+  // Middleware:
   validateRegistration,
   hashPassword,
   createAccount,
