@@ -2,7 +2,10 @@
   "name": "@ianwalter/ace",
   "description": "A batteries-included Node.js web framework",
   "version": "0.0.4",
-  "author": "Ian Walter <public@iankwalter.com>",
+  "author": {
+    "name": "Ian Walter",
+    "url": "https://ianwalter.dev"
+  },
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "scripts": {
@@ -13,7 +16,8 @@
     "example:warn": "node examples/warning.js | npx pino-print",
     "example:prod": "node examples/production.js | npx pino-print",
     "example:sessions": "node examples/sessions.js | npx pino-print",
-    "example:auth": "node examples/authRequired.js | npx pino-print"
+    "example:auth": "node examples/authRequired.js | npx pino-print",
+    "example:static": "node examples/static | npx pino-print"
   },
   "homepage": "https://github.com/ianwalter/ace#readme",
   "repository": {
@@ -45,9 +49,11 @@
     "koa-pino-logger": "jstewmon/koa-pino-logger#cdfb9806508b7fc6e89e6a2ca1c92cd927ce6104",
     "koa-redis": "^4.0.0",
     "koa-session": "^5.12.3",
+    "koa-webpack": "^5.2.4",
     "objection": "^1.6.11",
     "pg": "^7.12.1",
-    "pino": "^5.13.4"
+    "pino": "^5.13.4",
+    "webpack": "^4.41.2"
   },
   "devDependencies": {
     "@ianwalter/eslint-config": "^3.0.0",
