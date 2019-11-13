@@ -25,6 +25,7 @@ const {
   handleAuthentication
 } = require('./lib/middleware/session')
 const { serveStatic, serveWebpack } = require('./lib/middleware/client')
+const { serveSsr } = require('./lib/middleware/ssr')
 
 module.exports = {
   // Creates the application:
@@ -75,5 +76,6 @@ module.exports = {
     sendEmail
   ],
   serveStatic,
-  serveWebpack
+  serveWebpack,
+  serveSsr
 }
