@@ -17,7 +17,8 @@
     "example:prod": "node examples/production.js | npx pino-print",
     "example:sessions": "node examples/sessions.js | npx pino-print",
     "example:auth": "node examples/authRequired.js | npx pino-print",
-    "example:static": "node examples/static | npx pino-print"
+    "example:static": "node examples/static | npx pino-print",
+    "example:ssr": "node examples/ssr | npx pino-print"
   },
   "homepage": "https://github.com/ianwalter/ace#readme",
   "repository": {
@@ -54,6 +55,7 @@
     "objection": "^1.6.11",
     "pg": "^7.12.1",
     "pino": "^5.13.4",
+    "require-from-string": "^2.0.2",
     "webpack": "^4.41.2"
   },
   "devDependencies": {
