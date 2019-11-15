@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/ace",
   "description": "A batteries-included Node.js web framework",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
