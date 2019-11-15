@@ -18,7 +18,8 @@
     "example:sessions": "node examples/sessions.js | npx pino-print",
     "example:auth": "node examples/authRequired.js | npx pino-print",
     "example:static": "node examples/static | npx pino-print",
-    "example:ssr": "node examples/ssr | npx pino-print"
+    "example:ssr": "node examples/ssr | npx pino-print",
+    "build:example:ssr": "NODE_ENV=production webpack examples/ssr"
   },
   "homepage": "https://github.com/ianwalter/ace#readme",
   "repository": {
@@ -61,7 +62,11 @@
   "devDependencies": {
     "@ianwalter/eslint-config": "^3.0.0",
     "@ianwalter/pino-print": "^1.4.0",
-    "@ianwalter/release": "^3.0.5"
+    "@ianwalter/release": "^3.0.5",
+    "babel-loader": "^8.0.6",
+    "svelte-loader": "^2.13.6",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
   },
   "eslintConfig": {
     "root": true,

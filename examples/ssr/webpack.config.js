@@ -1,11 +1,13 @@
 const path = require('path')
+const nodeExternals = require('webpack-node-externals')
 
+const modulesDir = path.join(__dirname, '../../node_modules')
 const isProduction = process.env.NODE_ENV === 'production'
-const app = path.join(__dirname, 'app')
 
 module.exports = {
-  entry: './ssr.js',
+  entry: { ssr: './ssr.js' },
   target: 'node',
+  externals: nodeExternals({ modulesDir }),
   output: {
     libraryTarget: 'commonjs2'
   },
@@ -15,10 +17,10 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.js$/, include: app, loader: 'babel-loader' },
+      { test: /\.js$/, include: __dirname, loader: 'babel-loader' },
       {
         test: /\.svelte$/,
-        include: app,
+        include: __dirname,
         loader: 'svelte-loader'
       }
     ]
