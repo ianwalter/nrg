@@ -39,7 +39,6 @@
     "@ianwalter/ace-router": "^0.0.2",
     "@ianwalter/correct": "^0.0.1",
     "@ianwalter/merge": "^5.0.0",
-    "ajv": "^6.10.2",
     "bcrypt": "^3.0.6",
     "ejs": "^2.7.1",
     "knex": "^0.19.5",
