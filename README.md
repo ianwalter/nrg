@@ -11,7 +11,7 @@
 - [x] Logging through [Pino][pinoUrl]
 - [ ] Session-handling and CSRF protection using [Redis][redisUrl]
 - [ ] Database connection to [PostgreSQL][postgresUrl] using [knex][knexUrl] and
--     [Objection.js][objectionUrl]
+      [Objection.js][objectionUrl]
 - [ ] Ready-to-roll user account system
 - [ ] CLI for database migrations and seeding
 - [x] Static file serving
@@ -34,6 +34,8 @@ Created by [Ian Walter](https://ianwalter.dev)
 
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg
+[ciImage]: https://github.com/ianwalter/nrg/workflows/CI/badge.svg
+[ciUrl]: https://github.com/ianwalter/nrg/actions
 [koaUrl]: https://koajs.com/
 [nrgRouteUrl]: https://github.com/ianwalter/nrg-router
 [pinoUrl]: http://getpino.io/#/

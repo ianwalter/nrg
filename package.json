@@ -10,6 +10,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
+    "test": "bff",
     "nrg": "node cli.js",
     "example:hello": "node examples/helloWorld.js | npx pino-print",
     "example:uncaught": "node examples/uncaughtException.js | npx pino-print",
@@ -63,6 +64,7 @@
     "webpack": "^4.41.2"
   },
   "devDependencies": {
+    "@ianwalter/bff": "^7.0.0",
     "@ianwalter/eslint-config": "^3.0.0",
     "@ianwalter/pino-print": "^1.4.0",
     "@ianwalter/release": "^3.0.6",
