@@ -66,7 +66,7 @@
   "devDependencies": {
     "@ianwalter/bff": "^7.0.0",
     "@ianwalter/eslint-config": "^3.0.0",
-    "@ianwalter/pino-print": "^1.4.0",
+    "@ianwalter/pino-print": "^1.4.1",
     "@ianwalter/release": "^3.0.6",
     "@ianwalter/renovate-config": "^1.2.0",
     "babel-loader": "^8.0.6",
