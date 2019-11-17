@@ -1,6 +1,6 @@
-const ace = require('../')
+const { createApp } = require('../')
 
-const app = ace.createApp()
+const app = createApp()
 
 app.use(ctx => (ctx.body = 'Hello World!'))
 

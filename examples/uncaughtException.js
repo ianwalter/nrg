@@ -1,5 +1,5 @@
-const ace = require('../')
+const { createApp } = require('../')
 
-ace.createApp()
+createApp()
 
 throw new Error('What the deuce!?')

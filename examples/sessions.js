@@ -1,6 +1,6 @@
-const ace = require('../')
+const { createApp } = require('../')
 
-const app = ace.createApp({
+const app = createApp({
   session: {
     keys: ['cba321'],
     redisUrl: 'redis://localhost:6379'

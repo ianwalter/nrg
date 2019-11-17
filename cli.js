@@ -1,21 +1,18 @@
 #!/usr/bin/env node
 
-// const cli = require('@ianwalter/cli')
+const path = require('path')
+const cli = require('@ianwalter/cli')
 
-process.env.ACE_CLI = true
+const { _: commands, ...config } = cli({
+  name: 'nrg',
+  app: {
+    alias: 'a',
+    description: 'A file where your nrg app is created and exported.'
+  }
+})
 
-// const { _: commands, ...config } = cli({
-//   name: 'ace',
-//   alias: {
-//     entry: 'e'
-//   },
-//   defaults: {
-//     entry: 'index.js'
-//   }
-// })
-//
-// const app = require(config.entry)
-//
+const app = require(path.resolve(config.app))
+
 // if (true) {
 //   // Make a new migration.
 //   app.db.migrate.make()
