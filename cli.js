@@ -13,11 +13,16 @@ const { _: commands, ...config } = cli({
 
 const app = require(path.resolve(config.app))
 
-// if (true) {
-//   // Make a new migration.
-//   app.db.migrate.make()
-// } else if (true) {
-//   // Copy base account migrations.
+if (commands[0] === 'migration') {
+  // Make a new migration.
+  app.db.migrate.make(commands[1])
+} else if (commands[0] === 'copy') {
+  if (commands[1] === 'migrations') {
+    // Copy base account migrations.
+  } else {
+    app.logger.fatal('Copy what? Available: migrations')
+    process.exit(1)
+  }
 // } else if (true) {
 //   // Run migrations.
 //   app.db.migrate.latest()
@@ -29,4 +34,4 @@ const app = require(path.resolve(config.app))
 // } else if (true) {
 //   // Run seeds.
 //   app.db.seed.run()
-// }
+}

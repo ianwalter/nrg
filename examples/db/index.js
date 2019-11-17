@@ -1,10 +1,9 @@
-const { createApp, Account } = require('../')
+const path = require('path')
+const { createApp } = require('../..')
 
-const app = createApp({ accounts: { enabled: true } })
-
-app.use(async ctx => {
-  const accounts = await Account.query()
-  ctx.body = accounts.map(account => account.getOwnData())
+module.exports = createApp({
+  db: {
+    migrations: path.join(__dirname, 'migrations'),
+    seeds: path.join(__dirname, 'seeds')
+  }
 })
-
-app.start('http://localhost:3000')

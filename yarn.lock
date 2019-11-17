@@ -57,14 +57,6 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@ianwalter/ace-router@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@ianwalter/ace-router/-/ace-router-0.0.2.tgz#3d26f6c1d2e7e93e32292b9e4288603449d63ba7"
-  integrity sha512-DFRwtoO0+qYhfXIYlfmYM7dyeomnQ76j5xI1qis+jcn/iWOesVihbNjJuVbcBTxUzOYfWITg0U8pdkC/C22XSQ==
-  dependencies:
-    "@ianwalter/print" "^3.6.0"
-    koa-compose "^4.1.0"
-
 "@ianwalter/base-error@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/base-error/-/base-error-1.1.0.tgz#cf27811359e68bac9a1c60d4dadb88ec348d1ab7"
@@ -164,6 +156,14 @@
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-5.0.0.tgz#972b3cd668ab87416fba1af99186cd83d34d687f"
   integrity sha512-Z+Xn8dT0ApkjGizdwMQaCgsAyHO+zKhCC2OYO7lEYLs1IdCzXtRUYah3vkIWT8/Ad94ni0rxtR39VTRWJE1/Qw==
+
+"@ianwalter/nrg-router@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.0.3.tgz#7d6102564bf10ae558657de98a65453ea5bb4f56"
+  integrity sha512-cTKgmoWkOU8VSkWEYyfOq5009QPMjeQa7hIpX9XtG2xm1JXZW124H7HflvUmLmUKF+J0VJAZHL4enUU1gWEN+Q==
+  dependencies:
+    "@ianwalter/print" "^3.6.0"
+    koa-compose "^4.1.0"
 
 "@ianwalter/pino-print@^1.4.0":
   version "1.4.0"
