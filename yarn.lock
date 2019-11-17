@@ -219,6 +219,11 @@
     prompts "^2.2.1"
     semver "^6.3.0"
 
+"@ianwalter/renovate-config@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/renovate-config/-/renovate-config-1.2.0.tgz#f84e2fc56ad5d29c0876058c16c25db95baf74a9"
+  integrity sha512-OSvziSdR0gxnWeH+9KbS9+HjojFa73vqNFU7wAxWs2ZV/9YofpKw0HwGtzyYgb1xVk8g6ZFPMYaTnFZ4Af6N/w==
+
 "@ianwalter/update-package@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@ianwalter/update-package/-/update-package-0.0.2.tgz#b60e688203f7cec5993c7ca2df6cb267f331dbe1"

@@ -37,9 +37,9 @@
     "url": "https://github.com/ianwalter/nrg/issues"
   },
   "dependencies": {
-    "@ianwalter/nrg-router": "^0.0.3",
     "@ianwalter/correct": "^0.0.1",
     "@ianwalter/merge": "^5.0.0",
+    "@ianwalter/nrg-router": "^0.0.3",
     "bcrypt": "^3.0.6",
     "devalue": "^2.0.0",
     "ejs": "^2.7.1",
@@ -66,6 +66,7 @@
     "@ianwalter/eslint-config": "^3.0.0",
     "@ianwalter/pino-print": "^1.4.0",
     "@ianwalter/release": "^3.0.6",
+    "@ianwalter/renovate-config": "^1.2.0",
     "babel-loader": "^8.0.6",
     "svelte-loader": "^2.13.6",
     "webpack-cli": "^3.3.10",
@@ -76,6 +77,11 @@
   },
   "eslintConfig": {
     "root": true,
+    "extends": [
+      "@ianwalter"
+    ]
+  },
+  "renovate": {
     "extends": [
       "@ianwalter"
     ]
