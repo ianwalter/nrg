@@ -45,7 +45,7 @@
     "devalue": "^2.0.0",
     "ejs": "^2.7.1",
     "indent-string": "^4.0.0",
-    "knex": "^0.19.5",
+    "knex": "^0.20.2",
     "koa": "^2.8.2",
     "koa-bodyparser": "^4.2.1",
     "koa-compress": "^3.0.0",
