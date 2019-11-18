@@ -58,7 +58,7 @@
     "koa-webpack": "ianwalter/koa-webpack",
     "objection": "^1.6.11",
     "pg": "^7.12.1",
-    "pino": "^5.13.4",
+    "pino": "^5.13.6",
     "prettydiff": "^101.2.6",
     "require-from-string": "^2.0.2",
     "webpack": "^4.41.2"
