@@ -10,3 +10,7 @@ services:
     image: postgres
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRESS_DB=nrg
+      - POSTGRES_USER=nrg
+      - POSTGRES_PASSWORD=gottaLottaEnemies
