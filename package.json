@@ -46,7 +46,7 @@
     "ejs": "^2.7.2",
     "indent-string": "^4.0.0",
     "knex": "^0.20.2",
-    "koa": "^2.8.2",
+    "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-compress": "^3.0.0",
     "koa-csrf": "^3.0.8",
@@ -58,7 +58,7 @@
     "koa-webpack": "ianwalter/koa-webpack",
     "objection": "^1.6.11",
     "pg": "^7.12.1",
-    "pino": "^5.13.4",
+    "pino": "^5.13.6",
     "prettydiff": "^101.2.6",
     "require-from-string": "^2.0.2",
     "webpack": "^4.41.2"
