@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const path = require('path')
-const { promises: fs }  = require('fs')
+const { promises: fs } = require('fs')
 const cli = require('@ianwalter/cli')
 
 const { _: commands, ...config } = cli({
