@@ -41,7 +41,7 @@
     "@ianwalter/correct": "^0.0.1",
     "@ianwalter/merge": "^5.0.0",
     "@ianwalter/nrg-router": "^0.0.3",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^3.0.7",
     "devalue": "^2.0.0",
     "ejs": "^2.7.4",
     "indent-string": "^4.0.0",
