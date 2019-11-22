@@ -43,7 +43,7 @@
     "@ianwalter/nrg-router": "^0.0.3",
     "bcrypt": "^3.0.6",
     "devalue": "^2.0.0",
-    "ejs": "^2.7.2",
+    "ejs": "^2.7.4",
     "indent-string": "^4.0.0",
     "knex": "^0.20.2",
     "koa": "^2.11.0",
