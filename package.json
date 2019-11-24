@@ -40,7 +40,7 @@
   "dependencies": {
     "@ianwalter/correct": "^0.0.1",
     "@ianwalter/merge": "^5.0.0",
-    "@ianwalter/nrg-router": "^0.0.3",
+    "@ianwalter/nrg-router": "^0.0.4",
     "bcrypt": "^3.0.7",
     "devalue": "^2.0.0",
     "ejs": "^2.7.4",
