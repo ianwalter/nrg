@@ -7,4 +7,4 @@ app.use(async ctx => {
   ctx.body = accounts.map(account => account.getOwnData())
 })
 
-app.start('http://localhost:3000')
+app.start()

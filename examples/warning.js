@@ -6,4 +6,4 @@ app.use(ctx => {
   throw new BadRequestError('No soup for you!')
 })
 
-app.start('http://localhost:3000')
+app.start()

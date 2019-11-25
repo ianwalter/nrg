@@ -11,4 +11,4 @@ const app = createApp({
 
 app.use(serveSsr())
 
-app.start('http://localhost:4321')
+app.start()

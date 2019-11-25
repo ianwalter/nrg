@@ -16,4 +16,4 @@ app.use((ctx, next) => {
   }
 })
 
-app.start('http://localhost:3000')
+app.start()

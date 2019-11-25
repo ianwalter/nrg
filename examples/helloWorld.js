@@ -4,4 +4,4 @@ const app = createApp()
 
 app.use(ctx => (ctx.body = 'Hello World!'))
 
-app.start('http://localhost:4321')
+app.start()
