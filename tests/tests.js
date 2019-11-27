@@ -1,7 +1,14 @@
 const { test } = require('@ianwalter/bff')
+const helloWorld = require('./fixtures/helloWorld')
 
 test('Hello World!', async ({ expect }) => {
-  const app = require('./fixtures/helloWorld')
-  const response = await app.test('/').get()
+  const response = await helloWorld.test('/').get()
+  expect(response.status).toBe(200)
   expect(response.text).toBe('Hello World!')
+})
+
+test('/health', async ({ expect }) => {
+  const response = await helloWorld.test('/health').get()
+  expect(response.status).toBe(200)
+  expect(response.text).toBe('OK')
 })
