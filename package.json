@@ -41,6 +41,7 @@
     "@ianwalter/correct": "^0.0.1",
     "@ianwalter/merge": "^5.0.0",
     "@ianwalter/nrg-router": "^0.0.4",
+    "@ianwalter/print": "^3.8.0",
     "bcrypt": "^3.0.7",
     "date-fns": "^2.8.1",
     "devalue": "^2.0.0",
@@ -62,6 +63,7 @@
     "pino": "^5.14.0",
     "prettydiff": "^101.2.6",
     "require-from-string": "^2.0.2",
+    "supertest": "^4.0.2",
     "webpack": "^4.41.2"
   },
   "devDependencies": {
