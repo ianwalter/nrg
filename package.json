@@ -61,6 +61,7 @@
     "objection": "^1.6.11",
     "pg": "^7.14.0",
     "pino": "^5.14.0",
+    "pkg-dir": "^4.2.0",
     "prettydiff": "^101.2.6",
     "require-from-string": "^2.0.2",
     "supertest": "^4.0.2",
