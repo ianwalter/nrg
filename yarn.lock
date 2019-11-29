@@ -844,7 +844,7 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
-bcrypt@^3.0.4-napi:
+bcrypt@3.0.4-napi:
   version "3.0.4-napi"
   resolved "https://registry.yarnpkg.com/bcrypt/-/bcrypt-3.0.4-napi.tgz#c3e521720cf155c93fea7a6ffd734bacd68f2b2b"
   integrity sha512-3bR2UZ32pMtEYilT///FyPse6E7RQQwxDJz4pHRtyzgfYdK5PXe/TvQ+HZjhcwck3613Gn0vYS5zSo3nBYC7mg==
