@@ -182,13 +182,13 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-5.0.0.tgz#972b3cd668ab87416fba1af99186cd83d34d687f"
   integrity sha512-Z+Xn8dT0ApkjGizdwMQaCgsAyHO+zKhCC2OYO7lEYLs1IdCzXtRUYah3vkIWT8/Ad94ni0rxtR39VTRWJE1/Qw==
 
-"@ianwalter/nrg-router@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.0.7.tgz#0257989261ebfbde3bf4e6e6d8f9cba34ffa35dc"
-  integrity sha512-aF+Yr2L6RtcLOGMBz80RshhmH0pwHbL1PyCj8xQ5IlOrDFObijlwJRZyACPv4NeYjBnF1HUt8l//PAiiS++/FQ==
+"@ianwalter/nrg-router@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.1.0.tgz#c3f329a877e240e23e8e2235498398d9b075696f"
+  integrity sha512-2cfQ3NeT+1WMy/GxcYOnbUe+98ZzPMt9Z9GGncluL738cVqS5LY1M92z/sLqmNbdY5TLDnFut53pSHI+BdYlIg==
   dependencies:
     "@ianwalter/print" "^3.8.0"
-    "@ianwalter/router" "^2.0.5"
+    "@ianwalter/router" "^2.1.0"
 
 "@ianwalter/pino-print@^1.4.1":
   version "1.4.1"
@@ -236,11 +236,12 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/renovate-config/-/renovate-config-1.2.0.tgz#f84e2fc56ad5d29c0876058c16c25db95baf74a9"
   integrity sha512-OSvziSdR0gxnWeH+9KbS9+HjojFa73vqNFU7wAxWs2ZV/9YofpKw0HwGtzyYgb1xVk8g6ZFPMYaTnFZ4Af6N/w==
 
-"@ianwalter/router@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-2.0.5.tgz#2ec448f52a9c4eacdf512bf0cecb90f1b749bd60"
-  integrity sha512-FAMZ88YPi4OLqerxlUJ4qg/Om3Ciw/a2nOb4oRWGFZAEU8sfGPF4KlgWbG0LyFwKLYRc5Ey9Rpx+P/bZwtPmQA==
+"@ianwalter/router@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-2.1.0.tgz#209044572502f07f33a64540caa73b51c459cc8e"
+  integrity sha512-YD+vMNYm+i9GKNPtKgbF0zSKie2CAYoaGIdC0bgFk8F7esJSi4QHHM62GFa8brWhKvTdyTgOQavFLCIGoOGJIA==
   dependencies:
+    "@ianwalter/url" "^1.1.0"
     koa-compose "^4.1.0"
 
 "@ianwalter/timer@^1.1.0":
@@ -256,6 +257,11 @@
     "@ianwalter/merge" "^5.0.0"
     read-pkg-up "^6.0.0"
     write-pkg "^4.0.0"
+
+"@ianwalter/url@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/url/-/url-1.1.0.tgz#3a2caf69c51cca62899771cc9ca231995a168598"
+  integrity sha512-iq8vz8tWnheulmkdCWdjPipTeXGcSY8HtPuNDyZ53Ggyz19F/KKWRJUkftpirWSalAYdjTf2EAXlVppT6SxtAw==
 
 "@jest/console@^24.9.0":
   version "24.9.0"
