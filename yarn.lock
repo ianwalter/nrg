@@ -182,13 +182,13 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-5.0.0.tgz#972b3cd668ab87416fba1af99186cd83d34d687f"
   integrity sha512-Z+Xn8dT0ApkjGizdwMQaCgsAyHO+zKhCC2OYO7lEYLs1IdCzXtRUYah3vkIWT8/Ad94ni0rxtR39VTRWJE1/Qw==
 
-"@ianwalter/nrg-router@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.0.6.tgz#18ef3e4edbf921037da3489f8f177243d9e3bdca"
-  integrity sha512-n4Kj2AxlQ6xZzpVHvv53HnbKwiBrX8vHT5WFYHN5Fu3DdBXK/7HzbT64Lukx8vK1rdZhytAq9K+jFmMmCQmAKw==
+"@ianwalter/nrg-router@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.0.7.tgz#0257989261ebfbde3bf4e6e6d8f9cba34ffa35dc"
+  integrity sha512-aF+Yr2L6RtcLOGMBz80RshhmH0pwHbL1PyCj8xQ5IlOrDFObijlwJRZyACPv4NeYjBnF1HUt8l//PAiiS++/FQ==
   dependencies:
     "@ianwalter/print" "^3.8.0"
-    "@ianwalter/router" "^2.0.4"
+    "@ianwalter/router" "^2.0.5"
 
 "@ianwalter/pino-print@^1.4.1":
   version "1.4.1"
@@ -236,12 +236,11 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/renovate-config/-/renovate-config-1.2.0.tgz#f84e2fc56ad5d29c0876058c16c25db95baf74a9"
   integrity sha512-OSvziSdR0gxnWeH+9KbS9+HjojFa73vqNFU7wAxWs2ZV/9YofpKw0HwGtzyYgb1xVk8g6ZFPMYaTnFZ4Af6N/w==
 
-"@ianwalter/router@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-2.0.4.tgz#cbd9e8833066908aab4a0dcb6806fd34c89dfebd"
-  integrity sha512-+jKbwQJXQo4ZlYoMSA3bS6CCAFJ9PeFrAFmW1xFSCn0IecII0BR2zYzY+EF8/6VxQo2j13odivLWVkOmji7bhg==
+"@ianwalter/router@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-2.0.5.tgz#2ec448f52a9c4eacdf512bf0cecb90f1b749bd60"
+  integrity sha512-FAMZ88YPi4OLqerxlUJ4qg/Om3Ciw/a2nOb4oRWGFZAEU8sfGPF4KlgWbG0LyFwKLYRc5Ey9Rpx+P/bZwtPmQA==
   dependencies:
-    "@ianwalter/merge" "^5.0.0"
     koa-compose "^4.1.0"
 
 "@ianwalter/timer@^1.1.0":
