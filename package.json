@@ -43,7 +43,7 @@
     "@ianwalter/nrg-router": "^0.1.0",
     "@ianwalter/print": "^3.8.0",
     "@ianwalter/url": "^1.1.0",
-    "bcrypt": "3.0.4-napi",
+    "bcrypt": "3.0.7",
     "date-fns": "^2.8.1",
     "devalue": "^2.0.0",
     "ejs": "^3.0.1",
