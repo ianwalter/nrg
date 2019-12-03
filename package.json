@@ -41,7 +41,7 @@
     "@ianwalter/correct": "^0.0.1",
     "@ianwalter/merge": "^5.0.0",
     "@ianwalter/nrg-router": "^0.1.0",
-    "@ianwalter/print": "^3.8.0",
+    "@ianwalter/print": "^3.9.0",
     "@ianwalter/url": "^1.1.0",
     "bcrypt": "3.0.4-napi",
     "date-fns": "^2.8.1",
