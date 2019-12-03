@@ -7,10 +7,12 @@ const { print } = require('@ianwalter/print')
 
 const { _: commands, ...config } = cli({
   name: 'nrg',
-  app: {
-    alias: 'a',
-    description: 'A file where your nrg app is created and exported.',
-    default: process.cwd()
+  options: {
+    app: {
+      alias: 'a',
+      description: 'A file where your nrg app is created and exported.',
+      default: path.resolve('app')
+    }
   }
 })
 
