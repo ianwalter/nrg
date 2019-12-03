@@ -3,17 +3,27 @@
 const path = require('path')
 const { promises: fs } = require('fs')
 const cli = require('@ianwalter/cli')
+const { print } = require('@ianwalter/print')
 
 const { _: commands, ...config } = cli({
   name: 'nrg',
   app: {
     alias: 'a',
-    description: 'A file where your nrg app is created and exported.'
+    description: 'A file where your nrg app is created and exported.',
+    default: process.cwd()
   }
 })
 
 async function run () {
-  const app = require(path.resolve(config.app))
+  const appPath = path.resolve(config.app)
+  let app
+  try {
+    app = require(appPath)
+  } catch (err) {
+    // TODO: make error message more helpful.
+    print.fatal('App not found at', appPath)
+    process.exit(1)
+  }
 
   if (commands[0] === 'migration') {
     // Make a new migration.

@@ -129,6 +129,18 @@
     getopts "^2.2.5"
     read-pkg-up "^7.0.0"
 
+"@ianwalter/cli@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/cli/-/cli-2.1.1.tgz#91d50392c75b2f99743d1f2470c587ac3d53eda1"
+  integrity sha512-Y//edCQUfYWc2NUh+UClDOhYlZUv9L/urdngdorPcKYxPkkV5b6O7meOZp3fuLbSiMx9Qa17W3dp3zOWnrQMmg==
+  dependencies:
+    "@ianwalter/merge" "^5.0.0"
+    "@ianwalter/print" "^3.9.0"
+    common-tags "^1.8.0"
+    dot-prop "^5.2.0"
+    getopts "^2.2.5"
+    read-pkg-up "^7.0.0"
+
 "@ianwalter/clone@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/clone/-/clone-4.1.0.tgz#635860922699338da607b8e990ae5173e3e3e9c9"
