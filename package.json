@@ -50,6 +50,7 @@
     "bcrypt": "3.0.4-napi",
     "date-fns": "^2.8.1",
     "devalue": "^2.0.1",
+    "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "indent-string": "^4.0.0",
     "knex": "^0.20.3",
