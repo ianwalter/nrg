@@ -63,8 +63,8 @@ async function run () {
     }
   } else if (commands[0] === 'migrate') {
     // Run migrations.
-    app.db.migrate.latest()
-  // } else if (true) {
+    await app.db.migrate.latest()
+    // } else if (true) {
   //   //
   // } else if (true) {
   //   // Make a new seed.
@@ -72,8 +72,27 @@ async function run () {
   // } else if (true) {
   //   // Run seeds.
   //   app.db.seed.run()
+  } else if (commands[0] === 'run') {
+    if (commands[1]) {
+      try {
+        const script = require(path.resolve(`scripts/${commands[1]}`))
+        await script(app)
+      } catch (err) {
+        print.error(err)
+        process.exit(1)
+      }
+    } else {
+      // TODO: add available scripts.
+      app.logger.fatal('Run what?')
+      process.exit(1)
+    }
   } else {
     print.info(config.helpText)
+  }
+
+  // Close any open database connections.
+  if (app.db) {
+    app.db.destroy()
   }
 }
 

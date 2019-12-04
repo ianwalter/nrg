@@ -5,6 +5,7 @@ const { createApp } = require('../..')
 module.exports = createApp({
   db: {
     connection: {
+      host: '127.0.0.1',
       database: 'nrg',
       user: 'nrg',
       password: 'gottaLottaEnemies'
