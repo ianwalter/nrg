@@ -129,10 +129,10 @@
     getopts "^2.2.5"
     read-pkg-up "^7.0.0"
 
-"@ianwalter/cli@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/cli/-/cli-2.1.1.tgz#91d50392c75b2f99743d1f2470c587ac3d53eda1"
-  integrity sha512-Y//edCQUfYWc2NUh+UClDOhYlZUv9L/urdngdorPcKYxPkkV5b6O7meOZp3fuLbSiMx9Qa17W3dp3zOWnrQMmg==
+"@ianwalter/cli@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/cli/-/cli-3.0.0.tgz#c52be8caff5152f870388b46f9b07e066d6bd76e"
+  integrity sha512-nRw/zJFGlZZOpAK9AzqLk3sDUWn2XRErT3vwzfTyBMGpdIm7SX2AAoFZDva/Jcu9WVE3XJvMXcc8yM/vkimmgQ==
   dependencies:
     "@ianwalter/merge" "^5.0.0"
     "@ianwalter/print" "^3.9.0"

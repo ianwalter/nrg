@@ -3,18 +3,31 @@
 const path = require('path')
 const { promises: fs } = require('fs')
 const cli = require('@ianwalter/cli')
-const { print } = require('@ianwalter/print')
+const { Print } = require('@ianwalter/print')
 
-const { _: commands, ...config } = cli({
+const { _: commands, packageJson, ...config } = cli({
   name: 'nrg',
+  usage: 'nrg [options] [command]',
+  help: true,
   options: {
     app: {
       alias: 'a',
       description: 'A file where your nrg app is created and exported.',
       default: path.resolve('app')
+    },
+    log: {
+      default: { level: 'info' }
     }
   }
 })
+
+// Create a Print instance for logging based on the given log level / config.
+const print = new Print(config.log)
+
+// Add the CLI onfig to the NRG_CLI environment variable so that nrg knows that
+// it's running in a CLI context and it can merge the options with the
+// app-supplied and default options.
+process.env.NRG_CLI = JSON.stringify(config)
 
 async function run () {
   const appPath = path.resolve(config.app)
@@ -23,11 +36,14 @@ async function run () {
     app = require(appPath)
   } catch (err) {
     // TODO: make error message more helpful.
+    print.debug(err)
     print.fatal('App not found at', appPath)
     process.exit(1)
   }
 
-  if (commands[0] === 'migration') {
+  if (config.help) {
+    print.info(config.helpText)
+  } else if (commands[0] === 'migration') {
     // Make a new migration.
     app.db.migrate.make(commands[1])
   } else if (commands[0] === 'copy') {
@@ -45,9 +61,9 @@ async function run () {
       app.logger.fatal('Copy what? Available: migrations')
       process.exit(1)
     }
-  // } else if (true) {
-  //   // Run migrations.
-  //   app.db.migrate.latest()
+  } else if (commands[0] === 'migrate') {
+    // Run migrations.
+    app.db.migrate.latest()
   // } else if (true) {
   //   //
   // } else if (true) {
@@ -56,6 +72,8 @@ async function run () {
   // } else if (true) {
   //   // Run seeds.
   //   app.db.seed.run()
+  } else {
+    print.info(config.helpText)
   }
 }
 
