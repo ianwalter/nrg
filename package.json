@@ -41,7 +41,7 @@
     "url": "https://github.com/ianwalter/nrg/issues"
   },
   "dependencies": {
-    "@ianwalter/cli": "^2.1.1",
+    "@ianwalter/cli": "^2.2.1",
     "@ianwalter/correct": "^0.0.1",
     "@ianwalter/merge": "^5.0.0",
     "@ianwalter/nrg-router": "^0.1.0",
