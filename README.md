@@ -10,7 +10,7 @@
 - [x] Fast routing through a [tree-based router][nrgRouterUrl]
 - [x] Logging through [Pino][pinoUrl]
 - [ ] Session-handling and CSRF protection using [Redis][redisUrl]
-- [ ] Database connection to [PostgreSQL][postgresUrl] using [knex][knexUrl] and
+- [x] Database connection to [PostgreSQL][postgresUrl] using [knex][knexUrl] and
       [Objection.js][objectionUrl]
 - [ ] Ready-to-roll user account system
 - [ ] CLI for database migrations and seeding
