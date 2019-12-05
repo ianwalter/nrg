@@ -117,18 +117,6 @@
     getopts "^2.2.5"
     read-pkg-up "^6.0.0"
 
-"@ianwalter/cli@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/cli/-/cli-2.1.0.tgz#cc8e955886571760661af5bab8829a68e9973474"
-  integrity sha512-eyirwH2Mv4hENJZu4udFUM5ypQnJnUto0G9/L5fet0opH/7+d0Z6scHfsQ9X81iJ1rGB6/rOIBc1X4s3o1z94g==
-  dependencies:
-    "@ianwalter/merge" "^5.0.0"
-    "@ianwalter/print" "^3.8.0"
-    common-tags "^1.8.0"
-    dot-prop "^5.2.0"
-    getopts "^2.2.5"
-    read-pkg-up "^7.0.0"
-
 "@ianwalter/cli@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/cli/-/cli-3.0.0.tgz#c52be8caff5152f870388b46f9b07e066d6bd76e"
@@ -202,13 +190,13 @@
     "@ianwalter/print" "^3.8.0"
     "@ianwalter/router" "^2.1.0"
 
-"@ianwalter/pino-print@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/pino-print/-/pino-print-1.4.1.tgz#ecac956bcee325cbd078cf3fe5fa382bcb550b90"
-  integrity sha512-NLIS3wMFCBCEFpG6I4nvVJ5B3M6GHsL92B6tk5SGOTOOPZeJFePxxjvK38bBKU0/o/IWt5ww9O5hnDXwsgfQOQ==
+"@ianwalter/pino-print@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/pino-print/-/pino-print-1.5.0.tgz#1eb721888cca9ecd4dd33165d58f7b2867262882"
+  integrity sha512-XVVV6d/n4dyK0rZbL2I8tSW8Ywdxl30W5lPRQnAqw/OEsMTtmbgZ9kJABkR/uNv8dvifeBUEsZo6j+y6uzLhIQ==
   dependencies:
-    "@ianwalter/cli" "^2.1.0"
-    "@ianwalter/print" "^3.8.0"
+    "@ianwalter/cli" "^3.0.0"
+    "@ianwalter/print" "^3.9.0"
     fast-json-parse "^1.0.3"
     split2 "^3.1.1"
     strip-ansi "^6.0.0"
