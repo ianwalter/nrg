@@ -37,7 +37,7 @@ Created by [Ian Walter](https://ianwalter.dev)
 [ciImage]: https://github.com/ianwalter/nrg/workflows/CI/badge.svg
 [ciUrl]: https://github.com/ianwalter/nrg/actions
 [koaUrl]: https://koajs.com/
-[nrgRouteUrl]: https://github.com/ianwalter/nrg-router
+[nrgRouterUrl]: https://github.com/ianwalter/nrg-router
 [pinoUrl]: http://getpino.io/#/
 [redisUrl]: https://redis.io/
 [postgresUrl]: https://www.postgresql.org/
