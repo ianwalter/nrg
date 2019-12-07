@@ -9,33 +9,59 @@ const {
   ValidationError
 } = require('./lib/errors')
 
-const {
-  validateRegistration,
-  createAccount,
-  getAccount
-} = require('./lib/middleware/account')
-
-const { hashPassword } = require('./lib/middleware/password')
-
-const { generateToken, insertToken } = require('./lib/middleware/token')
-
-const {
-  generateEmailVerificationEmail,
-  generatePasswordResetEmail,
-  sendEmail
-} = require('./lib/middleware/email')
-
-const {
-  validateLogin,
-  authenticateLogin
-} = require('./lib/middleware/session')
+const { addToResponse, addToSsr } = require('lib/middleware/result')
 
 const { serveStatic, serveWebpack } = require('./lib/middleware/client')
 
 const { serveSsr } = require('./lib/middleware/ssr')
 
+const { generateToken, insertToken } = require('./lib/middleware/token')
+
+const {
+  validatePasswordStrength,
+  hashPassword,
+  comparePasswords
+} = require('./lib/middleware/password')
+
+const { requireAuthorization } = require('./lib/middleware/authorization')
+
+const { sendEmail } = require('./lib/middleware/email')
+
+const {
+  validateRegistration,
+  createAccount,
+  generateEmailVerificationEmail
+} = require('./lib/middleware/registration')
+
+const {
+  validateEmailVerification,
+  getAccountWithEmailTokens,
+  verifyEmail
+} = require('./lib/middleware/emailVerification')
+
+const {
+  getAccount,
+  validateAccountUpdate,
+  validatePasswordChange,
+  updateAccount
+} = require('./lib/middleware/account')
+
+const { validateLogin, authenticate } = require('./lib/middleware/login')
+
+const {
+  validateForgotPassword,
+  generatePasswordResetEmail
+} = require('./lib/middleware/forgotPassword')
+
+const {
+  validatePasswordReset,
+  getAccountWithPasswordTokens,
+  resetPassword
+} = require('./lib/middleware/passwordReset')
+
 module.exports = {
-  // Create Application:
+  /* Create Application: */
+
   createApp,
 
   /* Error classes: */
@@ -49,23 +75,34 @@ module.exports = {
 
   /* Middleware: */
 
-  // General:
-  addToResponse,
-  addToSsr,
-
   // Serving:
   serveStatic,
   serveWebpack,
   serveSsr,
 
-  // Registration:
-  validateRegistration,
-  hashPassword,
-  createAccount,
+  // Result:
+  addToResponse,
+  addToSsr,
+
+  // Token:
   generateToken,
   insertToken,
-  generateEmailVerificationEmail,
+
+  // Password:
+  validatePasswordStrength,
+  hashPassword,
+  comparePasswords,
+
+  // Authorization:
+  requireAuthorization,
+
+  // Email:
   sendEmail,
+
+  // Registration:
+  validateRegistration,
+  createAccount,
+  generateEmailVerificationEmail,
   registration: [
     validateRegistration,
     hashPassword,
@@ -88,14 +125,21 @@ module.exports = {
     addToResponse
   ],
 
+  // Account:
+  getAccount,
+  account: [
+    requireAuthorization,
+    getAccount,
+    addToResponse
+  ],
+
   // Login:
   validateLogin,
-  getAccount,
-  authenticateLogin,
+  authenticate,
   login: [
     validateLogin,
     getAccount,
-    authenticateLogin,
+    authenticate,
     addToResponse
   ],
 
@@ -111,9 +155,10 @@ module.exports = {
     addToResponse
   ],
 
-  // Reset Password:
+  // Password Reset:
   validatePasswordReset,
   getAccountWithPasswordTokens,
+  resetPassword,
   passwordReset: [
     validatePasswordReset,
     getAccountWithPasswordTokens,
@@ -121,20 +166,10 @@ module.exports = {
     addToResponse
   ],
 
-  // Show Account:
-  requireAuthorization,
-  account: [
-    requireAuthorization,
-    getAccount,
-    addToResponse
-  ],
-
   // Account Update:
-  requireAuthorization,
   validateAccountUpdate,
   validatePasswordChange,
   updateAccount,
-  changePassword,
   accountUpdate: [
     requireAuthorization,
     validateAccountUpdate,
