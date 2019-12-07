@@ -8,15 +8,15 @@
 
 - [x] Web server based on [Koa][koaUrl]
 - [x] Fast routing through a [tree-based router][nrgRouterUrl]
-- [x] Logging through [Pino][pinoUrl]
-- [ ] Session-handling and CSRF protection using [Redis][redisUrl]
-- [x] Database connection to [PostgreSQL][postgresUrl] using [knex][knexUrl] and
+- [x] Optional logging through [Pino][pinoUrl]
+- [ ] Optional Session-handling and CSRF protection using [Redis][redisUrl]
+- [x] Optional database connection to [PostgreSQL][postgresUrl] using [knex][knexUrl] and
       [Objection.js][objectionUrl]
-- [ ] Ready-to-roll user account system
+- [ ] Optional, ready-to-roll user account system
 - [ ] CLI for database migrations and seeding
-- [x] Static file serving
-- [x] [Webpack][webpackUrl] integration
-- [x] Server-side Rendering (SSR) support
+- [x] Optional static file serving
+- [x] Optional [Webpack][webpackUrl] integration
+- [x] Optional Server-side Rendering (SSR) support
 
 ## Installation
 
