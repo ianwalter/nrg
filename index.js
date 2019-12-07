@@ -9,7 +9,7 @@ const {
   ValidationError
 } = require('./lib/errors')
 
-const { addToResponse, addToSsr } = require('lib/middleware/result')
+const { addToResponse, addToSsr } = require('./lib/middleware/result')
 
 const { serveStatic, serveWebpack } = require('./lib/middleware/client')
 
