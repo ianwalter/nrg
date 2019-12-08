@@ -1,5 +1,9 @@
 const createApp = require('./lib/app')
 
+const Base = require('./lib/models/Base')
+const Account = require('./lib/models/Account')
+const Token = require('./lib/models/Token')
+
 const {
   GeneralError,
   HttpError,
@@ -63,6 +67,12 @@ module.exports = {
   /* Create Application: */
 
   createApp,
+
+  /* Models: */
+
+  Base,
+  Account,
+  Token,
 
   /* Error classes: */
 
