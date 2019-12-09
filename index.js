@@ -132,6 +132,8 @@ module.exports = {
     validateEmailVerification,
     getAccountWithEmailTokens,
     verifyEmail,
+    updateAccount,
+    authenticate,
     addToResponse
   ],
 
@@ -173,6 +175,8 @@ module.exports = {
     validatePasswordReset,
     getAccountWithPasswordTokens,
     resetPassword,
+    updateAccount,
+    authenticate,
     addToResponse
   ],
 
