@@ -1,10 +1,21 @@
-const { createApp, Account } = require('../')
+const path = require('path')
+const { createApp, login } = require('../..')
 
-const app = createApp({ accounts: { enabled: true } })
-
-app.use(async ctx => {
-  const accounts = await Account.query()
-  ctx.body = accounts.map(account => account.getOwnData())
+const app = createApp({
+  log: { level: 'info' },
+  db: {
+    connection: {
+      database: 'nrg',
+      user: 'nrg',
+      password: 'gottaLottaEnemies'
+    },
+    migrations: path.join(__dirname, 'migrations'),
+    seeds: path.join(__dirname, 'seeds')
+  },
+  accounts: { enabled: true }
 })
 
-app.start()
+// Allow users to login.
+app.post('/login', ...login)
+
+module.exports = app
