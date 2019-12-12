@@ -185,13 +185,13 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-5.0.0.tgz#972b3cd668ab87416fba1af99186cd83d34d687f"
   integrity sha512-Z+Xn8dT0ApkjGizdwMQaCgsAyHO+zKhCC2OYO7lEYLs1IdCzXtRUYah3vkIWT8/Ad94ni0rxtR39VTRWJE1/Qw==
 
-"@ianwalter/nrg-router@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.1.0.tgz#c3f329a877e240e23e8e2235498398d9b075696f"
-  integrity sha512-2cfQ3NeT+1WMy/GxcYOnbUe+98ZzPMt9Z9GGncluL738cVqS5LY1M92z/sLqmNbdY5TLDnFut53pSHI+BdYlIg==
+"@ianwalter/nrg-router@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.2.0.tgz#f69043e1c4c69f2f8139d3a8b5c75426a8165a75"
+  integrity sha512-StlVA+doXlnZKZq6Ci9kV/OjkthyqDw5mjcvltiDCATLwnY1op2mCL9omgSMnfmmxNSkwoVxIPkQrVcdJCKSpQ==
   dependencies:
-    "@ianwalter/print" "^3.8.0"
-    "@ianwalter/router" "^2.1.0"
+    "@ianwalter/print" "^4.0.1"
+    "@ianwalter/router" "^3.1.0"
 
 "@ianwalter/pino-print@^2.0.1":
   version "2.0.1"
@@ -204,7 +204,7 @@
     split2 "^3.1.1"
     strip-ansi "^6.0.0"
 
-"@ianwalter/print@^3.6.0", "@ianwalter/print@^3.8.0":
+"@ianwalter/print@^3.6.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.8.0.tgz#5367d285a65ff26a61ef15a3b2ac3e2aa7cfcd73"
   integrity sha512-UMpYt+Z3qA20UvBLDBmRbfYXpWz/MrpWcyWIPErjw2pu9TNFxu0eCg1UcKB9hbjOlOHbTaFpGLc+BNsUa/fOAw==
@@ -269,12 +269,11 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/renovate-config/-/renovate-config-1.2.0.tgz#f84e2fc56ad5d29c0876058c16c25db95baf74a9"
   integrity sha512-OSvziSdR0gxnWeH+9KbS9+HjojFa73vqNFU7wAxWs2ZV/9YofpKw0HwGtzyYgb1xVk8g6ZFPMYaTnFZ4Af6N/w==
 
-"@ianwalter/router@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-2.1.0.tgz#209044572502f07f33a64540caa73b51c459cc8e"
-  integrity sha512-YD+vMNYm+i9GKNPtKgbF0zSKie2CAYoaGIdC0bgFk8F7esJSi4QHHM62GFa8brWhKvTdyTgOQavFLCIGoOGJIA==
+"@ianwalter/router@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.1.0.tgz#6f0700730e098109d0b549a5d960dab9ea6df253"
+  integrity sha512-AFQf6N0wpa99y4DJgXIyJqY8PZGWKI2jPeBwRtROxJ2do0EFE0WAYLiU1dDygt3jH1VENQieQNakMCukC4RCrw==
   dependencies:
-    "@ianwalter/url" "^1.1.0"
     koa-compose "^4.1.0"
 
 "@ianwalter/timer@^1.1.0":
