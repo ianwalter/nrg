@@ -193,13 +193,13 @@
     "@ianwalter/print" "^3.8.0"
     "@ianwalter/router" "^2.1.0"
 
-"@ianwalter/pino-print@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/pino-print/-/pino-print-1.5.0.tgz#1eb721888cca9ecd4dd33165d58f7b2867262882"
-  integrity sha512-XVVV6d/n4dyK0rZbL2I8tSW8Ywdxl30W5lPRQnAqw/OEsMTtmbgZ9kJABkR/uNv8dvifeBUEsZo6j+y6uzLhIQ==
+"@ianwalter/pino-print@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/pino-print/-/pino-print-2.0.0.tgz#b34fb0f5cd7c4ad87de67e97fc11730cb29a0eea"
+  integrity sha512-Kcyt351rV8HX7XM6YI9ZMV+Vrx+8Ez1jaYnJLvEMR0qywjZ9YaEHkZvXfTCFoFZCG5aRZVCArKNG+9QStXY38g==
   dependencies:
     "@ianwalter/cli" "^3.0.0"
-    "@ianwalter/print" "^3.9.0"
+    "@ianwalter/print" "^4.0.1"
     fast-json-parse "^1.0.3"
     split2 "^3.1.1"
     strip-ansi "^6.0.0"
@@ -233,7 +233,7 @@
     marked-terminal "^3.3.0"
     strip-ansi "^6.0.0"
 
-"@ianwalter/print@^4.0.0":
+"@ianwalter/print@^4.0.0", "@ianwalter/print@^4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-4.0.1.tgz#cc32d8f8b1a687d40a9c27b55f314d5a108434a6"
   integrity sha512-9MsZXJcAQ1FY1+mJR5jbYDA9E8JakC5CnkXfasK8PAVrsyS5Q96s6VajuOkF4asSt4+k7ehEaWlKme1Zzq619Q==
