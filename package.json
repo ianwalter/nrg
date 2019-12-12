@@ -24,7 +24,7 @@
     "example:auth": "node examples/authRequired.js | npx pino-print",
     "example:static": "node examples/static | npx pino-print",
     "example:ssr": "node examples/ssr | npx pino-print",
-    "example:accounts": "node examples/accounts/serve.js | npx pino-print",
+    "example:accounts": "node examples/accounts/serve.js",
     "build:example:ssr": "NODE_ENV=production webpack examples/ssr"
   },
   "homepage": "https://github.com/ianwalter/nrg#readme",

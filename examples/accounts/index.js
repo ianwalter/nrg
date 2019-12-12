@@ -2,7 +2,11 @@ const path = require('path')
 const { createApp, login } = require('../..')
 
 const app = createApp({
-  log: { level: 'info' },
+  log: {
+    level: 'info',
+    prettyPrint: { stream: false },
+    prettifier: require('@ianwalter/pino-print')
+  },
   db: {
     connection: {
       database: 'nrg',
