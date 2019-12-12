@@ -193,10 +193,10 @@
     "@ianwalter/print" "^3.8.0"
     "@ianwalter/router" "^2.1.0"
 
-"@ianwalter/pino-print@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/pino-print/-/pino-print-2.0.0.tgz#b34fb0f5cd7c4ad87de67e97fc11730cb29a0eea"
-  integrity sha512-Kcyt351rV8HX7XM6YI9ZMV+Vrx+8Ez1jaYnJLvEMR0qywjZ9YaEHkZvXfTCFoFZCG5aRZVCArKNG+9QStXY38g==
+"@ianwalter/pino-print@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/pino-print/-/pino-print-2.0.1.tgz#59a00eedb9e9e062f7e43da62d040d2ecd4f87c3"
+  integrity sha512-OdosgxG3m7Nn0pnn717ge+Rv7Heljq48eBrTiScyyPWSVDO8ZwCl5SXRpl5UHZcx4QmMXxMIZvkULXvcamz5mQ==
   dependencies:
     "@ianwalter/cli" "^3.0.0"
     "@ianwalter/print" "^4.0.1"
