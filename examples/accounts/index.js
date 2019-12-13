@@ -2,6 +2,7 @@ const path = require('path')
 const { createApp, login } = require('../..')
 
 const app = createApp({
+  log: { level: 'info' },
   db: {
     connection: {
       database: 'nrg',
