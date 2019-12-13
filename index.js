@@ -13,6 +13,12 @@ const {
   ValidationError
 } = require('./lib/errors')
 
+const {
+  logError,
+  addErrorToResponse,
+  handleError
+} = require('./lib/middleware/error')
+
 const { addToResponse, addToSsr } = require('./lib/middleware/result')
 
 const { serveStatic, serveWebpack } = require('./lib/middleware/client')
@@ -84,6 +90,11 @@ module.exports = {
   ValidationError,
 
   /* Middleware: */
+
+  // Error:
+  logError,
+  addErrorToResponse,
+  handleError,
 
   // Serving:
   serveStatic,
