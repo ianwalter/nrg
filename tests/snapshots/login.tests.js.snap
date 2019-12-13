@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login email validation 1`] = `
+Object {
+  "feedback": Object {
+    "email": Array [
+      "A valid email is required.",
+    ],
+  },
+}
+`;
+
+exports[`login password validation 1`] = `
+Object {
+  "feedback": Object {
+    "password": Array [
+      "A valid password is required.",
+    ],
+  },
+}
+`;
