@@ -13,7 +13,11 @@ const {
   ValidationError
 } = require('./lib/errors')
 
-const { handleError } = require('./lib/middleware/error')
+const {
+  logError,
+  addErrorToResponse,
+  handleError
+} = require('./lib/middleware/error')
 
 const { addToResponse, addToSsr } = require('./lib/middleware/result')
 
@@ -88,6 +92,8 @@ module.exports = {
   /* Middleware: */
 
   // Error:
+  logError,
+  addErrorToResponse,
   handleError,
 
   // Serving:
