@@ -4,13 +4,13 @@ const { seed, password } = require('../examples/accounts/seeds/01_accounts')
 
 const [julian] = seed
 
-test('login email validation', async ({ expect }) => {
+test('login email required validation', async ({ expect }) => {
   const response = await app.test('/login').post({ password })
   expect(response.status).toBe(400)
   expect(response.body).toMatchSnapshot()
 })
 
-test('login password validation', async ({ expect }) => {
+test('login password required validation', async ({ expect }) => {
   const response = await app.test('/login').post({ email: julian.email })
   expect(response.status).toBe(400)
   expect(response.body).toMatchSnapshot()

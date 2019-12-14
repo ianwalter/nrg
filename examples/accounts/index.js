@@ -12,6 +12,7 @@ const app = createApp({
     migrations: path.join(__dirname, 'migrations'),
     seeds: path.join(__dirname, 'seeds')
   },
+  session: { keys: ['terra', 'incognita'] },
   accounts: { enabled: true }
 })
 
