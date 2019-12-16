@@ -1,8 +1,8 @@
 const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
-const { seed, password } = require('../examples/accounts/seeds/01_accounts')
+const { accounts, password } = require('../examples/accounts/seeds/01_accounts')
 
-const [julian] = seed
+const [julian] = accounts
 
 test('login email required validation', async ({ expect }) => {
   const response = await app.test('/login').post({ password })
@@ -22,7 +22,7 @@ test('login with invalid credentials', async ({ expect }) => {
   expect(response.body).toMatchSnapshot()
 })
 
-test.skip('login', async ({ expect }) => {
+test.only('login', async ({ expect }) => {
   const response = await app.test('/login').post({ ...julian, password })
   expect(response.status).toBe(201)
   expect(response.body).toMatchSnapshot()

@@ -35,9 +35,7 @@ async function run () {
   try {
     app = require(appPath)
   } catch (err) {
-    // TODO: make error message more helpful.
-    print.debug(err)
-    print.fatal('App not found at', appPath)
+    print.fatal(err)
     process.exit(1)
   }
 
@@ -66,12 +64,15 @@ async function run () {
     await app.db.migrate.latest()
     // } else if (true) {
   //   //
-  // } else if (true) {
-  //   // Make a new seed.
-  //   app.db.seed.make()
-  // } else if (true) {
-  //   // Run seeds.
-  //   app.db.seed.run()
+  } else if (commands[0] === 'new') {
+    if (commands[1] === 'seed') {
+      // Make a new seed.
+      app.db.seed.make(commands[2])
+    }
+  } else if (commands[0] === 'seed') {
+    // Run seeds.
+    console.log(app.db.seed)
+    await app.db.seed.run()
   } else if (commands[0] === 'run') {
     if (commands[1]) {
       try {
