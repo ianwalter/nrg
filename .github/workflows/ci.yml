@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1.2.0
       - name: Install
-        uses: bahmutov/npm-install@v1
+        run: yarn --frozen-lockfile
       - name: Lint
         run: yarn lint
       - name: Migrate
