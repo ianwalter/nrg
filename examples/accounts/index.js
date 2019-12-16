@@ -5,7 +5,7 @@ const redisHost = process.env.REDIS_HOST || 'localhost'
 const redisPort = process.env.REDIS_PORT || '6379'
 
 const app = createApp({
-  log: { level: 'info' },
+  log: { level: 'debug' },
   db: {
     connection: {
       host: process.env.DB_HOST,
