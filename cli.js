@@ -71,7 +71,6 @@ async function run () {
     }
   } else if (commands[0] === 'seed') {
     // Run seeds.
-    console.log(app.db.seed)
     await app.db.seed.run()
   } else if (commands[0] === 'run') {
     if (commands[1]) {

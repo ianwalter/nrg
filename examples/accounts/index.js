@@ -5,6 +5,7 @@ const app = createApp({
   log: { level: 'info' },
   db: {
     connection: {
+      host: process.env.DB_HOST,
       database: 'nrg',
       user: 'nrg',
       password: 'gottaLottaEnemies'
