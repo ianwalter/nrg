@@ -35,11 +35,11 @@ jobs:
           POSTGRES_USER: nrg
           POSTGRES_PASSWORD: gottaLottaEnemies
         ports:
-          - '5432:5432'
+          - 5432:5432
         # Needed because the postgres container does not provide a health check.
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
       redis:
         image: redis:5.0
         ports:
-          - '6379:6379'
+          - 6379:6379
         options: --entrypoint redis-server
