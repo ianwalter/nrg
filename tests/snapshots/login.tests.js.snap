@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login 1`] = `
+Object {
+  "email": "jgrimes@example.com",
+  "emailVerified": false,
+  "firstName": "Julian",
+  "id": 1,
+  "lastName": "Grimes",
+}
+`;
+
+exports[`login email required validation 1`] = `
+Object {
+  "email": Array [
+    "A valid email is required.",
+  ],
+}
+`;
+
+exports[`login password required validation 1`] = `
+Object {
+  "password": Array [
+    "A valid password is required.",
+  ],
+}
+`;
+
+exports[`login with invalid credentials 1`] = `
+Object {
+  "message": "Incorrect email or password",
+}
+`;

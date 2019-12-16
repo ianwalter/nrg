@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: node:12.10
+    env:
+      DB_HOST: postgres
     steps:
       - name: Checkout
         uses: actions/checkout@v1.2.0
@@ -16,5 +18,20 @@ jobs:
         uses: bahmutov/npm-install@v1
       - name: Lint
         run: yarn lint
+      - name: Migrate
+        run: yarn nrg migrate
+      - name: Seed
+        run: yarn nrg seed
       - name: Test
         run: yarn test
+    services:
+      postgres:
+        image: postgres:10.8
+        env:
+          POSTGRES_DB: nrg
+          POSTGRES_USER: nrg
+          POSTGRES_PASSWORD: gottaLottaEnemies
+        ports:
+          - '5432:5432'
+        # Needed because the postgres container does not provide a health check.
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5

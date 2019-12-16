@@ -66,7 +66,7 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@ianwalter/base-error@^1.0.0":
+"@ianwalter/base-error@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/base-error/-/base-error-1.1.0.tgz#cf27811359e68bac9a1c60d4dadb88ec348d1ab7"
   integrity sha512-angV+Cr9HMB2ibwqdGO5wvysj7lGW7td/B2ZCjksofE1OUtSeaKyoouIh9rLY9fj/GB1nR0M9qKt3aYYx/9MSQ==
@@ -144,14 +144,14 @@
     execa "^3.4.0"
     strip "^3.0.0"
 
-"@ianwalter/correct@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/correct/-/correct-0.0.1.tgz#30d4af10173d94da0670ef700e6cc9c679877823"
-  integrity sha512-iOsB5jmDQQnb1uREl2w4Q/UxagefuiUivWK3m/JZBpeZirvX/Pkkmg0NPB5Fb7Iw9gKLvd+bMU4CjM26Z94faA==
+"@ianwalter/correct@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/correct/-/correct-0.1.0.tgz#67746a62e6dea5d4e2c857ef56135a85c3aa557c"
+  integrity sha512-BdH6B15Z9DBlc5x/qvkCJ9p112KNbQTuMN0S6weLzoGyB3rbbXxtC1ffCK0UFl/dOalfcvcOwy3BxmRuL5PF6Q==
   dependencies:
-    "@ianwalter/base-error" "^1.0.0"
-    "@ianwalter/print" "^3.6.0"
-    date-fns "^2.5.1"
+    "@ianwalter/base-error" "^1.1.0"
+    "@ianwalter/print" "^3.9.0"
+    date-fns "^2.8.1"
     decamelize "^2.0.0"
     is-phone "^2.0.0"
     isemail "^3.1.1"
@@ -1604,7 +1604,7 @@ d@1, d@^1.0.1:
     es5-ext "^0.10.50"
     type "^1.0.1"
 
-date-fns@^2.5.1, date-fns@^2.8.1:
+date-fns@^2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.8.1.tgz#2109362ccb6c87c3ca011e9e31f702bc09e4123b"
   integrity sha512-EL/C8IHvYRwAHYgFRse4MGAPSqlJVlOrhVYZ75iQBKrnv+ZedmYsgwH3t+BCDuZDXpoo07+q9j4qgSSOa7irJg==
