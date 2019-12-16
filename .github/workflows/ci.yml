@@ -12,7 +12,7 @@ jobs:
     env:
       DB_HOST: postgres
       REDIS_HOST: redis
-      REDIS_PORT: ${{ job.services.redis.ports[6379] }}
+      REDIS_PORT: ${{ jobs.build.services.redis.ports[6379] }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1.2.0
