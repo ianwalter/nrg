@@ -2,12 +2,13 @@ version: '3'
 services:
 
   redis:
-    image: redis
+    image: redis:5.0
     ports:
       - "6379:6379"
 
   db:
-    image: postgres
+    image: postgres:12.1
+    stop_signal: SIGINT
     ports:
       - "5432:5432"
     environment:

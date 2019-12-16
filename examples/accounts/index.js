@@ -13,7 +13,10 @@ const app = createApp({
     migrations: path.join(__dirname, 'migrations'),
     seeds: path.join(__dirname, 'seeds')
   },
-  sessions: { keys: ['terra', 'incognita'] },
+  sessions: {
+    redisUrl: `redis://${process.env.REDIS_HOST || 'localhost'}:6379`,
+    keys: ['terra', 'incognita']
+  },
   accounts: { enabled: true }
 })
 
