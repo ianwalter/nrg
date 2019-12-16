@@ -22,7 +22,7 @@ test('login with invalid credentials', async ({ expect }) => {
   expect(response.body).toMatchSnapshot()
 })
 
-test.only('login', async ({ expect }) => {
+test('login', async ({ expect }) => {
   const response = await app.test('/login').post({ ...julian, password })
   expect(response.status).toBe(201)
   expect(response.body).toMatchSnapshot()
