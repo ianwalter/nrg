@@ -19,7 +19,8 @@ const app = createApp({
     seeds: path.join(__dirname, 'seeds')
   },
   sessions: {
-    redisUrl: `redis://${redisHost}:${redisPort}`,
+    redisUrl: `redis://${redisHost}:${redisPort}/0`,
+
     keys: ['terra', 'incognita']
   },
   accounts: { enabled: true }
