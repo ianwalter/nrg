@@ -68,6 +68,8 @@ async function run () {
     if (commands[1] === 'seed') {
       // Make a new seed.
       app.db.seed.make(commands[2])
+    } else if (commands[1] === 'secret') {
+      // TODO:
     }
   } else if (commands[0] === 'seed') {
     // Run seeds.
