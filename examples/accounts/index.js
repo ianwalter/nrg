@@ -4,8 +4,6 @@ const { createApp, login } = require('../..')
 const redisHost = process.env.REDIS_HOST || 'localhost'
 const redisPort = process.env.REDIS_PORT || '6379'
 
-console.log('REDIS', process.env.REDIS_PORT)
-
 const app = createApp({
   log: { level: 'debug' },
   db: {
