@@ -41,5 +41,5 @@ jobs:
       redis:
         image: redis:5.0
         ports:
-          - 6379:6379
+          - 6379/tcp
         options: --entrypoint redis-server
