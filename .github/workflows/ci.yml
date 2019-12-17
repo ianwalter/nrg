@@ -19,10 +19,6 @@ jobs:
         run: yarn --frozen-lockfile
       - name: Lint
         run: yarn lint
-      - name: Migrate
-        run: yarn nrg migrate
-      - name: Seed
-        run: yarn nrg seed
       - name: Test
         run: yarn test
         env:
