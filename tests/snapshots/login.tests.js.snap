@@ -12,17 +12,23 @@ Object {
 
 exports[`login email required validation 1`] = `
 Object {
-  "email": Array [
-    "A valid email is required.",
-  ],
+  "feedback": Object {
+    "email": Array [
+      "A valid email is required.",
+    ],
+  },
+  "message": "Validation Error",
 }
 `;
 
 exports[`login password required validation 1`] = `
 Object {
-  "password": Array [
-    "A valid password is required.",
-  ],
+  "feedback": Object {
+    "password": Array [
+      "A valid password is required.",
+    ],
+  },
+  "message": "Validation Error",
 }
 `;
 
