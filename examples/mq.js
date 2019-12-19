@@ -2,27 +2,33 @@ const { createApp } = require('../')
 
 const app = createApp({
   mq: {
+    connection: {
+      username: 'nrg',
+      password: 'gottaLottaEnemies'
+    },
     queues: [
       'test'
     ]
   }
 })
 
-// Set up a consumer to the "test' queue that just acknowledges that the message
-// was received.
-app.mq.test.consume(msg => app.mq.channel.ack(msg))
-
 // Add a handler that publishes a message, receives an acknowledgement, and
 // sends a successful response.
 app.use(async (ctx, next) => {
-  const response = await ctx.mq.test.publish({ message: 'Hello!' })
-  console.log('response', response)
-  ctx.status = 204
+  await ctx.mq.test.publish({ greeting: 'Hello!' })
+  ctx.body = app.msg
 })
 
 // Export the app if required, otherwise start the server.
 if (module.parent) {
   module.exports = app
 } else {
-  app.start()
+  app.start().then(() => {
+    // Set up a consumer to the "test' queue that just acknowledges that the
+    // message was received.
+    app.mq.test.consume(async msg => {
+      app.msg = { msg: msg.content, received: new Date() }
+      msg.ack()
+    })
+  })
 }
