@@ -16,7 +16,7 @@ services:
       POSTGRES_USER: nrg
       POSTGRES_PASSWORD: gottaLottaEnemies
 
-  rabbitmq:
+  mq:
     image: rabbitmq:3.8-management
     ports:
       - "15672:15672"
