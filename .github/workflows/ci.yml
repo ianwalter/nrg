@@ -12,17 +12,6 @@ jobs:
     env:
       DB_HOST: postgres
       REDIS_HOST: redis
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1.2.0
-      - name: Install
-        run: yarn --frozen-lockfile
-      - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test
-        env:
-          REDIS_PORT: ${{ job.services.redis.ports[6379] }}
     services:
       postgres:
         image: postgres:12.1
@@ -37,5 +26,14 @@ jobs:
       redis:
         image: redis:5.0
         ports:
-          - 6379/tcp
+          - 6379:6379
         options: --entrypoint redis-server
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1.2.0
+      - name: Install
+        run: yarn --frozen-lockfile
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test

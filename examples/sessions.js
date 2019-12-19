@@ -2,8 +2,7 @@ const { createApp } = require('../')
 
 const app = createApp({
   sessions: {
-    keys: ['cba321'],
-    redisUrl: 'redis://localhost:6379'
+    keys: ['cba321']
   }
 })
 

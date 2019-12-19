@@ -1,9 +1,6 @@
 const path = require('path')
 const { createApp, login } = require('../..')
 
-const redisHost = process.env.REDIS_HOST || 'localhost'
-const redisPort = process.env.REDIS_PORT || '6379'
-
 const app = createApp({
   log: { level: 'debug' },
   db: {
@@ -16,9 +13,10 @@ const app = createApp({
     migrations: path.join(__dirname, 'migrations'),
     seeds: path.join(__dirname, 'seeds')
   },
+  redis: {
+    host: process.env.REDIS_HOST
+  },
   sessions: {
-    redisUrl: `redis://${redisHost}:${redisPort}/0`,
-
     keys: ['terra', 'incognita']
   },
   accounts: { enabled: true }
