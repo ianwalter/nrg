@@ -14,7 +14,9 @@ const app = createApp({
     seeds: path.join(__dirname, 'seeds')
   },
   redis: {
-    host: process.env.REDIS_HOST
+    connection: {
+      host: process.env.REDIS_HOST
+    }
   },
   sessions: {
     keys: ['terra', 'incognita']
