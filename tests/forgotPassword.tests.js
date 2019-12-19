@@ -6,4 +6,3 @@ test('forgot password email required validation', async ({ expect }) => {
   expect(response.status).toBe(400)
   expect(response.body).toMatchSnapshot()
 })
-
