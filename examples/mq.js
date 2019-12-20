@@ -19,7 +19,7 @@ app.use(async (ctx, next) => {
   ctx.body = app.msg
 })
 
-app.afterSetup(() => {
+app.asyncSetup.then(() => {
   // Set up a consumer to the "test" queue that just acknowledges that the
   // message was received.
   app.mq.test.sub(async msg => {
