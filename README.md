@@ -17,7 +17,7 @@
 - [x] Optional static file serving
 - [x] Optional [Webpack][webpackUrl] integration
 - [x] Optional Server-Side Rendering (SSR) support
-- [ ] Optional message queue pub/sub using AMQP/[RabbitMQ][rabbitMqUrl]
+- [x] Optional message queue pub/sub using AMQP/[RabbitMQ][rabbitMqUrl]
 
 ## Installation
 

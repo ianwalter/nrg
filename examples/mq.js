@@ -19,9 +19,10 @@ app.use(async (ctx, next) => {
   ctx.body = app.msg
 })
 
+// After the message queue has connected, set up a consumer to the "test" queue
+// that saves the message content to the app and acknowledges that the message
+// was received.
 app.asyncSetup.then(() => {
-  // Set up a consumer to the "test" queue that just acknowledges that the
-  // message was received.
   app.mq.test.sub(async msg => {
     app.msg = { msg: msg.content, received: new Date() }
     return msg.ack()
