@@ -68,7 +68,7 @@
     "koa-session": "^5.12.3",
     "koa-webpack": "ianwalter/koa-webpack",
     "objection": "^1.6.11",
-    "pg": "^7.14.0",
+    "pg": "^7.15.1",
     "pino": "^5.15.0",
     "pkg-dir": "^4.2.0",
     "prettydiff": "^101.2.6",
