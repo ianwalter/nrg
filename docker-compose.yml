@@ -12,6 +12,15 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRESS_DB=nrg
-      - POSTGRES_USER=nrg
-      - POSTGRES_PASSWORD=gottaLottaEnemies
+      POSTGRESS_DB: nrg
+      POSTGRES_USER: nrg
+      POSTGRES_PASSWORD: gottaLottaEnemies
+
+  mq:
+    image: rabbitmq:3.8-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: nrg
+      RABBITMQ_DEFAULT_PASS: gottaLottaEnemies

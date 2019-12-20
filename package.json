@@ -25,6 +25,7 @@
     "example:auth": "node examples/authRequired.js",
     "example:static": "node examples/static",
     "example:ssr": "node examples/ssr",
+    "example:mq": "node examples/mq",
     "build:example:ssr": "NODE_ENV=production webpack examples/ssr"
   },
   "homepage": "https://github.com/ianwalter/nrg#readme",
@@ -49,6 +50,7 @@
     "@ianwalter/pino-print": "^2.1.1",
     "@ianwalter/print": "^4.0.2",
     "@ianwalter/url": "^1.1.0",
+    "amqplib": "^0.5.5",
     "bcrypt": "3.0.4-napi",
     "date-fns": "^2.8.1",
     "devalue": "^2.0.1",
