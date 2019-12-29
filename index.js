@@ -186,6 +186,7 @@ module.exports = {
     validatePasswordReset,
     getAccountWithPasswordTokens,
     resetPassword,
+    hashPassword,
     updateAccount,
     authenticate,
     addToResponse
