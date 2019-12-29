@@ -3,6 +3,7 @@ const { createApp } = require('../')
 const app = createApp({
   mq: {
     connection: {
+      host: process.env.MQ_HOST,
       username: 'nrg',
       password: 'gottaLottaEnemies'
     },
