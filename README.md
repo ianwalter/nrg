@@ -17,7 +17,7 @@
 - [x] Optional static file serving
 - [x] Optional [Webpack][webpackUrl] integration
 - [x] Optional Server-Side Rendering (SSR) support
-- [x] Optional message queue pub/sub using AMQP/[RabbitMQ][rabbitMqUrl]
+- [x] Optional message queue pub/sub using AMQP/[RabbitMQ][rabbitmqUrl]
 
 ## Installation
 
@@ -45,4 +45,5 @@ Created by [Ian Walter](https://ianwalter.dev)
 [knexUrl]: https://knexjs.org/
 [objectionUrl]: https://vincit.github.io/objection.js/
 [webpackUrl]: https://webpack.js.org/
+[rabbitmqUrl]: https://www.rabbitmq.com/
 [licenseUrl]: https://github.com/ianwalter/nrg/blob/master/LICENSE
