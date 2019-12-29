@@ -24,3 +24,9 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: nrg
       RABBITMQ_DEFAULT_PASS: gottaLottaEnemies
+
+  maildev:
+    image: djfarrelly/maildev
+    ports:
+      - "1025:25"
+      - "1080:80"
