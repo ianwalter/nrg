@@ -1,5 +1,5 @@
 const path = require('path')
-const { createApp, login } = require('../..')
+const { createApp, login, forgotPassword } = require('../..')
 
 const app = createApp({
   log: { level: 'debug' },
@@ -26,5 +26,8 @@ const app = createApp({
 
 // Allow users to login.
 app.post('/login', ...login)
+
+// Allow users to begin the password reset process.
+app.post('/forgot-password', ...forgotPassword)
 
 module.exports = app

@@ -128,8 +128,8 @@ module.exports = {
     validateRegistration,
     hashPassword,
     createAccount,
-    generateToken({ type: 'email' }),
-    insertToken,
+    generateToken,
+    insertToken({ type: 'email' }),
     generateEmailVerificationEmail,
     sendEmail,
     addToResponse
