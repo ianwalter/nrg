@@ -128,7 +128,7 @@ module.exports = {
     validateRegistration,
     hashPassword,
     createAccount,
-    generateToken,
+    generateToken({ type: 'email' }),
     insertToken,
     generateEmailVerificationEmail,
     sendEmail,
