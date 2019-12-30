@@ -2,7 +2,7 @@ const path = require('path')
 const { createApp, login, forgotPassword } = require('../..')
 
 const app = createApp({
-  log: { level: 'debug' },
+  log: { level: 'warn' },
   db: {
     connection: {
       host: process.env.DB_HOST,
