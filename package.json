@@ -13,7 +13,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "pretest": "yarn nrg migrate && yarn nrg seed && node scripts/deleteAllEmail.js",
+    "pretest": "yarn nrg migrate && yarn nrg seed && yarn nrg run deleteAllEmail",
     "test": "NODE_ENV=test bff",
     "nrg": "node cli.js",
     "example:hello": "node examples/helloWorld.js",
