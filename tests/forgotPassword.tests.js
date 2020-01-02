@@ -25,7 +25,7 @@ test('Forgot Password with unregistered email', async ({ expect }) => {
   expect(response.body).toMatchSnapshot()
 })
 
-test.only('Forgot Password with registered email', async ({ expect }) => {
+test.skip('Forgot Password with registered email', async ({ expect }) => {
   const response = await app.test('/forgot-password').post(julian)
   expect(response.status).toBe(201)
   expect(response.body).toMatchSnapshot()
