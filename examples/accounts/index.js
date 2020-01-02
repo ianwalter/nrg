@@ -21,6 +21,11 @@ const app = createApp({
   sessions: {
     keys: ['terra', 'incognita']
   },
+  email: {
+    transport: {
+      port: 1025
+    }
+  },
   accounts: { enabled: true }
 })
 
