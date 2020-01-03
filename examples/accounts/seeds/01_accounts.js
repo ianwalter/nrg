@@ -7,7 +7,15 @@ const accounts = [
     firstName: 'Julian',
     lastName: 'Grimes',
     email: 'jgrimes@example.com',
-    password: bcrypt.hashSync(password, salt)
+    password: bcrypt.hashSync(password, salt),
+    emailVerified: true
+  },
+  {
+    firstName: 'Password Reset',
+    lastName: 'Test',
+    email: 'password_reset_test@example.com',
+    password: bcrypt.hashSync(password, salt),
+    emailVerified: true
   }
 ]
 

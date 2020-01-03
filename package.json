@@ -88,6 +88,7 @@
     "@ianwalter/renovate-config": "^1.2.0",
     "@ianwalter/requester": "^1.10.2-0",
     "babel-loader": "^8.0.6",
+    "cheerio": "^1.0.0-rc.3",
     "svelte-loader": "^2.13.6",
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"

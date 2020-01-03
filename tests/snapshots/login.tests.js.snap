@@ -3,7 +3,7 @@
 exports[`login 1`] = `
 Object {
   "email": "jgrimes@example.com",
-  "emailVerified": false,
+  "emailVerified": true,
   "firstName": "Julian",
   "id": 1,
   "lastName": "Grimes",

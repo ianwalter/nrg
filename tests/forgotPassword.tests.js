@@ -37,4 +37,6 @@ test('Forgot Password with registered email', async ({ expect, sleep }) => {
   const { body } = await requester.get(`http://${host}:${port}/email`)
   const email = body.find(email => email.headers.to === julian.email)
   expect(email.subject).toContain('Password Reset')
+
+  // TODO: verify token database record.
 })
