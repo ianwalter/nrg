@@ -23,6 +23,7 @@ const app = createApp({
   },
   email: {
     transport: {
+      host: process.env.SMTP_HOST,
       port: 1025
     }
   },
