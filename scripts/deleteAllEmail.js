@@ -1,3 +1,4 @@
 const { requester } = require('@ianwalter/requester')
 
-module.exports = async () => requester.delete('http://localhost:1080/email/all')
+const host = process.env.SMTP_HOST || 'localhost'
+module.exports = async () => requester.delete(`http://${host}:1080/email/all`)
