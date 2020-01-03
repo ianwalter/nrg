@@ -19,7 +19,7 @@ const {
   handleError
 } = require('./lib/middleware/error')
 
-const { addToResponse, addToSsr } = require('./lib/middleware/result')
+const { addToResponse, addToSsr, redirect } = require('./lib/middleware/result')
 
 const { serveStatic, serveWebpack } = require('./lib/middleware/client')
 
@@ -56,7 +56,11 @@ const {
   updateAccount
 } = require('./lib/middleware/account')
 
-const { validateLogin, authenticate } = require('./lib/middleware/login')
+const {
+  validateLogin,
+  authenticate,
+  clearSession
+} = require('./lib/middleware/session')
 
 const {
   validateForgotPassword,
@@ -104,6 +108,7 @@ module.exports = {
   // Result:
   addToResponse,
   addToSsr,
+  redirect,
 
   // Token:
   generateToken,
@@ -163,6 +168,13 @@ module.exports = {
     validateLogin,
     getAccount,
     authenticate,
+    addToResponse
+  ],
+
+  // Logout:
+  clearSession,
+  logout: [
+    clearSession,
     addToResponse
   ],
 
