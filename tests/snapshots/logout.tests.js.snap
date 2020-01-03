@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logout when logged in 1`] = `
+Object {
+  "email": "jgrimes@example.com",
+  "firstName": "Julian",
+  "lastName": "Grimes",
+}
+`;

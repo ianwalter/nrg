@@ -3,7 +3,7 @@ const nrg = require('../..')
 
 const app = nrg.createApp({
   baseUrl: 'http://localhost:9999/',
-  log: { level: 'warn' },
+  log: { level: 'error' },
   db: {
     connection: {
       host: process.env.DB_HOST,
@@ -33,6 +33,12 @@ const app = nrg.createApp({
 
 // Allow users to login.
 app.post('/login', ...nrg.login)
+
+// Allow users to retrieve their account information.
+app.get('/account', ...nrg.account)
+
+// Allow users to logout.
+app.delete('/logout', ...nrg.logout)
 
 // Allow users to begin the password reset process.
 app.post('/forgot-password', ...nrg.forgotPassword)
