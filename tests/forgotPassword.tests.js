@@ -33,7 +33,8 @@ test('Forgot Password with registered email', async ({ expect, sleep }) => {
   await sleep(1000)
 
   const host = process.env.SMTP_HOST || 'localhost'
-  const { body } = await requester.get(`http://${host}:1080/email`)
+  const port = process.env.SMTP_PORT ? 80 : 1080
+  const { body } = await requester.get(`http://${host}:${port}/email`)
   const email = body.find(email => email.headers.to === julian.email)
   expect(email.subject).toContain('Password Reset')
 })

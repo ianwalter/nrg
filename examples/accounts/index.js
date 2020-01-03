@@ -24,7 +24,7 @@ const app = createApp({
   email: {
     transport: {
       host: process.env.SMTP_HOST,
-      port: 1025
+      port: process.env.SMTP_PORT || 1025
     }
   },
   accounts: { enabled: true }
