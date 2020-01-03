@@ -21,6 +21,12 @@ const app = createApp({
   sessions: {
     keys: ['terra', 'incognita']
   },
+  email: {
+    transport: {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT || 1025
+    }
+  },
   accounts: { enabled: true }
 })
 

@@ -25,11 +25,16 @@ test('Forgot Password with unregistered email', async ({ expect }) => {
   expect(response.body).toMatchSnapshot()
 })
 
-test.skip('Forgot Password with registered email', async ({ expect }) => {
+test('Forgot Password with registered email', async ({ expect, sleep }) => {
   const response = await app.test('/forgot-password').post(julian)
   expect(response.status).toBe(201)
   expect(response.body).toMatchSnapshot()
 
-  const { body } = await requester.get('http://localhost:1080/email')
-  console.log('body', body)
+  await sleep(1000)
+
+  const host = process.env.SMTP_HOST || 'localhost'
+  const port = process.env.SMTP_PORT ? 80 : 1080
+  const { body } = await requester.get(`http://${host}:${port}/email`)
+  const email = body.find(email => email.headers.to === julian.email)
+  expect(email.subject).toContain('Password Reset')
 })
