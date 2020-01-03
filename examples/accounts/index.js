@@ -1,7 +1,7 @@
 const path = require('path')
-const { createApp, login, forgotPassword } = require('../..')
+const nrg = require('../..')
 
-const app = createApp({
+const app = nrg.createApp({
   log: { level: 'warn' },
   db: {
     connection: {
@@ -31,9 +31,12 @@ const app = createApp({
 })
 
 // Allow users to login.
-app.post('/login', ...login)
+app.post('/login', ...nrg.login)
 
 // Allow users to begin the password reset process.
-app.post('/forgot-password', ...forgotPassword)
+app.post('/forgot-password', ...nrg.forgotPassword)
+
+// Allow users to reset their password.
+app.post('/reset-password', ...nrg.passwordReset)
 
 module.exports = app
