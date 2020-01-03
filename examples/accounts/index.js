@@ -2,6 +2,7 @@ const path = require('path')
 const nrg = require('../..')
 
 const app = nrg.createApp({
+  baseUrl: 'http://localhost:9999/',
   log: { level: 'warn' },
   db: {
     connection: {
