@@ -3806,10 +3806,10 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
-knex@^0.20.5:
-  version "0.20.5"
-  resolved "https://registry.yarnpkg.com/knex/-/knex-0.20.5.tgz#0b10708220924d09e298bdeb6400e64dbdfa8df9"
-  integrity sha512-A21PK8G5IB5b05LOSXY/lxhYQ4MuuQ/Fp+11xnCsIOrgNdc4MeErP20p4p8CmrmB4tKa860eUwMdphO5tiQ/Gw==
+knex@^0.20.6:
+  version "0.20.6"
+  resolved "https://registry.yarnpkg.com/knex/-/knex-0.20.6.tgz#81eda6ec6580c05164a6317d3d4818ba20fca7bb"
+  integrity sha512-yuqAwRShmUOXqFiQMyQz+iBTJYiUcPAiE3Vy7Biuo64LLBDu7afwJeGhrr5/qwIgJ9idC/2kORGIwU9YrnLXEw==
   dependencies:
     bluebird "^3.7.2"
     colorette "1.1.0"

@@ -34,6 +34,7 @@ async function run () {
   let app
   try {
     app = require(appPath)
+    await app.asyncSetup
   } catch (err) {
     print.fatal(err)
     process.exit(1)
@@ -96,6 +97,15 @@ async function run () {
   if (app.db) {
     app.db.destroy()
   }
+
+  // Close the message queue connection.
+  if (app.mq) {
+    app.mq.connection.close()
+  }
 }
 
-run()
+run().catch(err => {
+  print.write('\n')
+  print.fatal(err)
+  process.exit(1)
+})
