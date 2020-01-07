@@ -5,7 +5,7 @@ module.exports = {
     nav: [
       {
         text: 'Guide',
-        link: '/guide'
+        link: '/guide/'
       },
       {
         text: 'API Reference',
@@ -32,6 +32,17 @@ module.exports = {
         text: 'Examples',
         link: '/examples'
       }
-    ]
+    ],
+    sidebar: {
+      '/guide/': [
+        {
+          title: 'Guide',
+          collapsable: false,
+          children: [
+            'installation'
+          ]
+        }
+      ]
+    }
   }
 }
