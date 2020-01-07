@@ -6,28 +6,28 @@
 
 ## Features
 
-✅ ➖ Web server based on [Koa][koaUrl]
+✅ &nbsp; Web server based on [Koa][koaUrl]
 
-✅ ➖ Fast routing through a [tree-based router][nrgRouterUrl]
+✅ &nbsp; Fast routing through a [tree-based router][nrgRouterUrl]
 
-✅ ➖ Optional logging through [Pino][pinoUrl]
+✅ &nbsp; Optional logging through [Pino][pinoUrl]
 
-🚧 ➖ Optional session-handling and CSRF protection using [Redis][redisUrl]
+🚧 &nbsp; Optional session-handling and CSRF protection using [Redis][redisUrl]
 
-✅ ➖ Optional database connection to [PostgreSQL][postgresUrl] using
-      [knex][knexUrl] and [Objection.js][objectionUrl]
+✅ &nbsp; Optional database connection to [PostgreSQL][postgresUrl] using
+          [knex][knexUrl] and [Objection.js][objectionUrl]
 
-🚧➖ Optional, ready-to-roll user account system
+🚧 &nbsp; Optional, ready-to-roll user account system
 
-🚧➖ CLI for database migrations and seeding
+🚧 &nbsp; CLI for database migrations and seeding
 
-✅➖ Optional static file serving
+✅ &nbsp; Optional static file serving
 
-✅➖ Optional [Webpack][webpackUrl] integration
+✅ &nbsp; Optional [Webpack][webpackUrl] integration
 
-✅➖ Optional Server-Side Rendering (SSR) support
+✅ &nbsp; Optional Server-Side Rendering (SSR) support
 
-✅➖ Optional message queue pub/sub using AMQP / [RabbitMQ][rabbitmqUrl]
+✅ &nbsp; Optional message queue pub/sub using AMQP / [RabbitMQ][rabbitmqUrl]
 
 ## Installation
 
