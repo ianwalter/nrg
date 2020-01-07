@@ -1,0 +1,106 @@
+// Adapted from Objection.js docs: https://vincit.github.io/objection.js/
+
+$bgColor = #1E1E1E;
+$mediumBgColor = #252525;
+$lightBgColor = #383838;
+$accentColor = #e0b24d;
+$textColor = #DDDDDD;
+$borderColor = #383838;
+
+html, body {
+  background-color: $bgColor !important;
+}
+
+a:focus, button:focus  {
+  // Remove ugly Mozilla outline.
+  outline: none;
+}
+
+.theme-container {
+  background-color: $bgColor;
+
+  h2 {
+    padding-bottom: 1rem;
+  }
+
+  h5 {
+    font-size: 14px;
+  }
+
+  .page {
+    background-color: $bgColor;
+  }
+
+  .navbar {
+    background-color: $mediumBgColor;
+
+    .links {
+      background-color: $mediumBgColor;
+
+      .search-box {
+        input {
+          background-color: $lightBgColor;
+        }
+
+        .suggestions {
+          background-color: $mediumBgColor;
+          border-color: $lightBgColor;
+
+          .suggestion.focused {
+            background-color: $lightBgColor;
+          }
+        }
+      }
+    }
+  }
+
+  code {
+    background-color: lighten($bgColor, 6%);
+  }
+
+  .warning, .tip {
+    code {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .sidebar {
+    background-color: $mediumBgColor;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .dropdown-wrapper {
+    .nav-dropdown {
+      background-color: $mediumBgColor;
+      border-color: $lightBgColor;
+    }
+  }
+
+  .custom-block {
+    color: $textColor;
+
+    &.tip {
+      background-color: $lightBgColor;
+    }
+  }
+
+  .home {
+    .hero {
+      .action-button  {
+        color: $mediumBgColor;
+      }
+    }
+  }
+
+  th, td {
+    border-color: #666666;
+  }
+
+  tr:nth-child(2n) {
+    background-color: lighten($bgColor, 2%);
+  }
+}

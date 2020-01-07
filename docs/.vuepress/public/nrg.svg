@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="200px" viewBox="0 0 300 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#38EF7D" offset="0%"></stop>
+            <stop stop-color="#30E8BF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iconmonstr-battery-34" transform="translate(73.000000, 55.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <path d="M0,90 L135,90 L135,0 L0,0 L0,90 Z M59.7728571,43.65 L59.7728571,19.2857143 L114.640714,59.4514286 L76.8535714,48.3428571 L76.8535714,70.7142857 L20.3528571,32.2457143 L59.7728571,43.65 Z M154.285714,27.3214286 L154.285714,56.25 C154.285714,60.6857143 150.685714,64.2857143 146.25,64.2857143 L141.428571,64.2857143 L141.428571,19.2857143 L146.25,19.2857143 C150.685714,19.2857143 154.285714,22.8857143 154.285714,27.3214286 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
