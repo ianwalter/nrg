@@ -36,7 +36,7 @@ footer: Hippocratic License | Copyright © 2020-present Ian Walter
 
 🚧 &nbsp; Optional, ready-to-roll user account system
 
-🚧 &nbsp; CLI for database migrations and seeding
+✅ &nbsp; CLI for setup, migrations, seeding, and custom scripts
 
 ✅ &nbsp; Optional static file serving
 
@@ -44,7 +44,8 @@ footer: Hippocratic License | Copyright © 2020-present Ian Walter
 
 ✅ &nbsp; Optional Server-Side Rendering (SSR) support
 
-✅ &nbsp; Optional message queue pub/sub using AMQP / [RabbitMQ][rabbitmqUrl]
+✅ &nbsp; Optional message queue pub/sub using [AMQP][amqpUrl] /
+          [RabbitMQ][rabbitmqUrl]
 
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg
@@ -58,5 +59,6 @@ footer: Hippocratic License | Copyright © 2020-present Ian Walter
 [knexUrl]: https://knexjs.org/
 [objectionUrl]: https://vincit.github.io/objection.js/
 [webpackUrl]: https://webpack.js.org/
+[amqpUrl]: https://github.com/squaremo/amqp.node
 [rabbitmqUrl]: https://www.rabbitmq.com/
 [licenseUrl]: https://github.com/ianwalter/nrg/blob/master/LICENSE

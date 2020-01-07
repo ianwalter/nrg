@@ -4,6 +4,10 @@
 [![npm page][npmImage]][npmUrl]
 [![CI][ciImage]][ciUrl]
 
+## Resources
+
+📚 &nbspc; [Website / Documentation][nrgUrl]
+
 ## Features
 
 ✅ &nbsp; Web server based on [Koa][koaUrl]
@@ -19,7 +23,7 @@
 
 🚧 &nbsp; Optional, ready-to-roll user account system
 
-🚧 &nbsp; CLI for database migrations and seeding
+✅ &nbsp; CLI for setup, migrations, seeding, and custom scripts
 
 ✅ &nbsp; Optional static file serving
 
@@ -27,7 +31,8 @@
 
 ✅ &nbsp; Optional Server-Side Rendering (SSR) support
 
-✅ &nbsp; Optional message queue pub/sub using AMQP / [RabbitMQ][rabbitmqUrl]
+✅ &nbsp; Optional message queue pub/sub using [AMQP][amqpUrl] /
+          [RabbitMQ][rabbitmqUrl]
 
 ## Installation
 
@@ -47,6 +52,7 @@ Created by [Ian Walter](https://ianwalter.dev)
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg
 [ciImage]: https://github.com/ianwalter/nrg/workflows/CI/badge.svg
 [ciUrl]: https://github.com/ianwalter/nrg/actions
+[nrgUrl]: https://nrg.ianwalter.dev
 [koaUrl]: https://koajs.com/
 [nrgRouterUrl]: https://github.com/ianwalter/nrg-router
 [pinoUrl]: http://getpino.io/#/
@@ -55,5 +61,6 @@ Created by [Ian Walter](https://ianwalter.dev)
 [knexUrl]: https://knexjs.org/
 [objectionUrl]: https://vincit.github.io/objection.js/
 [webpackUrl]: https://webpack.js.org/
+[amqpUrl]: https://github.com/squaremo/amqp.node
 [rabbitmqUrl]: https://www.rabbitmq.com/
 [licenseUrl]: https://github.com/ianwalter/nrg/blob/master/LICENSE
