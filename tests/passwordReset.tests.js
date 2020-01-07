@@ -28,8 +28,8 @@ test('Password Reset with invalid token', async ({ expect }) => {
   expect(response.body).toMatchSnapshot()
 })
 
-test.skip('Password Reset with valid data', async ({ expect, sleep }) => {
-  // Initiate the Forgot Password process.
+test.only('Password Reset with valid data', async ({ expect, sleep }) => {
+  // Start the Forgot Password process.
   await app.test('/forgot-password').post(testUser)
   await sleep(500)
 

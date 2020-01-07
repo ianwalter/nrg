@@ -40,7 +40,7 @@ app.get('/account', ...nrg.account)
 // Allow users to logout.
 app.delete('/logout', ...nrg.logout)
 
-// Allow users to begin the password reset process.
+// Allow users to start the password reset process.
 app.post('/forgot-password', ...nrg.forgotPassword)
 
 // Allow users to reset their password.
