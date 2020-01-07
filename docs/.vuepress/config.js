@@ -19,6 +19,10 @@ module.exports = {
             link: '/api/middleware'
           },
           {
+            text: 'Errors',
+            link: '/api/errors'
+          },
+          {
             text: 'Models',
             link: '/api/models'
           }
