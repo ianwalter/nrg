@@ -7,7 +7,7 @@ const [julian] = accounts
 test('Logout when not logged in', async ({ expect }) => {
   const response = await app.test('/logout').delete()
   expect(response.status).toBe(200)
-  expect(response.body.csrfToken).toBeDefined()
+  expect(response.body.csrfToken.length).toBeGreaterThan(0)
 })
 
 test('Logout when logged in', async ({ expect }) => {
@@ -22,7 +22,7 @@ test('Logout when logged in', async ({ expect }) => {
   // Logout.
   response = await app.test('/logout', response).delete()
   expect(response.status).toBe(200)
-  expect(response.body.csrfToken).toBeDefined()
+  expect(response.body.csrfToken.length).toBeGreaterThan(0)
 
   // Verify account data cannot be retrieved.
   response = await app.test('/account', response).get()
