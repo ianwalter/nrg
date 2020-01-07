@@ -6,7 +6,7 @@
 
 ## Resources
 
-📚 &nbspc; [Website / Documentation][nrgUrl]
+📚 &nbsp; [Website / Documentation][nrgUrl]
 
 ## Features
 
