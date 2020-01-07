@@ -23,18 +23,28 @@ footer: Hippocratic License | Copyright © 2020-present Ian Walter
 
 ## Features
 
-- ✅ Web server based on [Koa][koaUrl]
-- ✅ Fast routing through a [tree-based router][nrgRouterUrl]
-- ✅ Optional logging through [Pino][pinoUrl]
-- 🚧 Optional session-handling and CSRF protection using [Redis][redisUrl]
-- ✅ Optional database connection to [PostgreSQL][postgresUrl] using
-     [knex][knexUrl] and [Objection.js][objectionUrl]
-- 🚧 Optional, ready-to-roll user account system
-- 🚧 CLI for database migrations and seeding
-- ✅ Optional static file serving
-- ✅ Optional [Webpack][webpackUrl] integration
-- ✅ Optional Server-Side Rendering (SSR) support
-- ✅ Optional message queue pub/sub using AMQP / [RabbitMQ][rabbitmqUrl]
+✅ ➖ Web server based on [Koa][koaUrl]
+
+✅ ➖ Fast routing through a [tree-based router][nrgRouterUrl]
+
+✅ ➖ Optional logging through [Pino][pinoUrl]
+
+🚧 ➖ Optional session-handling and CSRF protection using [Redis][redisUrl]
+
+✅ ➖ Optional database connection to [PostgreSQL][postgresUrl] using
+      [knex][knexUrl] and [Objection.js][objectionUrl]
+
+🚧➖ Optional, ready-to-roll user account system
+
+🚧➖ CLI for database migrations and seeding
+
+✅➖ Optional static file serving
+
+✅➖ Optional [Webpack][webpackUrl] integration
+
+✅➖ Optional Server-Side Rendering (SSR) support
+
+✅➖ Optional message queue pub/sub using AMQP / [RabbitMQ][rabbitmqUrl]
 
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg
