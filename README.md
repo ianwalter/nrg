@@ -34,6 +34,8 @@
 ✅ &nbsp; Optional message queue pub/sub using [AMQP][amqpUrl] /
           [RabbitMQ][rabbitmqUrl]
 
+🚧 &nbsp; Optional worker setup to offload tasks/jobs via message queue(s)
+
 ## Installation
 
 ```console

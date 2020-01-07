@@ -47,6 +47,8 @@ footer: Hippocratic License | Copyright © 2020-present Ian Walter
 ✅ &nbsp; Optional message queue pub/sub using [AMQP][amqpUrl] /
           [RabbitMQ][rabbitmqUrl]
 
+🚧 &nbsp; Optional worker setup to offload tasks/jobs via message queue(s)
+
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg
 [ciImage]: https://github.com/ianwalter/nrg/workflows/CI/badge.svg
