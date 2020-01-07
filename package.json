@@ -26,7 +26,9 @@
     "example:static": "node examples/static",
     "example:ssr": "node examples/ssr",
     "example:mq": "node examples/mq",
-    "build:example:ssr": "NODE_ENV=production webpack examples/ssr"
+    "build:example:ssr": "NODE_ENV=production webpack examples/ssr",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "homepage": "https://github.com/ianwalter/nrg#readme",
   "repository": {
@@ -90,6 +92,7 @@
     "babel-loader": "^8.0.6",
     "cheerio": "^1.0.0-rc.3",
     "svelte-loader": "^2.13.6",
+    "vuepress": "^1.2.0",
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
   },
