@@ -1,4 +1,5 @@
 const createApp = require('./lib/app')
+const createWorker = require('./lib/worker')
 
 const Base = require('./lib/models/Base')
 const Account = require('./lib/models/Account')
@@ -39,11 +40,12 @@ const { sendEmail } = require('./lib/middleware/email')
 
 const {
   validateRegistration,
-  createAccount,
-  generateEmailVerificationEmail
+  createAccount
 } = require('./lib/middleware/registration')
 
 const {
+  generateEmailVerificationEmail,
+  startEmailVerification,
   validateEmailVerification,
   getAccountWithEmailTokens,
   verifyEmail
@@ -52,7 +54,8 @@ const {
 const {
   getAccount,
   validateAccountUpdate,
-  validatePasswordChange,
+  validatePasswordUpdate,
+  startEmailUpdate,
   updateAccount
 } = require('./lib/middleware/account')
 
@@ -74,26 +77,16 @@ const {
 } = require('./lib/middleware/passwordReset')
 
 module.exports = {
-  /* Create Application: */
+  /**
+   * Workloads:
+   */
 
   createApp,
+  createWorker,
 
-  /* Models: */
-
-  Base,
-  Account,
-  Token,
-
-  /* Error classes: */
-
-  GeneralError,
-  HttpError,
-  BadRequestError,
-  UnauthorizedError,
-  NotFoundError,
-  ValidationError,
-
-  /* Middleware: */
+  /**
+   * Middleware:
+   */
 
   // Error:
   logError,
@@ -125,22 +118,9 @@ module.exports = {
   // Email:
   sendEmail,
 
-  // Registration:
-  validateRegistration,
-  createAccount,
-  generateEmailVerificationEmail,
-  registration: [
-    validateRegistration,
-    hashPassword,
-    createAccount,
-    generateToken,
-    insertToken({ type: 'email' }),
-    generateEmailVerificationEmail,
-    sendEmail,
-    addToResponse
-  ],
-
   // Email Verification:
+  generateEmailVerificationEmail,
+  startEmailVerification,
   validateEmailVerification,
   getAccountWithEmailTokens,
   verifyEmail,
@@ -150,6 +130,17 @@ module.exports = {
     verifyEmail,
     updateAccount,
     authenticate,
+    addToResponse
+  ],
+
+  // Registration:
+  validateRegistration,
+  createAccount,
+  registration: [
+    validateRegistration,
+    hashPassword,
+    createAccount,
+    ...startEmailVerification,
     addToResponse
   ],
 
@@ -167,6 +158,7 @@ module.exports = {
   login: [
     validateLogin,
     getAccount,
+    comparePasswords,
     authenticate,
     addToResponse
   ],
@@ -205,13 +197,38 @@ module.exports = {
   ],
 
   // Account Update:
+  validatePasswordUpdate,
   validateAccountUpdate,
-  validatePasswordChange,
+  startEmailUpdate,
   updateAccount,
   accountUpdate: [
     requireAuthorization,
+    validatePasswordUpdate,
     validateAccountUpdate,
+    getAccount,
+    comparePasswords,
+    hashPassword,
+    startEmailUpdate,
     updateAccount,
     addToResponse
-  ]
+  ],
+
+  /**
+   * Error classes:
+   */
+
+  GeneralError,
+  HttpError,
+  BadRequestError,
+  UnauthorizedError,
+  NotFoundError,
+  ValidationError,
+
+  /**
+   * Models:
+   */
+
+  Base,
+  Account,
+  Token
 }
