@@ -2,11 +2,11 @@
 
 exports[`login 1`] = `
 Object {
-  "email": "jgrimes@example.com",
+  "email": "general_user_test@example.com",
   "emailVerified": true,
-  "firstName": "Julian",
+  "firstName": "General User",
   "id": 1,
-  "lastName": "Grimes",
+  "lastName": "Test",
 }
 `;
 

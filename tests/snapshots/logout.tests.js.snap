@@ -2,8 +2,10 @@
 
 exports[`Logout when logged in 1`] = `
 Object {
-  "email": "jgrimes@example.com",
-  "firstName": "Julian",
-  "lastName": "Grimes",
+  "email": "general_user_test@example.com",
+  "emailVerified": true,
+  "firstName": "General User",
+  "id": 1,
+  "lastName": "Test",
 }
 `;

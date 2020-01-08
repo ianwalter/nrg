@@ -53,6 +53,7 @@ const {
 
 const {
   getAccount,
+  reduceAccountForClient,
   validateAccountUpdate,
   validatePasswordUpdate,
   startEmailUpdate,
@@ -130,6 +131,7 @@ module.exports = {
     verifyEmail,
     updateAccount,
     authenticate,
+    reduceAccountForClient,
     addToResponse
   ],
 
@@ -146,9 +148,11 @@ module.exports = {
 
   // Account:
   getAccount,
+  reduceAccountForClient,
   account: [
     requireAuthorization,
     getAccount,
+    reduceAccountForClient,
     addToResponse
   ],
 
@@ -160,6 +164,7 @@ module.exports = {
     getAccount,
     comparePasswords,
     authenticate,
+    reduceAccountForClient,
     addToResponse
   ],
 
@@ -193,6 +198,7 @@ module.exports = {
     hashPassword,
     updateAccount,
     authenticate,
+    reduceAccountForClient,
     addToResponse
   ],
 

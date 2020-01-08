@@ -2,7 +2,7 @@ const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts, password } = require('../examples/accounts/seeds/01_accounts')
 
-const [julian] = accounts
+const generalUser = accounts.find(a => a.firstName === 'General User')
 
 test('Logout when not logged in', async ({ expect }) => {
   const response = await app.test('/logout').delete()
@@ -12,7 +12,7 @@ test('Logout when not logged in', async ({ expect }) => {
 
 test('Logout when logged in', async ({ expect }) => {
   // Login.
-  let response = await app.test('/login').post({ ...julian, password })
+  let response = await app.test('/login').post({ ...generalUser, password })
 
   // Verify account data can be retrieved.
   response = await app.test('/account', response).get()
@@ -31,6 +31,7 @@ test('Logout when logged in', async ({ expect }) => {
 
   // Verify a user can login with the returned CSRF token.
   response.request.header['csrf-token'] = csrfToken
-  response = await app.test('/login', response).post({ ...julian, password })
+  const credentials = { ...generalUser, password }
+  response = await app.test('/login', response).post(credentials)
   expect(response.status).toBe(201)
 })
