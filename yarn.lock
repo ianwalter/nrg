@@ -713,12 +713,7 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@ianwalter/base-error@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/base-error/-/base-error-1.1.0.tgz#cf27811359e68bac9a1c60d4dadb88ec348d1ab7"
-  integrity sha512-angV+Cr9HMB2ibwqdGO5wvysj7lGW7td/B2ZCjksofE1OUtSeaKyoouIh9rLY9fj/GB1nR0M9qKt3aYYx/9MSQ==
-
-"@ianwalter/base-error@^6.0.0":
+"@ianwalter/base-error@^6.0.0", "@ianwalter/base-error@^6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/base-error/-/base-error-6.1.0.tgz#a25f8a57e04877f6823251c5f1e05c7c060a0130"
   integrity sha512-a1oe3gdY7aVJotysd2hbkARZdIXd80b1xL+kcJGQ/5VzEv7bMhQ+vlamv8DLz828uz/dxMCVb4++n75RyVUs2Q==
@@ -796,17 +791,17 @@
     execa "^3.4.0"
     strip "^3.0.0"
 
-"@ianwalter/correct@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/correct/-/correct-0.1.0.tgz#67746a62e6dea5d4e2c857ef56135a85c3aa557c"
-  integrity sha512-BdH6B15Z9DBlc5x/qvkCJ9p112KNbQTuMN0S6weLzoGyB3rbbXxtC1ffCK0UFl/dOalfcvcOwy3BxmRuL5PF6Q==
+"@ianwalter/correct@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@ianwalter/correct/-/correct-0.1.2.tgz#31c662fc9c95c8153416a6403f1bcb5976c1cc2b"
+  integrity sha512-S/UZ9G3/hRs22NZOXNTmOWCnJiVYMXEpIXA1j1mUr770HWtbmxMSLeHF5nlUoDCh5IThI/AbFnmKXvm2YmysUQ==
   dependencies:
-    "@ianwalter/base-error" "^1.1.0"
-    "@ianwalter/print" "^3.9.0"
-    date-fns "^2.8.1"
-    decamelize "^2.0.0"
+    "@ianwalter/base-error" "^6.1.0"
+    "@ianwalter/print" "^4.0.2"
+    date-fns "^2.9.0"
+    decamelize "^3.2.0"
     is-phone "^2.0.0"
-    isemail "^3.1.1"
+    isemail "^3.2.0"
     zxcvbn "^4.4.2"
 
 "@ianwalter/eslint-config@^3.1.0":
@@ -3190,6 +3185,11 @@ date-fns@^2.8.1:
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.8.1.tgz#2109362ccb6c87c3ca011e9e31f702bc09e4123b"
   integrity sha512-EL/C8IHvYRwAHYgFRse4MGAPSqlJVlOrhVYZ75iQBKrnv+ZedmYsgwH3t+BCDuZDXpoo07+q9j4qgSSOa7irJg==
 
+date-fns@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.9.0.tgz#d0b175a5c37ed5f17b97e2272bbc1fa5aec677d2"
+  integrity sha512-khbFLu/MlzLjEzy9Gh8oY1hNt/Dvxw3J6Rbc28cVoYWQaC1S3YI4xwkF9ZWcjDLscbZlY9hISMr66RFzZagLsA==
+
 date-format@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/date-format/-/date-format-0.0.2.tgz#fafd448f72115ef1e2b739155ae92f2be6c28dd1"
@@ -3233,12 +3233,12 @@ decamelize@^1.2.0:
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
-decamelize@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-2.0.0.tgz#656d7bbc8094c4c788ea53c5840908c9c7d063c7"
-  integrity sha512-Ikpp5scV3MSYxY39ymh45ZLEecsTdv/Xj2CaQfI8RLMuwi7XvjX9H/fhraiSuU+C5w5NTDu4ZU72xNiZnurBPg==
+decamelize@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-3.2.0.tgz#84b8e8f4f8c579f938e35e2cc7024907e0090851"
+  integrity sha512-4TgkVUsmmu7oCSyGBm5FvfMoACuoh9EOidm7V5/J2X2djAwwt57qb3F2KMP2ITqODTCSwb+YRV+0Zqrv18k/hw==
   dependencies:
-    xregexp "4.0.0"
+    xregexp "^4.2.4"
 
 decode-uri-component@^0.2.0:
   version "0.2.0"
@@ -5677,7 +5677,7 @@ isarray@^2.0.1:
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-2.0.5.tgz#8af1e4c1221244cc62459faf38940d4e644a5723"
   integrity sha512-xHjhDr3cNBK0BzdUJSPXZntQUx/mwMS5Rw4A7lPJ90XGAO6ISP/ePDNuo0vhqOZU+UD5JoodwCAAoZQd3FeAKw==
 
-isemail@^3.1.1:
+isemail@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/isemail/-/isemail-3.2.0.tgz#59310a021931a9fb06bbb51e155ce0b3f236832c"
   integrity sha512-zKqkK+O+dGqevc93KNsbZ/TqTUFd46MwWjYOoMrjIMZ51eU7DtQG3Wmd9SQQT7i7RVnuTPEiYEWHU3MSbxC1Tg==
@@ -10716,10 +10716,12 @@ xmlbuilder@^10.0.0:
   resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-10.1.1.tgz#8cae6688cc9b38d850b7c8d3c0a4161dcaf475b0"
   integrity sha512-OyzrcFLL/nb6fMGHbiRDuPup9ljBycsdCypwuyg5AAHvyWzGfChJpCXMG88AGTIMFhGZ9RccFN1e6lhg3hkwKg==
 
-xregexp@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/xregexp/-/xregexp-4.0.0.tgz#e698189de49dd2a18cc5687b05e17c8e43943020"
-  integrity sha512-PHyM+sQouu7xspQQwELlGwwd05mXUFqwFYfqPO0cC7x4fxyHnnuetmQr6CjJiafIDoH4MogHb9dOoJzR/Y4rFg==
+xregexp@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/xregexp/-/xregexp-4.2.4.tgz#02a4aea056d65a42632c02f0233eab8e4d7e57ed"
+  integrity sha512-sO0bYdYeJAJBcJA8g7MJJX7UrOZIfJPd8U2SC7B2Dd/J24U0aQNoGp33shCaBSWeb0rD5rh6VBUIXOkGal1TZA==
+  dependencies:
+    "@babel/runtime-corejs2" "^7.2.0"
 
 xtend@^4.0.0, xtend@^4.0.2, xtend@~4.0.1:
   version "4.0.2"

@@ -23,13 +23,13 @@ test('Forgot Password with invalid emails', async ({ expect }) => {
 test('Forgot Password with unregistered email', async ({ expect }) => {
   const email = 'babu_frik@example.com'
   const response = await app.test('/forgot-password').post({ email })
-  expect(response.status).toBe(201)
+  expect(response.status).toBe(200)
   expect(response.body).toMatchSnapshot()
 })
 
 test('Forgot Password with registered email', async ({ expect, sleep }) => {
   const response = await app.test('/forgot-password').post(generalUser)
-  expect(response.status).toBe(201)
+  expect(response.status).toBe(200)
   expect(response.body).toMatchSnapshot()
 
   await sleep(1000)

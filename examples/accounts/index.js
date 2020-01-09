@@ -34,8 +34,11 @@ const app = nrg.createApp({
 // Allow users to login.
 app.post('/login', ...nrg.login)
 
-// Allow users to retrieve their account information.
+// Allow users to retrieve their account data.
 app.get('/account', ...nrg.account)
+
+// Allow users to update their account data.
+app.put('/account', ...nrg.accountUpdate)
 
 // Allow users to logout.
 app.delete('/logout', ...nrg.logout)
