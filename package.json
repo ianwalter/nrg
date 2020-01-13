@@ -49,7 +49,7 @@
     "@ianwalter/cli": "^3.0.0",
     "@ianwalter/correct": "^0.1.2",
     "@ianwalter/merge": "^5.0.0",
-    "@ianwalter/nrg-router": "^0.2.0",
+    "@ianwalter/nrg-router": "^0.2.1",
     "@ianwalter/nrg-session": "^6.0.0",
     "@ianwalter/pino-print": "^2.1.1",
     "@ianwalter/print": "^4.0.2",
