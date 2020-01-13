@@ -13,8 +13,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "pretest": "yarn nrg migrate && yarn nrg seed && yarn nrg run deleteAllEmail",
+    "reset": "yarn nrg migrate && yarn nrg seed && yarn nrg run deleteAllEmail",
     "test": "NODE_ENV=test bff",
+    "test:all": "yarn reset && yarn test",
     "nrg": "node cli.js",
     "example:hello": "node examples/helloWorld.js",
     "example:uncaught": "node examples/uncaughtException.js",
@@ -80,6 +81,7 @@
     "prettydiff": "^101.2.6",
     "read-pkg-up": "^7.0.1",
     "require-from-string": "^2.0.2",
+    "server-destroy": "^1.0.1",
     "supertest": "^4.0.2",
     "webpack": "^4.41.5"
   },
