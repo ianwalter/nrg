@@ -832,13 +832,13 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-5.0.0.tgz#972b3cd668ab87416fba1af99186cd83d34d687f"
   integrity sha512-Z+Xn8dT0ApkjGizdwMQaCgsAyHO+zKhCC2OYO7lEYLs1IdCzXtRUYah3vkIWT8/Ad94ni0rxtR39VTRWJE1/Qw==
 
-"@ianwalter/nrg-router@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.2.0.tgz#f69043e1c4c69f2f8139d3a8b5c75426a8165a75"
-  integrity sha512-StlVA+doXlnZKZq6Ci9kV/OjkthyqDw5mjcvltiDCATLwnY1op2mCL9omgSMnfmmxNSkwoVxIPkQrVcdJCKSpQ==
+"@ianwalter/nrg-router@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.2.1.tgz#270159c4cf59c001af818bb43fd5cabca03328be"
+  integrity sha512-M1vDGnkgnZnhGQLq3ugOHDwE3DStDMio+9MnvIc2Q0GdZ4FvPmmeIcyUuN21eJjJTmO/wspsRBcbvNW7CiKNRw==
   dependencies:
-    "@ianwalter/print" "^4.0.1"
-    "@ianwalter/router" "^3.1.0"
+    "@ianwalter/print" "^4.0.2"
+    "@ianwalter/router" "^3.1.1"
 
 "@ianwalter/nrg-session@^6.0.0":
   version "6.0.0"
@@ -890,7 +890,7 @@
     marked "^0.7.0"
     marked-terminal "^3.3.0"
 
-"@ianwalter/print@^4.0.0", "@ianwalter/print@^4.0.1":
+"@ianwalter/print@^4.0.0":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-4.0.1.tgz#cc32d8f8b1a687d40a9c27b55f314d5a108434a6"
   integrity sha512-9MsZXJcAQ1FY1+mJR5jbYDA9E8JakC5CnkXfasK8PAVrsyS5Q96s6VajuOkF4asSt4+k7ehEaWlKme1Zzq619Q==
@@ -953,10 +953,10 @@
     "@ianwalter/print" "^3.5.0"
     fast-json-parse "^1.0.3"
 
-"@ianwalter/router@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.1.0.tgz#6f0700730e098109d0b549a5d960dab9ea6df253"
-  integrity sha512-AFQf6N0wpa99y4DJgXIyJqY8PZGWKI2jPeBwRtROxJ2do0EFE0WAYLiU1dDygt3jH1VENQieQNakMCukC4RCrw==
+"@ianwalter/router@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.1.1.tgz#5107629fcff3e1fa1ad816200bb59d1aed310f55"
+  integrity sha512-/z280tPCMqLMgMCqwZyNtHUFJ7uWG1nWhX3Xukivm7+X2vjW62VOqpOjwr+nyDDctDV3K2+EpIMsXzg5mZZ+DQ==
   dependencies:
     koa-compose "^4.1.0"
 
