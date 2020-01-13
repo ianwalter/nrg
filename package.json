@@ -111,5 +111,8 @@
     "extends": [
       "@ianwalter"
     ]
+  },
+  "release": {
+    "test": "test:all"
   }
 }
