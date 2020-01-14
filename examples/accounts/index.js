@@ -32,6 +32,9 @@ const app = nrg.createApp({
 })
 
 // Allow users to login.
+app.post('/registration', ...nrg.registration)
+
+// Allow users to login.
 app.post('/login', ...nrg.login)
 
 // Allow users to retrieve their account data.

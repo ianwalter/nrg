@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration required validation 1`] = `
+Object {
+  "feedback": Object {
+    "email": Array [
+      "A valid email is required.",
+    ],
+  },
+  "message": "Validation Error",
+}
+`;
+
+exports[`Registration required validation 2`] = `
+Object {
+  "feedback": Object {
+    "password": Array [
+      "A valid password is required.",
+    ],
+  },
+  "message": "Validation Error",
+}
+`;
+
+exports[`Registration required validation 3`] = `
+Object {
+  "feedback": Object {
+    "firstName": Array [
+      "A valid first name is required.",
+    ],
+  },
+  "message": "Validation Error",
+}
+`;
+
+exports[`Registration required validation 4`] = `
+Object {
+  "feedback": Object {
+    "lastName": Array [
+      "A valid last name is required.",
+    ],
+  },
+  "message": "Validation Error",
+}
+`;
+
+exports[`Registration with invalid email 1`] = `
+Object {
+  "feedback": Object {
+    "email": Array [
+      "A valid email is required.",
+    ],
+  },
+  "message": "Validation Error",
+}
+`;
+
+exports[`Registration with valid data 1`] = `
+Object {
+  "message": "Email Verification request submitted successfully",
+}
+`;
+
+exports[`Registration with weak password 1`] = `
+Object {
+  "feedback": Object {
+    "password": Array [
+      "A valid password is required.",
+    ],
+  },
+  "message": "Validation Error",
+}
+`;
