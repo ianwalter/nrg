@@ -851,13 +851,13 @@
     parseurl "^1.3.1"
     uid-safe "^2.1.4"
 
-"@ianwalter/pino-print@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/pino-print/-/pino-print-2.1.1.tgz#4815630693af82da52ed34afd73e458e1fbccd76"
-  integrity sha512-1+Awd7Q3XixffvgsrFrigLje0QGknCUHFnAu8/KYV331mKV8apoDoVXTR3mv21nJ4zhcxMvIp0vXZb2ets7NZQ==
+"@ianwalter/pino-print@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/pino-print/-/pino-print-3.0.0.tgz#5a897944c3ed1446e54f154557ae7c445cff413c"
+  integrity sha512-b/3CJ/mxswejbWhQta1LMaaeqR56zk5/oN2cWtSyKwF1AfgTqohUBzXN7P1l+gLqG77h6T7v4z3yq2kyenuGpg==
   dependencies:
     "@ianwalter/cli" "^3.0.0"
-    "@ianwalter/print" "^4.0.2"
+    "@ianwalter/print" "^5.0.0"
     split2 "^3.1.1"
     strip-ansi "^6.0.0"
 
