@@ -26,7 +26,11 @@ const { serveStatic, serveWebpack } = require('./lib/middleware/client')
 
 const { serveSsr } = require('./lib/middleware/ssr')
 
-const { generateToken, insertToken } = require('./lib/middleware/token')
+const {
+  generateToken,
+  insertToken,
+  verifyToken
+} = require('./lib/middleware/token')
 
 const {
   validatePasswordStrength,
@@ -73,8 +77,7 @@ const {
 
 const {
   validatePasswordReset,
-  getAccountWithPasswordTokens,
-  resetPassword
+  getAccountWithPasswordTokens
 } = require('./lib/middleware/passwordReset')
 
 module.exports = {
@@ -107,6 +110,7 @@ module.exports = {
   // Token:
   generateToken,
   insertToken,
+  verifyToken,
 
   // Password:
   validatePasswordStrength,
@@ -125,9 +129,10 @@ module.exports = {
   validateEmailVerification,
   getAccountWithEmailTokens,
   verifyEmail,
-  emailVerfication: [
+  emailVerification: [
     validateEmailVerification,
     getAccountWithEmailTokens,
+    verifyToken('emailTokens'),
     verifyEmail,
     updateAccount,
     authenticate,
@@ -190,11 +195,10 @@ module.exports = {
   // Password Reset:
   validatePasswordReset,
   getAccountWithPasswordTokens,
-  resetPassword,
   passwordReset: [
     validatePasswordReset,
     getAccountWithPasswordTokens,
-    resetPassword,
+    verifyToken(),
     hashPassword,
     updateAccount,
     authenticate,

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Email Verification success 1`] = `
+Object {
+  "email": "unverified_user_test@example.com",
+  "emailVerified": true,
+  "firstName": "Unverified User",
+  "id": 4,
+  "lastName": "Test",
+}
+`;

@@ -30,7 +30,7 @@ const accounts = [
     lastName: 'Test',
     email: 'unverified_user_test@example.com',
     password: encryptedPassword,
-    emailVerified: true
+    emailVerified: false
   },
   {
     firstName: 'Disabled User',

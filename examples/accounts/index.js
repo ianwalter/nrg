@@ -34,6 +34,9 @@ const app = nrg.createApp({
 // Allow users to login.
 app.post('/registration', ...nrg.registration)
 
+// Allow users to verify their email address.
+app.post('/verify-email', ...nrg.emailVerification)
+
 // Allow users to login.
 app.post('/login', ...nrg.login)
 
