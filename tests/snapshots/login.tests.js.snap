@@ -1,16 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`login 1`] = `
-Object {
-  "email": "general_user_test@example.com",
-  "emailVerified": true,
-  "firstName": "General User",
-  "id": 1,
-  "lastName": "Test",
-}
-`;
-
-exports[`login email required validation 1`] = `
+exports[`Login validation 1`] = `
 Object {
   "feedback": Object {
     "email": Array [
@@ -21,7 +11,7 @@ Object {
 }
 `;
 
-exports[`login password required validation 1`] = `
+exports[`Login validation 2`] = `
 Object {
   "feedback": Object {
     "password": Array [
@@ -32,8 +22,24 @@ Object {
 }
 `;
 
-exports[`login with invalid credentials 1`] = `
+exports[`Login validation 3`] = `
 Object {
   "message": "Incorrect email or password",
+}
+`;
+
+exports[`Login with disabled user 1`] = `
+Object {
+  "message": "Incorrect email or password",
+}
+`;
+
+exports[`Login with valid credentials 1`] = `
+Object {
+  "email": "general_user_test@example.com",
+  "emailVerified": true,
+  "firstName": "General User",
+  "id": 1,
+  "lastName": "Test",
 }
 `;

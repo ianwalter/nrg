@@ -3,28 +3,34 @@ const app = require('../examples/accounts')
 const { accounts, password } = require('../examples/accounts/seeds/01_accounts')
 
 const generalUser = accounts.find(a => a.firstName === 'General User')
+const disabledUser = accounts.find(a => a.firstName === 'Disabled User')
 
-test('login email required validation', async ({ expect }) => {
-  const response = await app.test('/login').post({ password })
+test('Login validation', async ({ expect }) => {
+  // Email required.
+  let response = await app.test('/login').post({ password })
   expect(response.status).toBe(400)
   expect(response.body).toMatchSnapshot()
-})
 
-test('login password required validation', async ({ expect }) => {
-  const response = await app.test('/login').post({ email: generalUser.email })
+  // Password required.
+  response = await app.test('/login').post({ email: generalUser.email })
   expect(response.status).toBe(400)
   expect(response.body).toMatchSnapshot()
-})
 
-test('login with invalid credentials', async ({ expect }) => {
+  // Invalid credentials.
   const payload = { ...generalUser, password: 'thisIsNotTheRightPw' }
-  const response = await app.test('/login').post(payload)
+  response = await app.test('/login').post(payload)
   expect(response.status).toBe(400)
   expect(response.body).toMatchSnapshot()
 })
 
-test('login', async ({ expect }) => {
+test('Login with valid credentials', async ({ expect }) => {
   const response = await app.test('/login').post({ ...generalUser, password })
   expect(response.status).toBe(201)
+  expect(response.body).toMatchSnapshot()
+})
+
+test('Login with disabled user', async ({ expect }) => {
+  const response = await app.test('/login').post({ ...disabledUser, password })
+  expect(response.status).toBe(400)
   expect(response.body).toMatchSnapshot()
 })
