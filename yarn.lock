@@ -822,6 +822,16 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-5.0.0.tgz#972b3cd668ab87416fba1af99186cd83d34d687f"
   integrity sha512-Z+Xn8dT0ApkjGizdwMQaCgsAyHO+zKhCC2OYO7lEYLs1IdCzXtRUYah3vkIWT8/Ad94ni0rxtR39VTRWJE1/Qw==
 
+"@ianwalter/nrg-mq@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-mq/-/nrg-mq-0.0.1.tgz#49a162ceab44338686b5528d608d259308d64da1"
+  integrity sha512-q7YOM9Ox13mKf1h0UIFGpQHyFxsCKkE0178y+HEJgmOaaEy4hmwF1SaQmuFOrix0/bFlEzJyyJMXCpCs4Dp3cQ==
+  dependencies:
+    "@ianwalter/clone" "^4.1.0"
+    "@ianwalter/print" "^5.0.0"
+    amqp-connection-manager "^3.1.1"
+    amqplib "^0.5.5"
+
 "@ianwalter/nrg-router@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.2.1.tgz#270159c4cf59c001af818bb43fd5cabca03328be"
@@ -1606,6 +1616,13 @@ alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
+
+amqp-connection-manager@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/amqp-connection-manager/-/amqp-connection-manager-3.1.1.tgz#c2311bf9da6020033cc59de2968fd29a2f0f113c"
+  integrity sha512-CpGq79MTFU8ql3M1BQlzYIkEPbfKL9e7s5UU7ghXLH3gFYh3R5dX6hex02KA2Bi4xDMNCHe/1rxSLR6B67AyWQ==
+  dependencies:
+    promise-breaker "^5.0.0"
 
 amqplib@^0.5.5:
   version "0.5.5"
@@ -8270,6 +8287,11 @@ progress@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
+
+promise-breaker@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/promise-breaker/-/promise-breaker-5.0.0.tgz#58e8541f1619554057da95a211794d7834d30c1d"
+  integrity sha512-mgsWQuG4kJ1dtO6e/QlNDLFtMkMzzecsC69aI5hlLEjGHFNpHrvGhFi4LiK5jg2SMQj74/diH+wZliL9LpGsyA==
 
 promise-inflight@^1.0.1:
   version "1.0.1"

@@ -34,7 +34,6 @@ async function run () {
   let app
   try {
     app = require(appPath)
-    await app.asyncSetup
   } catch (err) {
     print.fatal(err)
     process.exit(1)
