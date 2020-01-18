@@ -641,7 +641,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.8.3":
+"@babel/runtime@^7.3.1", "@babel/runtime@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.3.tgz#0811944f73a6c926bb2ad35e918dcc1bfab279f1"
   integrity sha512-fVHx1rzEmwB130VTkLnxR+HmxcTjGzH12LYQcFFoBwakMd3aOMD4OsRN7tGG/UOYE2ektgFrS8uACAoRk1CY0w==
@@ -718,13 +718,14 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/base-error/-/base-error-6.1.0.tgz#a25f8a57e04877f6823251c5f1e05c7c060a0130"
   integrity sha512-a1oe3gdY7aVJotysd2hbkARZdIXd80b1xL+kcJGQ/5VzEv7bMhQ+vlamv8DLz828uz/dxMCVb4++n75RyVUs2Q==
 
-"@ianwalter/bff@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-8.0.0.tgz#a9c56acdd174218f5cfdc784c054d1ea85bedca8"
-  integrity sha512-fWjR1AY8M+BNGfRi/LLTem7a1VVmibQcgwCgz1ET0AFywGfisne4KPczYl7McUKicHlwv1rYkS13QO8o+09OSw==
+"@ianwalter/bff@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-8.1.0.tgz#0136202194b004b6b22c8e1bdfb6246b145129e6"
+  integrity sha512-TWwnmsfhSZKkLf0DIBFJxdo1U/hRZVBV+0UILpf/pW2MP67C5EmwmTg4hM520YyCuQzT37XBFFNsT4hWlQ8khg==
   dependencies:
     "@ianwalter/cli" "^3.0.0"
     "@ianwalter/print" "^5.0.0"
+    "@ianwalter/subpub" "^2.0.0"
     "@ianwalter/timer" "^1.1.0"
     common-tags "^1.8.0"
     expect "^24.9.0"
@@ -951,6 +952,14 @@
   integrity sha512-/z280tPCMqLMgMCqwZyNtHUFJ7uWG1nWhX3Xukivm7+X2vjW62VOqpOjwr+nyDDctDV3K2+EpIMsXzg5mZZ+DQ==
   dependencies:
     koa-compose "^4.1.0"
+
+"@ianwalter/subpub@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/subpub/-/subpub-2.0.0.tgz#38addd121ae71a43b3e32c845d4c76354ae04e28"
+  integrity sha512-m3XpULJENDsMIB+h0m2FYpMbpKTBgl+DZGYFaLpRklPplZxHrqP5qNRy7snBJfySOA31eDSkRS8Kgb7xI4XTqw==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    patrun "^1.0.0"
 
 "@ianwalter/timer@^1.1.0":
   version "1.1.0"
@@ -4613,6 +4622,13 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
+gex@0.3:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/gex/-/gex-0.3.0.tgz#217324ccd6e5c61d2485c913eb7614b21358b97f"
+  integrity sha512-A1F2DMZUAnieFmVowt1QHcH7AJQZApRThR+z4C0GlzMGi6VYUAf9UvQdxODiCajGPGSRso86YJQ48E8+b5CBAQ==
+  dependencies:
+    lodash "4.17"
+
 glob-parent@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-3.1.0.tgz#9e6af6299d8d3bd2bd40430832bd113df906c5ae"
@@ -6352,7 +6368,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.5:
+lodash@4.17, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.5:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -7634,6 +7650,14 @@ path-type@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
+
+patrun@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/patrun/-/patrun-1.0.0.tgz#c50a2174e3e02afe7fbc35d16e658d21c66a1e66"
+  integrity sha512-oemWSuxjb27nPkREl88BxZ2EFDFUKSPace+zYZjFKj2xFn6w/LgDFGptgQvme384As2gpEFIv4WMVE1cb9lDXQ==
+  dependencies:
+    gex "0.3"
+    lodash "4.17"
 
 pbkdf2@^3.0.3:
   version "3.0.17"
