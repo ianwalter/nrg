@@ -49,7 +49,9 @@ async function run () {
       // Copy base account migrations.
       const source = path.join(__dirname, 'migrations')
       const destination = app.context.options.db.migrations.directory ||
+        commands[2] ||
         path.resolve('migrations')
+      await fs.mkdir(destination, { recursive: true })
       const migrations = await fs.readdir(source)
       await Promise.all(migrations.map(async migration => fs.copyFile(
         path.join(source, migration),
