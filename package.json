@@ -113,6 +113,6 @@
     ]
   },
   "release": {
-    "test": "test:all"
+    "test": "test:ci"
   }
 }
