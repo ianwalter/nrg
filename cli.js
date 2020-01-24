@@ -91,6 +91,7 @@ async function run () {
       process.exit(1)
     }
   } else {
+    print.error('Unknown command:', commands[0], '\n\n')
     print.info(config.helpText)
   }
 
