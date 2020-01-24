@@ -15,7 +15,7 @@
     "lint": "eslint .",
     "reset": "yarn nrg migrate && yarn nrg seed && yarn nrg run deleteAllEmail",
     "test": "NODE_ENV=test bff",
-    "test:all": "yarn reset && yarn test",
+    "test:ci": "yarn reset && yarn test",
     "nrg": "node cli.js",
     "example:hello": "node examples/helloWorld.js",
     "example:uncaught": "node examples/uncaughtException.js",
