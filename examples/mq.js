@@ -3,7 +3,7 @@ const { createApp } = require('../')
 const app = createApp({
   mq: {
     urls: [
-      `amqp://nrg:gottaLottaEnemies@${process.env.MQ_HOST || 'localhost'}`
+      `amqp://nrg:gottaLottaEnemies@${process.env.MQ_HOST || 'localhost'}:25672`
     ],
     queues: [
       {

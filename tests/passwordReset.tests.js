@@ -35,7 +35,7 @@ test('Password Reset with valid data', async ({ expect, sleep }) => {
 
   // Extract the Password Reset token from the Forgot Password email.
   const host = process.env.SMTP_HOST || 'localhost'
-  const port = process.env.SMTP_PORT ? 80 : 1080
+  const port = process.env.SMTP_PORT ? 80 : 2080
   const { body } = await requester.get(`http://${host}:${port}/email`)
   const email = body.find(email => email.headers.to === testUser.email)
   const $ = cheerio.load(email.html)

@@ -4,13 +4,13 @@ services:
   redis:
     image: redis:5.0
     ports:
-      - "6379:6379"
+      - "16379:6379"
 
   db:
     image: postgres:12.1
     stop_signal: SIGINT
     ports:
-      - "5432:5432"
+      - "15432:5432"
     environment:
       POSTGRESS_DB: nrg
       POSTGRES_USER: nrg
@@ -19,8 +19,8 @@ services:
   mq:
     image: rabbitmq:3.8-management
     ports:
-      - "5672:5672"
-      - "15672:15672"
+      - "25672:5672"
+      - "35672:15672"
     environment:
       RABBITMQ_DEFAULT_USER: nrg
       RABBITMQ_DEFAULT_PASS: gottaLottaEnemies
@@ -28,5 +28,5 @@ services:
   maildev:
     image: djfarrelly/maildev
     ports:
-      - "1025:25"
-      - "1080:80"
+      - "2025:25"
+      - "2080:80"

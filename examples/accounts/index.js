@@ -7,6 +7,7 @@ const app = nrg.createApp({
   db: {
     connection: {
       host: process.env.DB_HOST,
+      port: 15432,
       database: 'nrg',
       user: 'nrg',
       password: 'gottaLottaEnemies'
@@ -16,7 +17,8 @@ const app = nrg.createApp({
   },
   redis: {
     connection: {
-      host: process.env.REDIS_HOST
+      host: process.env.REDIS_HOST,
+      port: 16379
     }
   },
   sessions: {
@@ -25,7 +27,7 @@ const app = nrg.createApp({
   email: {
     transport: {
       host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT || 1025
+      port: process.env.SMTP_PORT || 2025
     }
   },
   accounts: { enabled: true }
