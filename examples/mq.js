@@ -1,9 +1,11 @@
 const { createApp } = require('../')
 
+const host = process.env.MQ_HOST || 'localhost'
+const port = process.enev.MQ_PORT || 25672
 const app = createApp({
   mq: {
     urls: [
-      `amqp://nrg:gottaLottaEnemies@${process.env.MQ_HOST || 'localhost'}:25672`
+      `amqp://nrg:gottaLottaEnemies@${host}:${port}`
     ],
     queues: [
       {

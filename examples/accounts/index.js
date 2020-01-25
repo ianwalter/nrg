@@ -7,7 +7,7 @@ const app = nrg.createApp({
   db: {
     connection: {
       host: process.env.DB_HOST,
-      port: 15432,
+      port: process.env.DB_PORT || 15432,
       database: 'nrg',
       user: 'nrg',
       password: 'gottaLottaEnemies'
@@ -18,7 +18,7 @@ const app = nrg.createApp({
   redis: {
     connection: {
       host: process.env.REDIS_HOST,
-      port: 16379
+      port: process.env.REDIS_PORT || 16379
     }
   },
   sessions: {
