@@ -1,7 +1,7 @@
 const { createApp } = require('../')
 
 const host = process.env.MQ_HOST || 'localhost'
-const port = process.enev.MQ_PORT || 25672
+const port = process.env.MQ_PORT || 25672
 const app = createApp({
   mq: {
     urls: [
