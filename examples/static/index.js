@@ -1,5 +1,19 @@
 const { createApp } = require('../..')
 
-const app = createApp({ static: { enabled: true } })
+const app = createApp({
+  static: {
+    enabled: true,
+    send: {
+      fallback (ctx) {
+        ctx.body = 'I Wish I Could'
+      }
+    }
+  }
+})
 
-app.start()
+// Export the app if required, otherwise start the server.
+if (module.parent) {
+  module.exports = app
+} else {
+  app.start()
+}
