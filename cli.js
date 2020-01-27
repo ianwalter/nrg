@@ -105,7 +105,7 @@ async function run () {
   // Close the message queue connection.
   if (app.mq) {
     // Silence channel ended error.
-    app.mq.channel.on('error', () => {})
+    app.mq.channel.on('error', print.debug)
 
     // Close message queue connection.
     app.mq.connection.close()
