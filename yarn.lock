@@ -3223,6 +3223,11 @@ date-format@0.0.2:
   resolved "https://registry.yarnpkg.com/date-format/-/date-format-0.0.2.tgz#fafd448f72115ef1e2b739155ae92f2be6c28dd1"
   integrity sha1-+v1Ej3IRXvHitzkVWukvK+bCjdE=
 
+db-errors@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/db-errors/-/db-errors-0.2.3.tgz#a6a38952e00b20e790f2695a6446b3c65497ffa2"
+  integrity sha512-OOgqgDuCavHXjYSJoV2yGhv6SeG8nk42aoCSoyXLZUH7VwFG27rxbavU1z+VrZbZjphw5UkDQwUlD21MwZpUng==
+
 de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"
@@ -7272,14 +7277,13 @@ object.values@^1.1.0:
     function-bind "^1.1.1"
     has "^1.0.3"
 
-objection@^1.6.11:
-  version "1.6.11"
-  resolved "https://registry.yarnpkg.com/objection/-/objection-1.6.11.tgz#6755c15300277eee76c44faf4295704d8e2e02e2"
-  integrity sha512-/W6iR6+YvFg1U4k5DyX1MrY+xqodDM8AAOU1J0b3HlptsNw8V3uDHjZgTi1cFPPe5+ZeTTMvhIFhNiUP6+nqYQ==
+objection@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/objection/-/objection-2.1.2.tgz#da42e743ef69eabbb29bbf50efbe6f49acc854ba"
+  integrity sha512-55tkg1C8iFfsEz07N3peKXU4COve+jRTaUlSXAGlcC2Kk/7ONntREnwErQp+0483g7eexEbc8EJ7CDPu/RmYoQ==
   dependencies:
-    ajv "^6.10.0"
-    bluebird "^3.5.5"
-    lodash "^4.17.11"
+    ajv "^6.10.2"
+    db-errors "^0.2.3"
 
 obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
