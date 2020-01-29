@@ -34,4 +34,9 @@ test('Logout when logged in', async ({ expect }) => {
   const credentials = { ...generalUser, password }
   response = await app.test('/login', response).post(credentials)
   expect(response.status).toBe(201)
+
+  // Verify account data can be retrieved.
+  response = await app.test('/account', response).get()
+  expect(response.status).toBe(200)
+  expect(response.body).toMatchSnapshot()
 })

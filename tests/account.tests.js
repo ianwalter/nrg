@@ -70,6 +70,6 @@ test.skip('Password validation when updating password', async ({ expect }) => {
 
 })
 
-test.skip('Non-updateable fields are not updated', async ({ expect }) => {
+test.skip('Read-only fields are not updated', async ({ expect }) => {
 
 })
