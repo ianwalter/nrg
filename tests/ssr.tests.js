@@ -10,8 +10,7 @@ const addData = (ctx, next) => {
 
 test.only('addToSsr', async ({ expect }, done) => {
   app.get('/', addData, nrg.addToSsr, (ctx, next) => {
-    console.log('ENTER1')
-    expect(ctx.state.ssrData.song).toBe(result.song)
+    expect(ctx.state.ssr.song).toBe(result.song)
     done()
   })
   await app.test('/').get()
@@ -19,7 +18,7 @@ test.only('addToSsr', async ({ expect }, done) => {
 
 test('addToSsr with namespace', async ({ expect }, done) => {
   app.get('/namespace', addData, nrg.addToSsr('current'), (ctx, next) => {
-    expect(ctx.state.ssrData.current.song).toBe(result.song)
+    expect(ctx.state.ssr.current.song).toBe(result.song)
     done()
   })
   await app.test('/namespace').get()
