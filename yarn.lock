@@ -847,13 +847,13 @@
     amqp-connection-manager "^3.1.1"
     amqplib "^0.5.5"
 
-"@ianwalter/nrg-router@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.2.2.tgz#fa3c211d8006dc5273b47e629a99043aef1b3815"
-  integrity sha512-VwvPiR9OTjWR6KV32z/fIk+rutE19UN7V84KPTv1Hg4m2rahf9TlXuZ0HwHY7XyW6xba8+3b6KJoQBqdJC8OBw==
+"@ianwalter/nrg-router@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.2.3.tgz#9655a8c9540e701cfd69dae50e203202c6460fb8"
+  integrity sha512-OTyUJ+UdLX5YxaTz8suL/spBLaKG00354t2ihAKw9jT/ULwP4WNklfjtMuzP2lhYJ7Tr6poMFhBCd1hr4TcaWA==
   dependencies:
     "@ianwalter/print" "^5.0.0"
-    "@ianwalter/router" "^3.1.2"
+    "@ianwalter/router" "^3.1.3"
 
 "@ianwalter/nrg-session@^6.0.0":
   version "6.0.0"
@@ -970,11 +970,12 @@
     "@ianwalter/print" "^3.5.0"
     fast-json-parse "^1.0.3"
 
-"@ianwalter/router@^3.1.2":
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.1.2.tgz#807cd03af6085cab2c15491289434eb6207387b1"
-  integrity sha512-X4MnatMRLmtToopaj1x1qpdjwkG0wfpL7eETmjFba8yIIujVakC7S8Vcpvn+MZ9aS4FcNdugiMaAT66pm7PdLA==
+"@ianwalter/router@^3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.1.3.tgz#0bbffd77ac4f2a738a06b6d919cd756cccb879ea"
+  integrity sha512-DqjcquE4PSiRPCiRdNu4TPtPbHcGrYDXA+HAOT2YLl7FO9Ael5mgUawQqlQcaF/9krTrtms4LEjMnv385v0lRQ==
   dependencies:
+    "@ianwalter/merge" "^5.0.0"
     koa-compose "^4.1.0"
 
 "@ianwalter/subpub@^2.0.0":

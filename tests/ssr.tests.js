@@ -8,18 +8,16 @@ const addData = (ctx, next) => {
   return next()
 }
 
-test.only('addToSsr', async ({ expect }, done) => {
+test('addToSsr', async ({ expect }) => {
   app.get('/', addData, nrg.addToSsr, (ctx, next) => {
     expect(ctx.state.ssr.song).toBe(result.song)
-    done()
   })
   await app.test('/').get()
 })
 
-test('addToSsr with namespace', async ({ expect }, done) => {
+test('addToSsr with namespace', async ({ expect }) => {
   app.get('/namespace', addData, nrg.addToSsr('current'), (ctx, next) => {
     expect(ctx.state.ssr.current.song).toBe(result.song)
-    done()
   })
   await app.test('/namespace').get()
 })
