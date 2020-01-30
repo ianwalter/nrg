@@ -1,6 +1,4 @@
-const { createApp } = require('../..')
-
-const app = createApp({ log: false })
+const app = require('./base')
 
 app.use(ctx => (ctx.body = 'Hello World!'))
 
