@@ -65,6 +65,7 @@ const {
 } = require('./lib/middleware/account')
 
 const {
+  checkSessionAuthentication,
   validateLogin,
   authenticate,
   clearSession
@@ -165,6 +166,7 @@ module.exports = {
   validateLogin,
   authenticate,
   login: [
+    checkSessionAuthentication,
     validateLogin,
     getAccount,
     comparePasswords,

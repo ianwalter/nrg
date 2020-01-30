@@ -28,6 +28,12 @@ Object {
 }
 `;
 
+exports[`Login when already logged in 1`] = `
+Object {
+  "message": "Session is already authenticated",
+}
+`;
+
 exports[`Login with disabled user 1`] = `
 Object {
   "message": "Incorrect email or password",

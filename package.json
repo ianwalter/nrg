@@ -29,7 +29,8 @@
     "example:mq": "node examples/mq",
     "build:example:ssr": "NODE_ENV=production webpack examples/ssr",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "start:dc": "docker-compose up"
   },
   "homepage": "https://github.com/ianwalter/nrg#readme",
   "repository": {

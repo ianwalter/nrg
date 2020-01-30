@@ -34,3 +34,11 @@ test('Login with disabled user', async ({ expect }) => {
   expect(response.status).toBe(400)
   expect(response.body).toMatchSnapshot()
 })
+
+test.only('Login when already logged in', async ({ expect }) => {
+  const credentials = { ...generalUser, password }
+  let response = await app.test('/login').post(credentials)
+  response = await app.test('/login', response).post(credentials)
+  expect(response.status).toBe(400)
+  expect(response.body).toMatchSnapshot()
+})
