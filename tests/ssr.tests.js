@@ -9,15 +9,13 @@ const addData = (ctx, next) => {
 }
 
 test('addToSsr', async ({ expect }) => {
-  app.get('/', addData, nrg.addToSsr, (ctx, next) => {
-    expect(ctx.state.ssr.song).toBe(result.song)
-  })
+  const assertion = ctx => expect(ctx.state.ssr.song).toBe(result.song)
+  app.get('/', addData, nrg.addToSsr, assertion)
   await app.test('/').get()
 })
 
 test('addToSsr with namespace', async ({ expect }) => {
-  app.get('/namespace', addData, nrg.addToSsr('current'), (ctx, next) => {
-    expect(ctx.state.ssr.current.song).toBe(result.song)
-  })
+  const assertion = ctx => expect(ctx.state.ssr.next.ok.song).toBe(result.song)
+  app.get('/namespace', addData, nrg.addToSsr('next.ok'), assertion)
   await app.test('/namespace').get()
 })
