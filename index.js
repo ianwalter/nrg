@@ -15,7 +15,7 @@ const {
 } = require('./lib/errors')
 
 const {
-  logError,
+  enrichAndLogError,
   addErrorToResponse,
   handleError
 } = require('./lib/middleware/error')
@@ -94,7 +94,7 @@ module.exports = {
    */
 
   // Error:
-  logError,
+  enrichAndLogError,
   addErrorToResponse,
   handleError,
 
