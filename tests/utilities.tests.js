@@ -1,7 +1,7 @@
 const { test } = require('@ianwalter/bff')
 const { account, swap } = require('..')
 
-test('swap', ({ expect }) => {
+test('Swapping out middleware', ({ expect }) => {
   const getAccount = () => 'Here you go!'
   expect(swap(account, { getAccount })).toContain(getAccount)
 })
