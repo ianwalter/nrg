@@ -81,6 +81,8 @@ const {
   getAccountWithPasswordTokens
 } = require('./lib/middleware/passwordReset')
 
+const { extract, swap } = require('./lib/utilities')
+
 module.exports = {
   /**
    * Workloads:
@@ -242,5 +244,12 @@ module.exports = {
 
   Base,
   Account,
-  Token
+  Token,
+
+  /**
+   * Utilities:
+   */
+
+  extract,
+  swap
 }
