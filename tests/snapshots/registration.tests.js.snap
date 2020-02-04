@@ -65,7 +65,8 @@ exports[`Registration with weak password 1`] = `
 Object {
   "feedback": Object {
     "password": Array [
-      "A valid password is required.",
+      "This is a top-100 common password",
+      "Add another word or two. Uncommon words are better.",
     ],
   },
   "message": "Validation Error",
