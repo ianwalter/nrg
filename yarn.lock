@@ -796,13 +796,12 @@
     execa "^3.4.0"
     strip "^3.0.0"
 
-"@ianwalter/correct@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/correct/-/correct-1.0.0.tgz#b1c790739dc3298a427dd2207b7b1fa5589e20b0"
-  integrity sha512-lFN56oSiSXYdjK9StWpGS3fI84jtQ9cq28AzWothldbn7Dt0QMgL7i+u6yGUZ2rgieCHtldHlk7G18lUFwMM8g==
+"@ianwalter/correct@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/correct/-/correct-1.1.0.tgz#7ab6243e233cab54db190446f2c9f0ab8908aed4"
+  integrity sha512-enkw8vymGsGDIIVlJQsG7hmN9HQJwwhgnY+Z2ysQBuUhsLCcD4JROZdVGE+oHa2RLPMKMN8phBZJrshUCiauLw==
   dependencies:
     "@ianwalter/base-error" "^6.1.0"
-    "@ianwalter/print" "^5.0.0"
     date-fns "^2.9.0"
     decamelize "^4.0.0"
     is-phone "^2.0.0"
