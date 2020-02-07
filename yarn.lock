@@ -838,7 +838,7 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@ianwalter/base-error@^6.0.0", "@ianwalter/base-error@^6.1.0":
+"@ianwalter/base-error@^6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/base-error/-/base-error-6.1.0.tgz#a25f8a57e04877f6823251c5f1e05c7c060a0130"
   integrity sha512-a1oe3gdY7aVJotysd2hbkARZdIXd80b1xL+kcJGQ/5VzEv7bMhQ+vlamv8DLz828uz/dxMCVb4++n75RyVUs2Q==
@@ -1008,7 +1008,7 @@
     split2 "^3.1.1"
     strip-ansi "^6.0.0"
 
-"@ianwalter/print@^3.5.0", "@ianwalter/print@^3.9.0":
+"@ianwalter/print@^3.9.0":
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.9.0.tgz#db84d5f0fdcd144b1647aded8d33e6fa615208b9"
   integrity sha512-8qYgeHNrLYBQa8pDDffptX280JVaAgFjlQAPpf5HH471F/tTEjcKIKC7oTaB+V5BtjLGkh8qoJVon1WyhNFO0Q==
@@ -1076,14 +1076,14 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/renovate-config/-/renovate-config-1.2.0.tgz#f84e2fc56ad5d29c0876058c16c25db95baf74a9"
   integrity sha512-OSvziSdR0gxnWeH+9KbS9+HjojFa73vqNFU7wAxWs2ZV/9YofpKw0HwGtzyYgb1xVk8g6ZFPMYaTnFZ4Af6N/w==
 
-"@ianwalter/requester@^1.10.2-0":
-  version "1.10.2-0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/requester/-/requester-1.10.2-0.tgz#e14b14eb2fd037f037b4ba50e8fb436fbf04eac2"
-  integrity sha512-tDuqhHoHpROTeFm9rBjCVRYkWJpIbVpUnuu652p1+dzkNQWmvqtwT7ZEgGpVVWZL4qhArYmhEtXkgWkUbN0XCA==
+"@ianwalter/requester@^1.10.2":
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/@ianwalter/requester/-/requester-1.10.2.tgz#b18551601781edc6b788ff7d4b79ac3ce73fed1e"
+  integrity sha512-zMw0LFyz0Cw8eeQ6FcUoNoqUyp/4Y9NXYnqygA1aR5v0x102IZkinZuO2+uqa9UDim3mJyTBUN5h8azyXHks7Q==
   dependencies:
-    "@ianwalter/base-error" "^6.0.0"
+    "@ianwalter/base-error" "^6.1.0"
     "@ianwalter/merge" "^5.0.0"
-    "@ianwalter/print" "^3.5.0"
+    "@ianwalter/print" "^5.0.0"
     fast-json-parse "^1.0.3"
 
 "@ianwalter/router@^3.1.4":
