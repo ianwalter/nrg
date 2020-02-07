@@ -52,7 +52,7 @@
     "@ianwalter/correct": "^1.1.0",
     "@ianwalter/merge": "^5.0.0",
     "@ianwalter/nrg-mq": "^0.0.1",
-    "@ianwalter/nrg-router": "^0.2.4",
+    "@ianwalter/nrg-router": "^0.2.5",
     "@ianwalter/nrg-session": "^6.0.0",
     "@ianwalter/pino-print": "^3.1.0",
     "@ianwalter/print": "^5.0.0",
