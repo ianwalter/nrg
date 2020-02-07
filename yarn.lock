@@ -984,10 +984,10 @@
     amqp-connection-manager "^3.1.1"
     amqplib "^0.5.5"
 
-"@ianwalter/nrg-router@^0.2.4":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.2.4.tgz#51e74dda656d6f040a9a10ad6358b6614357b6ae"
-  integrity sha512-v/l7sl/4CnxCIeLUr4ZX9BSLwi6i05FGJ+fO1keliJqUU7ayPqt+zbTiT6qN/tXXa8M3qJGhZENRDNzlYybCgg==
+"@ianwalter/nrg-router@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.2.5.tgz#564ea5437cac1187d4057b454c74f38bd57e941d"
+  integrity sha512-CW5BBTm7R3RHeJmgYXmbco0y3U3+w2gEBD0+u+2523AXOoGtiKMV2OeTFQhsrhH6NRh4EO4g47P88a4emkL+eg==
   dependencies:
     "@ianwalter/print" "^5.0.0"
     "@ianwalter/router" "^3.1.4"
