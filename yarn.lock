@@ -1003,10 +1003,10 @@
     parseurl "^1.3.1"
     uid-safe "^2.1.4"
 
-"@ianwalter/pino-print@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/pino-print/-/pino-print-4.0.0.tgz#f7eeec6e90f93f08cabfb2102a306ee138c07a47"
-  integrity sha512-u34JSbjesffXyhrFP6lI+p4YSWjhwdfL5aL+bMsIby/R96zBqHEcvMfGUsWQJM+5pSUqKhJzb8fu05O3ekQXTQ==
+"@ianwalter/pino-print@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/pino-print/-/pino-print-4.1.0.tgz#68bf280fef9c8058c3c863cd28a019ef06e1dbcf"
+  integrity sha512-jgvynYqx2p3WfiUD3OlrT7hOSsrbXTPUr4D25iQ0yT9Al5eV6i4fwf/jz8pYyeDMtn7EHHxnz2sjUB6QXyzqlw==
   dependencies:
     "@ianwalter/cli" "^4.1.0"
     "@ianwalter/print" "^5.1.0"
