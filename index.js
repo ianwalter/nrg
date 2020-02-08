@@ -40,7 +40,7 @@ const {
 
 const { requireAuthorization } = require('./lib/middleware/authorization')
 
-const { sendEmail } = require('./lib/middleware/email')
+const { validateEmail, sendEmail } = require('./lib/middleware/email')
 
 const {
   validateRegistration,
@@ -72,7 +72,6 @@ const {
 } = require('./lib/middleware/session')
 
 const {
-  validateForgotPassword,
   generatePasswordResetEmail
 } = require('./lib/middleware/forgotPassword')
 
@@ -124,11 +123,11 @@ module.exports = {
   requireAuthorization,
 
   // Email:
+  validateEmail,
   sendEmail,
 
   // Email Verification:
   generateEmailVerificationEmail,
-  startEmailVerification,
   validateEmailVerification,
   getAccountWithEmailTokens,
   verifyEmail,
@@ -140,6 +139,15 @@ module.exports = {
     updateAccount,
     authenticate,
     reduceAccountForClient,
+    addToResponse
+  ],
+
+  // Resend Email Verification:
+  startEmailVerification,
+  resendEmailVerification: [
+    validateEmail,
+    getAccount,
+    ...startEmailVerification,
     addToResponse
   ],
 
@@ -185,10 +193,9 @@ module.exports = {
   ],
 
   // Forgot Password:
-  validateForgotPassword,
   generatePasswordResetEmail,
   forgotPassword: [
-    validateForgotPassword,
+    validateEmail,
     generateToken,
     insertToken,
     generatePasswordResetEmail,
