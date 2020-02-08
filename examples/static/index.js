@@ -1,9 +1,10 @@
+const path = require('path')
 const { createApp } = require('../..')
 
 const app = createApp({
   static: {
-    enabled: true,
     send: {
+      root: path.join(__dirname, 'dist'),
       fallback (ctx) {
         ctx.body = 'I Wish I Could'
       }
