@@ -17,3 +17,14 @@ test.skip('Email Verification from email', async ({ expect }) => {
 
 test.skip('Email Verification from resent email', async ({ expect }) => {
 })
+
+test.skip('Email Verification after resent', async ({ expect }) => {
+})
+
+test.skip('Email Verification with invalid token')
+
+test.skip('Email Verification with token-email mismatch')
+
+test.skipt('Resend Email Verification with invalid email')
+
+test.skipt('Resend Email Verification with unregistered email')
