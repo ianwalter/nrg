@@ -35,7 +35,7 @@ test('Login with disabled user', async ({ expect }) => {
   expect(response.body).toMatchSnapshot()
 })
 
-test.only('Login when already logged in', async ({ expect }) => {
+test('Login when already logged in', async ({ expect }) => {
   const credentials = { ...generalUser, password }
   let response = await app.test('/login').post(credentials)
   response = await app.test('/login', response).post(credentials)

@@ -25,6 +25,6 @@ test.skip('Email Verification with invalid token')
 
 test.skip('Email Verification with token-email mismatch')
 
-test.skipt('Resend Email Verification with invalid email')
+test.skip('Resend Email Verification with invalid email')
 
-test.skipt('Resend Email Verification with unregistered email')
+test.skip('Resend Email Verification with unregistered email')
