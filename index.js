@@ -1,3 +1,5 @@
+const { Model } = require('objection')
+
 const createApp = require('./lib/app')
 const createWorker = require('./lib/worker')
 
@@ -249,6 +251,7 @@ module.exports = {
    * Models:
    */
 
+  Model,
   Base,
   Account,
   Token,
