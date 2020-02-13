@@ -82,7 +82,9 @@ const {
   getAccountWithPasswordTokens
 } = require('./lib/middleware/passwordReset')
 
-const { extract, swap } = require('./lib/utilities')
+const { slowDown } = require('./lib/middleware/slowDown')
+
+const { extract, swap, getRandomTimeout } = require('./lib/utilities')
 
 module.exports = {
   /**
@@ -236,6 +238,9 @@ module.exports = {
     addToResponse
   ],
 
+  // Slow down:
+  slowDown,
+
   /**
    * Error classes:
    */
@@ -261,5 +266,6 @@ module.exports = {
    */
 
   extract,
-  swap
+  swap,
+  getRandomTimeout
 }
