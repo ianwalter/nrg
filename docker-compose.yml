@@ -7,7 +7,7 @@ services:
       - "16379:6379"
 
   db:
-    image: postgres:12.1
+    image: postgres:12.2
     stop_signal: SIGINT
     ports:
       - "15432:5432"
