@@ -1081,13 +1081,13 @@
     amqp-connection-manager "^3.1.1"
     amqplib "^0.5.5"
 
-"@ianwalter/nrg-router@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.3.0.tgz#33d87c38814a575fe87bd79f193b07312321a1fb"
-  integrity sha512-8ymhSiSO7k8AtInqBwfI3nfKO2zqR39fZ6v7/FwJqB6/hZrMIk86fRUKm36DPLhaOh3ZZNQnTHoVPiEED6Cw7Q==
+"@ianwalter/nrg-router@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.4.0.tgz#e8183e9da0ad555426a642d2a89bb2ffa4e827a3"
+  integrity sha512-c22qA/KfsjkX/4q+MXdjAWFed9w36JbvxpNXoyrUJbKSIi58ijNWQDB4MwCTxEOqGOax/MfKdVB8ButkQRu7Bg==
   dependencies:
-    "@ianwalter/print" "^5.1.0"
-    "@ianwalter/router" "^3.2.0"
+    "@ianwalter/print" "^5.3.0"
+    "@ianwalter/router" "^3.3.0"
 
 "@ianwalter/nrg-session@^6.0.0":
   version "6.0.0"
@@ -1156,22 +1156,6 @@
     marked-terminal "^4.0.0"
     strip-ansi "^6.0.0"
 
-"@ianwalter/print@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-5.1.0.tgz#52c5b727a24088ae3354f34c8147761053bc907f"
-  integrity sha512-hthgIc5l98Az6TS1m2SzAzjWtVwrAdBBJvW8uhtvq+awekelri5s4yoKNLkZAjHRJSM7gyXX+IK/ttISzkiOUA==
-  dependencies:
-    "@ianwalter/chromafi" "^1.0.1"
-    "@ianwalter/clone" "^5.0.0"
-    "@ianwalter/log" "^4.0.0"
-    "@ianwalter/merge" "^5.0.0"
-    chalk "^3.0.0"
-    has-ansi "^4.0.0"
-    has-emoji "^1.1.0"
-    marked "^0.8.0"
-    marked-terminal "^4.0.0"
-    strip-ansi "^6.0.0"
-
 "@ianwalter/print@^5.3.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-5.3.0.tgz#f5a73bbe387075d0ac5fb654943c81c181082d84"
@@ -1220,12 +1204,12 @@
     "@ianwalter/print" "^5.0.0"
     fast-json-parse "^1.0.3"
 
-"@ianwalter/router@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.2.0.tgz#f19cc84ffacd46cac15f6400da0c8efd275561df"
-  integrity sha512-G4ZqnGqtTg6wQHhH1VFF/B1dqC2BhoThUezPulR0q+EyOkIwcuNKTdpkcI/zshiWU6qHAKgDfAfF95lvM0GUyg==
+"@ianwalter/router@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/router/-/router-3.3.0.tgz#01238bac61b7a8700b4748ba425732f27c85154e"
+  integrity sha512-R7UMduly07w5DdRE++8rJkA5dHbHN6ugZnD2lTXpiMIwYMILEDyz85I++r1vwxgmVBAJxkkjjKYFshL6qbh6zw==
   dependencies:
-    "@ianwalter/merge" "^5.0.0"
+    "@ianwalter/merge" "^6.0.0"
     koa-compose "^4.1.0"
 
 "@ianwalter/subpub@^2.0.0":
