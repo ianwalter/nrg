@@ -1,17 +1,20 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const modulesDir = path.join(__dirname, '../../node_modules')
 const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  entry: { ssr: './ssr.js' },
+  context: __dirname,
+  mode: isProduction ? 'production' : 'development',
+  entry: { ssr: ['./ssr.js'] },
   target: 'node',
   externals: nodeExternals({ modulesDir }),
   output: {
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
+    path: path.join(__dirname, 'dist')
   },
-  mode: isProduction ? 'production' : 'development',
   resolve: {
     extensions: ['.mjs', '.js', '.svelte', '.json']
   },
@@ -21,8 +24,16 @@ module.exports = {
       {
         test: /\.svelte$/,
         include: __dirname,
-        loader: 'svelte-loader'
+        loader: 'svelte-loader',
+        options: { generate: 'ssr' }
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, '../../lib/pageTemplate.html'),
+      filename: 'pageTemplate.html',
+      minify: false
+    })
+  ]
 }

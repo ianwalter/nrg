@@ -22,3 +22,18 @@ if (!process.env.GITHUB_ACTION) {
     await app.test('/namespace').get()
   })
 }
+
+test.only('SSR', async ({ expect }) => {
+  const app = require('../examples/ssr')
+
+  // Verify that the page is returned successfully when requesting the root
+  // path.
+  let response = await app.test('/').get()
+  expect(response.status).toBe(200)
+  expect(response.text).toMatchSnapshot()
+
+  // Verify that a 404 Not Found is returned when requesting a path that
+  // contains "not-found"
+  response = await app.test('/not-found').get()
+  expect(response.status).toBe(404)
+})

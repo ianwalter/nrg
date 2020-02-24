@@ -5,7 +5,7 @@ export default pageTemplate => ctx => {
   // body HTML, and CSS code.
   let page = {}
   try {
-    page = App.render(ctx)
+    page = ctx.url.includes('not-found') ? { status: 404 } : App.render(ctx)
   } catch (err) {
     // Log the error if one is thrown when rendering the page.
     ctx.log.error(err)
