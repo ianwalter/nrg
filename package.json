@@ -58,7 +58,7 @@
     "@ianwalter/print": "^5.3.0",
     "@ianwalter/url": "^1.1.0",
     "bcrypt": "4.0.0",
-    "date-fns": "^2.9.0",
+    "date-fns": "^2.10.0",
     "devalue": "^2.0.1",
     "dot-prop": "^5.2.0",
     "dotenv": "^8.2.0",
