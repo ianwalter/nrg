@@ -1011,6 +1011,11 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/clone/-/clone-5.0.0.tgz#d5e20f3b9eccfbbb094f6f38e1cf6d31818b51ac"
   integrity sha512-N0BlOwYog4ASu2OP+9q2xM3fvJDtFm4YhhZG2dmn0rmueJGhqC/OSJIHgixL6wORDP0w9+sRJdI97b0IoWBdYw==
 
+"@ianwalter/clone@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/clone/-/clone-6.0.1.tgz#b24e7ae22a8682c58e2ab23061dbc3b288466fad"
+  integrity sha512-3dCmuxyyZKUPM7kFI2sf7WxQli7KL6FisH9uOtcGvjmvHOwKW+NHXVwCTD4xfrxEGhu4eAKwO0BN9f8V0YYAKQ==
+
 "@ianwalter/cloneable@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@ianwalter/cloneable/-/cloneable-1.0.1.tgz#627489e86020f035559b263762e1ff6329b8c08e"
@@ -1199,13 +1204,13 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/renovate-config/-/renovate-config-1.2.0.tgz#f84e2fc56ad5d29c0876058c16c25db95baf74a9"
   integrity sha512-OSvziSdR0gxnWeH+9KbS9+HjojFa73vqNFU7wAxWs2ZV/9YofpKw0HwGtzyYgb1xVk8g6ZFPMYaTnFZ4Af6N/w==
 
-"@ianwalter/requester@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/requester/-/requester-2.1.0.tgz#7bb324ab0e4a17ee5f0ca8771758101b5a8c1c5f"
-  integrity sha512-fST6EwoXP6AWzsDRPmpOMPP9k8A4GIm5+5f5v8+/s6wDMeFubR8i52kvsLF1FW/D4XUnQtQc/G1pOQ5zcF1iiA==
+"@ianwalter/requester@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/requester/-/requester-2.2.0.tgz#dcabfb2c43cbb6b376445fda4c1e624503d1d229"
+  integrity sha512-LAx7jwft2JADO+DZ2l944rZTorqFelpcyZXqEcJ6BtkxatKUFRnKZG+KZlfaVORjcEAIN8zNbtf8YMt32rU+mg==
   dependencies:
     "@ianwalter/base-error" "^6.1.0"
-    "@ianwalter/clone" "^5.0.0"
+    "@ianwalter/clone" "^6.0.1"
     "@ianwalter/merge" "^7.0.0"
     "@ianwalter/print" "^5.3.0"
 
