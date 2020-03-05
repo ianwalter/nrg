@@ -84,6 +84,8 @@ const {
 
 const { slowDown } = require('./lib/middleware/slowDown')
 
+const { httpsRedirect } = require('./lib/middleware/httpsRedirect')
+
 const { extract, swap, getRandomTimeout } = require('./lib/utilities')
 
 module.exports = {
@@ -238,8 +240,11 @@ module.exports = {
     addToResponse
   ],
 
-  // Slow down:
+  // Slow down / rate limiting:
   slowDown,
+
+  // HTTP to HTTPS redirect:
+  httpsRedirect,
 
   /**
    * Error classes:
