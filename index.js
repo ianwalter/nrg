@@ -12,6 +12,7 @@ const {
   HttpError,
   BadRequestError,
   UnauthorizedError,
+  ForbiddenError,
   NotFoundError,
   ValidationError
 } = require('./lib/errors')
@@ -254,6 +255,7 @@ module.exports = {
   HttpError,
   BadRequestError,
   UnauthorizedError,
+  ForbiddenError,
   NotFoundError,
   ValidationError,
 
