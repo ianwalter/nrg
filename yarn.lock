@@ -1017,11 +1017,6 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/clone/-/clone-6.0.1.tgz#b24e7ae22a8682c58e2ab23061dbc3b288466fad"
   integrity sha512-3dCmuxyyZKUPM7kFI2sf7WxQli7KL6FisH9uOtcGvjmvHOwKW+NHXVwCTD4xfrxEGhu4eAKwO0BN9f8V0YYAKQ==
 
-"@ianwalter/cloneable@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/cloneable/-/cloneable-1.0.1.tgz#627489e86020f035559b263762e1ff6329b8c08e"
-  integrity sha512-1+SjoHTyEMK/UB4ASZpQdArMk2K3RlSptbG0GVeNXLfWeo5H+RdTbhcEk4GUYKEf3SskIXYrS8FvtL02d/6D+g==
-
 "@ianwalter/cloneable@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/cloneable/-/cloneable-2.0.0.tgz#afe88576cf08e17825509c68185cd7da61354dad"
