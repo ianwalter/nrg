@@ -64,7 +64,7 @@ createApp({
     compress,
     // [Boolean|Function] Whether to add the koa-bodyParser middleware with the
     // default configuration or pass your own request body parsing middleware.
-    bodyJson,
+    bodyParser,
     // [Boolean] Whether JSON response bodies should be prettified using the
     // prettyJson middleware. Defaults to false if hostEnv is production and
     // false otherwise.
