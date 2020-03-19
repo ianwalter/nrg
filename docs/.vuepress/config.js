@@ -39,7 +39,8 @@ module.exports = {
           title: 'Guide',
           collapsable: false,
           children: [
-            'installation'
+            'installation',
+            'configuration'
           ]
         }
       ]
