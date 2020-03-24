@@ -27,6 +27,7 @@
     "example:static": "node examples/static",
     "example:ssr": "node examples/ssr",
     "example:mq": "node examples/mq",
+    "example:accounts": "node examples/accounts/serve",
     "build:example:ssr": "NODE_ENV=production webpack examples/ssr",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",

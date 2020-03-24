@@ -4,6 +4,7 @@ const path = require('path')
 const { promises: fs } = require('fs')
 const cli = require('@ianwalter/cli')
 const { Print } = require('@ianwalter/print')
+const healthcheck = require('./lib/commands/healthcheck')
 
 const { _: commands, packageJson, ...config } = cli({
   name: 'nrg',
@@ -92,6 +93,8 @@ async function run () {
       app.logger.fatal('Run what?')
       process.exit(1)
     }
+  } else if (commands[0] === 'healthcheck') {
+    await healthcheck({ config, print }, app)
   } else {
     print.error('Unknown command:', commands[0], '\n\n')
     print.info(config.helpText)
