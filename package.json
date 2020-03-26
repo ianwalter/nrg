@@ -61,7 +61,7 @@
     "@ianwalter/requester": "^2.2.0",
     "@ianwalter/url": "^1.1.0",
     "bcrypt": "4.0.1",
-    "date-fns": "^2.11.0",
+    "date-fns": "^2.11.1",
     "devalue": "^2.0.1",
     "dot-prop": "^5.2.0",
     "dotenv": "^8.2.0",
