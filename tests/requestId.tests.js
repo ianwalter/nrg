@@ -1,5 +1,5 @@
 const { test } = require('@ianwalter/bff')
-const nanoid = require('nanoid')
+const { nanoid } = require('nanoid')
 const app = require('./fixtures/helloWorld')
 
 test('Request ID gets generated', async ({ expect }) => {
