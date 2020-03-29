@@ -47,9 +47,27 @@ const accounts = [
   },
   {
     id: 6,
+    firstName: 'Owner User',
+    lastName: 'Test',
+    email: 'owner_user_test@example.com',
+    password: encryptedPassword,
+    emailVerified: true,
+    enabled: true
+  },
+  {
+    id: 7,
     firstName: 'Admin User',
     lastName: 'Test',
     email: 'admin_user_test@example.com',
+    password: encryptedPassword,
+    emailVerified: true,
+    enabled: true
+  },
+  {
+    id: 8,
+    firstName: 'Author User',
+    lastName: 'Test',
+    email: 'author_user_test@example.com',
     password: encryptedPassword,
     emailVerified: true,
     enabled: true
