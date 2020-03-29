@@ -10,7 +10,7 @@ const tokens = [
   {
     value: encryptedToken,
     type: 'email',
-    accountId: 4,
+    accountId: unverifiedUser.id,
     email: unverifiedUser.email,
     expiresAt: addDays(new Date(), 1).toISOString()
   }
