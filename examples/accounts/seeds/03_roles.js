@@ -8,10 +8,6 @@ const roles = [
     id: 2,
     name: 'admin',
     level: 99
-  },
-  {
-    id: 3,
-    name: 'author'
   }
 ]
 

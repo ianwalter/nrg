@@ -62,15 +62,6 @@ const accounts = [
     password: encryptedPassword,
     emailVerified: true,
     enabled: true
-  },
-  {
-    id: 8,
-    firstName: 'Author User',
-    lastName: 'Test',
-    email: 'author_user_test@example.com',
-    password: encryptedPassword,
-    emailVerified: true,
-    enabled: true
   }
 ]
 

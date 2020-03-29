@@ -5,8 +5,6 @@ const ownerUser = accounts.find(a => a.firstName === 'Owner User')
 const ownerRole = roles.find(r => r.name === 'owner')
 const adminUser = accounts.find(a => a.firstName === 'Admin User')
 const adminRole = roles.find(r => r.name === 'admin')
-const authorUser = accounts.find(a => a.firstName === 'Author User')
-const authorRole = roles.find(r => r.name === 'author')
 const accountRoles = [
   {
     accountId: ownerUser.id,
@@ -15,10 +13,6 @@ const accountRoles = [
   {
     accountId: adminUser.id,
     roleId: adminRole.id
-  },
-  {
-    accountId: authorUser.id,
-    roleId: authorRole.id
   }
 ]
 

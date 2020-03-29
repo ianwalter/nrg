@@ -57,9 +57,14 @@ app.post('/forgot-password', ...nrg.forgotPassword)
 // Allow users to reset their password.
 app.post('/reset-password', ...nrg.passwordReset)
 
-// Allow users with the admin role to access a secret admin endpoint!
+// Allow users with the admin role to access this endpoint.
 app.get('/admin', nrg.requireAuthorization({ roles: ['admin'] }), ctx => {
   ctx.body = 'Welcome admin!'
+})
+
+// Allow users with the admin or owner role to access this endpoint.
+app.get('/hi', nrg.requireAuthorization({ roles: ['admin', 'owner'] }), ctx => {
+  ctx.body = 'Hiya boss!'
 })
 
 module.exports = app
