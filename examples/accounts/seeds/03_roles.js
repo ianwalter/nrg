@@ -1,13 +1,11 @@
 const roles = [
   {
     id: 1,
-    name: 'owner',
-    level: 999
+    name: 'owner'
   },
   {
     id: 2,
-    name: 'admin',
-    level: 99
+    name: 'admin'
   }
 ]
 
