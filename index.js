@@ -6,6 +6,7 @@ const createWorker = require('./lib/worker')
 const Base = require('./lib/models/Base')
 const Account = require('./lib/models/Account')
 const Token = require('./lib/models/Token')
+const Role = require('./lib/models/Role')
 
 const {
   GeneralError,
@@ -267,6 +268,7 @@ module.exports = {
   Base,
   Account,
   Token,
+  Role,
 
   /**
    * Utilities:
