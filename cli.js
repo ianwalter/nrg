@@ -75,6 +75,11 @@ async function run () {
       const uid = require('uid-safe')
       const bytes = parseInt(commands[2]) || app.context.options.hash.bytes
       print.log('🔑', await uid(bytes))
+    } else if (commands[1] === 'migration') {
+      app.db.migrate.make(commands[2])
+    } else {
+      app.logger.fatal('New what? Available: secret, migration, seed')
+      process.exit(1)
     }
   } else if (commands[0] === 'seed') {
     // Run seeds.
