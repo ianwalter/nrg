@@ -7606,10 +7606,10 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
 
-nanoid@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.0.1.tgz#8fb66b6910902327d4a47f623f9a3e502d563edf"
-  integrity sha512-y5gyHbIZQUaim/PrgYLd27MPoDIbGk9Yv5WeWLzFcfDxdV0svMV6geY6G/z/gWrP+OiBrj4SJ+z3Tpyn6IaMOA==
+nanoid@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.3.tgz#b2bcfcfda4b4d6838bc22a0c8dd3c0a17a204c20"
+  integrity sha512-Zw8rTOUfh6FlKgkEbHiB1buOF2zOPOQyGirABUWn+9Z7m9PpyoLVkh6Ksc53vBjndINQ2+9LfRPaHxb/u45EGg==
 
 nanomatch@^1.2.9:
   version "1.2.13"
