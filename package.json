@@ -86,7 +86,7 @@
     "require-from-string": "^2.0.2",
     "server-destroy": "^1.0.1",
     "supertest": "^4.0.2",
-    "webpack": "^4.42.1"
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.8.2",
