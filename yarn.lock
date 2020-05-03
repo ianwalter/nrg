@@ -10603,10 +10603,10 @@ svelte-loader@^2.13.6:
     loader-utils "^1.1.0"
     svelte-dev-helper "^1.1.9"
 
-svelte@^3.22.0:
-  version "3.22.0"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.22.0.tgz#abd8a706818a59670c0d9a834743ad8343455e7a"
-  integrity sha512-v7IUN27pmzmBAhx9AKZoePSlRourpC1ZBR/cgnq99Pd1TY60gvsk+RVTK6ZQfOn1xrAn0ZcqwTCdrnvoeFNQzw==
+svelte@^3.22.1:
+  version "3.22.1"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.22.1.tgz#03bf93c0d3eb501f8793634b89a1b47d0774d616"
+  integrity sha512-2JwAFWxt188wIIKxuoD0iuVYctGSZoMLQ+w1D8vE5yY8pN99ZU2rdV8nAfYSiQH9FQDWZyEuyUuFGWKWPmwizg==
 
 svg-tags@^1.0.0:
   version "1.0.0"
