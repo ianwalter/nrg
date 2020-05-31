@@ -16,7 +16,7 @@
 
 ✅ &nbsp; Optional logging through [Pino][pinoUrl]
 
-🚧 &nbsp; Optional session-handling and CSRF protection using [Redis][redisUrl]
+✅ &nbsp; Optional session-handling and CSRF protection using [Redis][redisUrl]
 
 ✅ &nbsp; Optional database connection to [PostgreSQL][postgresUrl] using
           [knex][knexUrl] and [Objection.js][objectionUrl]
