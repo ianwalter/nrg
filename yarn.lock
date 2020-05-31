@@ -7186,10 +7186,10 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-mailgen@^2.0.10:
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/mailgen/-/mailgen-2.0.10.tgz#e0217ccae639856c8c2a86303d19245a5f00e909"
-  integrity sha512-HGC2DQ7QWLlIba4JmCyYz741xGt+qTYAJ4W29hUUlVfdZmaNHAALpwPt5FJS0wZjEGWLnXW9WKfxXsLaZisP/A==
+mailgen@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/mailgen/-/mailgen-2.0.13.tgz#d502dcea02697ff9c3b9d6abebd16c9f7a891f0d"
+  integrity sha512-loBeDeWn0S1MR/yHV8kWl7i1h+ycHVbwPBoHsw4XwYvxX/qtnhiWeeHuxC+BOVHuWPIm24Bxk4wOu7V7MzJvOg==
   dependencies:
     ejs "^2.6.1"
     juice "^5.2.0"
