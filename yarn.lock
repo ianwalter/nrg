@@ -974,6 +974,11 @@
     isemail "^3.2.0"
     zxcvbn "^4.4.2"
 
+"@ianwalter/dot@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/dot/-/dot-0.0.1.tgz#c909d099c9b29140a940aa897281845ae6585542"
+  integrity sha512-/+PRPXPdoNJkcJQHWiTOzjneRp9WrM5e8uHZOS6Hm0ghwijaeI6nO4In8FjLaxZAtkwJAuuLDvjD0jdbRcza6A==
+
 "@ianwalter/eslint-config@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/eslint-config/-/eslint-config-5.0.0.tgz#0648e142d75859ac5eecd817f1605192e83d2c75"
@@ -1217,6 +1222,13 @@
     stylus-loader "^3.0.2"
     vuepress-plugin-container "^2.1.3"
     vuepress-plugin-smooth-scroll "^0.0.9"
+
+"@ianwalter/without@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/without/-/without-0.0.1.tgz#eb1c2ccd6b138ce2ebfd0504faae1054181e9127"
+  integrity sha512-RemqRirH/1nzXi+5o3qagtkwHzgNvuxtXAqlK0vI/6ZEKqgAQFkp9/tUMTChwaxrtvcSh2j16f3kxNdTQWdg4w==
+  dependencies:
+    "@ianwalter/dot" "^0.0.1"
 
 "@jest/types@^25.3.0":
   version "25.3.0"
