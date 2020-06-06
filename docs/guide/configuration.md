@@ -119,7 +119,7 @@ createApp({
         action: {
           instructions: 'To get started, please click here:',
           button: {
-            text: 'Confirm your account'
+            text: 'Verify your account'
           }
         }
       },

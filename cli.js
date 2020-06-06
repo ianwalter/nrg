@@ -4,6 +4,7 @@ const path = require('path')
 const { promises: fs } = require('fs')
 const cli = require('@ianwalter/cli')
 const { Print } = require('@ianwalter/print')
+const cloneable = require('@ianwalter/cloneable')
 const healthcheck = require('./lib/commands/healthcheck')
 
 const { _: commands, packageJson, ...config } = cli({
@@ -100,6 +101,13 @@ async function run () {
     }
   } else if (commands[0] === 'healthcheck') {
     await healthcheck({ config, print }, app)
+  } else if (commands[0] === 'print') {
+    if (commands[1] === 'config') {
+      print.info('Application config:', cloneable(app.context.options))
+    } else {
+      app.logger.fatal('Print what? Available: config')
+      process.exit(1)
+    }
   } else {
     print.error('Unknown command:', commands[0], '\n\n')
     print.info(config.helpText)
