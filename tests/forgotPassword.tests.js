@@ -43,6 +43,7 @@ test('Forgot Password with registered email', async t => {
     source: t.expect.any(String),
     date: t.expect.any(String),
     time: t.expect.any(String),
+    remoteAddress: t.expect.any(String),
     headers: t.expect.any(Object)
   })
 
