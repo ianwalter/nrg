@@ -1,7 +1,7 @@
 const { test } = require('@ianwalter/bff')
-const { requester } = require('@ianwalter/requester')
 const app = require('../examples/accounts')
 const { accounts } = require('../examples/accounts/seeds/01_accounts')
+const { extractEmailToken } = require('..')
 
 const generalUser = accounts.find(a => a.firstName === 'General User')
 
@@ -27,18 +27,24 @@ test('Forgot Password with unregistered email', async ({ expect }) => {
   expect(response.body).toMatchSnapshot()
 })
 
-test('Forgot Password with registered email', async ({ expect, sleep }) => {
+test('Forgot Password with registered email', async t => {
   const response = await app.test('/forgot-password').post(generalUser)
-  expect(response.status).toBe(200)
-  expect(response.body).toMatchSnapshot()
+  t.expect(response.status).toBe(200)
+  t.expect(response.body).toMatchSnapshot()
 
-  await sleep(1000)
+  await t.sleep(500)
 
-  const host = process.env.SMTP_HOST || 'localhost'
-  const port = process.env.SMTP_PORT ? 80 : 2080
-  const { body } = await requester.get(`http://${host}:${port}/email`)
-  const email = body.find(email => email.headers.to === generalUser.email)
-  expect(email.subject).toContain('Password Reset')
+  // Extract and verify the Forgot Password email and token.
+  const byEmail = email => email.headers.to === generalUser.email
+  const { email } = await extractEmailToken(byEmail)
+  t.expect(email).toMatchSnapshot({
+    id: t.expect.any(String),
+    messageId: t.expect.any(String),
+    source: t.expect.any(String),
+    date: t.expect.any(String),
+    time: t.expect.any(String),
+    headers: t.expect.any(Object)
+  })
 
   // TODO: verify token database record.
 })

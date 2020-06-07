@@ -39,6 +39,9 @@ app.post('/registration', ...nrg.registration)
 // Allow users to verify their email address.
 app.post('/verify-email', ...nrg.emailVerification)
 
+// Allow users to trigger their email verification email to be resent.
+app.post('/resend-email-verification', ...nrg.resendEmailVerification)
+
 // Allow users to login.
 app.post('/login', ...nrg.login)
 

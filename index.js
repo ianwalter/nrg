@@ -88,7 +88,12 @@ const { slowDown } = require('./lib/middleware/slowDown')
 
 const { httpsRedirect } = require('./lib/middleware/httpsRedirect')
 
-const { extract, swap, getRandomTimeout } = require('./lib/utilities')
+const {
+  swap,
+  getRandomTimeout,
+  getTestEmail,
+  extractEmailToken
+} = require('./lib/utilities')
 
 module.exports = {
   /**
@@ -274,7 +279,8 @@ module.exports = {
    * Utilities:
    */
 
-  extract,
   swap,
-  getRandomTimeout
+  getRandomTimeout,
+  getTestEmail,
+  extractEmailToken
 }

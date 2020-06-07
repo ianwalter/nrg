@@ -992,6 +992,13 @@
     eslint-plugin-promise "^4.2.1"
     eslint-plugin-standard "^4.0.1"
 
+"@ianwalter/extract@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@ianwalter/extract/-/extract-0.0.2.tgz#a18e4525cd60a5bb553d68946da056f07048b9ee"
+  integrity sha512-J3SwwFkH65eZcKl9WScYmpxQn3L4Go2jqPBvZ/cW3bwpS/4xyiqu14JowBCM2Qc8+K+lqC23KAz7HLzEURhnpQ==
+  dependencies:
+    "@ianwalter/dot" "^0.0.1"
+
 "@ianwalter/log@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/log/-/log-3.1.0.tgz#e01bd09cf27e012f07d534a04b9a07c0e0d7b226"
@@ -1222,13 +1229,6 @@
     stylus-loader "^3.0.2"
     vuepress-plugin-container "^2.1.3"
     vuepress-plugin-smooth-scroll "^0.0.9"
-
-"@ianwalter/without@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/without/-/without-0.0.1.tgz#eb1c2ccd6b138ce2ebfd0504faae1054181e9127"
-  integrity sha512-RemqRirH/1nzXi+5o3qagtkwHzgNvuxtXAqlK0vI/6ZEKqgAQFkp9/tUMTChwaxrtvcSh2j16f3kxNdTQWdg4w==
-  dependencies:
-    "@ianwalter/dot" "^0.0.1"
 
 "@jest/types@^25.3.0":
   version "25.3.0"
@@ -9588,6 +9588,11 @@ repeat-string@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
   integrity sha1-jcrkcOHIirwtYA//Sndihtp15jc=
+
+replace-string@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/replace-string/-/replace-string-3.1.0.tgz#77a087d88580fbac59851237891aa4b0e283db72"
+  integrity sha512-yPpxc4ZR2makceA9hy/jHNqc7QVkd4Je/N0WRHm6bs3PtivPuPynxE5ejU/mp5EhnCv8+uZL7vhz8rkluSlx+Q==
 
 request@^2.87.0, request@^2.88.0:
   version "2.88.0"

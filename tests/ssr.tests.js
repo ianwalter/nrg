@@ -23,7 +23,7 @@ if (!process.env.GITHUB_ACTION) {
   })
 }
 
-test.only('SSR', async ({ expect }) => {
+test('SSR', async ({ expect }) => {
   const app = require('../examples/ssr')
 
   // Verify that the page is returned successfully when requesting the root

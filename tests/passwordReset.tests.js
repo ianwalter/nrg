@@ -1,8 +1,7 @@
 const { test } = require('@ianwalter/bff')
-const { requester } = require('@ianwalter/requester')
-const cheerio = require('cheerio')
 const app = require('../examples/accounts')
 const { accounts, password } = require('../examples/accounts/seeds/01_accounts')
+const { extractEmailToken } = require('..')
 
 const testUser = { ...accounts[1], password }
 
@@ -30,35 +29,38 @@ test('Password Reset with invalid token', async ({ expect }) => {
 
 test.skip('Password Reset with token-email mismatch')
 
-test('Password Reset with valid data', async ({ expect, sleep }) => {
+test('Password Reset with valid data', async t => {
   // Start the Forgot Password process.
   await app.test('/forgot-password').post(testUser)
-  await sleep(500)
+  await t.sleep(500)
 
-  // Extract the Password Reset token from the Forgot Password email.
-  const host = process.env.SMTP_HOST || 'localhost'
-  const port = process.env.SMTP_PORT ? 80 : 2080
-  const { body } = await requester.get(`http://${host}:${port}/email`)
-  const email = body.find(email => email.headers.to === testUser.email)
-  const $ = cheerio.load(email.html)
-  const url = new URL($('.button').attr('href'))
-  const token = url.searchParams.get('token')
+  // Extract and verify the Forgot Password email and token.
+  const byEmail = email => email.headers.to === testUser.email
+  const { email, token } = await extractEmailToken(byEmail)
+  t.expect(email).toMatchSnapshot({
+    id: t.expect.any(String),
+    messageId: t.expect.any(String),
+    source: t.expect.any(String),
+    date: t.expect.any(String),
+    time: t.expect.any(String),
+    headers: t.expect.any(Object)
+  })
 
   // Reset the test user's password.
   const payload = { ...testUser, token, password: 'fjioenfkj02kqwmkl606' }
   let response = await app.test('/reset-password').post(payload)
-  expect(response.status).toBe(201)
-  expect(response.body).toMatchSnapshot()
+  t.expect(response.status).toBe(201)
+  t.expect(response.body).toMatchSnapshot()
 
   // Logout.
   await app.test('/logout', response).delete()
 
   // Verify account data cannot be retrieved.
   response = await app.test('/account', response).get()
-  expect(response.status).toBe(401)
+  t.expect(response.status).toBe(401)
 
   // Login and verify that the new password is able to log the user in.
   response = await app.test('/login').post(payload)
-  expect(response.status).toBe(201)
-  expect(response.body).toMatchSnapshot()
+  t.expect(response.status).toBe(201)
+  t.expect(response.body).toMatchSnapshot()
 })
