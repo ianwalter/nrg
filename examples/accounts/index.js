@@ -1,4 +1,3 @@
-const path = require('path')
 const nrg = require('../..')
 
 const app = nrg.createApp({
@@ -12,9 +11,7 @@ const app = nrg.createApp({
       database: 'nrg',
       user: 'nrg',
       password: 'gottaLottaEnemies'
-    },
-    migrations: path.join(__dirname, 'migrations'),
-    seeds: path.join(__dirname, 'seeds')
+    }
   },
   redis: {
     connection: {

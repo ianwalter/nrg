@@ -23,7 +23,7 @@ const app = createApp({
 
 // Add a handler that publishes a message, receives an acknowledgement, and
 // sends a successful response.
-app.use(async (ctx, next) => {
+app.use(async ctx => {
   await ctx.mq.test.pub({ greeting: 'Hello!' })
   ctx.body = app.msg
 })
