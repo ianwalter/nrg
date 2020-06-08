@@ -51,7 +51,7 @@ async function run () {
     if (commands[1] === 'migrations') {
       // Copy base account migrations.
       const source = path.join(__dirname, 'migrations')
-      const destination = app.context.options.db.migrations.directory ||
+      const destination = app.context.cfg.db.migrations.directory ||
         commands[2] ||
         path.resolve('migrations')
       await fs.mkdir(destination, { recursive: true })
@@ -75,7 +75,7 @@ async function run () {
       app.db.seed.make(commands[2])
     } else if (commands[1] === 'secret') {
       const uid = require('uid-safe')
-      const bytes = parseInt(commands[2]) || app.context.options.hash.bytes
+      const bytes = parseInt(commands[2]) || app.context.cfg.hash.bytes
       print.log('🔑', await uid(bytes))
     } else if (commands[1] === 'migration') {
       app.db.migrate.make(commands[2])
@@ -104,7 +104,7 @@ async function run () {
     await healthcheck({ config, print }, app)
   } else if (commands[0] === 'print') {
     if (commands[1] === 'config') {
-      const config = excluding(cloneable(app.context.options), 'helpText')
+      const config = excluding(cloneable(app.context.cfg), 'helpText')
       print.info('Application config:', config)
     } else {
       app.logger.fatal('Print what? Available: config')

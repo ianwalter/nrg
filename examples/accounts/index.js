@@ -2,6 +2,7 @@ const path = require('path')
 const nrg = require('../..')
 
 const app = nrg.createApp({
+  name: 'Accounts Example',
   baseUrl: 'http://localhost:9999/',
   log: { level: 'error' },
   db: {
