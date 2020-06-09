@@ -979,6 +979,11 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/dot/-/dot-0.0.1.tgz#c909d099c9b29140a940aa897281845ae6585542"
   integrity sha512-/+PRPXPdoNJkcJQHWiTOzjneRp9WrM5e8uHZOS6Hm0ghwijaeI6nO4In8FjLaxZAtkwJAuuLDvjD0jdbRcza6A==
 
+"@ianwalter/dot@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/dot/-/dot-0.1.0.tgz#d83340263a9b16bfbe7ead9dad2108ed52f3cfbb"
+  integrity sha512-CZDynwlCxlx+2KxAnOeG8R1kOADyfZsmRAslHl8BLa1Uyg5zmNFOtL0rmTUgtzXLZHhf6OD1AzQkQOMmNIqMJw==
+
 "@ianwalter/eslint-config@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/eslint-config/-/eslint-config-5.0.0.tgz#0648e142d75859ac5eecd817f1605192e83d2c75"
@@ -1024,10 +1029,10 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-7.0.0.tgz#2fc97113eea21c1fd25132c8ddb93d3f20a83d04"
   integrity sha512-PuJJiUQZSNRu6zrC6xrJx9/gX0NX9rilQ646+VBSj+X7RRBUWOogqxEUHojOJcwYTt2JzWVV9DIvvsZMkfZP5Q==
 
-"@ianwalter/merge@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-8.0.1.tgz#cee8dd2812bcb10897c71253e87cae771c4c218b"
-  integrity sha512-NBdi4i0h5tTDArbJVOyOluwSnaSTqQS24tv746vpfJsEU9mea3JxzA8ldgQBjq7FY4SofCNnzNJq/TmsiZD19Q==
+"@ianwalter/merge@^9.0.0-4":
+  version "9.0.0-4"
+  resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-9.0.0-4.tgz#eefb46c1ef866e7daa421237c3222fda5822ba1b"
+  integrity sha512-M0dxT2yn9WLbvDcdCqaeNzWuRgTv6pJmD2xHpxhvMRgA4jeP+/94lECGNTF1Fpchl80goc83qcyeUG5vLARmpw==
 
 "@ianwalter/nrg-mq@^0.0.2":
   version "0.0.2"

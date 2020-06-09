@@ -1,6 +1,6 @@
 const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
-const { accounts, password } = require('../examples/accounts/seeds/01_accounts')
+const { accounts, password } = require('../seeds/01_accounts')
 const { extractEmailToken } = require('..')
 
 const testUser = { ...accounts[1], password }

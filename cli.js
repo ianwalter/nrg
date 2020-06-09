@@ -7,6 +7,7 @@ const { Print } = require('@ianwalter/print')
 const cloneable = require('@ianwalter/cloneable')
 const { excluding } = require('@ianwalter/extract')
 const healthcheck = require('./lib/commands/healthcheck')
+const dot = require('@ianwalter/dot')
 
 const { _: commands, packageJson, ...config } = cli({
   name: 'nrg',
@@ -104,8 +105,9 @@ async function run () {
     await healthcheck({ config, print }, app)
   } else if (commands[0] === 'print') {
     if (commands[1] === 'config') {
-      const config = excluding(cloneable(app.context.cfg), 'helpText')
-      print.info('Application config:', config)
+      let cfg = excluding(app.context.cfg, 'helpText')
+      if (!config.all) cfg = cloneable(cfg)
+      print.info('Application config:', dot.get(cfg, commands[2]))
     } else {
       app.logger.fatal('Print what? Available: config')
       process.exit(1)

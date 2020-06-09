@@ -1,7 +1,7 @@
 const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
-const { accounts } = require('../examples/accounts/seeds/01_accounts')
-const { token } = require('../examples/accounts/seeds/02_tokens')
+const { accounts } = require('../seeds/01_accounts')
+const { token } = require('../seeds/02_tokens')
 
 const unverifiedUser = accounts.find(a => a.firstName === 'Unverified User')
 
