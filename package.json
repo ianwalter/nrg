@@ -99,7 +99,7 @@
     "babel-loader": "^8.1.0",
     "cheerio": "^1.0.0-rc.3",
     "html-webpack-plugin": "^4.3.0",
-    "svelte": "^3.23.0",
+    "svelte": "^3.23.1",
     "svelte-loader": "^2.13.6",
     "vuepress": "^1.5.1",
     "webpack-cli": "^3.3.11",
