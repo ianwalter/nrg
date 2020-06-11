@@ -61,7 +61,7 @@
     "@ianwalter/pino-print": "^4.2.0",
     "@ianwalter/print": "^6.0.0",
     "@ianwalter/requester": "^2.2.0",
-    "@ianwalter/url": "^1.1.0",
+    "@ianwalter/url": "^2.0.0",
     "bcrypt": "5.0.0",
     "date-fns": "^2.14.0",
     "devalue": "^2.0.1",
