@@ -1,8 +1,8 @@
-const path = require('path')
 const nrg = require('../..')
 
 const app = nrg.createApp({
-  baseUrl: 'http://localhost:9999/',
+  name: 'Accounts Example',
+  port: 9999,
   log: { level: 'error' },
   db: {
     connection: {
@@ -11,9 +11,7 @@ const app = nrg.createApp({
       database: 'nrg',
       user: 'nrg',
       password: 'gottaLottaEnemies'
-    },
-    migrations: path.join(__dirname, 'migrations'),
-    seeds: path.join(__dirname, 'seeds')
+    }
   },
   redis: {
     connection: {
@@ -25,6 +23,10 @@ const app = nrg.createApp({
     keys: ['terra', 'incognita']
   },
   email: {
+    from: {
+      name: 'Account Example Support Team',
+      address: 'support@example.com'
+    },
     transport: {
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT || 2025

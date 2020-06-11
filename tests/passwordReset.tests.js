@@ -1,6 +1,6 @@
 const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
-const { accounts, password } = require('../examples/accounts/seeds/01_accounts')
+const { accounts, password } = require('../seeds/01_accounts')
 const { extractEmailToken } = require('..')
 
 const testUser = { ...accounts[1], password }
@@ -32,7 +32,7 @@ test.skip('Password Reset with token-email mismatch')
 test('Password Reset with valid data', async t => {
   // Start the Forgot Password process.
   await app.test('/forgot-password').post(testUser)
-  await t.sleep(500)
+  await t.asleep(500)
 
   // Extract and verify the Forgot Password email and token.
   const byEmail = email => email.headers.to === testUser.email

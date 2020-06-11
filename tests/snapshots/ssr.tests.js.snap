@@ -13,10 +13,8 @@ exports[`SSR 1`] = `
   <body>
     <div id=\\"app\\"><h1>SSR Example</h1>
 
-<p>
-  The current URL is /
-</p></div>
-  <script type=\\"text/javascript\\" src=\\"ssr.js\\"></script></body>
+<p>The current URL is /</p></div>
+  <script src=\\"ssr.js\\"></script></body>
 </html>
 "
 `;
