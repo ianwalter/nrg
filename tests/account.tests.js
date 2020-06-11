@@ -17,7 +17,7 @@ test('Retrieving account data', async ({ expect }) => {
   expect(accountResponse.body).toEqual(loginResponse.body)
 })
 
-test('Updating account data', async ({ expect }) => {
+test.only('Updating account data', async ({ expect }) => {
   // Login.
   let response = await app.test('/login').post({ ...updateUser, password })
   expect(response.status).toBe(201)
