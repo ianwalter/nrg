@@ -32,7 +32,7 @@ test('Forgot Password with registered email', async t => {
   t.expect(response.status).toBe(200)
   t.expect(response.body).toMatchSnapshot()
 
-  await t.sleep(500)
+  await t.asleep(500)
 
   // Extract and verify the Forgot Password email and token.
   const byEmail = email => email.headers.to === generalUser.email
