@@ -23,6 +23,10 @@ const app = nrg.createApp({
     keys: ['terra', 'incognita']
   },
   email: {
+    from: {
+      name: 'Account Example Support Team',
+      address: 'support@example.com'
+    },
     transport: {
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT || 2025
