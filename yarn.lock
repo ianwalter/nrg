@@ -1046,12 +1046,12 @@
   dependencies:
     pino-http "^4.4.0"
 
-"@ianwalter/nrg-router@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.4.0.tgz#e8183e9da0ad555426a642d2a89bb2ffa4e827a3"
-  integrity sha512-c22qA/KfsjkX/4q+MXdjAWFed9w36JbvxpNXoyrUJbKSIi58ijNWQDB4MwCTxEOqGOax/MfKdVB8ButkQRu7Bg==
+"@ianwalter/nrg-router@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.5.0.tgz#6a4c1f7c854ee996543d5539969cadaeda6d260d"
+  integrity sha512-T0/J/iRsdt0i5NcVgG3e+79f/QUF5tSDq/I+0MV2AFrXeSM+lldB0ZHMVCATN5KYevc6aS2RnuXrLt9D6b5w2g==
   dependencies:
-    "@ianwalter/print" "^5.3.0"
+    "@ianwalter/print" "^6.0.0"
     "@ianwalter/router" "^3.3.0"
 
 "@ianwalter/nrg-session@^6.0.0":
