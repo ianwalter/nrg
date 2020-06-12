@@ -22,6 +22,12 @@ Object {
 }
 `;
 
+exports[`Resend Email Verification for disabled user 1`] = `
+Object {
+  "message": "Email Verification request submitted successfully",
+}
+`;
+
 exports[`Resend Email Verification with invalid email 1`] = `
 Object {
   "feedback": Object {

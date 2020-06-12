@@ -2,9 +2,11 @@ const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts } = require('../seeds/01_accounts')
 const { token } = require('../seeds/02_tokens')
+const { getTestEmail } = require('..')
 
 const unverifiedUser = accounts.find(a => a.firstName === 'Unverified User')
 const adminUser = accounts.find(a => a.firstName === 'Admin User')
+const disabledUser = accounts.find(a => a.firstName === 'Disabled User')
 
 test('Email Verification success', async t => {
   const payload = { email: unverifiedUser.email, token }
@@ -48,4 +50,15 @@ test('Resend Email Verification with unregistered email', async t => {
   const response = await app.test('/resend-email-verification').post(payload)
   t.expect(response.status).toBe(200)
   t.expect(response.body).toMatchSnapshot()
+})
+
+test('Resend Email Verification for disabled user', async t => {
+  const payload = disabledUser
+  const response = await app.test('/resend-email-verification').post(payload)
+  t.expect(response.status).toBe(200)
+  t.expect(response.body).toMatchSnapshot()
+
+  // Verify no email was sent to the user.
+  const email = await getTestEmail(e => e.headers.to === disabledUser.email)
+  t.expect(email).toBe(undefined)
 })
