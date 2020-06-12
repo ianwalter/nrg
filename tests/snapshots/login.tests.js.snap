@@ -42,9 +42,9 @@ Object {
 
 exports[`Login with valid credentials 1`] = `
 Object {
-  "email": "general_user_test@example.com",
+  "email": "general_test@example.com",
   "emailVerified": true,
-  "firstName": "General User",
+  "firstName": "General",
   "id": 1,
   "lastName": "Test",
 }

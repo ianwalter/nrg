@@ -2,9 +2,9 @@
 
 exports[`Email Verification success 1`] = `
 Object {
-  "email": "unverified_user_test@example.com",
+  "email": "unverified_test@example.com",
   "emailVerified": true,
-  "firstName": "Unverified User",
+  "firstName": "Unverified",
   "id": 4,
   "lastName": "Test",
 }

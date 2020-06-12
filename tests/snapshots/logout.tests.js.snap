@@ -2,9 +2,9 @@
 
 exports[`Logout when logged in 1`] = `
 Object {
-  "email": "general_user_test@example.com",
+  "email": "general_test@example.com",
   "emailVerified": true,
-  "firstName": "General User",
+  "firstName": "General",
   "id": 1,
   "lastName": "Test",
 }
@@ -12,9 +12,9 @@ Object {
 
 exports[`Logout when logged in 2`] = `
 Object {
-  "email": "general_user_test@example.com",
+  "email": "general_test@example.com",
   "emailVerified": true,
-  "firstName": "General User",
+  "firstName": "General",
   "id": 1,
   "lastName": "Test",
 }
