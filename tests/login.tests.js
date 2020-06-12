@@ -2,8 +2,8 @@ const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts, password } = require('../seeds/01_accounts')
 
-const generalUser = accounts.find(a => a.firstName === 'General User')
-const disabledUser = accounts.find(a => a.firstName === 'Disabled User')
+const generalUser = accounts.find(a => a.firstName === 'General')
+const disabledUser = accounts.find(a => a.firstName === 'Disabled')
 
 test('Login validation', async t => {
   // Email required.

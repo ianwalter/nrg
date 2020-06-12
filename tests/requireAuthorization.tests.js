@@ -2,9 +2,9 @@ const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts, password } = require('../seeds/01_accounts')
 
-const generalUser = accounts.find(a => a.firstName === 'General User')
-const adminUser = accounts.find(a => a.firstName === 'Admin User')
-const ownerUser = accounts.find(a => a.firstName === 'Owner User')
+const generalUser = accounts.find(a => a.firstName === 'General')
+const adminUser = accounts.find(a => a.firstName === 'Admin')
+const ownerUser = accounts.find(a => a.firstName === 'Owner')
 
 test('Require authorization', async t => {
   // Request account data.

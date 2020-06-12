@@ -1,9 +1,9 @@
 const { accounts } = require('./01_accounts')
 const { roles } = require('./03_roles')
 
-const ownerUser = accounts.find(a => a.firstName === 'Owner User')
+const ownerUser = accounts.find(a => a.firstName === 'Owner')
 const ownerRole = roles.find(r => r.name === 'owner')
-const adminUser = accounts.find(a => a.firstName === 'Admin User')
+const adminUser = accounts.find(a => a.firstName === 'Admin')
 const adminRole = roles.find(r => r.name === 'admin')
 const accountRoles = [
   {

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Password validation when updating password 1`] = `
+Object {
+  "feedback": Object {
+    "newPassword": Array [
+      "A valid new password is required.",
+      "Add another word or two. Uncommon words are better.",
+    ],
+  },
+  "message": "Validation Error",
+}
+`;
+
+exports[`Password validation when updating password 2`] = `
+Object {
+  "message": "Incorrect email or password",
+}
+`;
+
+exports[`Password validation when updating password 3`] = `Object {}`;

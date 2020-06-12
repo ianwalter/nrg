@@ -5,7 +5,7 @@ const { accounts } = require('./01_accounts')
 const token = 'iJustC4n7!gnore'
 const salt = bcrypt.genSaltSync(12)
 const encryptedToken = bcrypt.hashSync(token, salt)
-const unverifiedUser = accounts.find(a => a.firstName === 'Unverified User')
+const unverifiedUser = accounts.find(a => a.firstName === 'Unverified')
 const tokens = [
   {
     value: encryptedToken,

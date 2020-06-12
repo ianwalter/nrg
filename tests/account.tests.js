@@ -2,8 +2,9 @@ const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts, password } = require('../seeds/01_accounts')
 
-const generalUser = accounts.find(a => a.firstName === 'General User')
+const generalUser = accounts.find(a => a.firstName === 'General')
 const updateUser = accounts.find(a => a.firstName === 'Account Update')
+const changePasswordUser = accounts.find(a => a.firstName === 'Change Password')
 
 test('Retrieving account data', async t => {
   // Login.
@@ -66,10 +67,35 @@ test('Updating account data', async t => {
   t.expect(response.status).toBe(201)
 })
 
-test.skip('Password validation when updating password', async ({ expect }) => {
+test.only('Password validation when updating password', async t => {
+  // Login.
+  let payload = { ...changePasswordUser, password }
+  let response = await app.test('/login').post(payload)
+  t.expect(response.status).toBe(201)
+
+  // Updating to a weak password.
+  payload = { password, newPassword: 'Dadu' }
+  response = await app.test('/account', response).put(payload)
+  t.expect(response.status).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
+
+  // Updating to a strong password but with an incorrect current password.
+  const newPassword = 'egroaslk235opieflmkdqwp'
+  payload = { password: 'aknasioeg7613bjhfwe', newPassword }
+  response = await app.test('/account', response).put(payload)
+  t.expect(response.status).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
+
+  // Updating to a strong password.
+  response = await app.test('/account', response).put({ password, newPassword })
+  t.expect(response.status).toBe(200) // FIXME: should be 204 and not return {}
+  t.expect(response.body).toMatchSnapshot()
+})
+
+test.skip('Read-only fields are not updated', async t => {
 
 })
 
-test.skip('Read-only fields are not updated', async ({ expect }) => {
+test.skip('Updating email address', async t => {
 
 })

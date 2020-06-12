@@ -6,9 +6,9 @@ const encryptedPassword = bcrypt.hashSync(password, salt)
 const accounts = [
   {
     id: 1,
-    firstName: 'General User',
+    firstName: 'General',
     lastName: 'Test',
-    email: 'general_user_test@example.com',
+    email: 'general_test@example.com',
     password: encryptedPassword,
     emailVerified: true
   },
@@ -30,35 +30,44 @@ const accounts = [
   },
   {
     id: 4,
-    firstName: 'Unverified User',
+    firstName: 'Unverified',
     lastName: 'Test',
-    email: 'unverified_user_test@example.com',
+    email: 'unverified_test@example.com',
     password: encryptedPassword,
     emailVerified: false
   },
   {
     id: 5,
-    firstName: 'Disabled User',
+    firstName: 'Disabled',
     lastName: 'Test',
-    email: 'disabled_user_test@example.com',
+    email: 'disabled_test@example.com',
     password: encryptedPassword,
     emailVerified: true,
     enabled: false
   },
   {
     id: 6,
-    firstName: 'Owner User',
+    firstName: 'Owner',
     lastName: 'Test',
-    email: 'owner_user_test@example.com',
+    email: 'owner_test@example.com',
     password: encryptedPassword,
     emailVerified: true,
     enabled: true
   },
   {
     id: 7,
-    firstName: 'Admin User',
+    firstName: 'Admin',
     lastName: 'Test',
-    email: 'admin_user_test@example.com',
+    email: 'admin_test@example.com',
+    password: encryptedPassword,
+    emailVerified: true,
+    enabled: true
+  },
+  {
+    id: 8,
+    firstName: 'Change Password',
+    lastName: 'Test',
+    email: 'change_password_test@example.com',
     password: encryptedPassword,
     emailVerified: true,
     enabled: true

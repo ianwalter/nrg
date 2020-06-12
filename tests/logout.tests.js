@@ -2,7 +2,7 @@ const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts, password } = require('../seeds/01_accounts')
 
-const generalUser = accounts.find(a => a.firstName === 'General User')
+const generalUser = accounts.find(a => a.firstName === 'General')
 
 test('Logout when not logged in', async t => {
   const response = await app.test('/logout').delete()

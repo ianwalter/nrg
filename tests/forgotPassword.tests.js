@@ -3,8 +3,8 @@ const app = require('../examples/accounts')
 const { accounts } = require('../seeds/01_accounts')
 const { extractEmailToken, getTestEmail } = require('..')
 
-const generalUser = accounts.find(a => a.firstName === 'General User')
-const disabledUser = accounts.find(a => a.firstName === 'Disabled User')
+const generalUser = accounts.find(a => a.firstName === 'General')
+const disabledUser = accounts.find(a => a.firstName === 'Disabled')
 
 test('Forgot Password with invalid emails', async t => {
   let response = await app.test('/forgot-password').post({ email: null })

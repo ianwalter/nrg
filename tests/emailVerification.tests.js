@@ -4,9 +4,9 @@ const { accounts } = require('../seeds/01_accounts')
 const { token } = require('../seeds/02_tokens')
 const { getTestEmail } = require('..')
 
-const unverifiedUser = accounts.find(a => a.firstName === 'Unverified User')
-const adminUser = accounts.find(a => a.firstName === 'Admin User')
-const disabledUser = accounts.find(a => a.firstName === 'Disabled User')
+const unverifiedUser = accounts.find(a => a.firstName === 'Unverified')
+const adminUser = accounts.find(a => a.firstName === 'Admin')
+const disabledUser = accounts.find(a => a.firstName === 'Disabled')
 
 test('Email Verification success', async t => {
   const payload = { email: unverifiedUser.email, token }
