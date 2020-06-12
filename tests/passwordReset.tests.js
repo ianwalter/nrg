@@ -1,9 +1,11 @@
 const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts, password } = require('../seeds/01_accounts')
+const { token } = require('../seeds/02_tokens')
 const { extractEmailToken } = require('..')
 
 const testUser = { ...accounts[1], password }
+const ownerUser = accounts.find(a => a.firstName === 'Owner User')
 
 test('Password Reset with invalid email', async t => {
   const email = 'babu_frik @example.com'
@@ -27,7 +29,16 @@ test('Password Reset with invalid token', async t => {
   t.xpect(response.body).toMatchSnapshot()
 })
 
-test.skip('Password Reset with token-email mismatch')
+test('Password Reset with token-email mismatch', async t => {
+  // Start the Forgot Password process.
+  await app.test('/forgot-password').post(ownerUser)
+  await t.asleep(500)
+
+  const payload = { ...ownerUser, token }
+  const response = await app.test('/reset-password').post(payload)
+  t.expect(response.status).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
+})
 
 test('Password Reset with valid data', async t => {
   // Start the Forgot Password process.
