@@ -4,6 +4,7 @@ const { accounts } = require('../seeds/01_accounts')
 const { token } = require('../seeds/02_tokens')
 
 const unverifiedUser = accounts.find(a => a.firstName === 'Unverified User')
+const adminUser = accounts.find(a => a.firstName === 'Admin User')
 
 test('Email Verification success', async t => {
   const payload = { email: unverifiedUser.email, token }
@@ -21,9 +22,19 @@ test.skip('Email Verification from resent email', async ({ expect }) => {
 test.skip('Email Verification after resent', async ({ expect }) => {
 })
 
-test.skip('Email Verification with invalid token')
+test('Email Verification with invalid token', async t => {
+  const payload = { email: unverifiedUser.email, token: 'iJustC4n7!gnor3' }
+  const response = await app.test('/verify-email').post(payload)
+  t.expect(response.status).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
+})
 
-test.skip('Email Verification with token-email mismatch')
+test('Email Verification with token-email mismatch', async t => {
+  const payload = { email: adminUser.email, token }
+  const response = await app.test('/verify-email').post(payload)
+  t.expect(response.status).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
+})
 
 test('Resend Email Verification with invalid email', async t => {
   const payload = { email: 'test@example' }

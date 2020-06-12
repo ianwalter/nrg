@@ -10,6 +10,18 @@ Object {
 }
 `;
 
+exports[`Email Verification with invalid token 1`] = `
+Object {
+  "message": "Invalid token",
+}
+`;
+
+exports[`Email Verification with token-email mismatch 1`] = `
+Object {
+  "message": "Invalid token",
+}
+`;
+
 exports[`Resend Email Verification with invalid email 1`] = `
 Object {
   "feedback": Object {
