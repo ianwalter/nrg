@@ -5,26 +5,26 @@ const { extractEmailToken } = require('..')
 
 const generalUser = accounts.find(a => a.firstName === 'General User')
 
-test('Forgot Password with invalid emails', async ({ expect }) => {
+test('Forgot Password with invalid emails', async t => {
   let response = await app.test('/forgot-password').post({ email: null })
-  expect(response.status).toBe(400)
-  expect(response.body).toMatchSnapshot()
+  t.expect(response.status).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
 
   response = await app.test('/forgot-password').post({ email: '' })
-  expect(response.status).toBe(400)
-  expect(response.body).toMatchSnapshot()
+  t.expect(response.status).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
 
   const email = 'babu_frik@example'
   response = await app.test('/forgot-password').post({ email })
-  expect(response.status).toBe(400)
-  expect(response.body).toMatchSnapshot()
+  t.expect(response.status).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
 })
 
-test('Forgot Password with unregistered email', async ({ expect }) => {
+test('Forgot Password with unregistered email', async t => {
   const email = 'babu_frik@example.com'
   const response = await app.test('/forgot-password').post({ email })
-  expect(response.status).toBe(200)
-  expect(response.body).toMatchSnapshot()
+  t.expect(response.status).toBe(200)
+  t.expect(response.body).toMatchSnapshot()
 })
 
 test('Forgot Password with registered email', async t => {

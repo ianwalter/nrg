@@ -5,26 +5,26 @@ const { extractEmailToken } = require('..')
 
 const testUser = { ...accounts[1], password }
 
-test('Password Reset with invalid email', async ({ expect }) => {
+test('Password Reset with invalid email', async t => {
   const email = 'babu_frik @example.com'
   const payload = { ...testUser, token: 'abc123', email }
   const response = await app.test('/reset-password').post(payload)
-  expect(response.status).toBe(400)
-  expect(response.body).toMatchSnapshot()
+  t.expect(response.status).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
 })
 
-test('Password Reset with invalid password', async ({ expect }) => {
+test('Password Reset with invalid password', async t => {
   const payload = { ...testUser, token: 'abc123', password: 'dadudadu' }
   const response = await app.test('/reset-password').post(payload)
-  expect(response.status).toBe(400)
-  expect(response.body).toMatchSnapshot()
+  t.expect(response.status).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
 })
 
-test('Password Reset with invalid token', async ({ expect }) => {
+test('Password Reset with invalid token', async t => {
   const payload = { ...testUser, token: 'abc123' }
   const response = await app.test('/reset-password').post(payload)
-  expect(response.status).toBe(400)
-  expect(response.body).toMatchSnapshot()
+  t.expect(response.status).toBe(400)
+  t.xpect(response.body).toMatchSnapshot()
 })
 
 test.skip('Password Reset with token-email mismatch')

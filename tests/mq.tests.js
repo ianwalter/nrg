@@ -1,8 +1,8 @@
 const { test } = require('@ianwalter/bff')
 const app = require('../examples/mq')
 
-test('Message Queue', async ({ expect }) => {
+test('Message Queue', async t => {
   const response = await app.test('/').get()
-  expect(response.status).toBe(200)
-  expect(response.body.msg.greeting).toBe('Hello!')
+  t.expect(response.status).toBe(200)
+  t.expect(response.body.msg.greeting).toBe('Hello!')
 })

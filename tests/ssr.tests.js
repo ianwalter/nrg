@@ -10,8 +10,8 @@ const addData = (ctx, next) => {
 const end = ctx => (ctx.status = 200)
 
 if (!process.env.GITHUB_ACTION) {
-  test('addToSsr', async ({ expect }) => {
-    const assertion = ctx => expect(ctx.state.ssr.song).toBe(result.song)
+  test('addToSsr', async t => {
+    const assertion = ctx => t.expect(ctx.state.ssr.song).toBe(result.song)
     app.get('/', addData, nrg.addToSsr, assertion, end)
     await app.test('/').get()
   })
@@ -23,17 +23,17 @@ if (!process.env.GITHUB_ACTION) {
   })
 }
 
-test('SSR', async ({ expect }) => {
+test('SSR', async t => {
   const app = require('../examples/ssr')
 
   // Verify that the page is returned successfully when requesting the root
   // path.
   let response = await app.test('/').get()
-  expect(response.status).toBe(200)
-  expect(response.text).toMatchSnapshot()
+  t.expect(response.status).toBe(200)
+  t.expect(response.text).toMatchSnapshot()
 
   // Verify that a 404 Not Found is returned when requesting a path that
   // contains "not-found"
   response = await app.test('/not-found').get()
-  expect(response.status).toBe(404)
+  t.expect(response.status).toBe(404)
 })
