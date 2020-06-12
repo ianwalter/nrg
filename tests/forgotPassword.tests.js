@@ -1,9 +1,10 @@
 const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts } = require('../seeds/01_accounts')
-const { extractEmailToken } = require('..')
+const { extractEmailToken, getTestEmail } = require('..')
 
 const generalUser = accounts.find(a => a.firstName === 'General User')
+const disabledUser = accounts.find(a => a.firstName === 'Disabled User')
 
 test('Forgot Password with invalid emails', async t => {
   let response = await app.test('/forgot-password').post({ email: null })
@@ -50,4 +51,14 @@ test('Forgot Password with registered email', async t => {
   })
 
   // TODO: verify token database record.
+})
+
+test('Forgot Password for disabled user', async t => {
+  const response = await app.test('/forgot-password').post(disabledUser)
+  t.expect(response.status).toBe(200)
+  t.expect(response.body).toMatchSnapshot()
+
+  // Verify no email was sent to the user.
+  const email = await getTestEmail(e => e.headers.to === disabledUser.email)
+  t.expect(email).toBe(undefined)
 })
