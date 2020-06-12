@@ -45,9 +45,6 @@ async function run () {
 
   if (config.help) {
     print.info(config.helpText)
-  } else if (commands[0] === 'migration') {
-    // Make a new migration.
-    app.db.migrate.make(commands[1])
   } else if (commands[0] === 'copy') {
     if (commands[1] === 'migrations') {
       // Copy base account migrations.
