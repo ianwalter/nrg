@@ -210,6 +210,7 @@ module.exports = {
   forgotPassword: [
     validateEmail,
     generateToken,
+    getAccount,
     insertToken,
     generatePasswordResetEmail,
     sendEmail,
