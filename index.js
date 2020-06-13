@@ -65,6 +65,7 @@ const {
   validateAccountUpdate,
   validatePasswordUpdate,
   startEmailUpdate,
+  updatePassword,
   updateAccount
 } = require('./lib/middleware/account')
 
@@ -149,7 +150,6 @@ module.exports = {
     getAccountWithEmailTokens,
     verifyToken('emailTokens'),
     verifyEmail,
-    updateAccount,
     authenticate,
     reduceAccountForClient,
     addToResponse
@@ -220,12 +220,13 @@ module.exports = {
   // Password Reset:
   validatePasswordReset,
   getAccountWithPasswordTokens,
+  updatePassword,
   passwordReset: [
     validatePasswordReset,
     getAccountWithPasswordTokens,
     verifyToken(),
     hashPassword,
-    updateAccount,
+    updatePassword,
     authenticate,
     reduceAccountForClient,
     addToResponse
