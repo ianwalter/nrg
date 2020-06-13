@@ -71,6 +71,24 @@ const accounts = [
     password: encryptedPassword,
     emailVerified: true,
     enabled: true
+  },
+  {
+    id: 9,
+    firstName: 'Read Only',
+    lastName: 'Test',
+    email: 'read_only_test@example.com',
+    password: encryptedPassword,
+    emailVerified: true,
+    enabled: true
+  },
+  {
+    id: 10,
+    firstName: 'Change Email',
+    lastName: 'Test',
+    email: 'change_email_test@example.com',
+    password: encryptedPassword,
+    emailVerified: true,
+    enabled: true
   }
 ]
 

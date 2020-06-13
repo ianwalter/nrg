@@ -1,6 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Password validation when updating password 1`] = `
+exports[`Account -> Get 1`] = `
+Object {
+  "email": "general_test@example.com",
+  "emailVerified": true,
+  "firstName": "General",
+  "id": 1,
+  "lastName": "Test",
+}
+`;
+
+exports[`Account -> Update password 1`] = `
 Object {
   "feedback": Object {
     "newPassword": Array [
@@ -12,28 +22,18 @@ Object {
 }
 `;
 
-exports[`Password validation when updating password 2`] = `
+exports[`Account -> Update password 2`] = `
 Object {
   "message": "Incorrect email or password",
 }
 `;
 
-exports[`Password validation when updating password 3`] = `
+exports[`Account -> Update password 3`] = `
 Object {
   "email": "change_password_test@example.com",
   "emailVerified": true,
   "firstName": "Change Password",
   "id": 8,
-  "lastName": "Test",
-}
-`;
-
-exports[`Retrieving account data 1`] = `
-Object {
-  "email": "general_test@example.com",
-  "emailVerified": true,
-  "firstName": "General",
-  "id": 1,
   "lastName": "Test",
 }
 `;
