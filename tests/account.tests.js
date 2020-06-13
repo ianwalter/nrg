@@ -67,7 +67,7 @@ test('Updating account data', async t => {
   t.expect(response.status).toBe(201)
 })
 
-test.only('Password validation when updating password', async t => {
+test('Password validation when updating password', async t => {
   // Login.
   let payload = { ...changePasswordUser, password }
   let response = await app.test('/login').post(payload)

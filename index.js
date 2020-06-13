@@ -182,7 +182,7 @@ module.exports = {
     requireAuthorization,
     getAccount,
     reduceAccountForClient,
-    addToResponse
+    addToResponse('account')
   ],
 
   // Login:

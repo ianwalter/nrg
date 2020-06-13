@@ -4,7 +4,7 @@ const nrg = require('..')
 
 const result = { song: 'Wave' }
 const addData = (ctx, next) => {
-  ctx.result = result
+  ctx.state.body = result
   return next()
 }
 const end = ctx => (ctx.status = 200)

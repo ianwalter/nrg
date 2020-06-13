@@ -49,6 +49,6 @@ test('Registration with invalid email', async t => {
 test('Registration with valid data', async t => {
   const payload = { firstName, lastName, email, password }
   const response = await app.test('/registration').post(payload)
-  t.expect(response.status).toBe(200)
+  t.expect(response.status).toBe(201)
   t.expect(response.body).toMatchSnapshot()
 })
