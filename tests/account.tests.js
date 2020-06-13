@@ -16,6 +16,7 @@ test('Retrieving account data', async t => {
 
   // Verify the data is the same as the data received after login.
   t.expect(accountResponse.body).toEqual(loginResponse.body)
+  t.expect(accountResponse.body).toMatchSnapshot()
 })
 
 test('Updating account data', async t => {
