@@ -59,6 +59,7 @@ test('Resend Email Verification for disabled user', async t => {
   t.expect(response.body).toMatchSnapshot()
 
   // Verify no email was sent to the user.
+  await t.asleep(500)
   const email = await getTestEmail(e => e.headers.to === disabledUser.email)
   t.expect(email).toBe(undefined)
 })

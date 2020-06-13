@@ -16,6 +16,7 @@ test('Retrieving account data', async t => {
 
   // Verify the data is the same as the data received after login.
   t.expect(accountResponse.body).toEqual(loginResponse.body)
+  t.expect(accountResponse.body).toMatchSnapshot()
 })
 
 test('Updating account data', async t => {
@@ -67,7 +68,7 @@ test('Updating account data', async t => {
   t.expect(response.status).toBe(201)
 })
 
-test.only('Password validation when updating password', async t => {
+test('Password validation when updating password', async t => {
   // Login.
   let payload = { ...changePasswordUser, password }
   let response = await app.test('/login').post(payload)

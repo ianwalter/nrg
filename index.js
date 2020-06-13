@@ -24,7 +24,7 @@ const {
   handleError
 } = require('./lib/middleware/error')
 
-const { addToResponse, addToSsr, redirect } = require('./lib/middleware/result')
+const { addToResponse, addToSsr, redirect } = require('./lib/middleware/end')
 
 const { serveStatic, serveWebpack } = require('./lib/middleware/client')
 
@@ -65,13 +65,14 @@ const {
   validateAccountUpdate,
   validatePasswordUpdate,
   startEmailUpdate,
+  updatePassword,
   updateAccount
 } = require('./lib/middleware/account')
 
 const {
   checkSessionAuthentication,
   validateLogin,
-  authenticate,
+  createUserSession,
   clearSession
 } = require('./lib/middleware/session')
 
@@ -149,8 +150,7 @@ module.exports = {
     getAccountWithEmailTokens,
     verifyToken('emailTokens'),
     verifyEmail,
-    updateAccount,
-    authenticate,
+    createUserSession,
     reduceAccountForClient,
     addToResponse
   ],
@@ -187,13 +187,13 @@ module.exports = {
 
   // Login:
   validateLogin,
-  authenticate,
+  createUserSession,
   login: [
     checkSessionAuthentication,
     validateLogin,
     getAccount,
     comparePasswords,
-    authenticate,
+    createUserSession,
     reduceAccountForClient,
     addToResponse
   ],
@@ -220,13 +220,14 @@ module.exports = {
   // Password Reset:
   validatePasswordReset,
   getAccountWithPasswordTokens,
+  updatePassword,
   passwordReset: [
     validatePasswordReset,
     getAccountWithPasswordTokens,
     verifyToken(),
     hashPassword,
-    updateAccount,
-    authenticate,
+    updatePassword,
+    createUserSession,
     reduceAccountForClient,
     addToResponse
   ],
@@ -245,6 +246,7 @@ module.exports = {
     hashPassword,
     startEmailUpdate,
     updateAccount,
+    reduceAccountForClient,
     addToResponse
   ],
 
