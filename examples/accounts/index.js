@@ -3,7 +3,7 @@ const nrg = require('../..')
 const app = nrg.createApp({
   name: 'Accounts Example',
   port: 9999,
-  log: { level: 'error' },
+  log: { level: 'debug' },
   db: {
     connection: {
       host: process.env.DB_HOST,

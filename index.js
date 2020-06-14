@@ -148,7 +148,7 @@ module.exports = {
   emailVerification: [
     validateEmailVerification,
     getAccountWithEmailTokens,
-    verifyToken('emailTokens'),
+    verifyToken,
     verifyEmail,
     createUserSession,
     reduceAccountForClient,
@@ -224,7 +224,7 @@ module.exports = {
   passwordReset: [
     validatePasswordReset,
     getAccountWithPasswordTokens,
-    verifyToken(),
+    verifyToken,
     hashPassword,
     updatePassword,
     createUserSession,
