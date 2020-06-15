@@ -89,6 +89,38 @@ const accounts = [
     password: encryptedPassword,
     emailVerified: true,
     enabled: true
+  },
+  {
+    id: 11,
+    firstName: 'Previous Email',
+    lastName: 'Token Test',
+    email: 'previous_email_token_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
+  },
+  {
+    id: 12,
+    firstName: 'Expired Email',
+    lastName: 'Token Test',
+    email: 'expired_email_token_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
+  },
+  {
+    id: 13,
+    firstName: 'Wrong Email',
+    lastName: 'Token Test',
+    email: 'wrong_email_token_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
+  },
+  {
+    id: 14,
+    firstName: 'Mismatch Email',
+    lastName: 'Token Test',
+    email: 'mismatch_email_token_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
   }
 ]
 

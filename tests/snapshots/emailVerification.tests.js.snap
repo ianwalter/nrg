@@ -1,6 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Email Verification success 1`] = `
+exports[`Email Verification -> Expired token 1`] = `
+Object {
+  "message": "Invalid token",
+}
+`;
+
+exports[`Email Verification -> Previous token 1`] = `
+Object {
+  "message": "Invalid token",
+}
+`;
+
+exports[`Email Verification -> Success 1`] = `
 Object {
   "email": "unverified_test@example.com",
   "emailVerified": true,
@@ -10,25 +22,19 @@ Object {
 }
 `;
 
-exports[`Email Verification with invalid token 1`] = `
+exports[`Email Verification -> Wrong token 1`] = `
 Object {
   "message": "Invalid token",
 }
 `;
 
-exports[`Email Verification with token-email mismatch 1`] = `
-Object {
-  "message": "Invalid token",
-}
-`;
-
-exports[`Resend Email Verification for disabled user 1`] = `
+exports[`Resend Email Verification -> Disabled user 1`] = `
 Object {
   "message": "Email Verification request submitted successfully",
 }
 `;
 
-exports[`Resend Email Verification with invalid email 1`] = `
+exports[`Resend Email Verification -> Invalid email 1`] = `
 Object {
   "feedback": Object {
     "email": Array [
@@ -39,7 +45,7 @@ Object {
 }
 `;
 
-exports[`Resend Email Verification with unregistered email 1`] = `
+exports[`Resend Email Verification -> Unregistered email 1`] = `
 Object {
   "message": "Email Verification request submitted successfully",
 }

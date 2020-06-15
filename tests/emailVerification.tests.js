@@ -2,12 +2,12 @@ const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts } = require('../seeds/01_accounts')
 const { tokens } = require('../seeds/02_tokens')
-const { getTestEmail, extractEmailToken } = require('..')
+const { getTestEmail, extractEmailToken, Account } = require('..')
 
 const unverifiedUser = accounts.find(a => a.firstName === 'Unverified')
-const adminUser = accounts.find(a => a.firstName === 'Admin')
-const ownerUser = accounts.find(a => a.firstName === 'Onwer')
-const generalUser = accounts.find(a => a.firstName === 'General')
+const previousEmailUser = accounts.find(a => a.firstName === 'Previous Email')
+const expiredEmailUser = accounts.find(a => a.firstName === 'Expired Email')
+const wrongEmailUser = accounts.find(a => a.firstName === 'Wrong Email')
 const disabledUser = accounts.find(a => a.firstName === 'Disabled')
 
 test('Email Verification -> Success', async t => {
@@ -17,46 +17,56 @@ test('Email Verification -> Success', async t => {
   // Verify that email verification works with the emailed token.
   await t.asleep(500)
   const byEmail = e => e.headers.to === unverifiedUser.email
-  const payload = await extractEmailToken(byEmail)
-  const response = await app.test('/verify-email').post(payload)
+  const payload = { ...await extractEmailToken(byEmail), ...unverifiedUser }
+  let response = await app.test('/verify-email').post(payload)
+  await t.asleep(1000)
   t.expect(response.status).toBe(201)
   t.expect(response.body).toMatchSnapshot()
+
+  // Verify that emailVerified is set to true in the database.
+  const record = await Account.query().findById(unverifiedUser.id)
+  t.expect(record.emailVerified).toBe(true)
+
+  // Verify that the session was created.
+  response = await app.test('/account', response).get()
+  t.expect(response.status).toBe(200)
 })
 
-test.only('Email Verification -> Previous token', async t => {
+test('Email Verification -> Previous token', async t => {
   // Generate a new token for the admin user.
-  await app.test('/resend-email-verification').post(adminUser)
+  const payload = previousEmailUser
+  let response = await app.test('/resend-email-verification').post(payload)
 
   // Verify that the previous token can no longer be used for verification.
-  const payload = { ...tokens[0], ...adminUser }
-  const response = await app.test('/verify-email').post(payload)
+  response = await app.test('/verify-email').post({ ...tokens[0], ...payload })
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
+
+  // Verify that emailVerified is still set to false in the database.
+  const record = await Account.query().findById(previousEmailUser.id)
+  t.expect(record.emailVerified).toBe(false)
 })
 
 test('Email Verification -> Expired token', async t => {
-  const payload = { ...tokens[1], ...ownerUser }
+  const payload = { ...tokens[1], ...expiredEmailUser }
   const response = await app.test('/verify-email').post(payload)
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
+
+  // Verify that emailVerified is still set to false in the database.
+  const record = await Account.query().findById(expiredEmailUser.id)
+  t.expect(record.emailVerified).toBe(false)
 })
 
-test('Email Verification -> Invalid token', async t => {
-  const payload = { email: adminUser.email, token: 'iJustC4n7!gnor3' }
+test('Email Verification -> Wrong token', async t => {
+  const payload = { ...tokens[3], email: wrongEmailUser.email }
   const response = await app.test('/verify-email').post(payload)
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
-})
 
-test('Email Verification -> Mismatched token and email', async t => {
-  // Generate a new token for the general user.
-  await app.test('/resend-email-verification').post(generalUser)
-
-  // Verify that the verification fails when using some other account's token.
-  const payload = { ...tokens[2], ...generalUser }
-  const response = await app.test('/verify-email').post(payload)
-  t.expect(response.status).toBe(400)
-  t.expect(response.body).toMatchSnapshot()
+  // Verify that emailVerified is still set to false in the database.
+  const record = await Account.query().findById(wrongEmailUser.id)
+  t.expect(record.emailVerified).toBe(false)
 })
 
 test('Resend Email Verification -> Invalid email', async t => {
