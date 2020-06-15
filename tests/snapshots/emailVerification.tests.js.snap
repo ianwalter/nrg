@@ -6,6 +6,17 @@ Object {
 }
 `;
 
+exports[`Email Verification -> Invalid email 1`] = `
+Object {
+  "feedback": Object {
+    "email": Array [
+      "A valid email is required.",
+    ],
+  },
+  "message": "Validation Error",
+}
+`;
+
 exports[`Email Verification -> Previous token 1`] = `
 Object {
   "message": "Invalid token",

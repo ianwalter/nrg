@@ -33,7 +33,7 @@ test('Forgot Password with registered email', async t => {
   t.expect(response.status).toBe(200)
   t.expect(response.body).toMatchSnapshot()
 
-  await t.asleep(500)
+  await t.asleep(1000)
 
   // Extract and verify the Forgot Password email and token.
   const byEmail = email => email.headers.to === generalUser.email
@@ -59,7 +59,7 @@ test('Forgot Password for disabled user', async t => {
   t.expect(response.body).toMatchSnapshot()
 
   // Verify no email was sent to the user.
-  await t.asleep(500)
+  await t.asleep(1000)
   const email = await getTestEmail(e => e.headers.to === disabledUser.email)
   t.expect(email).toBe(undefined)
 })

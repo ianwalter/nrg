@@ -160,7 +160,7 @@ test('Account -> Update email address', async t => {
 
   // Verify that the email verification email was received.
   const byEmail = e => e.headers.to === email
-  await t.asleep(500)
+  await t.asleep(1000)
   t.expect(await getTestEmail(byEmail)).toBeDefined()
 
   // Attempt to update multiple account properties as well as the email address.
@@ -169,7 +169,7 @@ test('Account -> Update email address', async t => {
   t.expect(response.status).toBe(200)
 
   // Verify the new email address.
-  await t.asleep(500)
+  await t.asleep(1000)
   const { token } = await extractEmailToken(byEmail)
   response = await app.test('/verify-email').post({ email, token })
   t.expect(response.status).toBe(201)

@@ -7,7 +7,7 @@ const { extractEmailToken } = require('..')
 const testUser = { ...accounts[1], password }
 const ownerUser = accounts.find(a => a.firstName === 'Owner')
 
-test('Password Reset with invalid email', async t => {
+test('Password Reset -> Invalid email', async t => {
   const email = 'babu_frik @example.com'
   const payload = { ...testUser, token: 'abc123', email }
   const response = await app.test('/reset-password').post(payload)
@@ -15,14 +15,14 @@ test('Password Reset with invalid email', async t => {
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Password Reset with invalid password', async t => {
+test('Password Reset -> Weak password', async t => {
   const payload = { ...testUser, token: 'abc123', password: 'dadudadu' }
   const response = await app.test('/reset-password').post(payload)
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Password Reset with invalid token', async t => {
+test('Password Reset -> Wrong token', async t => {
   const payload = { ...testUser, token: 'abc123' }
   const response = await app.test('/reset-password').post(payload)
   t.expect(response.status).toBe(400)
@@ -32,7 +32,7 @@ test('Password Reset with invalid token', async t => {
 test('Password Reset with token-email mismatch', async t => {
   // Start the Forgot Password process.
   await app.test('/forgot-password').post(ownerUser)
-  await t.asleep(500)
+  await t.asleep(1000)
 
   const payload = { ...ownerUser, token: tokens[0].token }
   const response = await app.test('/reset-password').post(payload)
@@ -43,7 +43,7 @@ test('Password Reset with token-email mismatch', async t => {
 test('Password Reset with valid data', async t => {
   // Start the Forgot Password process.
   await app.test('/forgot-password').post(testUser)
-  await t.asleep(500)
+  await t.asleep(1000)
 
   // Extract and verify the Forgot Password email and token.
   const byEmail = email => email.headers.to === testUser.email
