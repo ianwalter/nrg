@@ -41,7 +41,8 @@ test('Account -> Update', async t => {
   response = await app.test('/account', response).get()
   t.expect(response.body).toEqual(Account.extractClientData(updated))
   t.expect(updated.firstName).toBe(updates.firstName)
-  t.expect(updated.updatedAt.getTime()).toBeGreaterThan(record.updatedAt.getTime())
+  const previousUpdatedAt = record.updatedAt.getTime()
+  t.expect(updated.updatedAt.getTime()).toBeGreaterThan(previousUpdatedAt)
   record = excluding(record, 'firstName', 'updatedAt')
   t.expect(excluding(updated, 'firstName', 'updatedAt')).toEqual(record)
 
