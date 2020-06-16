@@ -94,7 +94,7 @@ async function run () {
         process.exit(1)
       }
     } else {
-      // TODO: add available scripts.
+      // FIXME: add available scripts.
       app.logger.fatal('Run what?')
       process.exit(1)
     }

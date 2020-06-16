@@ -184,3 +184,5 @@ test('Account -> Update email address', async t => {
   t.expect(response.body.firstName).toEqual(updates.firstName)
   t.expect(response.body.lastName).toEqual(updates.lastName)
 })
+
+// TODO: add unverified user test

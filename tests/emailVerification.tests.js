@@ -4,7 +4,7 @@ const { accounts } = require('../seeds/01_accounts')
 const { tokens } = require('../seeds/02_tokens')
 const { getTestEmail, extractEmailToken, Account } = require('..')
 
-const unverifiedUser = accounts.find(a => a.firstName === 'Unverified')
+const unverifiedUser = accounts.find(a => a.firstName === 'Unverified') // TODO: change to Will Verify, use unverified user for other unverified tests
 const previousEmailUser = accounts.find(a => a.firstName === 'Previous Email')
 const expiredEmailUser = accounts.find(a => a.firstName === 'Expired Email')
 const wrongEmailUser = accounts.find(a => a.firstName === 'Wrong Email')

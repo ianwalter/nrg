@@ -63,3 +63,5 @@ test('Forgot Password for disabled user', async t => {
   const email = await getTestEmail(e => e.headers.to === disabledUser.email)
   t.expect(email).toBe(undefined)
 })
+
+// TODO: add test for unverified user.

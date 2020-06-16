@@ -43,3 +43,5 @@ test('Login -> Already logged in', async t => {
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
+
+// TODO: add unverified user test.

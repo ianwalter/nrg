@@ -5,7 +5,6 @@ const { tokens } = require('../seeds/02_tokens')
 const { extractEmailToken } = require('..')
 
 const testUser = { ...accounts[1], password }
-const ownerUser = accounts.find(a => a.firstName === 'Owner')
 
 test('Password Reset -> Invalid email', async t => {
   const email = 'babu_frik @example.com'
@@ -23,22 +22,13 @@ test('Password Reset -> Weak password', async t => {
 })
 
 test('Password Reset -> Wrong token', async t => {
-  const payload = { ...testUser, token: 'abc123' }
+  const payload = { ...testUser, token: 'abc123' } // TODO: use real token from other user.
   const response = await app.test('/reset-password').post(payload)
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Password Reset with token-email mismatch', async t => {
-  // Start the Forgot Password process.
-  await app.test('/forgot-password').post(ownerUser)
-  await t.asleep(1000)
-
-  const payload = { ...ownerUser, token: tokens[0].token }
-  const response = await app.test('/reset-password').post(payload)
-  t.expect(response.status).toBe(400)
-  t.expect(response.body).toMatchSnapshot()
-})
+// TODO: add unverified user test.
 
 test('Password Reset with valid data', async t => {
   // Start the Forgot Password process.

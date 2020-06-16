@@ -4,6 +4,7 @@ const app = nrg.createApp({
   name: 'Accounts Example',
   port: 9999,
   log: { level: 'debug' },
+  keys: ['terra', 'incognita'],
   db: {
     connection: {
       host: process.env.DB_HOST,
@@ -18,9 +19,6 @@ const app = nrg.createApp({
       host: process.env.REDIS_HOST,
       port: process.env.REDIS_PORT || 16379
     }
-  },
-  sessions: {
-    keys: ['terra', 'incognita']
   },
   email: {
     from: {
