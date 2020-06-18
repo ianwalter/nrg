@@ -102,7 +102,7 @@
     "svelte": "^3.23.2",
     "svelte-loader": "^2.13.6",
     "vuepress": "^1.5.2",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2"
   },
   "nrg": {
