@@ -980,10 +980,10 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/dot/-/dot-0.0.1.tgz#c909d099c9b29140a940aa897281845ae6585542"
   integrity sha512-/+PRPXPdoNJkcJQHWiTOzjneRp9WrM5e8uHZOS6Hm0ghwijaeI6nO4In8FjLaxZAtkwJAuuLDvjD0jdbRcza6A==
 
-"@ianwalter/dot@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/dot/-/dot-0.1.0.tgz#d83340263a9b16bfbe7ead9dad2108ed52f3cfbb"
-  integrity sha512-CZDynwlCxlx+2KxAnOeG8R1kOADyfZsmRAslHl8BLa1Uyg5zmNFOtL0rmTUgtzXLZHhf6OD1AzQkQOMmNIqMJw==
+"@ianwalter/dot@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/dot/-/dot-1.0.1.tgz#a377ea396c214240c63f93763e8171948dac5fcb"
+  integrity sha512-S41sj/Bg92az/NxRwy+TyvXfWcXAE9rEZOBe1bGV7TOHUJocgsSeK9fWGALCopRlL1LSt1ljD7mWws1ywRcujg==
 
 "@ianwalter/eslint-config@^5.1.0":
   version "5.1.0"
