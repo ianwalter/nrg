@@ -14,7 +14,7 @@
 
 ✅ &nbsp; Fast routing through a [tree-based router][nrgRouterUrl]
 
-✅ &nbsp; Optional logging through [Pino][pinoUrl]
+✅ &nbsp; Optional logging through [Print][printUrl]
 
 ✅ &nbsp; Optional session-handling and CSRF protection using [Redis][redisUrl]
 
