@@ -1,10 +1,6 @@
 const { createApp } = require('../')
 
-const app = createApp({
-  sessions: {
-    keys: ['cba321']
-  }
-})
+const app = createApp({ keys: ['cba321'] })
 
 app.use((ctx, next) => {
   if (ctx.path.indexOf('favicon') === -1) {

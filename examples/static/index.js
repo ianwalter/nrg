@@ -4,10 +4,10 @@ const { createApp } = require('../..')
 const app = createApp({
   static: {
     send: {
-      root: path.join(__dirname, 'dist'),
-      fallback (ctx) {
-        ctx.body = 'I Wish I Could'
-      }
+      root: path.join(__dirname, 'dist')
+    },
+    fallback (ctx) {
+      ctx.body = 'I Wish I Could'
     }
   }
 })
