@@ -2,14 +2,8 @@ const path = require('path')
 const { createApp, serveSsr } = require('../..')
 
 const app = createApp({
-  static: {
-    enabled: true,
-    webpack: {
-      enabled: true,
-      options: {
-        configPath: path.join(__dirname, 'webpack.config.js')
-      }
-    }
+  webpack: {
+    configPath: path.join(__dirname, 'webpack.config.js')
   }
 })
 
