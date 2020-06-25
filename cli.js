@@ -3,7 +3,7 @@
 const path = require('path')
 const { promises: fs } = require('fs')
 const cli = require('@ianwalter/cli')
-const { Print } = require('@ianwalter/print')
+const { print } = require('@ianwalter/print')
 const cloneable = require('@ianwalter/cloneable')
 const { excluding } = require('@ianwalter/extract')
 const healthcheck = require('./lib/commands/healthcheck')
@@ -25,9 +25,6 @@ const { _: commands, packageJson, ...config } = cli({
   }
 })
 
-// Create a Print instance for logging based on the given log level / config.
-const print = new Print(config.log)
-
 // Add the CLI onfig to the NRG_CLI environment variable so that nrg knows that
 // it's running in a CLI context and it can merge the options with the
 // app-supplied and default options.
@@ -43,8 +40,10 @@ async function run () {
     process.exit(1)
   }
 
+  const log = app.log.ns('nrg.cli')
+
   if (config.help) {
-    print.info(config.helpText)
+    log.info(config.helpText)
   } else if (commands[0] === 'copy') {
     if (commands[1] === 'migrations') {
       // Copy base account migrations.
@@ -65,8 +64,6 @@ async function run () {
   } else if (commands[0] === 'migrate') {
     // Run migrations.
     await app.db.migrate.latest()
-    // } else if (true) {
-  //   //
   } else if (commands[0] === 'new') {
     if (commands[1] === 'seed') {
       // Make a new seed.
@@ -74,11 +71,11 @@ async function run () {
     } else if (commands[1] === 'secret') {
       const uid = require('uid-safe')
       const bytes = parseInt(commands[2]) || app.context.cfg.hash.bytes
-      print.log('🔑', await uid(bytes))
+      log.log('🔑', await uid(bytes))
     } else if (commands[1] === 'migration') {
       app.db.migrate.make(commands[2])
     } else {
-      app.logger.fatal('New what? Available: secret, migration, seed')
+      log.fatal('New what? Available: secret, migration, seed')
       process.exit(1)
     }
   } else if (commands[0] === 'seed') {
@@ -90,12 +87,12 @@ async function run () {
         const script = require(path.resolve(`scripts/${commands[1]}`))
         await script(app)
       } catch (err) {
-        print.error(err)
+        log.error(err)
         process.exit(1)
       }
     } else {
       // FIXME: add available scripts.
-      app.logger.fatal('Run what?')
+      log.fatal('Run what?')
       process.exit(1)
     }
   } else if (commands[0] === 'healthcheck') {
@@ -104,25 +101,26 @@ async function run () {
     if (commands[1] === 'config') {
       let cfg = excluding(app.context.cfg, 'helpText')
       if (!config.all) cfg = cloneable(cfg)
-      print.info('Application config:', dot.get(cfg, commands[2]))
+      log.info('Application config:', dot.get(cfg, commands[2]))
     } else {
-      app.logger.fatal('Print what? Available: config')
+      log.fatal('Print what? Available: config')
       process.exit(1)
     }
   } else {
-    print.error('Unknown command:', commands[0], '\n\n')
-    print.info(config.helpText)
+    log.error('Unknown command:', commands[0], '\n\n')
+    log.info(config.helpText)
   }
 
   // Close any open database connections.
-  if (app.db) {
-    app.db.destroy()
-  }
+  if (app.db) app.db.destroy()
+
+  // Close any open redis connections.
+  if (app.redis) app.redis.quit()
 
   // Close the message queue connection.
   if (app.mq) {
     // Silence channel ended error.
-    app.mq.channel.on('error', print.debug)
+    app.mq.channel.on('error', app.log.ns('nrg.mq').debug)
 
     // Close message queue connection.
     app.mq.connection.close()
