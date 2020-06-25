@@ -1045,8 +1045,10 @@
     amqp-connection-manager "^3.2.0"
     amqplib "^0.5.5"
 
-"@ianwalter/nrg-print@file:../nrg-print":
-  version "0.0.0"
+"@ianwalter/nrg-print@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-print/-/nrg-print-0.0.1.tgz#79e6199c44f19781df4f4ed993eab969fd18789e"
+  integrity sha512-+/Akc4X6O609dqEZh338XRbbKcJ6lGYW3D8FKvEVquXHO6z7GYb/McV3U+1J6tZzRQsr6nyItT9VFKPQLTc/lg==
   dependencies:
     "@ianwalter/cloneable" "^2.0.0"
     "@ianwalter/timer" "^2.0.2"
@@ -1156,6 +1158,23 @@
     "@ianwalter/chromafi" "^1.0.1"
     "@ianwalter/clone" "^6.0.1"
     "@ianwalter/log" "^4.0.0"
+    "@ianwalter/merge" "^9.0.1"
+    chalk "^4.1.0"
+    has-ansi "^4.0.0"
+    has-emoji "^1.1.0"
+    marked "^1.1.0"
+    marked-terminal "^4.1.0"
+    strip-ansi "^6.0.0"
+
+"@ianwalter/print@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-8.0.0.tgz#bb7fd3547e8f7d24318bb1e9fcdecaa44a46a877"
+  integrity sha512-tEZ9k4aXAIQEtRpNEsr22Dr+4+OxxQOKum1aOkKrgCPhS3J3Cntl8ls7dpyIUgkgLLZIU/DXkKltAbxrZ9BeTQ==
+  dependencies:
+    "@ianwalter/chromafi" "^1.0.1"
+    "@ianwalter/cli" "^4.1.0"
+    "@ianwalter/clone" "^6.0.1"
+    "@ianwalter/dot" "^1.0.2"
     "@ianwalter/merge" "^9.0.1"
     chalk "^4.1.0"
     has-ansi "^4.0.0"
