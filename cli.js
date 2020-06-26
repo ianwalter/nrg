@@ -28,7 +28,7 @@ const { _: commands, packageJson, ...config } = cli({
 // Add the CLI onfig to the NRG_CLI environment variable so that nrg knows that
 // it's running in a CLI context and it can merge the options with the
 // app-supplied and default options.
-process.env.NRG_CLI = JSON.stringify(config)
+process.env.NRG_CLI = JSON.stringify({ ...config, isCli: true })
 
 async function run () {
   const appPath = path.resolve(config.app)
