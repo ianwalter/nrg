@@ -57,7 +57,7 @@ Created by [Ian Walter](https://ianwalter.dev)
 [nrgUrl]: https://nrg.ianwalter.dev
 [koaUrl]: https://koajs.com/
 [nrgRouterUrl]: https://github.com/ianwalter/nrg-router
-[pinoUrl]: http://getpino.io/#/
+[printUrl]: https://github.com/ianwalter/print
 [redisUrl]: https://redis.io/
 [postgresUrl]: https://www.postgresql.org/
 [knexUrl]: https://knexjs.org/
