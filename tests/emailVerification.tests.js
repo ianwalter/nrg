@@ -4,27 +4,27 @@ const { accounts } = require('../seeds/01_accounts')
 const { tokens } = require('../seeds/02_tokens')
 const { getTestEmail, extractEmailToken, Account } = require('..')
 
-const unverifiedUser = accounts.find(a => a.firstName === 'Unverified') // TODO: change to Will Verify, use unverified user for other unverified tests
+const willVerifyUser = accounts.find(a => a.firstName === 'Will Verify')
 const previousEmailUser = accounts.find(a => a.firstName === 'Previous Email')
 const expiredEmailUser = accounts.find(a => a.firstName === 'Expired Email')
 const wrongEmailUser = accounts.find(a => a.firstName === 'Wrong Email')
 const disabledUser = accounts.find(a => a.firstName === 'Disabled')
 
-test('Email Verification -> Success', async t => {
+test('Email Verification • Success', async t => {
   // Generate a email verification token for the unverified user.
-  await app.test('/resend-email-verification').post(unverifiedUser)
+  await app.test('/resend-email-verification').post(willVerifyUser)
 
   // Verify that email verification works with the emailed token.
   await t.asleep(1000)
-  const byEmail = e => e.headers.to === unverifiedUser.email
-  const payload = { ...await extractEmailToken(byEmail), ...unverifiedUser }
+  const byEmail = e => e.headers.to === willVerifyUser.email
+  const payload = { ...await extractEmailToken(byEmail), ...willVerifyUser }
   let response = await app.test('/verify-email').post(payload)
   await t.asleep(1000)
   t.expect(response.status).toBe(201)
   t.expect(response.body).toMatchSnapshot()
 
   // Verify that emailVerified is set to true in the database.
-  const record = await Account.query().findById(unverifiedUser.id)
+  const record = await Account.query().findById(willVerifyUser.id)
   t.expect(record.emailVerified).toBe(true)
 
   // Verify that the session was created.
@@ -32,14 +32,14 @@ test('Email Verification -> Success', async t => {
   t.expect(response.status).toBe(200)
 })
 
-test('Email Verification -> Invalid email', async t => {
+test('Email Verification • Invalid email', async t => {
   const payload = { ...tokens[3], email: 'test@example' }
   const response = await app.test('/verify-email').post(payload)
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Email Verification -> Previous token', async t => {
+test('Email Verification • Previous token', async t => {
   // Generate a new token for the admin user.
   const payload = previousEmailUser
   let response = await app.test('/resend-email-verification').post(payload)
@@ -54,7 +54,7 @@ test('Email Verification -> Previous token', async t => {
   t.expect(record.emailVerified).toBe(false)
 })
 
-test('Email Verification -> Expired token', async t => {
+test('Email Verification • Expired token', async t => {
   const payload = { ...tokens[1], ...expiredEmailUser }
   const response = await app.test('/verify-email').post(payload)
   t.expect(response.status).toBe(400)
@@ -65,7 +65,7 @@ test('Email Verification -> Expired token', async t => {
   t.expect(record.emailVerified).toBe(false)
 })
 
-test('Email Verification -> Wrong token', async t => {
+test('Email Verification • Wrong token', async t => {
   const payload = { ...tokens[3], email: wrongEmailUser.email }
   const response = await app.test('/verify-email').post(payload)
   t.expect(response.status).toBe(400)
@@ -76,14 +76,14 @@ test('Email Verification -> Wrong token', async t => {
   t.expect(record.emailVerified).toBe(false)
 })
 
-test('Resend Email Verification -> Invalid email', async t => {
+test('Resend Email Verification • Invalid email', async t => {
   const payload = { email: 'test@example' }
   const response = await app.test('/resend-email-verification').post(payload)
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Resend Email Verification -> Unregistered email', async t => {
+test('Resend Email Verification • Unregistered email', async t => {
   const payload = { email: 'ezra@example.com' }
   const response = await app.test('/resend-email-verification').post(payload)
   t.expect(response.status).toBe(200)
@@ -95,7 +95,7 @@ test('Resend Email Verification -> Unregistered email', async t => {
   t.expect(email).toBe(undefined)
 })
 
-test('Resend Email Verification -> Disabled user', async t => {
+test('Resend Email Verification • Disabled user', async t => {
   const payload = disabledUser
   const response = await app.test('/resend-email-verification').post(payload)
   t.expect(response.status).toBe(200)

@@ -227,6 +227,7 @@ module.exports = {
     validatePasswordReset,
     getAccountWithPasswordTokens,
     verifyToken,
+    verifyEmail,
     hashPassword,
     updatePassword,
     createUserSession,

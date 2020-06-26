@@ -14,7 +14,7 @@
   "scripts": {
     "lint": "eslint .",
     "reset": "yarn nrg migrate && yarn nrg seed && yarn nrg run deleteAllEmail",
-    "test": "NODE_ENV=test bff",
+    "test": "FORCE_COLOR=3 NODE_ENV=test bff",
     "test:ci": "yarn reset && yarn test",
     "nrg": "node cli.js",
     "example:hello": "node examples/helloWorld.js",

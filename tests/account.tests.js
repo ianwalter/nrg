@@ -9,8 +9,9 @@ const updateUser = accounts.find(a => a.firstName === 'Account Update')
 const changePasswordUser = accounts.find(a => a.firstName === 'Change Password')
 const readOnlyUser = accounts.find(a => a.firstName === 'Read Only')
 const changeEmailUser = accounts.find(a => a.firstName === 'Change Email')
+const unverifiedUser = accounts.find(a => a.firstName === 'Unverified')
 
-test('Account -> Get', async t => {
+test('Account • Get', async t => {
   // Login.
   const credentials = { ...generalUser, password }
   const response = await app.test('/login').post(credentials)
@@ -25,7 +26,7 @@ test('Account -> Get', async t => {
   t.expect(accountResponse.body).toEqual(Account.extractClientData(record))
 })
 
-test('Account -> Update', async t => {
+test('Account • Update', async t => {
   // Login.
   let record = await Account.query().findById(updateUser.id)
   let response = await app.test('/login').post({ ...updateUser, password })
@@ -85,7 +86,7 @@ test('Account -> Update', async t => {
   t.expect(response.status).toBe(201)
 })
 
-test('Account -> Update password', async t => {
+test('Account • Update password', async t => {
   // Login.
   let payload = { ...changePasswordUser, password }
   let response = await app.test('/login').post(payload)
@@ -110,7 +111,7 @@ test('Account -> Update password', async t => {
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Account -> Update read-only data', async t => {
+test('Account • Update read-only data', async t => {
   // Login.
   let response = await app.test('/login').post({ ...readOnlyUser, password })
   t.expect(response.status).toBe(201)
@@ -135,7 +136,7 @@ test('Account -> Update read-only data', async t => {
   t.expect(updated).toEqual(record)
 })
 
-test('Account -> Update email address', async t => {
+test('Account • Update email address', async t => {
   // Login.
   let response = await app.test('/login').post({ ...changeEmailUser, password })
   t.expect(response.status).toBe(201)
@@ -185,4 +186,17 @@ test('Account -> Update email address', async t => {
   t.expect(response.body.lastName).toEqual(updates.lastName)
 })
 
-// TODO: add unverified user test
+test('Account • Unverified user account update attempt', async t => {
+  // Login.
+  let response = await app.test('/login').post({ ...unverifiedUser, password })
+  t.expect(response.status).toBe(201)
+
+  // Attempt to update the account.
+  const updates = { firstName: 'Dadu' }
+  response = await app.test('/account', response).put(updates)
+  t.expect(response.status).toBe(401)
+
+  // Verify the database record hasn't changed.
+  const record = await Account.query().findById(unverifiedUser.id)
+  t.expect(record.firstName).toBe(unverifiedUser.firstName)
+})

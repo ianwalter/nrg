@@ -2,11 +2,12 @@ const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts, password } = require('../seeds/01_accounts')
 const { tokens } = require('../seeds/02_tokens')
-const { extractEmailToken } = require('..')
+const { extractEmailToken, Account } = require('..')
 
 const testUser = { ...accounts[1], password }
+const resetVerifyUser = accounts.find(a => a.firstName === 'Reset Verify')
 
-test('Password Reset -> Invalid email', async t => {
+test('Password Reset • Invalid email', async t => {
   const email = 'babu_frik @example.com'
   const payload = { ...testUser, token: 'abc123', email }
   const response = await app.test('/reset-password').post(payload)
@@ -14,23 +15,21 @@ test('Password Reset -> Invalid email', async t => {
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Password Reset -> Weak password', async t => {
+test('Password Reset • Weak password', async t => {
   const payload = { ...testUser, token: 'abc123', password: 'dadudadu' }
   const response = await app.test('/reset-password').post(payload)
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Password Reset -> Wrong token', async t => {
+test('Password Reset • Wrong token', async t => {
   const payload = { ...testUser, token: 'abc123' } // TODO: use real token from other user.
   const response = await app.test('/reset-password').post(payload)
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
-// TODO: add unverified user test.
-
-test('Password Reset with valid data', async t => {
+test('Password Reset • Success', async t => {
   // Start the Forgot Password process.
   await app.test('/forgot-password').post(testUser)
   await t.asleep(1000)
@@ -67,4 +66,23 @@ test('Password Reset with valid data', async t => {
   response = await app.test('/login').post(payload)
   t.expect(response.status).toBe(201)
   t.expect(response.body).toMatchSnapshot()
+})
+
+test('Password Reset • Verify email through reset', async t => {
+  // Start the Forgot Password process.
+  await app.test('/forgot-password').post(resetVerifyUser)
+  await t.asleep(1000)
+
+  // Extract the Forgot Password token.
+  const byEmail = email => email.headers.to === resetVerifyUser.email
+  const { token } = await extractEmailToken(byEmail)
+
+  // Reset the password using the token.
+  const payload = { ...resetVerifyUser, token, password: 'fjioenfkj02kqwmkl60' }
+  const response = await app.test('/reset-password').post(payload)
+  t.expect(response.status).toBe(201)
+
+  // Verify that emailVerified is set to true in the database.
+  const record = await Account.query().findById(resetVerifyUser.id)
+  t.expect(record.emailVerified).toBe(true)
 })

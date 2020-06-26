@@ -6,7 +6,7 @@ const { extractEmailToken, getTestEmail } = require('..')
 const generalUser = accounts.find(a => a.firstName === 'General')
 const disabledUser = accounts.find(a => a.firstName === 'Disabled')
 
-test('Forgot Password with invalid emails', async t => {
+test('Forgot Password • Invalid emails', async t => {
   let response = await app.test('/forgot-password').post({ email: null })
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
@@ -21,14 +21,14 @@ test('Forgot Password with invalid emails', async t => {
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Forgot Password with unregistered email', async t => {
+test('Forgot Password • Unregistered email', async t => {
   const email = 'babu_frik@example.com'
   const response = await app.test('/forgot-password').post({ email })
   t.expect(response.status).toBe(200)
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Forgot Password with registered email', async t => {
+test('Forgot Password • Registered email', async t => {
   const response = await app.test('/forgot-password').post(generalUser)
   t.expect(response.status).toBe(200)
   t.expect(response.body).toMatchSnapshot()
@@ -53,7 +53,7 @@ test('Forgot Password with registered email', async t => {
   // TODO: verify token database record.
 })
 
-test('Forgot Password for disabled user', async t => {
+test('Forgot Password • Disabled user', async t => {
   const response = await app.test('/forgot-password').post(disabledUser)
   t.expect(response.status).toBe(200)
   t.expect(response.body).toMatchSnapshot()
@@ -63,5 +63,3 @@ test('Forgot Password for disabled user', async t => {
   const email = await getTestEmail(e => e.headers.to === disabledUser.email)
   t.expect(email).toBe(undefined)
 })
-
-// TODO: add test for unverified user.

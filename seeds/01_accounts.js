@@ -121,6 +121,22 @@ const accounts = [
     email: 'mismatch_email_token_test@example.com',
     password: encryptedPassword,
     emailVerified: false
+  },
+  {
+    id: 15,
+    firstName: 'Will Verify',
+    lastName: 'Test',
+    email: 'will_verify_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
+  },
+  {
+    id: 16,
+    firstName: 'Reset Verify',
+    lastName: 'Test',
+    email: 'reset_verify_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
   }
 ]
 
