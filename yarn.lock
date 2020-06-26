@@ -1166,10 +1166,10 @@
     marked-terminal "^4.1.0"
     strip-ansi "^6.0.0"
 
-"@ianwalter/print@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-8.0.0.tgz#bb7fd3547e8f7d24318bb1e9fcdecaa44a46a877"
-  integrity sha512-tEZ9k4aXAIQEtRpNEsr22Dr+4+OxxQOKum1aOkKrgCPhS3J3Cntl8ls7dpyIUgkgLLZIU/DXkKltAbxrZ9BeTQ==
+"@ianwalter/print@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-8.0.1.tgz#c931d40d6c6e4d8d181e2879b05b19742ffd73fc"
+  integrity sha512-sk3WhnKLW5oEs/EB8RPRY/GqEDMXMnjKdBNfKWCSteByiryT+sfR1anvuGQYQOjdEdSqEF0KA/+ob6JTodQKNw==
   dependencies:
     "@ianwalter/chromafi" "^1.0.1"
     "@ianwalter/cli" "^4.1.0"

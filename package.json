@@ -59,7 +59,7 @@
     "@ianwalter/nrg-print": "^0.0.1",
     "@ianwalter/nrg-router": "^0.5.0",
     "@ianwalter/nrg-session": "^6.0.0",
-    "@ianwalter/print": "^8.0.0",
+    "@ianwalter/print": "^8.0.1",
     "@ianwalter/requester": "^2.2.0",
     "@ianwalter/url": "^2.0.0",
     "bcrypt": "5.0.0",
