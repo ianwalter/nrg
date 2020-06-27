@@ -1060,12 +1060,11 @@
   dependencies:
     pino-http "^4.4.0"
 
-"@ianwalter/nrg-router@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.5.0.tgz#6a4c1f7c854ee996543d5539969cadaeda6d260d"
-  integrity sha512-T0/J/iRsdt0i5NcVgG3e+79f/QUF5tSDq/I+0MV2AFrXeSM+lldB0ZHMVCATN5KYevc6aS2RnuXrLt9D6b5w2g==
+"@ianwalter/nrg-router@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-router/-/nrg-router-0.6.0.tgz#43576996438d9928352e36da2300eab52e9d88d6"
+  integrity sha512-xJ7rA5LZhg5ht33DRPCIIzeSXq4eK5VpRz0tfIDqx1nib2nNfk+oHPullZmceW4DOwjCwNtJsjmTZtl2kb16vw==
   dependencies:
-    "@ianwalter/print" "^6.0.0"
     "@ianwalter/router" "^3.3.0"
 
 "@ianwalter/nrg-session@^6.0.0":
@@ -1148,22 +1147,6 @@
     has-ansi "^4.0.0"
     has-emoji "^1.1.0"
     marked "^0.8.0"
-    marked-terminal "^4.0.0"
-    strip-ansi "^6.0.0"
-
-"@ianwalter/print@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-6.0.0.tgz#1dd066e936adf2ed553216aa5952fa2a95588d6e"
-  integrity sha512-Gde6yLSVtYdNQ1Lm7fLvNYb+apIzYyr4uiXaXfvn08NYQf6pRgCfiCmV+uQOczzsfnU7yWleE0dYIP2ZkDXzag==
-  dependencies:
-    "@ianwalter/chromafi" "^1.0.1"
-    "@ianwalter/clone" "^6.0.1"
-    "@ianwalter/log" "^4.0.0"
-    "@ianwalter/merge" "^7.0.0"
-    chalk "^3.0.0"
-    has-ansi "^4.0.0"
-    has-emoji "^1.1.0"
-    marked "^0.8.2"
     marked-terminal "^4.0.0"
     strip-ansi "^6.0.0"
 
@@ -7581,11 +7564,6 @@ marked@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.8.0.tgz#ec5c0c9b93878dc52dd54be8d0e524097bd81a99"
   integrity sha512-MyUe+T/Pw4TZufHkzAfDj6HarCBWia2y27/bhuYkTaiUnfDYFnCP3KUN+9oM7Wi6JA2rymtVYbQu3spE0GCmxQ==
-
-marked@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-0.8.2.tgz#4faad28d26ede351a7a1aaa5fec67915c869e355"
-  integrity sha512-EGwzEeCcLniFX51DhTpmTom+dSA/MG/OBUDjnWtHbEnjAH180VzUeAw+oE4+Zv+CoYBWyRlYOTR0N8SO9R1PVw==
 
 marked@^1.1.0:
   version "1.1.0"
