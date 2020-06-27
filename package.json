@@ -53,7 +53,7 @@
     "@ianwalter/cloneable": "^2.0.0",
     "@ianwalter/correct": "^1.1.0",
     "@ianwalter/dot": "^1.0.4",
-    "@ianwalter/extract": "^1.0.0",
+    "@ianwalter/extract": "^1.0.1",
     "@ianwalter/merge": "^9.0.1",
     "@ianwalter/nrg-mq": "^0.0.2",
     "@ianwalter/nrg-print": "^0.0.2",

@@ -1011,12 +1011,12 @@
     eslint-plugin-promise "^4.2.1"
     eslint-plugin-standard "^4.0.1"
 
-"@ianwalter/extract@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/extract/-/extract-1.0.0.tgz#f77b85d6f4d0bac89e6e3100dc22725631ccc171"
-  integrity sha512-KchGXI6WvD/yw4r5YPYPFA+KlBlJWQjrq+DmcCDp0sIFw2L0DykROsFvXQ8No6cTD+Te8lj2yz2CO9tO0GIt4Q==
+"@ianwalter/extract@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/extract/-/extract-1.0.1.tgz#51f9bd96396dd1ae8d9b73d3aed71608c7b6b497"
+  integrity sha512-QlhQTeFzmvab6soS9uivNNn7P/hgFDWqJOsjW8KzHw+YYQuBjd8uHPr3N8j6Ogk31cQ955MBCZ6dLYKlE3bbfw==
   dependencies:
-    "@ianwalter/dot" "^1.0.3"
+    "@ianwalter/dot" "^1.0.4"
 
 "@ianwalter/log@^3.1.0":
   version "3.1.0"
