@@ -96,6 +96,8 @@ const {
   extractEmailToken
 } = require('./lib/utilities')
 
+const config = require('./lib/config')
+
 module.exports = {
   /**
    * Workloads:
@@ -148,7 +150,7 @@ module.exports = {
   emailVerification: [
     validateEmailVerification,
     getAccountWithEmailTokens,
-    verifyToken('emailTokens'),
+    verifyToken,
     verifyEmail,
     createUserSession,
     reduceAccountForClient,
@@ -224,7 +226,8 @@ module.exports = {
   passwordReset: [
     validatePasswordReset,
     getAccountWithPasswordTokens,
-    verifyToken(),
+    verifyToken,
+    verifyEmail,
     hashPassword,
     updatePassword,
     createUserSession,
@@ -285,5 +288,11 @@ module.exports = {
   swap,
   getRandomTimeout,
   getTestEmail,
-  extractEmailToken
+  extractEmailToken,
+
+  /**
+   * Default config:
+   */
+
+  defaults: config()
 }

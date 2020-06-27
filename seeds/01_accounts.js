@@ -89,6 +89,70 @@ const accounts = [
     password: encryptedPassword,
     emailVerified: true,
     enabled: true
+  },
+  {
+    id: 11,
+    firstName: 'Previous Email',
+    lastName: 'Token Test',
+    email: 'previous_email_token_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
+  },
+  {
+    id: 12,
+    firstName: 'Expired Email',
+    lastName: 'Token Test',
+    email: 'expired_email_token_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
+  },
+  {
+    id: 13,
+    firstName: 'Wrong Email',
+    lastName: 'Token Test',
+    email: 'wrong_email_token_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
+  },
+  {
+    id: 14,
+    firstName: 'Mismatch Email',
+    lastName: 'Token Test',
+    email: 'mismatch_email_token_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
+  },
+  {
+    id: 15,
+    firstName: 'Will Verify',
+    lastName: 'Test',
+    email: 'will_verify_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
+  },
+  {
+    id: 16,
+    firstName: 'Reset Verify',
+    lastName: 'Test',
+    email: 'reset_verify_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
+  },
+  {
+    id: 17,
+    firstName: 'Existing Verified',
+    lastName: 'Test',
+    email: 'existing_verified_test@example.com',
+    password: encryptedPassword,
+    emailVerified: true
+  },
+  {
+    id: 18,
+    firstName: 'Existing Unverified',
+    lastName: 'Test',
+    email: 'existing_unverified_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
   }
 ]
 
@@ -97,6 +161,9 @@ module.exports = {
   accounts,
   seed: async knex => {
     await knex.raw('TRUNCATE TABLE accounts RESTART IDENTITY CASCADE')
-    return knex('accounts').insert(accounts)
+    await knex('accounts').insert(accounts)
+    await knex.raw(`
+      SELECT setval('accounts_id_seq',  (SELECT MAX(id) + 1 FROM accounts))
+    `)
   }
 }

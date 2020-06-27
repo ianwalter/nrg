@@ -14,7 +14,7 @@
 
 ✅ &nbsp; Fast routing through a [tree-based router][nrgRouterUrl]
 
-✅ &nbsp; Optional logging through [Pino][pinoUrl]
+✅ &nbsp; Optional logging through [Print][printUrl]
 
 ✅ &nbsp; Optional session-handling and CSRF protection using [Redis][redisUrl]
 
@@ -57,7 +57,7 @@ Created by [Ian Walter](https://ianwalter.dev)
 [nrgUrl]: https://nrg.ianwalter.dev
 [koaUrl]: https://koajs.com/
 [nrgRouterUrl]: https://github.com/ianwalter/nrg-router
-[pinoUrl]: http://getpino.io/#/
+[printUrl]: https://github.com/ianwalter/print
 [redisUrl]: https://redis.io/
 [postgresUrl]: https://www.postgresql.org/
 [knexUrl]: https://knexjs.org/

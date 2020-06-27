@@ -48,7 +48,7 @@ createApp({
     // a request object. Defaults to req.id.
     genReqId
   },
-  // TODO: make this config consistent.
+  // FIXME: make this config consistent.
   // [Object]
   middleware: {
     // [Boolean] Whether to add middleware that redirects requests using the
@@ -58,16 +58,16 @@ createApp({
     // [Boolean] Whether to add nrg-router which allows assigning middleware to
     // be executed when a request URL matches a given path. Defaults to true.
     router,
-    // [Booolean|Object] Whether to add or the configuration for the
-    // nrg-compress middleware which compresses response bodies using brotli or
-    // other configured zlib-supported algorithms like gzip.
+    // [Booolean|Object] The configuration for, or whether to add, nrg-compress
+    // middleware which compresses response bodies using brotli or other
+    // configured zlib-supported algorithms like gzip.
     compress,
     // [Boolean|Function] Whether to add the koa-bodyParser middleware with the
     // default configuration or pass your own request body parsing middleware.
     bodyParser,
     // [Boolean] Whether JSON response bodies should be prettified using the
     // prettyJson middleware. Defaults to false if hostEnv is production and
-    // false otherwise.
+    // true otherwise.
     prettyJson
   },
   //

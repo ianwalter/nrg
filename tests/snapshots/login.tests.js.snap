@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login -> Already logged in 1`] = `
+exports[`Login • Already logged in 1`] = `
 Object {
   "message": "Session is already authenticated",
 }
 `;
 
-exports[`Login -> Disabled user 1`] = `
+exports[`Login • Disabled user 1`] = `
 Object {
   "message": "Incorrect email or password",
 }
 `;
 
-exports[`Login -> Invalid credentials 1`] = `
+exports[`Login • Invalid credentials 1`] = `
 Object {
   "message": "Incorrect email or password",
 }
 `;
 
-exports[`Login -> No email 1`] = `
+exports[`Login • No email 1`] = `
 Object {
   "feedback": Object {
     "email": Array [
@@ -29,7 +29,7 @@ Object {
 }
 `;
 
-exports[`Login -> No password 1`] = `
+exports[`Login • No password 1`] = `
 Object {
   "feedback": Object {
     "password": Array [
@@ -40,7 +40,17 @@ Object {
 }
 `;
 
-exports[`Login -> Valid credentials 1`] = `
+exports[`Login • Unverified user can login 1`] = `
+Object {
+  "email": "unverified_test@example.com",
+  "emailVerified": false,
+  "firstName": "Unverified",
+  "id": 4,
+  "lastName": "Test",
+}
+`;
+
+exports[`Login • Valid credentials 1`] = `
 Object {
   "email": "general_test@example.com",
   "emailVerified": true,
