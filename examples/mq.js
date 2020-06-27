@@ -1,3 +1,4 @@
+const { asleep } = require('@ianwalter/sleep')
 const { createApp } = require('../')
 
 const host = process.env.MQ_HOST || 'localhost'
@@ -25,6 +26,7 @@ const app = createApp({
 // sends a successful response.
 app.use(async ctx => {
   await ctx.mq.test.pub({ greeting: 'Hello!' })
+  await asleep(100)
   ctx.body = app.msg
 })
 

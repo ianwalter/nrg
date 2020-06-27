@@ -95,6 +95,7 @@
     "@ianwalter/eslint-config": "^5.1.0",
     "@ianwalter/release": "^5.0.2",
     "@ianwalter/renovate-config": "^1.3.0",
+    "@ianwalter/sleep": "^0.0.1",
     "@ianwalter/vuepress-theme-brooks": "^1.2.0",
     "babel-loader": "^8.1.0",
     "cheerio": "^1.0.0-rc.3",

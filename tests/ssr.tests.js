@@ -9,7 +9,7 @@ const addData = (ctx, next) => {
 }
 const end = ctx => (ctx.status = 200)
 
-if (!process.env.GITHUB_ACTION) {
+if (!process.env.GITHUB_ACTION) { // FIXME: why did I do this again?
   test('addToSsr', async t => {
     const assertion = ctx => t.expect(ctx.state.ssr.song).toBe(result.song)
     app.get('/', addData, nrg.addToSsr, assertion, end)
