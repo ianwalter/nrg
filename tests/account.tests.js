@@ -186,7 +186,7 @@ test('Account • Update email address', async t => {
   t.expect(response.body.lastName).toEqual(updates.lastName)
 })
 
-test('Account • Unverified user account update attempt', async t => {
+test('Account • Unverified user account update', async t => {
   // Login.
   let response = await app.test('/login').post({ ...unverifiedUser, password })
   t.expect(response.status).toBe(201)
