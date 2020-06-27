@@ -993,6 +993,11 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/dot/-/dot-1.0.3.tgz#2d586710573526e07d65c499a3c86fe4b3d7a849"
   integrity sha512-LZvhyVQn5BM0/5lANNz3Nh9sTGD5JvZdEmkg5UsN+bQXpRUI9yokw+HjDKjTAnRdpF93pBhfLXAIPebRA/RBBA==
 
+"@ianwalter/dot@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@ianwalter/dot/-/dot-1.0.4.tgz#32d9f98d59382475798c65bf686e95328327bfd3"
+  integrity sha512-bq6q4ZXWzQfBbE29i6trTwAtmmRzSWU0D/fSPhA/tDNbxhSlXDYUxfITtq1cctqi+s4BV4PgYIjxNkLeePK1mQ==
+
 "@ianwalter/eslint-config@^5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/eslint-config/-/eslint-config-5.1.0.tgz#4fdb865b537da0eec3a4bba86c7b79db2cfa1ec2"

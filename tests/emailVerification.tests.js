@@ -44,6 +44,7 @@ test('Email Verification • Previous token', async t => {
   let response = await app.test('/resend-email-verification').post(payload)
 
   // Verify that the previous token can no longer be used for verification.
+  await t.asleep(1000)
   response = await app.test('/verify-email').post({ ...tokens[0], ...payload })
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
