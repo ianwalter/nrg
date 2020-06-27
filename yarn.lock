@@ -1197,6 +1197,23 @@
     marked-terminal "^4.1.0"
     strip-ansi "^6.0.0"
 
+"@ianwalter/print@^8.0.3":
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-8.0.3.tgz#28f520eabff2068f93aeace20ca56e07595946d1"
+  integrity sha512-wq6DdjY3N760nf4mJioub45ZLL+8G9UohSV+yUh69iZ0tHzvztWvBxWT3m8H1W41NEIIWWkpXl/jz8WV4n/Srg==
+  dependencies:
+    "@ianwalter/chromafi" "^1.0.1"
+    "@ianwalter/cli" "^4.1.0"
+    "@ianwalter/clone" "^6.0.1"
+    "@ianwalter/dot" "^1.0.4"
+    "@ianwalter/merge" "^9.0.1"
+    chalk "^4.1.0"
+    has-ansi "^4.0.0"
+    has-emoji "^1.1.0"
+    marked "^1.1.0"
+    marked-terminal "^4.1.0"
+    strip-ansi "^6.0.0"
+
 "@ianwalter/release@^5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@ianwalter/release/-/release-5.0.2.tgz#122502cdc652fd6cadb83d2812a3a2828dd56fc7"
