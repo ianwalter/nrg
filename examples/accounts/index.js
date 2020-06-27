@@ -3,7 +3,7 @@ const nrg = require('../..')
 const app = nrg.createApp({
   name: 'Accounts Example',
   port: 9999,
-  log: { level: 'debug' },
+  log: { level: 'error' },
   keys: ['terra', 'incognita'],
   db: {
     connection: {
