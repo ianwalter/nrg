@@ -50,7 +50,7 @@ test('Forgot Password • Registered email', async t => {
     headers: t.expect.any(Object)
   })
 
-  // Verify that forgot password token was inserted into the database.
+  // Verify the Forgot Password token was inserted into the database.
   const record = await Token.query().findOne({
     email: generalUser.email,
     type: 'password'
