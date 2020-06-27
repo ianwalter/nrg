@@ -21,9 +21,9 @@
 ✅ &nbsp; Optional database connection to [PostgreSQL][postgresUrl] using
           [knex][knexUrl] and [Objection.js][objectionUrl]
 
-🚧 &nbsp; Optional, ready-to-roll user account system
+✅ &nbsp; Optional, ready-to-roll user account system
 
-✅ &nbsp; CLI for setup, migrations, seeding, and custom scripts
+🚧 &nbsp; CLI for setup, migrations, seeding, and custom scripts
 
 ✅ &nbsp; Optional static file serving
 
