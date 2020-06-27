@@ -137,6 +137,22 @@ const accounts = [
     email: 'reset_verify_test@example.com',
     password: encryptedPassword,
     emailVerified: false
+  },
+  {
+    id: 17,
+    firstName: 'Existing Verified',
+    lastName: 'Test',
+    email: 'existing_verified_test@example.com',
+    password: encryptedPassword,
+    emailVerified: true
+  },
+  {
+    id: 18,
+    firstName: 'Existing Unverified',
+    lastName: 'Test',
+    email: 'existing_unverified_test@example.com',
+    password: encryptedPassword,
+    emailVerified: false
   }
 ]
 
@@ -145,6 +161,9 @@ module.exports = {
   accounts,
   seed: async knex => {
     await knex.raw('TRUNCATE TABLE accounts RESTART IDENTITY CASCADE')
-    return knex('accounts').insert(accounts)
+    await knex('accounts').insert(accounts)
+    await knex.raw(`
+      SELECT setval('accounts_id_seq',  (SELECT MAX(id) + 1 FROM accounts))
+    `)
   }
 }

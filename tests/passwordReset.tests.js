@@ -6,6 +6,7 @@ const { extractEmailToken, Account } = require('..')
 
 const testUser = { ...accounts[1], password }
 const resetVerifyUser = accounts.find(a => a.firstName === 'Reset Verify')
+const readOnlyToken = tokens.find(t => t.type === 'password')
 
 test('Password Reset • Invalid email', async t => {
   const email = 'babu_frik @example.com'
@@ -23,7 +24,7 @@ test('Password Reset • Weak password', async t => {
 })
 
 test('Password Reset • Wrong token', async t => {
-  const payload = { ...testUser, token: 'abc123' } // TODO: use real token from other user.
+  const payload = { ...testUser, token: readOnlyToken.value }
   const response = await app.test('/reset-password').post(payload)
   t.expect(response.status).toBe(400)
   t.expect(response.body).toMatchSnapshot()
@@ -71,9 +72,9 @@ test('Password Reset • Success', async t => {
 test('Password Reset • Verify email through reset', async t => {
   // Start the Forgot Password process.
   await app.test('/forgot-password').post(resetVerifyUser)
-  await t.asleep(1000)
 
   // Extract the Forgot Password token.
+  await t.asleep(1000)
   const byEmail = email => email.headers.to === resetVerifyUser.email
   const { token } = await extractEmailToken(byEmail)
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Registration required validation 1`] = `
+exports[`Registration • Email required 1`] = `
 Object {
   "feedback": Object {
     "email": Array [
@@ -11,18 +11,19 @@ Object {
 }
 `;
 
-exports[`Registration required validation 2`] = `
+exports[`Registration • Existing unverified email 1`] = `
 Object {
-  "feedback": Object {
-    "password": Array [
-      "A valid password is required.",
-    ],
-  },
-  "message": "Validation Error",
+  "message": "Email Verification request submitted successfully",
 }
 `;
 
-exports[`Registration required validation 3`] = `
+exports[`Registration • Existing verified email 1`] = `
+Object {
+  "message": "Email Verification request submitted successfully",
+}
+`;
+
+exports[`Registration • First name required 1`] = `
 Object {
   "feedback": Object {
     "firstName": Array [
@@ -33,18 +34,7 @@ Object {
 }
 `;
 
-exports[`Registration required validation 4`] = `
-Object {
-  "feedback": Object {
-    "lastName": Array [
-      "A valid last name is required.",
-    ],
-  },
-  "message": "Validation Error",
-}
-`;
-
-exports[`Registration with invalid email 1`] = `
+exports[`Registration • Invalid email 1`] = `
 Object {
   "feedback": Object {
     "email": Array [
@@ -55,13 +45,35 @@ Object {
 }
 `;
 
-exports[`Registration with valid data 1`] = `
+exports[`Registration • Last name validation 1`] = `
+Object {
+  "feedback": Object {
+    "lastName": Array [
+      "A valid last name is required.",
+    ],
+  },
+  "message": "Validation Error",
+}
+`;
+
+exports[`Registration • Password required 1`] = `
+Object {
+  "feedback": Object {
+    "password": Array [
+      "A valid password is required.",
+    ],
+  },
+  "message": "Validation Error",
+}
+`;
+
+exports[`Registration • Success 1`] = `
 Object {
   "message": "Email Verification request submitted successfully",
 }
 `;
 
-exports[`Registration with weak password 1`] = `
+exports[`Registration • Weak password 1`] = `
 Object {
   "feedback": Object {
     "password": Array [

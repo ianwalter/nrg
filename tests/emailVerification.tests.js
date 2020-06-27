@@ -19,7 +19,6 @@ test('Email Verification • Success', async t => {
   const byEmail = e => e.headers.to === willVerifyUser.email
   const payload = { ...await extractEmailToken(byEmail), ...willVerifyUser }
   let response = await app.test('/verify-email').post(payload)
-  await t.asleep(1000)
   t.expect(response.status).toBe(201)
   t.expect(response.body).toMatchSnapshot()
 

@@ -1,7 +1,7 @@
 const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts } = require('../seeds/01_accounts')
-const { extractEmailToken, getTestEmail } = require('..')
+const { extractEmailToken, getTestEmail, Token } = require('..')
 
 const generalUser = accounts.find(a => a.firstName === 'General')
 const disabledUser = accounts.find(a => a.firstName === 'Disabled')
@@ -50,7 +50,12 @@ test('Forgot Password • Registered email', async t => {
     headers: t.expect.any(Object)
   })
 
-  // TODO: verify token database record.
+  // Verify that emailVerified is set to true in the database.
+  const record = await Token.query().findOne({
+    email: generalUser.email,
+    type: 'password'
+  })
+  t.expect(record).toBeDefined()
 })
 
 test('Forgot Password • Disabled user', async t => {

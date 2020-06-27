@@ -9,6 +9,7 @@ const previousEmailUser = accounts.find(a => a.firstName === 'Previous Email')
 const expiredEmailUser = accounts.find(a => a.firstName === 'Expired Email')
 const wrongEmailUser = accounts.find(a => a.firstName === 'Wrong Email')
 const mismatchEmailUser = accounts.find(a => a.firstName === 'Mismatch Email')
+const readOnlyUser = accounts.find(a => a.firstName === 'Read Only')
 const tokens = [
   {
     token: 'iJustC4n7!gnore',
@@ -40,6 +41,14 @@ const tokens = [
     type: 'email',
     accountId: mismatchEmailUser.id,
     email: mismatchEmailUser.email,
+    expiresAt: addDays(new Date(), 1).toISOString()
+  },
+  {
+    token: 'f@!lure8yD3s!gn',
+    value: bcrypt.hashSync('f@!lure8yD3s!gn', salt),
+    type: 'password',
+    accountId: readOnlyUser.id,
+    email: readOnlyUser.email,
     expiresAt: addDays(new Date(), 1).toISOString()
   }
 ]
