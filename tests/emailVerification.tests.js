@@ -14,10 +14,26 @@ test('Email Verification • Success', async t => {
   // Generate a email verification token for the unverified user.
   await app.test('/resend-email-verification').post(willVerifyUser)
 
-  // Verify that email verification works with the emailed token.
+  // Verify the email verification email was received and extract the token.
   await t.asleep(1000)
   const byEmail = e => e.headers.to === willVerifyUser.email
-  const payload = { ...await extractEmailToken(byEmail), ...willVerifyUser }
+  const { email, token } = await extractEmailToken(byEmail)
+  const { action } = app.context.cfg.email.templates.emailVerification
+  t.expect(email.html).toContain(action.instructions)
+  t.expect(email).toMatchSnapshot({
+    id: t.expect.any(String),
+    messageId: t.expect.any(String),
+    source: t.expect.any(String),
+    date: t.expect.any(String),
+    time: t.expect.any(String),
+    envelope: {
+      remoteAddress: t.expect.any(String)
+    },
+    headers: t.expect.any(Object)
+  })
+
+  // Verify the email address.
+  const payload = { ...willVerifyUser, token }
   let response = await app.test('/verify-email').post(payload)
   t.expect(response.status).toBe(201)
   t.expect(response.body).toMatchSnapshot()

@@ -38,6 +38,8 @@ test('Password Reset • Success', async t => {
   // Extract and verify the Forgot Password email and token.
   const byEmail = email => email.headers.to === testUser.email
   const { email, token } = await extractEmailToken(byEmail)
+  const { action } = app.context.cfg.email.templates.passwordReset
+  t.expect(email.html).toContain(action.instructions)
   t.expect(email).toMatchSnapshot({
     id: t.expect.any(String),
     messageId: t.expect.any(String),
