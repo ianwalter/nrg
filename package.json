@@ -79,7 +79,7 @@
     "mailgen": "^2.0.13",
     "nanoid": "^3.1.10",
     "nodemailer": "^6.4.10",
-    "objection": "^2.2.0",
+    "objection": "^2.2.1",
     "pg": "^8.2.1",
     "pino": "^6.3.2",
     "pkg-dir": "^4.2.0",
