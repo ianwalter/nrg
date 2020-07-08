@@ -60,7 +60,7 @@
     "@ianwalter/nrg-router": "^0.6.0",
     "@ianwalter/nrg-session": "^6.0.0",
     "@ianwalter/print": "^8.0.3",
-    "@ianwalter/requester": "^2.2.0",
+    "@ianwalter/requester": "^2.3.0",
     "@ianwalter/url": "^2.0.0",
     "bcrypt": "5.0.0",
     "date-fns": "^2.14.0",
