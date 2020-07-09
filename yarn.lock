@@ -993,12 +993,12 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/dot/-/dot-1.0.4.tgz#32d9f98d59382475798c65bf686e95328327bfd3"
   integrity sha512-bq6q4ZXWzQfBbE29i6trTwAtmmRzSWU0D/fSPhA/tDNbxhSlXDYUxfITtq1cctqi+s4BV4PgYIjxNkLeePK1mQ==
 
-"@ianwalter/eslint-config@^5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/eslint-config/-/eslint-config-5.2.0.tgz#23cbd253515ff9d26707cefa349503916718ce00"
-  integrity sha512-h1EUKp0he6pYRAAI1p6dP4DzkawwwRH+YnODCl5Xz+kQPerGQTvGDZbO57qZZW0QvsxWShEfQRgI//ZeZvIuAA==
+"@ianwalter/eslint-config@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/eslint-config/-/eslint-config-5.3.0.tgz#47525e745966f39c456a8637b4e787201412dd19"
+  integrity sha512-V+/57fQPgaJNRFxAF+fjU/ODU4lUGgwNrzZB/jiBv3JNZT2ZDdPWG0utdCpOrxY5ODcr9CKM42/vKv8JfdQj3g==
   dependencies:
-    eslint "^7.3.1"
+    eslint "^7.4.0"
     eslint-config-standard "^14.1.1"
     eslint-plugin-html "^6.0.2"
     eslint-plugin-import "^2.22.0"
@@ -2244,7 +2244,7 @@ ansicolors@~0.3.2:
   resolved "https://registry.yarnpkg.com/ansicolors/-/ansicolors-0.3.2.tgz#665597de86a9ffe3aa9bfbe6cae5c6ea426b4979"
   integrity sha1-ZlWX3oap/+Oqm/vmyuXG6kJrSXk=
 
-any-promise@^1.0.0, any-promise@^1.1.0:
+any-promise@^1.1.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/any-promise/-/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
   integrity sha1-q8av7tzqUugJzcA3au0845Y10X8=
@@ -4666,10 +4666,10 @@ eslint-visitor-keys@^1.2.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.2.0.tgz#74415ac884874495f78ec2a97349525344c981fa"
   integrity sha512-WFb4ihckKil6hu3Dp798xdzSfddwKKU3+nGniKF6HfeW6OLd2OUDEPP7TcHtB5+QXOKg2s6B2DaMPE1Nn/kxKQ==
 
-eslint@^7.3.1:
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.3.1.tgz#76392bd7e44468d046149ba128d1566c59acbe19"
-  integrity sha512-cQC/xj9bhWUcyi/RuMbRtC3I0eW8MH0jhRELSvpKYkWep3C6YZ2OkvcvJVUeO6gcunABmzptbXBuDoXsjHmfTA==
+eslint@^7.4.0:
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.4.0.tgz#4e35a2697e6c1972f9d6ef2b690ad319f80f206f"
+  integrity sha512-gU+lxhlPHu45H3JkEGgYhWhkR9wLHHEXC9FbWFnTlEkbKyZKWgWRLgf61E8zWmBuI6g5xKBph9ltg3NtZMVF8g==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     ajv "^6.10.0"
@@ -6930,10 +6930,10 @@ koa-compose@^4.1.0:
   resolved "https://registry.yarnpkg.com/koa-compose/-/koa-compose-4.1.0.tgz#507306b9371901db41121c812e923d0d67d3e877"
   integrity sha512-8ODW8TrDuMYvXRwra/Kh7/rJo9BtOfPc6qO8eAfC80CnCvSjSl0bkRM24X6/XBBEyj0v1nRUQ1LyOy3dbqOWXw==
 
-koa-compress@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/koa-compress/-/koa-compress-5.0.0.tgz#7b25bd66c98c013c89a303ae72934d6d15d644b5"
-  integrity sha512-hzvlkocbzPPTmxJdYRbdAZOmHL0ga3brQWqDT7Gwc8lJiTNsFUm2ba0D6SzWyZGKno+1hgGTPHStw2faWVcH8A==
+koa-compress@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/koa-compress/-/koa-compress-5.0.1.tgz#9e89e2847998f8f9f73a5674e5739a2f4b6531fc"
+  integrity sha512-uTo7Hcyyt6e9o2X3htRS/SNEKy9vDOUc/r1qs/F0YI2Frv9IEbkjz/9dC6IdJWBQAG34lRuU7jBXeq3DRur9Ng==
   dependencies:
     bytes "^3.0.0"
     compressible "^2.0.0"
@@ -6979,14 +6979,13 @@ koa-redis@^4.0.1:
     debug "^4.1.1"
     ioredis "^4.14.1"
 
-koa-send@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/koa-send/-/koa-send-5.0.0.tgz#5e8441e07ef55737734d7ced25b842e50646e7eb"
-  integrity sha512-90ZotV7t0p3uN9sRwW2D484rAaKIsD8tAVtypw/aBU+ryfV+fR2xrcAwhI8Wl6WRkojLUs/cB9SBSCuIb+IanQ==
+koa-send@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/koa-send/-/koa-send-5.0.1.tgz#39dceebfafb395d0d60beaffba3a70b4f543fe79"
+  integrity sha512-tmcyQ/wXXuxpDxyNXv5yNNkdAMdFRqwtegBXUaowiQzUKqJehttS0x2j0eOZDQAyloAth5w6wwBImnFzkUz3pQ==
   dependencies:
-    debug "^3.1.0"
-    http-errors "^1.6.3"
-    mz "^2.7.0"
+    debug "^4.1.1"
+    http-errors "^1.7.3"
     resolve-path "^1.4.0"
 
 koa-webpack@^5.3.0:
@@ -7852,15 +7851,6 @@ multicast-dns@^6.0.1:
   dependencies:
     dns-packet "^1.3.1"
     thunky "^1.0.2"
-
-mz@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/mz/-/mz-2.7.0.tgz#95008057a56cafadc2bc63dde7f9ff6955948e32"
-  integrity sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==
-  dependencies:
-    any-promise "^1.0.0"
-    object-assign "^4.0.1"
-    thenify-all "^1.0.0"
 
 nan@^2.12.1:
   version "2.14.0"
@@ -8766,10 +8756,10 @@ pg-pool@^3.2.1:
   resolved "https://registry.yarnpkg.com/pg-pool/-/pg-pool-3.2.1.tgz#5f4afc0f58063659aeefa952d36af49fa28b30e0"
   integrity sha512-BQDPWUeKenVrMMDN9opfns/kZo4lxmSWhIqo+cSAF7+lfi9ZclQbr9vfnlNaPr8wYF3UYjm5X0yPAhbcgqNOdA==
 
-pg-protocol@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/pg-protocol/-/pg-protocol-1.2.4.tgz#3139cac0e51347f1e21e03954b1bb9fe2c20962e"
-  integrity sha512-/8L/G+vW/VhWjTGXpGh8XVkXOFx1ZDY+Yuz//Ab8CfjInzFkreI+fDG3WjCeSra7fIZwAFxzbGptNbm8xSXenw==
+pg-protocol@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/pg-protocol/-/pg-protocol-1.2.5.tgz#28a1492cde11646ff2d2d06bdee42a3ba05f126c"
+  integrity sha512-1uYCckkuTfzz/FCefvavRywkowa6M5FohNMF5OjKrqo9PSR8gYc8poVmwwYQaBxhmQdBjhtP514eXy9/Us2xKg==
 
 pg-types@^2.1.0:
   version "2.2.0"
@@ -8782,16 +8772,16 @@ pg-types@^2.1.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@^8.2.1:
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/pg/-/pg-8.2.1.tgz#f5a81f5e2025182fbe701514d3e1a43e68a616ac"
-  integrity sha512-DKzffhpkWRr9jx7vKxA+ur79KG+SKw+PdjMb1IRhMiKI9zqYUGczwFprqy+5Veh/DCcFs1Y6V8lRLN5I1DlleQ==
+pg@^8.2.2:
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/pg/-/pg-8.2.2.tgz#a8c2bbe1f20e67b11333a672b3bc2135338fd7e4"
+  integrity sha512-Uni50U0W2CNPM68+zfC/1WWjSO3q/uBSF/Nl7D+1npZGsPSM4/EZt0xSMW2jox1Bn0EfDlnTWnTsM/TrSOtBEA==
   dependencies:
     buffer-writer "2.0.0"
     packet-reader "1.0.0"
     pg-connection-string "^2.2.3"
     pg-pool "^3.2.1"
-    pg-protocol "^1.2.4"
+    pg-protocol "^1.2.5"
     pg-types "^2.1.0"
     pgpass "1.x"
     semver "4.3.2"
@@ -10858,10 +10848,10 @@ svelte-loader@^2.13.6:
     loader-utils "^1.1.0"
     svelte-dev-helper "^1.1.9"
 
-svelte@^3.23.2:
-  version "3.23.2"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.23.2.tgz#f3e500384261a2e77b29681ee744c3c790fbcdc3"
-  integrity sha512-hE8GeTM83YVR4GY6/6PeDEcGct4JS5aCi+IYbCAa76oaPSfuF7L85DQYULQxlTK/KPWzw3L1GRGmC3oPG/PQoA==
+svelte@^3.24.0:
+  version "3.24.0"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.24.0.tgz#6565a42c9705796fa66c6abb4fedc09f4323a4a8"
+  integrity sha512-VFXom6EP2DK83kxy4ZlBbaZklSbZIrpNH3oNXlPYHJUuW4q1OuAr3ZoYbfIVTVYPDgrI7Yq0gQcOhDlAtO4qfw==
 
 svg-tags@^1.0.0:
   version "1.0.0"
@@ -10962,20 +10952,6 @@ text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
-
-thenify-all@^1.0.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/thenify-all/-/thenify-all-1.6.0.tgz#1a1918d402d8fc3f98fbf234db0bcc8cc10e9726"
-  integrity sha1-GhkY1ALY/D+Y+/I02wvMjMEOlyY=
-  dependencies:
-    thenify ">= 3.1.0 < 4"
-
-"thenify@>= 3.1.0 < 4":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/thenify/-/thenify-3.3.0.tgz#e69e38a1babe969b0108207978b9f62b88604839"
-  integrity sha1-5p44obq+lpsBCCB5eLn2K4hgSDk=
-  dependencies:
-    any-promise "^1.0.0"
 
 through2@^2.0.0:
   version "2.0.5"
@@ -11774,10 +11750,10 @@ webpack-merge@^4.1.2:
   dependencies:
     lodash "^4.17.15"
 
-webpack-node-externals@^1.7.2:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/webpack-node-externals/-/webpack-node-externals-1.7.2.tgz#6e1ee79ac67c070402ba700ef033a9b8d52ac4e3"
-  integrity sha512-ajerHZ+BJKeCLviLUUmnyd5B4RavLF76uv3cs6KNuO8W+HuQaEs0y0L7o40NQxdPy5w0pcv8Ew7yPUAQG0UdCg==
+webpack-node-externals@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/webpack-node-externals/-/webpack-node-externals-2.3.0.tgz#c884c07103de080284e17c195fe87c68e2b9c668"
+  integrity sha512-d1scCn/L5hv73GMOlqSTO6ykLWOiUrZfn54xQYf7u0yGLlUSf5trq6HV/Gw8JIpH2NEyXS7bJec1gk9YR/Qdqw==
 
 webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1:
   version "1.4.3"
