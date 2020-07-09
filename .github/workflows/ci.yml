@@ -51,4 +51,4 @@ jobs:
       - name: Debug
         run: yarn nrg print config
       - name: Test
-        run: yarn test:ci
+        run: yarn test:ci -c 1
