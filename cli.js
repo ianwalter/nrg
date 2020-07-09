@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const path = require('path')
-const { promises: fs } = require('fs')
 const cli = require('@ianwalter/cli')
 const { print } = require('@ianwalter/print')
 const cloneable = require('@ianwalter/cloneable')
