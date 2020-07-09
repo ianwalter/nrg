@@ -12,7 +12,7 @@ services:
     ports:
       - "15432:5432"
     environment:
-      POSTGRESS_DB: nrg
+      POSTGRES_DB: nrg
       POSTGRES_USER: nrg
       POSTGRES_PASSWORD: gottaLottaEnemies
 
