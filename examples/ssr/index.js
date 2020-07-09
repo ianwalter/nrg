@@ -10,7 +10,7 @@ const app = createApp({
   }
 })
 
-app.use(serveSsr())
+app.use(serveSsr)
 
 // Export the app if required, otherwise start the server.
 if (module.parent) {
