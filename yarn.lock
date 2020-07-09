@@ -1033,11 +1033,6 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-6.0.0.tgz#7d7facccc86fb407571c78de00a0bd2adca395cb"
   integrity sha512-Ohskh/vqQFgW2Abaxd3kPYz/uNqoUmCSjU8kB8SoRieQqIOyXit1pFKYW4HmcoRcDFbktpWmS1QpIBoF74DGBg==
 
-"@ianwalter/merge@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-7.0.0.tgz#2fc97113eea21c1fd25132c8ddb93d3f20a83d04"
-  integrity sha512-PuJJiUQZSNRu6zrC6xrJx9/gX0NX9rilQ646+VBSj+X7RRBUWOogqxEUHojOJcwYTt2JzWVV9DIvvsZMkfZP5Q==
-
 "@ianwalter/merge@^9.0.1":
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-9.0.1.tgz#bbbf15e1daec5fef7e28633d9e8060a62018a72d"
@@ -1214,15 +1209,15 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/renovate-config/-/renovate-config-1.3.0.tgz#821419333c7673dae837b7bbfb5574a520a4e9db"
   integrity sha512-J6xH9Lnm9TxqtZIO/cWFT1ziykPN3HlcMeJmUyiOHB0ol4DYJJPM/6/LSbEydU7iUGK5DxobWLAHoKC4j7RcLg==
 
-"@ianwalter/requester@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/requester/-/requester-2.2.0.tgz#dcabfb2c43cbb6b376445fda4c1e624503d1d229"
-  integrity sha512-LAx7jwft2JADO+DZ2l944rZTorqFelpcyZXqEcJ6BtkxatKUFRnKZG+KZlfaVORjcEAIN8zNbtf8YMt32rU+mg==
+"@ianwalter/requester@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/requester/-/requester-2.3.0.tgz#2639af5430d698dd8a0c47591d9b9cfefffcc60d"
+  integrity sha512-HZbT7JqbBo0+2rbSiBAb3sStzcXO6WSrpvuFxuBkcKuN2rcT8NaPQj0xL+zRb0DCppdAUYEnlZy7RRcRsN8a6w==
   dependencies:
     "@ianwalter/base-error" "^6.1.0"
     "@ianwalter/clone" "^6.0.1"
-    "@ianwalter/merge" "^7.0.0"
-    "@ianwalter/print" "^5.3.0"
+    "@ianwalter/merge" "^9.0.1"
+    "@ianwalter/print" "^8.0.3"
 
 "@ianwalter/router@^3.3.0":
   version "3.3.0"

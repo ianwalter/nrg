@@ -9,7 +9,11 @@ exports.up = knex => knex.schema.createTable('tokens', t => {
 
   // Records need to be related by id and not email since an email address can
   // be changed.
-  t.foreign('accountId').references('id').inTable('accounts')
+  t
+    .foreign('accountId')
+    .references('id')
+    .inTable('accounts')
+    .onDelete('CASCADE')
 })
 
 exports.down = knex => knex.schema.dropTable('tokens')

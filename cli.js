@@ -7,6 +7,7 @@ const { print } = require('@ianwalter/print')
 const cloneable = require('@ianwalter/cloneable')
 const { excluding } = require('@ianwalter/extract')
 const healthcheck = require('./lib/commands/healthcheck')
+const { copyMigrations } = require('./lib/commands/migrations')
 const dot = require('@ianwalter/dot')
 
 const { _: commands, packageJson, ...config } = cli({
@@ -46,17 +47,7 @@ async function run () {
     log.info(config.helpText)
   } else if (commands[0] === 'copy') {
     if (commands[1] === 'migrations') {
-      // Copy base account migrations.
-      const source = path.join(__dirname, 'migrations')
-      const destination = app.context.cfg.db.migrations.directory ||
-        commands[2] ||
-        path.resolve('migrations')
-      await fs.mkdir(destination, { recursive: true })
-      const migrations = await fs.readdir(source)
-      await Promise.all(migrations.map(async migration => fs.copyFile(
-        path.join(source, migration),
-        path.join(destination, migration)
-      )))
+      await copyMigrations({ commands }, app)
     } else {
       app.logger.fatal('Copy what? Available: migrations')
       process.exit(1)

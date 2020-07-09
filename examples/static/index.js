@@ -3,11 +3,10 @@ const { createApp } = require('../..')
 
 const app = createApp({
   static: {
+    enabled: true, // Only necessary since NODE_ENV is not production.
+    root: path.join(__dirname, 'dist'),
     fallback (ctx) {
       ctx.body = 'I Wish I Could'
-    },
-    send: {
-      root: path.join(__dirname, 'dist')
     }
   }
 })

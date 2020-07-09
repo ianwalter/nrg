@@ -7,7 +7,6 @@ const app = nrg.createApp({
   keys: ['terra', 'incognita'],
   db: {
     connection: {
-      host: process.env.DB_HOST,
       port: process.env.DB_PORT || 15432,
       database: 'nrg',
       user: 'nrg',
@@ -16,7 +15,6 @@ const app = nrg.createApp({
   },
   redis: {
     connection: {
-      host: process.env.REDIS_HOST,
       port: process.env.REDIS_PORT || 16379
     }
   },
@@ -26,7 +24,6 @@ const app = nrg.createApp({
       address: 'support@example.com'
     },
     transport: {
-      host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT || 2025
     }
   },
