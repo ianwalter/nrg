@@ -104,7 +104,7 @@
     "svelte-loader": "^2.13.6",
     "vuepress": "^1.5.2",
     "webpack-cli": "^3.3.12",
-    "webpack-node-externals": "^2.3.0"
+    "webpack-node-externals": "^2.5.0"
   },
   "nrg": {
     "app": "examples/accounts"
