@@ -81,7 +81,7 @@
     "nodemailer": "^6.4.10",
     "objection": "^2.2.1",
     "pg": "^8.2.2",
-    "pino": "^6.3.2",
+    "pino": "^6.4.0",
     "pkg-dir": "^4.2.0",
     "read-pkg-up": "^7.0.1",
     "replace-string": "^3.1.0",
