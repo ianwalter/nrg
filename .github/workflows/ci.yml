@@ -12,7 +12,6 @@ jobs:
     timeout-minutes: 10
     env:
       DB_HOST: postgres
-      DB_PORT: ${{ jobs.services.postgres.ports[5432] }}
       REDIS_HOST: redis
       REDIS_PORT: 6379
       MQ_HOST: rabbitmq

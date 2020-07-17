@@ -7,7 +7,7 @@ const app = nrg.createApp({
   keys: ['terra', 'incognita'],
   db: {
     connection: {
-      port: process.env.DB_PORT || 15432,
+      port: process.env.DB_PORT,
       database: 'nrg',
       user: 'nrg',
       password: 'gottaLottaEnemies'
