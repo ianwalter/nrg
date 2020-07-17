@@ -7,8 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: node:14.5
     timeout-minutes: 10
     env:
       DB_HOST: postgres
@@ -44,13 +42,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1.2.0
       - name: Install
-        run: yarn --frozen-lockfile
+        uses: docker://node:14.5
+        with:
+          args: yarn --frozen-lockfile
       - name: Lint
-        run: yarn lint
+        uses: docker://node:14.5
+        with:
+          args: yarn lint
       - name: Debug
-        run: yarn nrg print config
+        uses: docker://node:14.5
+        with:
+          args: yarn nrg print config
       - name: Test
-        run: yarn test:ci
+        uses: docker://node:14.5
+        with:
+          args: yarn test:ci
       - name: Dump docker logs on failure
         if: failure()
         uses: jwalton/gh-docker-logs@v1
