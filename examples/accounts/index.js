@@ -6,6 +6,7 @@ const app = nrg.createApp({
   log: { level: 'error' },
   keys: ['terra', 'incognita'],
   db: {
+    debug: true,
     connection: {
       port: process.env.DB_PORT,
       database: 'nrg',
