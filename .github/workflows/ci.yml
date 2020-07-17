@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: node:14.5
+      image: ianwalter/pnpm:v1.0.0
     timeout-minutes: 10
     env:
       DB_HOST: postgres
@@ -43,12 +43,12 @@ jobs:
           - 1080:80
     steps:
       - name: Checkout
-        uses: actions/checkout@v1.2.0
+        uses: actions/checkout@v2
       - name: Install
-        run: yarn --frozen-lockfile
+        run: pnpm i
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
       - name: Debug
-        run: yarn nrg print config
+        run: pnpm nrg print config
       - name: Test
-        run: yarn test:ci
+        run: pnpm test:ci
