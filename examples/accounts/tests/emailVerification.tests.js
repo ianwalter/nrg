@@ -2,7 +2,7 @@ const { test } = require('@ianwalter/bff')
 const app = require('../examples/accounts')
 const { accounts } = require('../seeds/01_accounts')
 const { tokens } = require('../seeds/02_tokens')
-const { getTestEmail, extractEmailToken, Account } = require('..')
+const { Account } = require('..')
 
 const willVerifyUser = accounts.find(a => a.firstName === 'Will Verify')
 const previousEmailUser = accounts.find(a => a.firstName === 'Previous Email')
@@ -17,7 +17,7 @@ test('Email Verification • Success', async t => {
   // Verify the email verification email was received and extract the token.
   await t.asleep(1000)
   const byEmail = e => e.headers.to === willVerifyUser.email
-  const { email, token } = await extractEmailToken(byEmail)
+  const { email, token } = await app.extractEmailToken(byEmail)
   const { action } = app.context.cfg.email.templates.emailVerification
   t.expect(email.html).toContain(action.instructions)
   t.expect(email).toMatchSnapshot({
@@ -107,7 +107,7 @@ test('Resend Email Verification • Unregistered email', async t => {
 
   // Verify no email was sent to the email address.
   await t.asleep(1000)
-  const email = await getTestEmail(e => e.headers.to === payload.email)
+  const email = await app.getTestEmail(e => e.headers.to === payload.email)
   t.expect(email).toBe(undefined)
 })
 
@@ -119,6 +119,6 @@ test('Resend Email Verification • Disabled user', async t => {
 
   // Verify no email was sent to the user.
   await t.asleep(1000)
-  const email = await getTestEmail(e => e.headers.to === disabledUser.email)
+  const email = await app.getTestEmail(e => e.headers.to === disabledUser.email)
   t.expect(email).toBe(undefined)
 })

@@ -32,21 +32,10 @@ createApp({
     // error if hostEnv is "test", "info" if hostEnv is "production", and
     // "debug" otherwise.
     level,
-    // [Boolean|Object] Pretty-print formatting settings for the prettifier
-    // specified below. Defaults to false if hostEnv is "production" otherwise
-    // to a configuration object that tells the default prettifier, pino-print,
-    // to not verbosely log requests for static files with paths that include
-    // "/static/" or the specified `static` value.
-    prettyPrint,
-    // [Object] A pino-compatible prettifier. Defaults to @ianwalter/pino-print.
-    prettifier,
     // [Array] A list of request/response properties to redact from being
     // logged. Defaults to nothing if the log level is "debug" otherwise to
     // redacting cookie request headers and set-cookie response headers.
-    redact,
-    // [Function] A function that tells pino what the request ID should be given
-    // a request object. Defaults to req.id.
-    genReqId
+    redact
   },
   // FIXME: make this config consistent.
   // [Object]

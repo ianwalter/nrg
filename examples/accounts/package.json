@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "accounts-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": {
+    "name": "Ian Walter",
+    "url": "https://ianwalter.dev"
+  },
+  "license": "UNLICENSED"
+}

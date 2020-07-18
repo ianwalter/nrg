@@ -1,7 +1,6 @@
 const { Model } = require('objection')
 
-const createApp = require('./lib/app')
-const createWorker = require('./lib/worker')
+const createApp = require('./lib/createApp')
 
 const Base = require('./lib/models/Base')
 const Account = require('./lib/models/Account')
@@ -89,12 +88,8 @@ const { slowDown } = require('./lib/middleware/slowDown')
 
 const { httpsRedirect } = require('./lib/middleware/httpsRedirect')
 
-const {
-  swap,
-  getRandomTimeout,
-  getTestEmail,
-  extractEmailToken
-} = require('./lib/utilities')
+const swap = require('./lib/utilities/swap')
+const getRandomTimeout = require('./lib/utilities/getRandomTimeout')
 
 const config = require('./lib/config')
 
@@ -104,7 +99,6 @@ module.exports = {
    */
 
   createApp,
-  createWorker,
 
   /**
    * Middleware:
@@ -287,8 +281,6 @@ module.exports = {
 
   swap,
   getRandomTimeout,
-  getTestEmail,
-  extractEmailToken,
 
   /**
    * Default config:

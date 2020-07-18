@@ -1,6 +1,6 @@
 const { test } = require('@ianwalter/bff')
 const { excluding } = require('@ianwalter/extract')
-const { getTestEmail, extractEmailToken, Account } = require('..')
+const { Account } = require('..')
 const app = require('../examples/accounts')
 const { accounts, password } = require('../seeds/01_accounts')
 
@@ -162,7 +162,7 @@ test('Account • Update email address', async t => {
   // Verify that the email verification email was received.
   const byEmail = e => e.headers.to === email
   await t.asleep(1000)
-  t.expect(await getTestEmail(byEmail)).toBeDefined()
+  t.expect(await app.getTestEmail(byEmail)).toBeDefined()
 
   // Attempt to update multiple account properties as well as the email address.
   const updates = { firstName: 'Changed Email', lastName: 'Testini' }
@@ -171,7 +171,7 @@ test('Account • Update email address', async t => {
 
   // Verify the new email address.
   await t.asleep(1000)
-  const { token } = await extractEmailToken(byEmail)
+  const { token } = await app.extractEmailToken(byEmail)
   response = await app.test('/verify-email').post({ email, token })
   t.expect(response.status).toBe(201)
 
