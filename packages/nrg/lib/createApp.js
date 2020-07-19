@@ -20,9 +20,10 @@ module.exports = function createApp (options = {}) {
   // in the app.
   app.context.cfg = cfg
 
-  // FIXME: comment
-  // FIXME: make configurable
-  if (cfg.isDev && Error.stackTraceLimit === 10) Error.stackTraceLimit = 20
+  // Configure the number of lines captured in an Error's stack trace so that
+  // it's easier to debug errors in development.
+  const stackTraceLimitIsInt = Number.isInteger(cfg.stackTraceLimit)
+  if (stackTraceLimitIsInt) Error.stackTraceLimit = cfg.stackTraceLimit
 
   // Add the logger to the app instance for convenience.
   if (cfg.logger) app.log = cfg.logger

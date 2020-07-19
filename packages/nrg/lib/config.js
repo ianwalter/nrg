@@ -109,6 +109,11 @@ module.exports = function config (options = {}) {
     get logger () {
       return this.nrgPrint?.logger
     },
+    get stackTraceLimit () {
+      return (this.isDev && Error.stackTraceLimit === 10)
+        ? 20
+        : Error.stackTraceLimit
+    },
     // [Object] Key-value entries of plugins (or middleware if a function is
     // returned from the plugin) the application will use.
     plugins: {
