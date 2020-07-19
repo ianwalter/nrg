@@ -18,5 +18,17 @@
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@ianwalter/eslint-config-react": "^3.2.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@ianwalter/eslint-config-react/preact"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": 0
+    }
   }
 }
