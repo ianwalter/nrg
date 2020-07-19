@@ -18,6 +18,8 @@ const { httpsRedirect } = require('./middleware/httpsRedirect')
 const Account = require('./models/Account')
 const Token = require('./models/Token')
 const { serveStatic, serveWebpack } = require('./middleware/client')
+const serve = require('./app/serve')
+const test = require('./app/test')
 
 // Get the end-user's package.json data so that it can be used to provide
 // defaults.
@@ -275,9 +277,18 @@ module.exports = function config (options = {}) {
       // Plugin for adding an endpoint that returns a valid CSRF token if the
       // application is in test mode.
       csrfToken (app) {
-        if (cfg.isTest) {
+        if (cfg.plugins.router && cfg.isTest) {
           app.get('/csrf-token', ctx => (ctx.body = { csrfToken: ctx.csrf }))
         }
+      },
+      // Add a serve method to the app that makes it easy to start listening for
+      // connections.
+      serve (app) {
+        app.serve = serve
+      },
+      // If not in production, add a utility to allow making test requests.
+      test (app) {
+        if (!cfg.isProd) app.test = test
       }
     },
     static: {

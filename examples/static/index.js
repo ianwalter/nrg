@@ -15,5 +15,5 @@ const app = createApp({
 if (module.parent) {
   module.exports = app
 } else {
-  app.start()
+  app.serve()
 }

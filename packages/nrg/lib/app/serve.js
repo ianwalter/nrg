@@ -2,7 +2,7 @@ const http = require('http')
 const merge = require('@ianwalter/merge')
 const enableDestroy = require('server-destroy')
 
-module.exports = function start () {
+module.exports = function serve () {
   // FIXME: comment
   this.server = http.createServer(this.callback())
 

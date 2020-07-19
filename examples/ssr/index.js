@@ -17,5 +17,5 @@ app.use(serveSsr)
 if (module.parent) {
   module.exports = app
 } else {
-  app.start()
+  app.serve()
 }

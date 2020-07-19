@@ -1,8 +1,6 @@
 const merge = require('@ianwalter/merge')
 const Koa = require('koa')
 const config = require('./config')
-const start = require('./app/start')
-const test = require('./app/test')
 
 // If running in a CLI context, parse the JSON string to get the CLI options.
 const nrgCli = process.env.NRG_CLI && JSON.parse(process.env.NRG_CLI)
@@ -40,13 +38,6 @@ module.exports = function createApp (options = {}) {
   for (const plugin of Object.values(cfg.plugins)) {
     if (plugin) plugin(app)
   }
-
-  // Add a start method to the app that makes it easy to start listening for
-  // connections.
-  app.start = start
-
-  // If not in production, add a utility to allow making test requests.
-  if (!cfg.isProd) app.test = test
 
   // Return the app instance.
   return app
