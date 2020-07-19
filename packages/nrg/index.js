@@ -90,6 +90,8 @@ const { httpsRedirect } = require('./lib/middleware/httpsRedirect')
 
 const swap = require('./lib/utilities/swap')
 const getRandomTimeout = require('./lib/utilities/getRandomTimeout')
+const getTestEmail = require('./lib/utilities/getTestEmail')
+const extractEmailToken = require('./lib/utilities/extractEmailToken')
 
 const config = require('./lib/config')
 
@@ -281,6 +283,8 @@ module.exports = {
 
   swap,
   getRandomTimeout,
+  getTestEmail,
+  extractEmailToken,
 
   /**
    * Default config:

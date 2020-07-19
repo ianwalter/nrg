@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "accounts-example",
+  "name": "static-example",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,7 @@
     "url": "https://ianwalter.dev"
   },
   "license": "UNLICENSED",
-  "scripts": {
-    "pretest": "pnpm nrg migrate && pnpm nrg seed && pnpm nrg run deleteAllEmail",
-    "test": "bff"
-  },
   "dependencies": {
     "@ianwalter/nrg": "^0.1.3"
-  },
-  "devDependencies": {
-    "@ianwalter/bff": "^9.10.0"
   }
 }

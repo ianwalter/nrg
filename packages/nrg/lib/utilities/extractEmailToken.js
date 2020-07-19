@@ -1,9 +1,10 @@
 const clone = require('@ianwalter/clone')
 const cheerio = require('cheerio')
 const replaceAll = require('replace-string')
+const getTestEmail = require('./getTestEmail')
 
 async function extractEmailToken (byEmail, selector = '.button') {
-  const email = clone(await this.getTestEmail(byEmail))
+  const email = clone(await getTestEmail(byEmail))
 
   const $ = cheerio.load(email.html)
   const url = new URL($(selector).attr('href'))

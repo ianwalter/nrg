@@ -1,7 +1,7 @@
 const { test } = require('@ianwalter/bff')
-const app = require('../examples/accounts')
+const app = require('..')
 const { accounts } = require('../seeds/01_accounts')
-const { Account } = require('..')
+const { Account, getTestEmail, extractEmailToken } = require('@ianwalter/nrg')
 
 const firstName = 'Bilbo'
 const lastName = 'Baggins'
@@ -61,7 +61,7 @@ test('Registration • Success', async t => {
 
   // Extract the Email Verification token.
   await t.asleep(1000)
-  const { token } = await app.extractEmailToken(e => e.headers.to === email)
+  const { token } = await extractEmailToken(e => e.headers.to === email)
 
   // Verify the email address.
   response = await app.test('/verify-email').post({ ...payload, token })
@@ -83,7 +83,7 @@ test('Registration • Existing verified email', async t => {
 
   // Verify no email was sent to the user.
   await t.asleep(1000)
-  const email = await app.getTestEmail(e => e.headers.to === verifiedUser.email)
+  const email = await getTestEmail(e => e.headers.to === verifiedUser.email)
   t.expect(email).toBe(undefined)
 })
 
@@ -97,7 +97,7 @@ test('Registration • Existing unverified email', async t => {
   // Extract the Email Verification token.
   await t.asleep(1000)
   const byEmail = email => email.headers.to === unverifiedUser.email
-  const { token } = await app.extractEmailToken(byEmail)
+  const { token } = await extractEmailToken(byEmail)
 
   // Verify the email address.
   response = await app.test('/verify-email').post({ ...payload, token })

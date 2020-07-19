@@ -1,4 +1,4 @@
-const nrg = require('../..')
+const nrg = require('@ianwalter/nrg')
 
 const app = nrg.createApp({
   name: 'Accounts Example',

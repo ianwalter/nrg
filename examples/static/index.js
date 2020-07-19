@@ -1,5 +1,5 @@
 const path = require('path')
-const { createApp } = require('../..')
+const { createApp } = require('@ianwalter/nrg')
 
 const app = createApp({
   static: {

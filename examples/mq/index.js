@@ -1,5 +1,5 @@
 const { asleep } = require('@ianwalter/sleep')
-const { createApp } = require('../')
+const { createApp } = require('@ianwalter/nrg')
 
 const host = process.env.MQ_HOST || 'localhost'
 const port = process.env.MQ_PORT || 25672

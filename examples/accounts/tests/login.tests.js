@@ -1,5 +1,5 @@
 const { test } = require('@ianwalter/bff')
-const app = require('../examples/accounts')
+const app = require('..')
 const { accounts, password } = require('../seeds/01_accounts')
 
 const generalUser = accounts.find(a => a.firstName === 'General')

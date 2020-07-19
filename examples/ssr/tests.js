@@ -1,6 +1,6 @@
 const { test } = require('@ianwalter/bff')
-const app = require('./fixtures/base')
-const nrg = require('..')
+const app = require('..')
+const nrg = require('@ianwalter/nrg')
 
 const result = { song: 'Wave' }
 const addData = (ctx, next) => {

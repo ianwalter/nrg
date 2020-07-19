@@ -1,8 +1,8 @@
 const { test } = require('@ianwalter/bff')
-const app = require('../examples/accounts')
+const app = require('..')
 const { accounts, password } = require('../seeds/01_accounts')
 const { tokens } = require('../seeds/02_tokens')
-const { Account } = require('..')
+const { Account, extractEmailToken } = require('@ianwalter/nrg')
 
 const testUser = { ...accounts[1], password }
 const resetVerifyUser = accounts.find(a => a.firstName === 'Reset Verify')
@@ -78,7 +78,7 @@ test('Password Reset • Verify email through reset', async t => {
   // Extract the Forgot Password token.
   await t.asleep(1000)
   const byEmail = email => email.headers.to === resetVerifyUser.email
-  const { token } = await app.extractEmailToken(byEmail)
+  const { token } = await extractEmailToken(byEmail)
 
   // Reset the password using the token.
   const payload = { ...resetVerifyUser, token, password: 'fjioenfkj02kqwmkl60' }
