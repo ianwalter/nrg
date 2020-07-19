@@ -10,7 +10,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "pretest": "pnpx nrg migrate && pnpx nrg seed && pnpx nrg run deleteAllEmail",
-    "test": "bff"
+    "test": "NODE_ENV=test bff"
   },
   "dependencies": {
     "@ianwalter/nrg": "^0.1.3"

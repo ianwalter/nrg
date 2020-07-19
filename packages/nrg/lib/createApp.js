@@ -20,6 +20,10 @@ module.exports = function createApp (options = {}) {
   // in the app.
   app.context.cfg = cfg
 
+  // FIXME: comment
+  // FIXME: make configurable
+  if (cfg.isDev && Error.stackTraceLimit === 10) Error.stackTraceLimit = 20
+
   // Add the logger to the app instance for convenience.
   if (cfg.logger) app.log = cfg.logger
 
