@@ -24,8 +24,6 @@ if (!process.env.GITHUB_ACTION) { // FIXME: why did I do this again?
 }
 
 test('SSR', async t => {
-  const app = require('../examples/ssr')
-
   // Verify that the page is returned successfully when requesting the root
   // path.
   let response = await app.test('/').get()
