@@ -1,8 +1,8 @@
 const { test } = require('@ianwalter/bff')
-const app = require('..')
+const { Account, getTestEmail, extractEmailToken } = require('@ianwalter/nrg')
+const app = require('../app')
 const { accounts } = require('../seeds/01_accounts')
 const { tokens } = require('../seeds/02_tokens')
-const { Account, getTestEmail, extractEmailToken } = require('@ianwalter/nrg')
 
 const willVerifyUser = accounts.find(a => a.firstName === 'Will Verify')
 const previousEmailUser = accounts.find(a => a.firstName === 'Previous Email')

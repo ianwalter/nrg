@@ -1,7 +1,7 @@
 const { test } = require('@ianwalter/bff')
-const app = require('..')
-const { accounts } = require('../seeds/01_accounts')
 const { Account, getTestEmail, extractEmailToken } = require('@ianwalter/nrg')
+const app = require('../app')
+const { accounts } = require('../seeds/01_accounts')
 
 const firstName = 'Bilbo'
 const lastName = 'Baggins'

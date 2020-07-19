@@ -3,14 +3,13 @@
   "name": "accounts-example",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
   },
   "license": "UNLICENSED",
   "scripts": {
-    "pretest": "pnpm nrg migrate && pnpm nrg seed && pnpm nrg run deleteAllEmail",
+    "pretest": "pnpx nrg migrate && pnpx nrg seed && pnpx nrg run deleteAllEmail",
     "test": "bff"
   },
   "dependencies": {

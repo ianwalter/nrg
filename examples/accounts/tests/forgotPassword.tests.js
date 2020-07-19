@@ -1,7 +1,7 @@
 const { test } = require('@ianwalter/bff')
-const app = require('..')
-const { accounts } = require('../seeds/01_accounts')
 const { Token, getTestEmail, extractEmailToken } = require('@ianwalter/nrg')
+const app = require('../app')
+const { accounts } = require('../seeds/01_accounts')
 
 const generalUser = accounts.find(a => a.firstName === 'General')
 const disabledUser = accounts.find(a => a.firstName === 'Disabled')

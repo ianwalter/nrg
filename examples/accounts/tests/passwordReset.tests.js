@@ -1,5 +1,5 @@
 const { test } = require('@ianwalter/bff')
-const app = require('..')
+const app = require('../app')
 const { accounts, password } = require('../seeds/01_accounts')
 const { tokens } = require('../seeds/02_tokens')
 const { Account, extractEmailToken } = require('@ianwalter/nrg')
