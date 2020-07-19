@@ -1,5 +1,5 @@
 const { test } = require('@ianwalter/bff')
-const app = require('..')
+const app = require('.')
 const nrg = require('@ianwalter/nrg')
 
 const result = { song: 'Wave' }

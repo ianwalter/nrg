@@ -9,8 +9,10 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "lint": "eslint .",
-    "test": "pnpm -r test",
     "nrg": "node packages/nrg/cli.js",
+    "test:mq": "pnpm test --filter mq-example",
+    "test:ssr": "pnpm test --filter ssr-example",
+    "test:static": "pnpm test --filter static-example",
     "example:hello": "node examples/helloWorld.js",
     "example:routes": "node examples/routes.js",
     "example:uncaught": "node examples/uncaughtException.js",
@@ -52,7 +54,7 @@
     "vuepress": "^1.5.2"
   },
   "nrg": {
-    "app": "examples/accounts"
+    "app": "examples/accounts/app"
   },
   "eslintConfig": {
     "root": true,

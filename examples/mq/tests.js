@@ -1,5 +1,5 @@
 const { test } = require('@ianwalter/bff')
-const app = require('..')
+const app = require('.')
 
 test.skip('Message Queue', async t => {
   const response = await app.test('/').get()

@@ -51,4 +51,4 @@ jobs:
       - name: Debug
         run: pnpm nrg print config
       - name: Test
-        run: pnpm test:ci
+        run: pnpm -r test

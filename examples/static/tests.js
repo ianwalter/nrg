@@ -1,9 +1,9 @@
 const path = require('path')
 const { promises: fs } = require('fs')
 const { test } = require('@ianwalter/bff')
-const app = require('../examples/static')
+const app = require('.')
 
-const gifPath = '../examples/static/dist/static/img/boomer.gif'
+const gifPath = 'dist/static/img/boomer.gif'
 
 test('serveStatic', async t => {
   const response = await app.test('/static/img/boomer.gif').get()

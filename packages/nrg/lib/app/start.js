@@ -15,20 +15,20 @@ module.exports = function start () {
 
       // Update the port in the config in case it wasn't specified and Node
       // has used a random port.
-      if (!this.cfg.port) {
+      if (!this.context.cfg.port) {
         const { port } = this.server.address()
-        merge(this.cfg, { port })
+        merge(this.context.cfg, { port })
       }
 
       // Set the server URL (the local URL which can be different from the
       // base URL) so that whatever is starting the server (e.g. tests) can
       // easily know what URL to use.
-      this.server.url = this.cfg.hostUrl
+      this.server.url = this.context.cfg.hostUrl
 
       if (this.log) {
         this.log
           .ns('nrg.server')
-          .info(`${this.cfg.name} server started:`, this.server.url)
+          .info(`${this.context.cfg.name} server started:`, this.server.url)
       }
 
       // Add a destroy method to the server instance.
