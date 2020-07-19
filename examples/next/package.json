@@ -1,0 +1,12 @@
+{
+  "name": "next-example",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "dependencies": {
+    "@ianwalter/nrg": "^0.1.3",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
