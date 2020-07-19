@@ -2,8 +2,6 @@
 
 import api from '../../api'
 
-export const config = { api: { externalResolver: true } }
-
 export default api(function hello (ctx) {
   ctx.body = { name: 'John Doe' }
 })
