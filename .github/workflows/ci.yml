@@ -19,6 +19,7 @@ jobs:
       MQ_PORT: 5672
       SMTP_HOST: maildev
       SMTP_PORT: 25
+      MAILDEV_PORT: 1080
     services:
       postgres:
         image: postgres:12.3
