@@ -4,3 +4,4 @@ docs/.vuepress/dist
 .yalc
 yalc.lock
 .next
+.env
