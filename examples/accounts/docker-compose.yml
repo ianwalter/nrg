@@ -17,7 +17,7 @@ services:
       POSTGRES_PASSWORD: gottaLottaEnemies
 
   maildev:
-    image: djfarrelly/maildev
+    image: djfarrelly/maildev:1.1.0
     ports:
       - $SMTP_PORT:25
       - $MAILDEV_PORT:80
