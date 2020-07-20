@@ -65,7 +65,7 @@ importers:
       svelte: ^3.24.0
       svelte-loader: ^2.13.6
       webpack-cli: ^3.3.12
-      webpack-node-externals: ^2.3.0
+      webpack-node-externals: ^2.5.0
   examples/static:
     dependencies:
       '@ianwalter/nrg': 'link:../../packages/nrg'
