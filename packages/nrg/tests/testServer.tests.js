@@ -14,6 +14,7 @@ test('Test Server 1', async t => {
   await server.close()
 })
 
+// FIXME: unskip
 test.skip('Test Server 2', async t => {
   const { server } = await app.serve()
   const response = await requester.get(`${server.url}/health`)

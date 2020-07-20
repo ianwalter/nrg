@@ -39,6 +39,7 @@ module.exports = function test (url, options = {}) {
         if (app.log) {
           app.log.ns('nrg.test').debug('Adding CSRF token for test')
         }
+        // FIXME: handle and log error.
         const response = await supertest(cb).get('/csrf-token').set(options)
         request.set('Cookie', response.headers['set-cookie'])
         request.set('csrf-token', response.body.csrfToken)
