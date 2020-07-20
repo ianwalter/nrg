@@ -6,4 +6,4 @@ app.use(ctx => {
   throw new Error('Oh noes!')
 })
 
-app.start()
+app.serve()

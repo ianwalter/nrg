@@ -3,3 +3,5 @@ docs/.vuepress/dist
 .DS_Store
 .yalc
 yalc.lock
+.next
+.env

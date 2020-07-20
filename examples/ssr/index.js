@@ -1,5 +1,5 @@
 const path = require('path')
-const { createApp, serveSsr } = require('../..')
+const { createApp, serveSsr } = require('@ianwalter/nrg')
 
 const app = createApp({
   log: { level: 'debug' },
@@ -17,5 +17,5 @@ app.use(serveSsr)
 if (module.parent) {
   module.exports = app
 } else {
-  app.start()
+  app.serve()
 }

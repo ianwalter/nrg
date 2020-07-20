@@ -1,3 +1,3 @@
-const app = require('.')
+const app = require('./app')
 
-app.start()
+app.serve()

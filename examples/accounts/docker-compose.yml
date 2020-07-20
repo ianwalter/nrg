@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+  redis:
+    image: redis:5.0
+    ports:
+      - $REDIS_PORT:6379
+
+  db:
+    image: postgres:12.3
+    stop_signal: SIGINT
+    ports:
+      - $DB_PORT:5432
+    environment:
+      POSTGRES_DB: nrg
+      POSTGRES_USER: nrg
+      POSTGRES_PASSWORD: gottaLottaEnemies
+
+  maildev:
+    image: djfarrelly/maildev:1.1.0
+    ports:
+      - $SMTP_PORT:25
+      - $MAILDEV_PORT:80

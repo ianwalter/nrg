@@ -31,7 +31,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '../../lib/pageTemplate.html'),
+      template: path.join(__dirname, 'pageTemplate.html'),
       filename: 'pageTemplate.html',
       minify: false
     })

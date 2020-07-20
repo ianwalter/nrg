@@ -1,5 +1,5 @@
 const path = require('path')
-const { createApp } = require('../..')
+const { createApp } = require('@ianwalter/nrg')
 
 const app = createApp({
   static: {
@@ -15,5 +15,5 @@ const app = createApp({
 if (module.parent) {
   module.exports = app
 } else {
-  app.start()
+  app.serve()
 }

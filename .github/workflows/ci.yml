@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: node:14.5
+      image: ianwalter/pnpm:v1.0.0
     timeout-minutes: 10
     env:
       DB_HOST: postgres
@@ -19,6 +19,8 @@ jobs:
       MQ_PORT: 5672
       SMTP_HOST: maildev
       SMTP_PORT: 25
+      MAILDEV_HOST: maildev
+      MAILDEV_PORT: 80
     services:
       postgres:
         image: postgres:12.3
@@ -37,18 +39,15 @@ jobs:
           RABBITMQ_DEFAULT_USER: nrg
           RABBITMQ_DEFAULT_PASS: gottaLottaEnemies
       maildev:
-        image: djfarrelly/maildev
-        ports:
-          - 1025:25
-          - 1080:80
+        image: djfarrelly/maildev:1.1.0
     steps:
       - name: Checkout
-        uses: actions/checkout@v1.2.0
+        uses: actions/checkout@v2
       - name: Install
-        run: yarn --frozen-lockfile
+        run: pnpm i
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
       - name: Debug
-        run: yarn nrg print config
+        run: pnpm nrg print config
       - name: Test
-        run: yarn test:ci
+        run: pnpm -r test

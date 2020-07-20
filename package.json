@@ -1,5 +1,5 @@
 {
-  "name": "@ianwalter/nrg",
+  "name": "nrg",
   "description": "A batteries-included Node.js web framework",
   "version": "0.1.3",
   "author": {
@@ -7,16 +7,12 @@
     "url": "https://ianwalter.dev"
   },
   "license": "SEE LICENSE IN LICENSE",
-  "bin": {
-    "nrg": "cli.js"
-  },
-  "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "reset": "yarn nrg migrate && yarn nrg seed && yarn nrg run deleteAllEmail",
-    "test": "FORCE_COLOR=3 NODE_ENV=test bff",
-    "test:ci": "yarn reset && yarn test",
-    "nrg": "node cli.js",
+    "nrg": "node packages/nrg/cli.js",
+    "test:mq": "pnpm test --filter mq-example",
+    "test:ssr": "pnpm test --filter ssr-example",
+    "test:static": "pnpm test --filter static-example",
     "example:hello": "node examples/helloWorld.js",
     "example:routes": "node examples/routes.js",
     "example:uncaught": "node examples/uncaughtException.js",
@@ -32,7 +28,9 @@
     "build:example:ssr": "NODE_ENV=production webpack examples/ssr",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "start:dc": "docker-compose up"
+    "docker": "npm-run-all -p docker:*",
+    "docker:mq": "docker-compose -f examples/mq/docker-compose.yml --project-directory examples/mq up",
+    "docker:accounts": "docker-compose -f examples/accounts/docker-compose.yml --project-directory examples/accounts up"
   },
   "homepage": "https://github.com/ianwalter/nrg#readme",
   "repository": {
@@ -48,66 +46,15 @@
   "bugs": {
     "url": "https://github.com/ianwalter/nrg/issues"
   },
-  "dependencies": {
-    "@ianwalter/cli": "^4.1.0",
-    "@ianwalter/cloneable": "^2.0.0",
-    "@ianwalter/correct": "^1.1.0",
-    "@ianwalter/dot": "^1.0.4",
-    "@ianwalter/extract": "^1.0.1",
-    "@ianwalter/merge": "^9.0.1",
-    "@ianwalter/nrg-mq": "^0.0.2",
-    "@ianwalter/nrg-print": "^0.0.3",
-    "@ianwalter/nrg-router": "^0.6.0",
-    "@ianwalter/nrg-session": "^6.0.0",
-    "@ianwalter/print": "^8.0.3",
-    "@ianwalter/requester": "^2.3.0",
-    "@ianwalter/url": "^2.0.0",
-    "bcrypt": "5.0.0",
-    "date-fns": "^2.14.0",
-    "devalue": "^2.0.1",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.3",
-    "knex": "^0.21.1",
-    "koa": "^2.13.0",
-    "koa-bodyparser": "^4.3.0",
-    "koa-compress": "^5.0.1",
-    "koa-csrf": "^3.0.8",
-    "koa-json": "^2.0.2",
-    "koa-redis": "^4.0.1",
-    "koa-send": "^5.0.1",
-    "koa-webpack": "^5.3.0",
-    "mailgen": "^2.0.13",
-    "nanoid": "^3.1.10",
-    "nodemailer": "^6.4.10",
-    "objection": "^2.2.1",
-    "pg": "^8.2.2",
-    "pino": "^6.3.2",
-    "pkg-dir": "^4.2.0",
-    "read-pkg-up": "^7.0.1",
-    "replace-string": "^3.1.0",
-    "require-from-string": "^2.0.2",
-    "server-destroy": "^1.0.1",
-    "supertest": "^4.0.2",
-    "webpack": "^4.43.0"
-  },
   "devDependencies": {
-    "@ianwalter/bff": "^9.10.0",
     "@ianwalter/eslint-config": "^5.3.0",
-    "@ianwalter/release": "^5.0.2",
     "@ianwalter/renovate-config": "^1.3.0",
-    "@ianwalter/sleep": "^0.0.1",
     "@ianwalter/vuepress-theme-brooks": "^1.2.0",
-    "babel-loader": "^8.1.0",
-    "cheerio": "^1.0.0-rc.3",
-    "html-webpack-plugin": "^4.3.0",
-    "svelte": "^3.24.0",
-    "svelte-loader": "^2.13.6",
-    "vuepress": "^1.5.2",
-    "webpack-cli": "^3.3.12",
-    "webpack-node-externals": "^2.3.0"
+    "npm-run-all": "^4.1.5",
+    "vuepress": "^1.5.2"
   },
   "nrg": {
-    "app": "examples/accounts"
+    "app": "examples/accounts/app"
   },
   "eslintConfig": {
     "root": true,
@@ -122,8 +69,5 @@
     "extends": [
       "@ianwalter"
     ]
-  },
-  "release": {
-    "test": "test:ci"
   }
 }
