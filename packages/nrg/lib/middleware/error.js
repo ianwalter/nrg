@@ -1,4 +1,5 @@
 function enrichAndLogError (err, ctx) {
+  // Determine error HTTP status code and log level.
   err.status = err.status || 500
   err.logLevel = err.logLevel || (err.status >= 500 ? 'error' : 'warn')
 
