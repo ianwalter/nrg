@@ -44,17 +44,6 @@ importers:
       next: 9.4.4
       react: 16.13.1
       react-dom: 16.13.1
-  examples/old:
-    dependencies:
-      '@ianwalter/nrg': 'link:../../packages/nrg'
-      next: 9.4.4_react-dom@16.13.1+react@16.13.1
-      react: 16.13.1
-      react-dom: 16.13.1_react@16.13.1
-    specifiers:
-      '@ianwalter/nrg': ^0.1.3
-      next: ^9.4.4
-      react: ^16.13.1
-      react-dom: ^16.13.1
   examples/ssr:
     dependencies:
       '@ianwalter/nrg': 'link:../../packages/nrg'
