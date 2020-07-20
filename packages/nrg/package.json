@@ -85,11 +85,6 @@
   "eslintIgnore": [
     "dist"
   ],
-  "renovate": {
-    "extends": [
-      "@ianwalter"
-    ]
-  },
   "release": {
     "test": "test:ci"
   }
