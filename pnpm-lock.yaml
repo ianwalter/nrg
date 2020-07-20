@@ -21,7 +21,7 @@ importers:
       '@ianwalter/bff': 9.10.0
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.1.3
+      '@ianwalter/nrg': ^0.2.0
   examples/mq:
     dependencies:
       '@ianwalter/nrg': 'link:../../packages/nrg'
@@ -30,7 +30,7 @@ importers:
       '@ianwalter/bff': 9.10.0
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.1.3
+      '@ianwalter/nrg': ^0.2.0
       '@ianwalter/sleep': ^0.0.1
   examples/next:
     dependencies:
@@ -42,7 +42,7 @@ importers:
       '@ianwalter/eslint-config-react': 3.2.0
     specifiers:
       '@ianwalter/eslint-config-react': ^3.2.0
-      '@ianwalter/nrg': ^0.1.3
+      '@ianwalter/nrg': ^0.2.0
       next: 9.4.4
       react: 16.13.1
       react-dom: 16.13.1
@@ -59,7 +59,7 @@ importers:
       webpack-node-externals: 2.5.0
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.1.3
+      '@ianwalter/nrg': ^0.2.0
       babel-loader: ^8.1.0
       html-webpack-plugin: ^4.3.0
       svelte: ^3.24.0
@@ -73,7 +73,7 @@ importers:
       '@ianwalter/bff': 9.10.0
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.1.3
+      '@ianwalter/nrg': ^0.2.0
   packages/nrg:
     dependencies:
       '@ianwalter/cli': 4.1.0
