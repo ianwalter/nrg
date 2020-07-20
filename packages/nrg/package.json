@@ -28,6 +28,9 @@
   "bugs": {
     "url": "https://github.com/ianwalter/nrg/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@ianwalter/cli": "^4.1.0",
     "@ianwalter/cloneable": "^2.0.0",
