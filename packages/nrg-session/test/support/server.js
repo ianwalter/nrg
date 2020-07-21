@@ -1,14 +1,13 @@
-var Koa = require('koa')
-var http = require('http')
-var uid = require('uid-safe').sync
-var session = require('../..')
-var Store = require('./store')
+const { createApp } = require('@ianwalter/nrg')
+const http = require('http')
+const uid = require('uid-safe').sync
+const session = require('../..')
+const Store = require('./store')
 
-const app = new Koa()
+const app = createApp({ name: 'koa-session-test' })
 
-app.name = 'koa-session-test'
-app.outputErrors = true
 app.keys = ['keys', 'keykeys']
+app.outputErrors = true
 app.proxy = true // to support `X-Forwarded-*` header
 
 var store = new Store()

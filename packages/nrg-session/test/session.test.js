@@ -4,7 +4,7 @@ const request = require('supertest')
 const mm = require('mm')
 const should = require('should')
 const { EventEmitter } = require('events')
-const { oneLine } = require('common-tags')
+const { oneLine, stripIndent } = require('common-tags')
 
 describe('test/koa-session.test.js', () => {
   describe('init', () => {
@@ -19,9 +19,10 @@ describe('test/koa-session.test.js', () => {
     it('should warn when in production', (done) => {
       mm(process.env, 'NODE_ENV', 'production')
       mm(console, 'warn', (message) => {
-        message.should.equal('Warning: koa-generic-session\'s MemoryStore is not\n' +
-        'designed for a production environment, as it will leak\n' +
-        'memory, and will not scale past a single process.')
+        message.should.equal(stripIndent`
+          Warning: nrg-session's MemoryStore is not designed for a production
+          environment, as it will leak memory, and will not scale past a single process.
+        `)
         done()
       })
 

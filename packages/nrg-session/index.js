@@ -5,12 +5,13 @@ const parse = require('parseurl')
 const Store = require('./lib/store')
 const copy = require('copy-to')
 const uid = require('uid-safe')
+const { stripIndent } = require('common-tags')
 
 // Warning message for `MemoryStore` usage in production.
-// TODO: use template string
-const warning = 'Warning: koa-generic-session\'s MemoryStore is not\n' +
-  'designed for a production environment, as it will leak\n' +
-  'memory, and will not scale past a single process.'
+const warning = stripIndent`
+  Warning: nrg-session's MemoryStore is not designed for a production
+  environment, as it will leak memory, and will not scale past a single process.
+`
 
 const defaultCookie = {
   httpOnly: true,

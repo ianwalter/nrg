@@ -64,7 +64,8 @@
     ]
   },
   "eslintIgnore": [
-    "dist"
+    "dist",
+    "packages/nrg-session/test"
   ],
   "renovate": {
     "extends": [
