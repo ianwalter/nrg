@@ -1,8 +1,11 @@
 # @ianwalter/nrg-print
-> Integrates the print logger with the nrg framework
+> Integrates the [print][printUrl] logger with the [nrg][nrgUrl] framework
 
 [![npm page][npmImage]][npmUrl]
-[![CI][ciImage]][ciUrl]
+
+## About
+
+FIXME
 
 ## Features
 
@@ -10,16 +13,11 @@
 - [x] Can output logs to NDJSON (by default in production)
 - [ ] Can send raw log data to other software via `transports`
 
-## License
-
-Hippocratic License - See [LICENSE][licenseUrl]
-
 &nbsp;
 
 Created by [Ian Walter](https://ianwalter.dev)
 
+[printUrl]: https://github.com/ianwalter/print
+[nrgUrl]: https://github.com/ianwalter/nrg
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg-print.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg-print
-[ciImage]: https://github.com/ianwalter/nrg-print/workflows/CI/badge.svg
-[ciUrl]: https://github.com/ianwalter/nrg-print/actions
-[licenseUrl]: https://github.com/ianwalter/nrg-print/blob/master/LICENSE
