@@ -78,17 +78,5 @@
   },
   "nrg": {
     "app": "examples/accounts"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@ianwalter"
-    ]
-  },
-  "eslintIgnore": [
-    "dist"
-  ],
-  "release": {
-    "test": "test:ci"
   }
 }
