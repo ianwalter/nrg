@@ -1,6 +1,6 @@
 {
   "name": "@ianwalter/nrg-router",
-  "description": "A simple, fast router for the nrg (or koa) web framework",
+  "description": "A tree-based router for the nrg web framework",
   "version": "0.6.0",
   "license": "SEE LICENSE IN LICENSE",
   "author": {
