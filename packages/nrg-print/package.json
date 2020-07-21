@@ -1,6 +1,6 @@
 {
   "name": "@ianwalter/nrg-print",
-  "descripton": "Integrates the print logger with the nrg framework",
+  "descripton": "A print logger plugin for the nrg web framework",
   "version": "0.0.3",
   "author": {
     "name": "Ian Walter",

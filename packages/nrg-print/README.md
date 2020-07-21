@@ -1,5 +1,5 @@
 # @ianwalter/nrg-print
-> Integrates the [print][printUrl] logger with the [nrg][nrgUrl] framework
+> A [print][printUrl] logger plugin for the [nrg][nrgUrl] web framework
 
 [![npm page][npmImage]][npmUrl]
 

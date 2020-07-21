@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/nrg-mq",
   "version": "0.0.2",
-  "description": "",
+  "description": "A message queue plugin for the nrg web framework",
   "main": "index.js",
   "scripts": {
     "test": "bff"

@@ -1,6 +1,6 @@
 {
   "name": "@ianwalter/nrg-session",
-  "description": "Session middleware for the nrg (or koa) web framework",
+  "description": "Session middleware for the nrg web framework",
   "version": "6.0.0",
   "license": "SEE LICENSE IN LICENSE",
   "author": {

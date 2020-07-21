@@ -14,14 +14,19 @@
 
 ✅ &nbsp; Fast routing through a [tree-based router][nrgRouterUrl]
 
-✅ &nbsp; Optional logging through [Print][printUrl]
+✅ &nbsp; Optional logging via [Print][printUrl]
 
-✅ &nbsp; Optional session-handling and CSRF protection using [Redis][redisUrl]
+🚧 &nbsp; Optional session-handling and CSRF protection using a backend like
+          [Redis][redisUrl] or JWT
 
-✅ &nbsp; Optional database connection to [PostgreSQL][postgresUrl] using
-          [knex][knexUrl] and [Objection.js][objectionUrl]
+✅ &nbsp; Optional database connection to a backend like
+          [PostgreSQL][postgresUrl] using [knex][knexUrl] and
+          [Objection.js][objectionUrl]
 
 ✅ &nbsp; Optional, ready-to-roll user account system
+
+🚧 &nbsp; Optional OAuth integration with providers like GitHub, Twitter, etc.
+          via [grant][grantUrl]
 
 🚧 &nbsp; CLI for setup, migrations, seeding, and custom scripts
 
@@ -39,7 +44,7 @@
 ## Installation
 
 ```console
-yarn add @ianwalter/nrg
+pnpm add @ianwalter/nrg
 ```
 
 ## License
@@ -62,6 +67,7 @@ Created by [Ian Walter](https://ianwalter.dev)
 [postgresUrl]: https://www.postgresql.org/
 [knexUrl]: https://knexjs.org/
 [objectionUrl]: https://vincit.github.io/objection.js/
+[grantUrl]: https://github.com/simov/grant
 [webpackUrl]: https://webpack.js.org/
 [amqpUrl]: https://github.com/squaremo/amqp.node
 [rabbitmqUrl]: https://www.rabbitmq.com/
