@@ -17,6 +17,6 @@ const outputs = [
 ]
 
 test('example', async t => {
-  const { stdout } = await execa('yarn', ['example'])
+  const { stdout } = await execa('pnpm', ['example'])
   for (const output of outputs) t.expect(stdout).toContain(output)
 })
