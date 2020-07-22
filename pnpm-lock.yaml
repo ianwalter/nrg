@@ -168,12 +168,14 @@ importers:
       amqplib: 0.5.6
     devDependencies:
       '@ianwalter/bff': 9.10.0
+      dotenv: 8.2.0
     specifiers:
       '@ianwalter/bff': ^9.6.0
       '@ianwalter/clone': ^5.0.0
       '@ianwalter/print': ^5.3.0
       amqp-connection-manager: ^3.2.0
       amqplib: ^0.5.5
+      dotenv: ^8.2.0
   packages/nrg-print:
     dependencies:
       '@ianwalter/cloneable': 2.0.0
@@ -5487,7 +5489,6 @@ packages:
     resolution:
       integrity: sha512-uEUyaDKoSQ1M4Oq8l45hSE26SnTxL6snNnqvK/VWx5wJhmff5z0FUVJDKDanor/6w3kzE3i7XZOk+7wC0EXr1A==
   /dotenv/8.2.0:
-    dev: false
     engines:
       node: '>=8'
     resolution:

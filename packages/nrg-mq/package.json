@@ -13,7 +13,8 @@
     "amqplib": "^0.5.5"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.6.0"
+    "@ianwalter/bff": "^9.6.0",
+    "dotenv": "^8.2.0"
   },
   "peerDependencies": {
     "@ianwalter/nrg": "^0.2.0"
