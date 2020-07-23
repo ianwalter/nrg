@@ -1,6 +1,6 @@
 const { createApp } = require('@ianwalter/nrg')
 
-const app = createApp({ port: 9999 })
+const app = createApp()
 
 app.log.info('Hello!', { data: 123 })
 
@@ -20,6 +20,14 @@ app.use(ctx => {
 async function run () {
   await app.test('/test').get()
   app.log.success('Exiting...')
+  console.log(
+    'wth',
+    process._getActiveRequests(),
+    process._getActiveHandles()
+  )
 }
 
-run()
+run().catch(err => {
+  console.error(err)
+  process.exit(1)
+})
