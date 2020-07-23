@@ -1,3 +1,4 @@
+const wtfnode = require('wtfnode')
 const { createApp } = require('@ianwalter/nrg')
 
 const app = createApp()
@@ -20,11 +21,7 @@ app.use(ctx => {
 async function run () {
   await app.test('/test').get()
   app.log.success('Exiting...')
-  console.log(
-    'wth',
-    process._getActiveRequests(),
-    process._getActiveHandles()
-  )
+  wtfnode.dump()
 }
 
 run().catch(err => {
