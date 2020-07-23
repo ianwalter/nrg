@@ -1,7 +1,7 @@
 {
-  "name": "@ianwalter/nrg-print",
-  "descripton": "A print logger plugin for the nrg web framework",
-  "version": "0.0.3",
+  "name": "@ianwalter/nrg-test",
+  "description": "A test request plugin for the nrg framework",
+  "version": "0.0.0",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
@@ -9,31 +9,24 @@
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "scripts": {
-    "example": "node example",
-    "pretest": "node example > output.txt",
     "test": "bff"
   },
-  "homepage": "https://github.com/ianwalter/nrg/blob/master/packages/nrg-print#readme",
+  "homepage": "https://github.com/ianwalter/nrg/blob/master/packages/nrg-test#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ianwalter/nrg.git"
   },
   "keywords": [
     "nrg",
-    "print",
-    "log",
-    "logger"
+    "test",
+    "request",
+    "supertest"
   ],
   "bugs": {
     "url": "https://github.com/ianwalter/nrg/issues"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
-    "@ianwalter/cloneable": "^2.0.0",
-    "@ianwalter/print": "^8.0.3",
-    "@ianwalter/timer": "^2.0.2"
+    "@ianwalter/requester": "^2.4.1"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",

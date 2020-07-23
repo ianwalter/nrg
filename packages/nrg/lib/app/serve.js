@@ -5,6 +5,9 @@ module.exports = function serve (port, hostname) {
   // Create the server instance by specifying the app's callback as the handler.
   const server = http.createServer(this.callback())
 
+  // Prefer the port and hostname passed as arguments to those configured in the
+  // app even if the port is 0 (which means use a random unused port) so that
+  // they can be overridden when serving (e.g. in a test).
   const portToUse = port !== undefined ? port : (this.context.cfg.port || 0)
   const hostnameToUse = hostname || this.context.cfg.hostname
 
@@ -26,20 +29,22 @@ module.exports = function serve (port, hostname) {
           .info(`${this.context.cfg.name} server started:`, server.url)
       }
 
-      // Add a destroy method to the server instance.
+      // Add a destroy method to the server instance if not in a production
+      // environment (e.g. development or test).
       // https://github.com/nodejs/node/issues/2642
-      // enableDestroy(server)
-
-      // FIXME: comment
+      // Logic adapted from: https://github.com/isaacs/server-destroy
       if (!this.context.cfg.isProd) {
         const connections = {}
 
+        // Keep track of all active connections.
         server.on('connection', connection => {
           const key = connection.remoteAddress + ':' + connection.remotePort
           connections[key] = connection
           connection.on('close', () => (delete connections[key]))
         })
 
+        // Add a destroy method to the server instance that closes the server
+        // and destroys all active connections.
         server.destroy = () => new Promise(resolve => server.close(() => {
           for (const key of Object.keys(connections)) connections[key].destroy()
           resolve()

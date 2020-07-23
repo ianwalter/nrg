@@ -12,21 +12,21 @@ test('Password Reset • Invalid email', async t => {
   const email = 'babu_frik @example.com'
   const payload = { ...testUser, token: 'abc123', email }
   const response = await app.test('/reset-password').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Password Reset • Weak password', async t => {
   const payload = { ...testUser, token: 'abc123', password: 'dadudadu' }
   const response = await app.test('/reset-password').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Password Reset • Wrong token', async t => {
   const payload = { ...testUser, token: readOnlyToken.value }
   const response = await app.test('/reset-password').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
@@ -55,7 +55,7 @@ test('Password Reset • Success', async t => {
   // Reset the test user's password.
   const payload = { ...testUser, token, password: 'fjioenfkj02kqwmkl606' }
   let response = await app.test('/reset-password').post(payload)
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
   t.expect(response.body).toMatchSnapshot()
 
   // Logout.
@@ -63,11 +63,11 @@ test('Password Reset • Success', async t => {
 
   // Verify account data cannot be retrieved.
   response = await app.test('/account', response).get()
-  t.expect(response.status).toBe(401)
+  t.expect(response.statusCode).toBe(401)
 
   // Login and verify that the new password is able to log the user in.
   response = await app.test('/login').post(payload)
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
   t.expect(response.body).toMatchSnapshot()
 })
 
@@ -83,7 +83,7 @@ test('Password Reset • Verify email through reset', async t => {
   // Reset the password using the token.
   const payload = { ...resetVerifyUser, token, password: 'fjioenfkj02kqwmkl60' }
   const response = await app.test('/reset-password').post(payload)
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
 
   // Verify that emailVerified is set to true in the database.
   const record = await Account.query().findById(resetVerifyUser.id)

@@ -13,42 +13,42 @@ const unverifiedUser = accounts.find(a => a.firstName === 'Existing Unverified')
 test('Registration • Email required', async t => {
   const payload = { firstName, lastName, password }
   const response = await app.test('/registration').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Registration • Password required', async t => {
   const payload = { firstName, lastName, email }
   const response = await app.test('/registration').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Registration • First name required', async t => {
   const payload = { firstName: '', lastName, email, password }
   const response = await app.test('/registration').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Registration • Last name validation', async t => {
   const payload = { firstName, lastName: null, email, password }
   const response = await app.test('/registration').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Registration • Weak password', async t => {
   const payload = { firstName, lastName, email, password: 'abc123' }
   const response = await app.test('/registration').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Registration • Invalid email', async t => {
   const payload = { firstName, lastName, email: 'bilbo@example,com', password }
   const response = await app.test('/registration').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
@@ -56,7 +56,7 @@ test('Registration • Success', async t => {
   // Register the new account.
   const payload = { firstName, lastName, email, password }
   let response = await app.test('/registration').post(payload)
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
   t.expect(response.body).toMatchSnapshot()
 
   // Extract the Email Verification token.
@@ -65,7 +65,7 @@ test('Registration • Success', async t => {
 
   // Verify the email address.
   response = await app.test('/verify-email').post({ ...payload, token })
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
   t.expect(response.body.firstName).toBe(payload.firstName)
   t.expect(response.body.lastName).toBe(payload.lastName)
 
@@ -78,7 +78,7 @@ test('Registration • Existing verified email', async t => {
   // Register using the verified user's email.
   const payload = { ...verifiedUser, firstName, lastName, password }
   const response = await app.test('/registration').post(payload)
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
   t.expect(response.body).toMatchSnapshot()
 
   // Verify no email was sent to the user.
@@ -91,7 +91,7 @@ test('Registration • Existing unverified email', async t => {
   // Register using the unverified user's email.
   const payload = { ...unverifiedUser, firstName, lastName, password }
   let response = await app.test('/registration').post(payload)
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
   t.expect(response.body).toMatchSnapshot()
 
   // Extract the Email Verification token.
@@ -101,7 +101,7 @@ test('Registration • Existing unverified email', async t => {
 
   // Verify the email address.
   response = await app.test('/verify-email').post({ ...payload, token })
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
   t.expect(response.body.firstName).toBe(payload.firstName)
   t.expect(response.body.lastName).toBe(payload.lastName)
 

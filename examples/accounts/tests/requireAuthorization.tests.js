@@ -12,7 +12,7 @@ test('Require authorization', async t => {
   let accountResponse = await app.test('/account').get()
 
   // Verify 401 Unauthorized status is returned.
-  t.expect(accountResponse.status).toBe(401)
+  t.expect(accountResponse.statusCode).toBe(401)
 
   // Login.
   const credentials = { ...generalUser, password }
@@ -22,7 +22,7 @@ test('Require authorization', async t => {
   accountResponse = await app.test('/account', loginResponse).get()
 
   // Verify the data is the same as the data received after login.
-  t.expect(accountResponse.status).toBe(200)
+  t.expect(accountResponse.statusCode).toBe(200)
   t.expect(accountResponse.body).toEqual(loginResponse.body)
 })
 
@@ -35,7 +35,7 @@ test('Require authorization for single role', async t => {
   let adminResponse = await app.test('/admin', loginResponse).get()
 
   // Verify 401 Unauthorized status is returned.
-  t.expect(adminResponse.status).toBe(401)
+  t.expect(adminResponse.statusCode).toBe(401)
 
   // Login with an admin user.
   credentials = { ...adminUser, password }
@@ -45,8 +45,8 @@ test('Require authorization for single role', async t => {
   adminResponse = await app.test('/admin', loginResponse).get()
 
   // Verify the admin user is able to access the admin endpoint.
-  t.expect(adminResponse.status).toBe(200)
-  t.expect(adminResponse.text).toBe('Welcome admin!')
+  t.expect(adminResponse.statusCode).toBe(200)
+  t.expect(adminResponse.body).toBe('Welcome admin!')
 })
 
 test('Require authorization for multiple roles', async t => {
@@ -58,7 +58,7 @@ test('Require authorization for multiple roles', async t => {
   let hiResponse = await app.test('/hi', loginResponse).get()
 
   // Verify 401 Unauthorized status is returned.
-  t.expect(hiResponse.status).toBe(401)
+  t.expect(hiResponse.statusCode).toBe(401)
 
   // Login with an admin user.
   credentials = { ...adminUser, password }
@@ -68,8 +68,8 @@ test('Require authorization for multiple roles', async t => {
   hiResponse = await app.test('/hi', loginResponse).get()
 
   // Verify the admin user is able to access the admin endpoint.
-  t.expect(hiResponse.status).toBe(200)
-  t.expect(hiResponse.text).toBe('Hiya boss!')
+  t.expect(hiResponse.statusCode).toBe(200)
+  t.expect(hiResponse.body).toBe('Hiya boss!')
 
   // Login with an owner user.
   credentials = { ...ownerUser, password }
@@ -79,6 +79,6 @@ test('Require authorization for multiple roles', async t => {
   hiResponse = await app.test('/hi', loginResponse).get()
 
   // Verify the owner user is able to access the privileged endpoint.
-  t.expect(hiResponse.status).toBe(200)
-  t.expect(hiResponse.text).toBe('Hiya boss!')
+  t.expect(hiResponse.statusCode).toBe(200)
+  t.expect(hiResponse.body).toBe('Hiya boss!')
 })

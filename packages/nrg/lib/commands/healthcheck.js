@@ -4,7 +4,6 @@ const createUrl = require('@ianwalter/url')
 
 module.exports = function healthcheck (ctx, app) {
   const { count = 3, timeout = 3000 } = ctx.config
-  // TODO: how to determine hostUrl
   const { health, hostUrl } = app.context.cfg
   const { href } = createUrl(hostUrl, health.path)
   ctx.print.info(`Running health check against ${href}`)

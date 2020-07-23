@@ -8,29 +8,29 @@ const disabledUser = accounts.find(a => a.firstName === 'Disabled')
 
 test('Forgot Password • Invalid emails', async t => {
   let response = await app.test('/forgot-password').post({ email: null })
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 
   response = await app.test('/forgot-password').post({ email: '' })
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 
   const email = 'babu_frik@example'
   response = await app.test('/forgot-password').post({ email })
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Forgot Password • Unregistered email', async t => {
   const email = 'babu_frik@example.com'
   const response = await app.test('/forgot-password').post({ email })
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Forgot Password • Registered email', async t => {
   const response = await app.test('/forgot-password').post(generalUser)
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
   t.expect(response.body).toMatchSnapshot()
 
   await t.asleep(1000)
@@ -60,7 +60,7 @@ test('Forgot Password • Registered email', async t => {
 
 test('Forgot Password • Disabled user', async t => {
   const response = await app.test('/forgot-password').post(disabledUser)
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
   t.expect(response.body).toMatchSnapshot()
 
   // Verify no email was sent to the user.

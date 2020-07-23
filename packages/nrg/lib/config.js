@@ -11,6 +11,7 @@ const {
 } = require('@ianwalter/correct')
 const compress = require('koa-compress')
 const nrgPrint = require('@ianwalter/nrg-print')
+const nrgTest = require('@ianwalter/nrg-test')
 const koaWebpack = require('koa-webpack')
 const { handleError } = require('./middleware/error')
 const { setRequestId } = require('./middleware/requestId')
@@ -19,7 +20,6 @@ const Account = require('./models/Account')
 const Token = require('./models/Token')
 const { serveStatic, serveWebpack } = require('./middleware/client')
 const serve = require('./app/serve')
-const test = require('./app/test')
 const getHostUrl = require('./utilities/getHostUrl')
 
 // Get the end-user's package.json data so that it can be used to provide
@@ -294,7 +294,7 @@ module.exports = function config (options = {}) {
       },
       // If not in production, add a utility to allow making test requests.
       test (app) {
-        if (!cfg.isProd) app.test = test
+        if (!cfg.isProd) app.test = nrgTest(app)
       }
     },
     static: {

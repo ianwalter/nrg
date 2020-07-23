@@ -20,7 +20,6 @@ app.use(ctx => {
 async function run () {
   await app.test('/test').get()
   app.log.success('Exiting...')
-  process.exit(0) // Beacuse supertest is hanging around for some reason.
 }
 
 run().catch(err => {
