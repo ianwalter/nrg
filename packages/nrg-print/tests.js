@@ -1,5 +1,5 @@
+const { promises: fs } = require('fs')
 const { test } = require('@ianwalter/bff')
-const execa = require('execa')
 
 const outputs = [
   '💁',
@@ -17,7 +17,7 @@ const outputs = [
 ]
 
 test('example', async t => {
-  const { stdout } = await execa('node', ['example'])
-  t.print.info('Output:', `\n\n${stdout}\n\n`)
-  for (const output of outputs) t.expect(stdout).toContain(output)
+  const output = await fs.readFile('./output.txt', 'utf8')
+  t.print.info('Output:', `\n\n${output}\n\n`)
+  for (const output of outputs) t.expect(output).toContain(output)
 })
