@@ -46,7 +46,7 @@ module.exports = function serve (port, hostname) {
         // and destroys all active connections.
         server.destroy = () => new Promise(resolve => server.close(() => {
           for (const socket of sockets) socket.destroy()
-          resolve()
+          setTimeout(resolve)
         }))
       }
 
