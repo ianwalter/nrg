@@ -20,6 +20,7 @@ const Account = require('./models/Account')
 const Token = require('./models/Token')
 const { serveStatic, serveWebpack } = require('./middleware/client')
 const serve = require('./app/serve')
+const close = require('./app/close')
 const getHostUrl = require('./utilities/getHostUrl')
 
 // Get the end-user's package.json data so that it can be used to provide
@@ -295,6 +296,11 @@ module.exports = function config (options = {}) {
       // If not in production, add a utility to allow making test requests.
       test (app) {
         if (!cfg.isProd) app.test = nrgTest(app)
+      },
+      // If not in production, add a utility that allows closing any connections
+      // opened when the app was created.
+      close (app) {
+        if (!cfg.isProd) app.close = close
       }
     },
     static: {

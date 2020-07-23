@@ -32,7 +32,7 @@ module.exports = function serve (port, hostname) {
       // Add a destroy method to the server instance if not in a production
       // environment (e.g. development or test).
       // https://github.com/nodejs/node/issues/2642
-      // Logic adapted from: https://github.com/isaacs/server-destroy
+      // Logic influenced by https://github.com/isaacs/server-destroy
       if (!this.context.cfg.isProd) {
         const sockets = []
 

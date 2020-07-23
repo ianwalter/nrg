@@ -38,8 +38,7 @@
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",
-    "@ianwalter/nrg": "^0.2.0",
-    "wtfnode": "^0.8.1"
+    "@ianwalter/nrg": "^0.2.0"
   },
   "peerDependencies": {
     "@ianwalter/nrg": "^0.2.0"

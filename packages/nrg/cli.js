@@ -101,20 +101,8 @@ async function run () {
     log.info(config.helpText)
   }
 
-  // Close any open database connections.
-  if (app.db) app.db.destroy()
-
-  // Close any open redis connections.
-  if (app.redis) app.redis.quit()
-
-  // Close the message queue connection.
-  if (app.mq) {
-    // Silence channel ended error.
-    app.mq.channel.on('error', app.log.ns('nrg.mq').debug)
-
-    // Close message queue connection.
-    app.mq.connection.close()
-  }
+  // Close any connections opened when the app was created.
+  if (app.close) app.close()
 }
 
 run().catch(err => {
