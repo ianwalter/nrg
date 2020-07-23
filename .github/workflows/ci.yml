@@ -49,7 +49,7 @@ jobs:
       - name: Lint
         run: pnpm lint
       - name: Debug
-        run: pnpm nrg print config
+        run: node packages/nrg-print/example
       - name: Test
         # run: pnpm -r test
         run: pnpm test --filter "@ianwalter/nrg-print"
