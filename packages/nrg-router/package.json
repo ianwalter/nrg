@@ -14,7 +14,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ianwalter/nrg-router.git"
+    "url": "git+https://github.com/ianwalter/nrg.git",
+    "directory": "packages/nrg-router"
   },
   "keywords": [
     "nrg",
@@ -24,9 +25,12 @@
     "route"
   ],
   "bugs": {
-    "url": "https://github.com/ianwalter/nrg-router/issues"
+    "url": "https://github.com/ianwalter/nrg/issues"
   },
-  "homepage": "https://github.com/ianwalter/nrg-router#readme",
+  "homepage": "https://github.com/ianwalter/nrg/blob/master/packages/nrg-router#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@ianwalter/router": "^3.3.0"
   },

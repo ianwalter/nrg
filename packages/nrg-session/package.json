@@ -19,16 +19,20 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ianwalter/nrg-session.git"
+    "url": "git+https://github.com/ianwalter/nrg.git",
+    "directory": "packages/nrg-session"
   },
   "files": [
     "index.js",
     "lib"
   ],
   "bugs": {
-    "url": "https://github.com/ianwalter/nrg-session/issues"
+    "url": "https://github.com/ianwalter/nrg/issues"
   },
-  "homepage": "https://github.com/ianwalter/nrg-session#readme",
+  "homepage": "https://github.com/ianwalter/nrg/blob/master/packages/nrg-session#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "copy-to": "~2.0.1",
     "crc": "^3.8.0",

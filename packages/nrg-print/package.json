@@ -16,7 +16,8 @@
   "homepage": "https://github.com/ianwalter/nrg/blob/master/packages/nrg-print#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ianwalter/nrg.git"
+    "url": "git+https://github.com/ianwalter/nrg.git",
+    "directory": "packages/nrg-print"
   },
   "keywords": [
     "nrg",

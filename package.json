@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "nrg",
   "description": "A batteries-included Node.js web framework",
   "version": "0.1.3",

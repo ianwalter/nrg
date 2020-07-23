@@ -17,7 +17,8 @@
   "homepage": "https://github.com/ianwalter/nrg#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ianwalter/nrg.git"
+    "url": "git+https://github.com/ianwalter/nrg.git",
+    "directory": "packages/nrg"
   },
   "keywords": [
     "web",

@@ -14,7 +14,8 @@
   "homepage": "https://github.com/ianwalter/nrg/blob/master/packages/nrg-test#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ianwalter/nrg.git"
+    "url": "git+https://github.com/ianwalter/nrg.git",
+    "directory": "packages/nrg-test"
   },
   "keywords": [
     "nrg",
@@ -24,6 +25,9 @@
   ],
   "bugs": {
     "url": "https://github.com/ianwalter/nrg/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@ianwalter/requester": "^2.4.1"
