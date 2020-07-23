@@ -1,4 +1,3 @@
-const wtfnode = require('wtfnode')
 const { createApp } = require('@ianwalter/nrg')
 
 const app = createApp()
@@ -21,7 +20,7 @@ app.use(ctx => {
 async function run () {
   await app.test('/test').get()
   app.log.success('Exiting...')
-  wtfnode.dump()
+  process.exit(0) // Beacuse supertest is hanging around for some reason.
 }
 
 run().catch(err => {
