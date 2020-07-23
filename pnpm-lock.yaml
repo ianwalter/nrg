@@ -182,12 +182,14 @@ importers:
     devDependencies:
       '@ianwalter/bff': 9.10.0
       '@ianwalter/nrg': 'link:../nrg'
+      wtfnode: 0.8.1
     specifiers:
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
       '@ianwalter/nrg': ^0.2.0
       '@ianwalter/print': ^8.0.3
       '@ianwalter/timer': ^2.0.2
+      wtfnode: ^0.8.1
   packages/nrg-router:
     dependencies:
       '@ianwalter/router': 3.3.0
@@ -13778,6 +13780,11 @@ packages:
     dev: true
     resolution:
       integrity: sha512-GIyAXC2cB7LjvpgMt9EKS2ldqr0MTrORaleiOno6TweZ6r3TKtoFQWay/2PceJ3RuBasOHzXNn5Lrw1X0bEjqA==
+  /wtfnode/0.8.1:
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-S7S7D8CGHVCtlTn1IWX+nEbxavpL9+fk3vk02RPZHiExyZFb9oKTTig3nEnMCL2yaJ4047V5lAkuulXuO2OsOw==
   /xdg-basedir/4.0.0:
     dev: true
     engines:

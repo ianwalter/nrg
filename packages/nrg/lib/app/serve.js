@@ -34,19 +34,18 @@ module.exports = function serve (port, hostname) {
       // https://github.com/nodejs/node/issues/2642
       // Logic adapted from: https://github.com/isaacs/server-destroy
       if (!this.context.cfg.isProd) {
-        const connections = {}
+        const sockets = []
 
         // Keep track of all active connections.
-        server.on('connection', connection => {
-          const key = connection.remoteAddress + ':' + connection.remotePort
-          connections[key] = connection
-          connection.on('close', () => (delete connections[key]))
+        server.on('connection', socket => {
+          const index = sockets.push(socket) - 1
+          socket.on('close', () => sockets.splice(index, 1))
         })
 
         // Add a destroy method to the server instance that closes the server
         // and destroys all active connections.
         server.destroy = () => new Promise(resolve => server.close(() => {
-          for (const key of Object.keys(connections)) connections[key].destroy()
+          for (const socket of sockets) socket.destroy()
           resolve()
         }))
       }
