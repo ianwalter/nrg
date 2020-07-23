@@ -1,10 +1,10 @@
 const amqp = require('amqp-connection-manager')
 const clone = require('@ianwalter/clone')
-const { Print } = require('@ianwalter/print')
+const { createPrint } = require('@ianwalter/print')
 
 module.exports = function mq (config) {
-  const { logger = new Print({ level: 'info' }) } = config
-  logger.debug('MQ config', config)
+  const { logLevel = 'info' } = config
+  const print = createPrint({ namespace: 'nrg.mq', level: logLevel })
 
   // Publish the message to the queue or exchange.
   function pub ({ exchange = '', queue }, content, options) {
@@ -44,12 +44,12 @@ module.exports = function mq (config) {
   const channelWrapper = connection.createChannel({
     json: true,
     setup (channel) {
-      logger.debug('Channel setup')
+      print.debug('Channel setup')
       return Promise.all(Object.values(queues).map(async queue => {
-        logger.debug('Assert queue', queue.name)
+        print.debug('Assert queue', queue.name)
         await channel.assertQueue(queue.name)
         if (queue.sub) {
-          logger.debug('Consume', queue.name)
+          print.debug('Consume', queue.name)
           return channel.consume(queue.name, wrapSub(queue.sub), queue.options)
         }
       }))
