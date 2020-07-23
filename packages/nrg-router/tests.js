@@ -14,13 +14,13 @@ test('missing route', async t => {
 test('root route', async t => {
   const message = 'For You'
   app.get('/', ctx => (ctx.body = message))
-  const { text } = await app.test('/').get()
-  t.expect(text).toBe(message)
+  const response = await app.test('/').get()
+  t.expect(response.body).toBe(message)
 })
 
 test('post', async t => {
   const message = 'For You'
   app.post('/data', ctx => (ctx.body = ctx.request.body.message))
-  const { text } = await app.test('/data').post({ message })
-  t.expect(text).toBe(message)
+  const response = await app.test('/data').post({ message })
+  t.expect(response.body).toBe(message)
 })
