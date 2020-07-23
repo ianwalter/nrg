@@ -10,6 +10,7 @@
   "main": "index.js",
   "scripts": {
     "example": "node ./example.js",
+    "pretest": "pnpm example",
     "test": "bff"
   },
   "homepage": "https://github.com/ianwalter/nrg-print#readme",
