@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ianwalter/pnpm:v1.0.0
-    timeout-minutes: 10
+    # timeout-minutes: 10
+    timeout-minutes: 4
     env:
       DB_HOST: postgres
       DB_PORT: 5432
@@ -50,4 +51,5 @@ jobs:
       - name: Debug
         run: pnpm nrg print config
       - name: Test
-        run: pnpm -r test
+        # run: pnpm -r test
+        run: pnpm test --filter "@ianwalter/nrg-print"

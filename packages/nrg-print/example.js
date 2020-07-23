@@ -1,14 +1,6 @@
 const { createApp } = require('@ianwalter/nrg')
-const nrgPrint = require('.')
 
-const { logger, middleware } = nrgPrint()
-
-const app = createApp({
-  logger,
-  middleware: {
-    log: middleware
-  }
-})
+const app = createApp({ port: 9999 })
 
 app.log.info('Hello!', { data: 123 })
 
