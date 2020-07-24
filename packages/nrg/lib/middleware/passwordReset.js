@@ -26,9 +26,10 @@ async function getAccountWithPasswordTokens (ctx, next) {
     .orderBy('tokens.createdAt', 'desc')
     .limit(1)
 
+  const debug = { account: ctx.state.account, email }
   ctx.log
     .ns('nrg.accounts.password')
-    .debug('passowrdReset.getAccountWithPasswordTokens', ctx.state)
+    .debug('passowrdReset.getAccountWithPasswordTokens', debug)
 
   return next()
 }

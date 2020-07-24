@@ -28,10 +28,9 @@ async function comparePasswords (ctx, next) {
     const passwordsMatch = await bcrypt.compare(payload.password, password)
 
     // Log the password and whether the passwords match for debugging purposes.
-    const debug = { ...ctx.state, password, passwordsMatch }
     ctx.log
       .ns('nrg.accounts.password')
-      .debug('password.comparePasswords', debug)
+      .debug('password.comparePasswords', { payload, password, passwordsMatch })
 
     if (!passwordsMatch) {
       // The error message must be the same message as the one in
