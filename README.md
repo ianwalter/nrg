@@ -23,7 +23,7 @@
           [PostgreSQL][postgresUrl] using [knex][knexUrl] and
           [Objection.js][objectionUrl]
 
-✅ &nbsp; Optional, ready-to-roll user account system
+✅ &nbsp; Optional, ready-to-role (ha ha, get it?) user account system
 
 🚧 &nbsp; Optional OAuth integration with providers like GitHub, Twitter, etc.
           via [grant][grantUrl]
