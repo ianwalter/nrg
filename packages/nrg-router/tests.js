@@ -7,8 +7,8 @@ const app = createApp({ log: false, plugins: { router: nrgRouter } })
 
 test('missing route', async t => {
   app.get('/thing', t.fail)
-  const { statusCode } = await app.test('/some/other/thing').get()
-  t.expect(statusCode).toBe(404)
+  const response = await app.test('/some/other/thing').get()
+  t.expect(response.statusCode).toBe(404)
 })
 
 test('root route', async t => {

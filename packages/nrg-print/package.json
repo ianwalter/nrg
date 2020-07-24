@@ -13,6 +13,9 @@
     "pretest": "node example > output.txt",
     "test": "bff"
   },
+  "files": [
+    "index.js"
+  ],
   "homepage": "https://github.com/ianwalter/nrg/blob/master/packages/nrg-print#readme",
   "repository": {
     "type": "git",

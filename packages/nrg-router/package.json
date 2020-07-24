@@ -12,6 +12,9 @@
     "test": "bff",
     "example:hello": "node examples/helloWorld"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ianwalter/nrg.git",

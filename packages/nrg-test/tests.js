@@ -14,10 +14,11 @@ test('GET', async t => {
 
 test('POST', async t => {
   const app = createApp()
+  const payload = 'Hip!'
   const msg = 'Hooray!'
-  app.post('/', ctx => (ctx.body = msg))
+  app.post('/', ctx => (ctx.body = `${ctx.request.body.payload} ${msg}`))
 
-  const response = await testApp(app)('/').post()
+  const response = await testApp(app)('/').post({ payload })
   t.expect(response.statusCode).toBe(200)
-  t.expect(response.body).toBe(msg)
+  t.expect(response.body).toBe(`${payload} ${msg}`)
 })
