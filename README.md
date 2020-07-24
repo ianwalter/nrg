@@ -59,7 +59,7 @@ Created by [Ian Walter](https://ianwalter.dev)
 [ciUrl]: https://github.com/ianwalter/nrg/actions
 [nrgUrl]: https://nrg.ianwalter.dev
 [koaUrl]: https://koajs.com/
-[nrgRouterUrl]: https://github.com/ianwalter/nrg-router
+[nrgRouterUrl]: https://github.com/ianwalter/nrg/blob/master/packages/nrg-router#readme
 [printUrl]: https://github.com/ianwalter/print
 [redisUrl]: https://redis.io/
 [postgresUrl]: https://www.postgresql.org/
