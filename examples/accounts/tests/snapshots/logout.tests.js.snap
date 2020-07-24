@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Logout when logged in 1`] = `
+exports[`Logout • When logged in 1`] = `
 Object {
   "email": "general_test@example.com",
   "emailVerified": true,
@@ -10,7 +10,7 @@ Object {
 }
 `;
 
-exports[`Logout when logged in 2`] = `
+exports[`Logout • When logged in 2`] = `
 Object {
   "email": "general_test@example.com",
   "emailVerified": true,

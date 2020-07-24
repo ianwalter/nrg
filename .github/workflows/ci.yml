@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ianwalter/pnpm:v1.0.0
-    timeout-minutes: 6
+    timeout-minutes: 5
     env:
       DB_HOST: postgres
       DB_PORT: 5432
