@@ -30,4 +30,4 @@ Created by [Ian Walter](https://ianwalter.dev)
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg-router.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg-router
 [routerUrl]: https://github.com/ianwalter/router
-[licenseUrl]: https://github.com/ianwalter/nrg-router/blob/master/LICENSE
+[licenseUrl]: https://github.com/ianwalter/nrg/blob/master/packages/nrg-router/LICENSE

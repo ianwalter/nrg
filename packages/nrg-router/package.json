@@ -10,7 +10,7 @@
   "main": "index.js",
   "scripts": {
     "test": "bff",
-    "example:hello": "node examples/helloWorld.js | npx pino-print"
+    "example:hello": "node examples/helloWorld"
   },
   "repository": {
     "type": "git",
