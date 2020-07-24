@@ -6,7 +6,7 @@ const generalUser = accounts.find(a => a.firstName === 'General')
 const adminUser = accounts.find(a => a.firstName === 'Admin')
 const ownerUser = accounts.find(a => a.firstName === 'Owner')
 
-test('Require authorization', async t => {
+test('Require Authorization • Authorized after login', async t => {
   // Request account data.
   // FIXME: add fake cookie.
   let accountResponse = await app.test('/account').get()
@@ -26,7 +26,7 @@ test('Require authorization', async t => {
   t.expect(accountResponse.body).toEqual(loginResponse.body)
 })
 
-test('Require authorization for single role', async t => {
+test('Require Authorization • Authorized with single role', async t => {
   // Login with a non-admin user.
   let credentials = { ...generalUser, password }
   let loginResponse = await app.test('/login').post(credentials)
@@ -49,7 +49,7 @@ test('Require authorization for single role', async t => {
   t.expect(adminResponse.body).toBe('Welcome admin!')
 })
 
-test('Require authorization for multiple roles', async t => {
+test('Require Authorization • Authorized with multiple roles', async t => {
   // Login with a non-admin user.
   let credentials = { ...generalUser, password }
   let loginResponse = await app.test('/login').post(credentials)

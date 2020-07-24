@@ -4,13 +4,13 @@ const { accounts, password } = require('../seeds/01_accounts')
 
 const generalUser = accounts.find(a => a.firstName === 'General')
 
-test('Logout when not logged in', async t => {
+test('Logout • When not logged in', async t => {
   const response = await app.test('/logout').delete()
   t.expect(response.statusCode).toBe(200)
   t.expect(response.body.csrfToken.length).toBeGreaterThan(0)
 })
 
-test('Logout when logged in', async t => {
+test('Logout • When logged in', async t => {
   // Login.
   let response = await app.test('/login').post({ ...generalUser, password })
 
