@@ -30,12 +30,12 @@ test('Account • Update', async t => {
   // Login.
   let record = await Account.query().findById(updateUser.id)
   let response = await app.test('/login').post({ ...updateUser, password })
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
 
   // Make a single property update.
   let updates = { firstName: 'Dadu' }
   response = await app.test('/account', response).put(updates)
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
 
   // Verify the property was updated.
   let updated = await Account.query().findById(updateUser.id)
@@ -68,7 +68,7 @@ test('Account • Update', async t => {
     newPassword: 'nlrls03qkowmmfsfop3'
   }
   response = await app.test('/account', response).put(julian)
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
 
   // Verify that email has stayed the same.
   response = await app.test('/account', response).get()
@@ -76,50 +76,50 @@ test('Account • Update', async t => {
 
   // Logout.
   response = await app.test('/logout', response).delete()
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
   const { csrfToken } = response.body
 
   // Verify the user can login with the new password.
-  response.request.header['csrf-token'] = csrfToken
+  response.request.options.headers['csrf-token'] = csrfToken
   const credentials = { ...updateUser, password: julian.newPassword }
   response = await app.test('/login', response).post(credentials)
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
 })
 
 test('Account • Update password', async t => {
   // Login.
   let payload = { ...changePasswordUser, password }
   let response = await app.test('/login').post(payload)
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
 
   // Updating to a weak password.
   payload = { password, newPassword: 'Dadu' }
   response = await app.test('/account', response).put(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 
   // Updating to a strong password but with an incorrect current password.
   const newPassword = 'egroaslk235opieflmkdqwp'
   payload = { password: 'aknasioeg7613bjhfwe', newPassword }
   response = await app.test('/account', response).put(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 
   // Updating to a strong password.
   response = await app.test('/account', response).put({ password, newPassword })
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Account • Update read-only data', async t => {
   // Login.
   let response = await app.test('/login').post({ ...readOnlyUser, password })
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
 
   // Attempt to update emailVerified.
   let record = await Account.query().findById(readOnlyUser.id)
   response = await app.test('/account', response).put({ emailVerified: false })
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
 
   // Verify that the value hasn't changed in the database.
   let updated = await Account.query().findById(readOnlyUser.id)
@@ -129,7 +129,7 @@ test('Account • Update read-only data', async t => {
   // Attempt to update other read-only properties.
   const data = { createdAt: new Date(), updatedAt: new Date(), enabled: false }
   response = await app.test('/account', response).put(data)
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
 
   // Verify that none of the values have changed in the database.
   updated = await Account.query().findById(readOnlyUser.id)
@@ -139,13 +139,13 @@ test('Account • Update read-only data', async t => {
 test('Account • Update email address', async t => {
   // Login.
   let response = await app.test('/login').post({ ...changeEmailUser, password })
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
 
   // Attempt to update email to an invalid email address.
   let record = await Account.query().findById(changeEmailUser.id)
   let email = 'changed_email_test@example'
   response = await app.test('/account', response).put({ email })
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   let updated = await Account.query().findById(changeEmailUser.id)
   t.expect(updated).toEqual(record)
   record = updated
@@ -153,7 +153,7 @@ test('Account • Update email address', async t => {
   // Attempt to update just the account's email address.
   email += '.com'
   response = await app.test('/account', response).put({ email })
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
 
   // Verify that account data hasn't changed in the database.
   updated = await Account.query().findById(changeEmailUser.id)
@@ -167,21 +167,21 @@ test('Account • Update email address', async t => {
   // Attempt to update multiple account properties as well as the email address.
   const updates = { firstName: 'Changed Email', lastName: 'Testini' }
   response = await app.test('/account', response).put({ email, ...updates })
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
 
   // Verify the new email address.
   await t.asleep(1000)
   const { token } = await extractEmailToken(byEmail)
   response = await app.test('/verify-email').post({ email, token })
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
 
   // Log out.
   response = await app.test('/logout', response).delete()
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
 
   // Verify that the user can login with the new email address.
   response = await app.test('/login').post({ email, password })
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
   t.expect(response.body.firstName).toEqual(updates.firstName)
   t.expect(response.body.lastName).toEqual(updates.lastName)
 })
@@ -189,12 +189,12 @@ test('Account • Update email address', async t => {
 test('Account • Unverified user account update', async t => {
   // Login.
   let response = await app.test('/login').post({ ...unverifiedUser, password })
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
 
   // Attempt to update the account.
   const updates = { firstName: 'Dadu' }
   response = await app.test('/account', response).put(updates)
-  t.expect(response.status).toBe(401)
+  t.expect(response.statusCode).toBe(401)
 
   // Verify the database record hasn't changed.
   const record = await Account.query().findById(unverifiedUser.id)

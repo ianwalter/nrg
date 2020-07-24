@@ -35,7 +35,7 @@ test('Email Verification • Success', async t => {
   // Verify the email address.
   const payload = { ...willVerifyUser, token }
   let response = await app.test('/verify-email').post(payload)
-  t.expect(response.status).toBe(201)
+  t.expect(response.statusCode).toBe(201)
   t.expect(response.body).toMatchSnapshot()
 
   // Verify that emailVerified is set to true in the database.
@@ -44,13 +44,13 @@ test('Email Verification • Success', async t => {
 
   // Verify that the session was created.
   response = await app.test('/account', response).get()
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
 })
 
 test('Email Verification • Invalid email', async t => {
   const payload = { ...tokens[3], email: 'test@example' }
   const response = await app.test('/verify-email').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
@@ -62,7 +62,7 @@ test('Email Verification • Previous token', async t => {
   // Verify that the previous token can no longer be used for verification.
   await t.asleep(1000)
   response = await app.test('/verify-email').post({ ...tokens[0], ...payload })
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 
   // Verify that emailVerified is still set to false in the database.
@@ -73,7 +73,7 @@ test('Email Verification • Previous token', async t => {
 test('Email Verification • Expired token', async t => {
   const payload = { ...tokens[1], ...expiredEmailUser }
   const response = await app.test('/verify-email').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 
   // Verify that emailVerified is still set to false in the database.
@@ -84,7 +84,7 @@ test('Email Verification • Expired token', async t => {
 test('Email Verification • Wrong token', async t => {
   const payload = { ...tokens[3], email: wrongEmailUser.email }
   const response = await app.test('/verify-email').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 
   // Verify that emailVerified is still set to false in the database.
@@ -95,14 +95,14 @@ test('Email Verification • Wrong token', async t => {
 test('Resend Email Verification • Invalid email', async t => {
   const payload = { email: 'test@example' }
   const response = await app.test('/resend-email-verification').post(payload)
-  t.expect(response.status).toBe(400)
+  t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 })
 
 test('Resend Email Verification • Unregistered email', async t => {
   const payload = { email: 'ezra@example.com' }
   const response = await app.test('/resend-email-verification').post(payload)
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
   t.expect(response.body).toMatchSnapshot()
 
   // Verify no email was sent to the email address.
@@ -114,7 +114,7 @@ test('Resend Email Verification • Unregistered email', async t => {
 test('Resend Email Verification • Disabled user', async t => {
   const payload = disabledUser
   const response = await app.test('/resend-email-verification').post(payload)
-  t.expect(response.status).toBe(200)
+  t.expect(response.statusCode).toBe(200)
   t.expect(response.body).toMatchSnapshot()
 
   // Verify no email was sent to the user.

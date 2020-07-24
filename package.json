@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "nrg",
   "description": "A batteries-included Node.js web framework",
   "version": "0.1.3",
@@ -64,7 +65,8 @@
     ]
   },
   "eslintIgnore": [
-    "dist"
+    "dist",
+    "packages/nrg-session/test"
   ],
   "renovate": {
     "extends": [

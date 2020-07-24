@@ -1,0 +1,47 @@
+{
+  "name": "@ianwalter/nrg-router",
+  "description": "A tree-based router for the nrg web framework",
+  "version": "0.6.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Ian Walter",
+    "url": "https://ianwalter.dev"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "bff",
+    "example:hello": "node examples/helloWorld"
+  },
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianwalter/nrg.git",
+    "directory": "packages/nrg-router"
+  },
+  "keywords": [
+    "nrg",
+    "koa",
+    "router",
+    "tree",
+    "route"
+  ],
+  "bugs": {
+    "url": "https://github.com/ianwalter/nrg/issues"
+  },
+  "homepage": "https://github.com/ianwalter/nrg/blob/master/packages/nrg-router#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@ianwalter/router": "^3.3.0"
+  },
+  "devDependencies": {
+    "@ianwalter/bff": "^9.10.0",
+    "@ianwalter/nrg": "^0.2.0"
+  },
+  "peerDependencies": {
+    "@ianwalter/nrg": "^0.2.0"
+  }
+}

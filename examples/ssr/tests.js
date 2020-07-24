@@ -27,11 +27,11 @@ test('SSR', async t => {
   // Verify that the page is returned successfully when requesting the root
   // path.
   let response = await app.test('/').get()
-  t.expect(response.status).toBe(200)
-  t.expect(response.text).toMatchSnapshot()
+  t.expect(response.statusCode).toBe(200)
+  t.expect(response.body).toMatchSnapshot()
 
   // Verify that a 404 Not Found is returned when requesting a path that
   // contains "not-found"
   response = await app.test('/not-found').get()
-  t.expect(response.status).toBe(404)
+  t.expect(response.statusCode).toBe(404)
 })

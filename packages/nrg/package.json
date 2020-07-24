@@ -17,7 +17,8 @@
   "homepage": "https://github.com/ianwalter/nrg#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ianwalter/nrg.git"
+    "url": "git+https://github.com/ianwalter/nrg.git",
+    "directory": "packages/nrg"
   },
   "keywords": [
     "web",
@@ -42,8 +43,9 @@
     "@ianwalter/nrg-print": "^0.0.3",
     "@ianwalter/nrg-router": "^0.6.0",
     "@ianwalter/nrg-session": "^6.0.0",
+    "@ianwalter/nrg-test": "^0.0.0",
     "@ianwalter/print": "^8.0.5",
-    "@ianwalter/requester": "^2.3.0",
+    "@ianwalter/requester": "^2.4.1",
     "@ianwalter/url": "^2.0.0",
     "bcrypt": "5.0.0",
     "cheerio": "^1.0.0-rc.3",
@@ -69,8 +71,6 @@
     "read-pkg-up": "^7.0.1",
     "replace-string": "^3.1.0",
     "require-from-string": "^2.0.2",
-    "server-destroy": "^1.0.1",
-    "supertest": "^4.0.2",
     "webpack": "^4.43.0"
   },
   "devDependencies": {
@@ -78,17 +78,5 @@
   },
   "nrg": {
     "app": "examples/accounts"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@ianwalter"
-    ]
-  },
-  "eslintIgnore": [
-    "dist"
-  ],
-  "release": {
-    "test": "test:ci"
   }
 }

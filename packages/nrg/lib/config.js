@@ -11,6 +11,7 @@ const {
 } = require('@ianwalter/correct')
 const compress = require('koa-compress')
 const nrgPrint = require('@ianwalter/nrg-print')
+const nrgTest = require('@ianwalter/nrg-test')
 const koaWebpack = require('koa-webpack')
 const { handleError } = require('./middleware/error')
 const { setRequestId } = require('./middleware/requestId')
@@ -19,7 +20,8 @@ const Account = require('./models/Account')
 const Token = require('./models/Token')
 const { serveStatic, serveWebpack } = require('./middleware/client')
 const serve = require('./app/serve')
-const test = require('./app/test')
+const close = require('./app/close')
+const getHostUrl = require('./utilities/getHostUrl')
 
 // Get the end-user's package.json data so that it can be used to provide
 // defaults.
@@ -60,10 +62,10 @@ module.exports = function config (options = {}) {
     // FIXME:
     isCli: false,
     // [String] The hostname that the server should serve requests for. Defaults
-    // to the APP_HOSTNAME environment variable or '0.0.0.0' if in production
+    // to the APP_HOSTNAME environment variable or '0.0.0.0' if in development
     // mode or 'localhost' otherwise.
     get hostname () {
-      return process.env.APP_HOSTNAME || this.isProd ? '0.0.0.0' : 'localhost'
+      return process.env.APP_HOSTNAME || this.isDev ? 'localhost' : '0.0.0.0'
     },
     // [Number] The port on which the server should listen. Defaults to the
     // PORT environment variables or Node's http module picking a port that's
@@ -72,7 +74,7 @@ module.exports = function config (options = {}) {
     // [String] A URL based on the hostname and port properties above that the
     // application server will listen on.
     get hostUrl () {
-      return `http://${this.hostname}${this.port ? `:${this.port}` : ''}`
+      return getHostUrl(this.hostname, this.port)
     },
     // [String] The base, or root, URL of your application. Defaults to the
     // APP_BASE_URL environment variable or the hostUrl property above.
@@ -293,7 +295,12 @@ module.exports = function config (options = {}) {
       },
       // If not in production, add a utility to allow making test requests.
       test (app) {
-        if (!cfg.isProd) app.test = test
+        if (!cfg.isProd) app.test = nrgTest(app)
+      },
+      // If not in production, add a utility that allows closing any connections
+      // opened when the app was created.
+      close (app) {
+        if (!cfg.isProd) app.close = close
       }
     },
     static: {

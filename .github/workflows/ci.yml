@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ianwalter/pnpm:v1.0.0
-    timeout-minutes: 10
+    timeout-minutes: 5
     env:
       DB_HOST: postgres
       DB_PORT: 5432
@@ -47,7 +47,5 @@ jobs:
         run: pnpm i
       - name: Lint
         run: pnpm lint
-      - name: Debug
-        run: pnpm nrg print config
       - name: Test
         run: pnpm -r test

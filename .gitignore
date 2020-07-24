@@ -5,3 +5,4 @@ docs/.vuepress/dist
 yalc.lock
 .next
 .env
+packages/nrg-print/output.txt
