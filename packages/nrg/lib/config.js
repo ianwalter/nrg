@@ -34,6 +34,7 @@ const email = { isEmail }
 const token = { isString }
 const password = { isStrongPassword }
 
+let logMiddleware
 module.exports = function config (options = {}) {
   // Load environment variables from .env file.
   require('dotenv').config({ path: path.join(dir, '.env') })
@@ -105,12 +106,6 @@ module.exports = function config (options = {}) {
       // and 'unhandledException' events that log the errors. Defaults to true.
       unhandled: true
     },
-    get nrgPrint () {
-      return this.log && nrgPrint(this.log)
-    },
-    get logger () {
-      return this.nrgPrint?.logger
-    },
     get stackTraceLimit () {
       return (this.isDev && Error.stackTraceLimit === 10)
         ? 20
@@ -119,6 +114,17 @@ module.exports = function config (options = {}) {
     // [Object] Key-value entries of plugins (or middleware if a function is
     // returned from the plugin) the application will use.
     plugins: {
+      // Middleware for logging request/responses and making a logger
+      // available to middleware via `ctx`. Enabled by default if the log
+      // option Object is not falsy.
+      logger (app) {
+        if (cfg.log) {
+          const { logger, middleware } = nrgPrint(cfg.log)
+          logger.ns('nrg.plugins').debug('Adding nrgPrint middleware')
+          app.log = logger
+          logMiddleware = middleware
+        }
+      },
       // FIXME: comment.
       error (app) {
         if (app.log) {
@@ -134,14 +140,8 @@ module.exports = function config (options = {}) {
         }
         app.use(setRequestId)
       },
-      // Middleware for logging request/responses and making a logger
-      // available to middleware via `ctx`. Enabled by default if the log
-      // option Object is not falsy.
       log (app) {
-        if (cfg.nrgPrint && app.log) {
-          app.log.ns('nrg.plugins').debug('Adding nrgPrint middleware')
-          app.use(cfg.nrgPrint.middleware)
-        }
+        if (logMiddleware) app.use(logMiddleware)
       },
       // Middleware for redirecting requests using the http protocol to a
       // version of the URL that uses the https protocol when a request has the

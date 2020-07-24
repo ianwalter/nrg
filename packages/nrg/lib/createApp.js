@@ -25,9 +25,6 @@ module.exports = function createApp (options = {}) {
   const stackTraceLimitIsInt = Number.isInteger(cfg.stackTraceLimit)
   if (stackTraceLimitIsInt) Error.stackTraceLimit = cfg.stackTraceLimit
 
-  // Add the logger to the app instance for convenience.
-  if (cfg.logger) app.log = cfg.logger
-
   // If configured, set up handlers for any uncaught exceptions and unhandled
   // Promise rejections that happen within the current process.
   if (cfg.log?.unhandled) {
@@ -40,9 +37,7 @@ module.exports = function createApp (options = {}) {
   if (cfg.keys) app.keys = cfg.keys
 
   // Iterate over all of the configured plugins and integrate them with the app.
-  for (const plugin of Object.values(cfg.plugins)) {
-    if (plugin) plugin(app)
-  }
+  for (const plugin of Object.values(cfg.plugins)) if (plugin) plugin(app)
 
   // Return the app instance.
   return app
