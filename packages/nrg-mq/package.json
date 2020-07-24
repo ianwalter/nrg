@@ -6,6 +6,7 @@
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
   },
+  "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "scripts": {
     "test": "bff"
