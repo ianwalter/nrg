@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.3.1
+
+### Patch Changes
+
+- 60dddc3: Fixing chromafi issue with debug logs
+
 ## 0.3.0
 
 ### Minor Changes
