@@ -21,7 +21,7 @@ importers:
       '@ianwalter/bff': 9.10.0
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.2.0
+      '@ianwalter/nrg': ^0.3.0
   examples/mq:
     dependencies:
       '@ianwalter/nrg': 'link:../../packages/nrg'
@@ -30,7 +30,7 @@ importers:
       '@ianwalter/bff': 9.10.0
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.2.0
+      '@ianwalter/nrg': ^0.3.0
       '@ianwalter/sleep': ^0.0.1
   examples/next:
     dependencies:
@@ -42,7 +42,7 @@ importers:
       '@ianwalter/eslint-config-react': 3.2.0
     specifiers:
       '@ianwalter/eslint-config-react': ^3.2.0
-      '@ianwalter/nrg': ^0.2.0
+      '@ianwalter/nrg': ^0.3.0
       next: 9.4.4
       react: 16.13.1
       react-dom: 16.13.1
@@ -59,7 +59,7 @@ importers:
       webpack-node-externals: 2.5.0
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.2.0
+      '@ianwalter/nrg': ^0.3.0
       babel-loader: ^8.1.0
       html-webpack-plugin: ^4.3.0
       svelte: ^3.24.0
@@ -73,7 +73,7 @@ importers:
       '@ianwalter/bff': 9.10.0
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.2.0
+      '@ianwalter/nrg': ^0.3.0
   packages/nrg:
     dependencies:
       '@ianwalter/cli': 4.1.0
@@ -125,11 +125,11 @@ importers:
       '@ianwalter/dot': ^1.0.4
       '@ianwalter/extract': ^1.0.1
       '@ianwalter/merge': ^9.0.1
-      '@ianwalter/nrg-mq': ^0.0.2
-      '@ianwalter/nrg-print': ^0.0.3
-      '@ianwalter/nrg-router': ^0.6.0
-      '@ianwalter/nrg-session': ^6.0.0
-      '@ianwalter/nrg-test': ^0.0.0
+      '@ianwalter/nrg-mq': ^1.0.0
+      '@ianwalter/nrg-print': ^1.0.0
+      '@ianwalter/nrg-router': ^1.0.0
+      '@ianwalter/nrg-session': ^7.0.0
+      '@ianwalter/nrg-test': ^1.0.0
       '@ianwalter/print': ^8.0.5
       '@ianwalter/requester': ^2.4.1
       '@ianwalter/url': ^2.0.0
@@ -185,7 +185,7 @@ importers:
     specifiers:
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
-      '@ianwalter/nrg': ^0.2.0
+      '@ianwalter/nrg': ^0.3.0
       '@ianwalter/print': ^8.0.3
       '@ianwalter/timer': ^2.0.2
   packages/nrg-router:
@@ -196,7 +196,7 @@ importers:
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.2.0
+      '@ianwalter/nrg': ^0.3.0
       '@ianwalter/router': ^3.3.0
   packages/nrg-session:
     dependencies:
@@ -220,7 +220,7 @@ importers:
       supertest: 4.0.2
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.2.0
+      '@ianwalter/nrg': ^0.3.0
       benchmark: ^2.1.4
       common-tags: ^1.8.0
       copy-to: ~2.0.1
@@ -244,7 +244,7 @@ importers:
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.2.0
+      '@ianwalter/nrg': ^0.3.0
       '@ianwalter/requester': ^2.4.1
 lockfileVersion: 5.1
 packages:
