@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "name": "vite-example",
+  "version": "1.0.0",
+  "description": "An example of using the vite build tool with the nrg framework",
+  "author": {
+    "name": "Ian Walter",
+    "url": "https://ianwalter.dev"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "test": "bff",
+    "start": "vite",
+    "serve": "node serve"
+  },
+  "dependencies": {
+    "@pika/react": "^16.13.1",
+    "@pika/react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@ianwalter/bff": "^9.10.0",
+    "@ianwalter/nrg": "^0.3.0",
+    "koa-mount": "^4.0.0",
+    "vite": "^1.0.0-rc.3",
+    "vite-plugin-react": "^3.0.2"
+  }
+}
