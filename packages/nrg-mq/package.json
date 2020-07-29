@@ -42,8 +42,5 @@
   "devDependencies": {
     "@ianwalter/bff": "^9.6.0",
     "dotenv": "^8.2.0"
-  },
-  "peerDependencies": {
-    "@ianwalter/nrg": "^0.3.0"
   }
 }
