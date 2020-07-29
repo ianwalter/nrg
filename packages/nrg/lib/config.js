@@ -401,9 +401,10 @@ module.exports = function config (options = {}) {
       },
       get client () {
         if (cfg.redis.enabled) return 'redis'
-        if (cfg.db.enabled) return cfg.db.client
+        if (cfg.db.enabled) return 'db'
         return 'memory'
-      }
+      },
+      storeType: 'knex'
     },
     email: {
       // Email functionality is enabled if the accounts functionality is
