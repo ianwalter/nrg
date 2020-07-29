@@ -138,6 +138,7 @@ importers:
       objection: 2.2.1_knex@0.21.2
       pg: 8.3.0_pg@8.3.0
       pkg-dir: 4.2.0
+      rate-limiter-flexible: 2.1.9
       read-pkg-up: 7.0.1
       replace-string: 3.1.0
       require-from-string: 2.0.2
@@ -182,6 +183,7 @@ importers:
       objection: ^2.2.1
       pg: ^8.3.0
       pkg-dir: ^4.2.0
+      rate-limiter-flexible: ^2.1.9
       read-pkg-up: ^7.0.1
       replace-string: ^3.1.0
       require-from-string: ^2.0.2
@@ -11758,6 +11760,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
+  /rate-limiter-flexible/2.1.9:
+    dev: false
+    resolution:
+      integrity: sha512-ueIXEHLZZqDBetuzyMbtSQ1Gh6Y5rw8ULoNuGA7L3xZ6njPIc2oM0ZlmsY9rS8rPU4yvdw7lk6MLbWU7WTNfnQ==
   /raw-body/2.4.0:
     dependencies:
       bytes: 3.1.0

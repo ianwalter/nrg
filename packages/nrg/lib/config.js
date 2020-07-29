@@ -20,9 +20,11 @@ const { httpsRedirect } = require('./middleware/httpsRedirect')
 const Account = require('./models/Account')
 const Token = require('./models/Token')
 const { serveStatic, serveWebpack } = require('./middleware/client')
+const { rateLimit } = require('./middleware/rateLimit')
 const serve = require('./app/serve')
 const close = require('./app/close')
 const getHostUrl = require('./utilities/getHostUrl')
+const createRateLimiter = require('./utilities/createRateLimiter')
 
 // Get the end-user's package.json data so that it can be used to provide
 // defaults.
@@ -196,6 +198,17 @@ module.exports = function config (options = {}) {
           }
           const nrgSession = require('@ianwalter/nrg-session')
           app.use(nrgSession({ store: app.redis }, app))
+        }
+      },
+      // Middleware for enabling app-wide IP-based rate limiting using
+      // node-rate-limiter-flexible.
+      rateLimit (app) {
+        if (cfg.rateLimit.enabled) {
+          const rateLimiter = createRateLimiter(cfg.rateLimit, app)
+          if (app.log) {
+            app.log.ns('nrg.plugins').debug('Adding rate limit middleware')
+          }
+          app.use(rateLimit(rateLimiter))
         }
       },
       // Middleware for enabling OAuth authentication using simov/grant. Not
@@ -381,6 +394,16 @@ module.exports = function config (options = {}) {
     hash: {
       bytes: 48,
       rounds: 12
+    },
+    rateLimit: {
+      get enabled () {
+        return this.points !== undefined && this.duration !== undefined
+      },
+      get client () {
+        if (cfg.redis.enabled) return 'redis'
+        if (cfg.db.enabled) return cfg.db.client
+        return 'memory'
+      }
     },
     email: {
       // Email functionality is enabled if the accounts functionality is
