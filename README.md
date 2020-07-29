@@ -12,12 +12,12 @@
 
 ✅ &nbsp; Web server based on [Koa][koaUrl]
 
-✅ &nbsp; Fast routing through a [tree-based router][nrgRouterUrl]
+✅ &nbsp; Optional fast routing through a [tree-based router][nrgRouterUrl]
 
-✅ &nbsp; Optional logging via [Print][printUrl]
+✅ &nbsp; Optional beautiful logging via [Print][printUrl]
 
-🚧 &nbsp; Optional session-handling and CSRF protection using a backend like
-          [Redis][redisUrl] or JWT
+✅ &nbsp; Optional session-handling and CSRF protection using a backend like
+          [Redis][redisUrl]
 
 ✅ &nbsp; Optional database connection to a backend like
           [PostgreSQL][postgresUrl] using [knex][knexUrl] and
@@ -27,6 +27,8 @@
 
 ✅ &nbsp; Optional OAuth integration with providers like GitHub, Twitter, etc.
           via [grant][grantUrl]
+
+✅ &nbsp; Optional rate limiting
 
 🚧 &nbsp; CLI for setup, migrations, seeding, and custom scripts
 
