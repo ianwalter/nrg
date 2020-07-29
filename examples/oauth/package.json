@@ -10,7 +10,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "start": "node serve",
-    "test": "echo TODO: add test for oauth example"
+    "test": "echo FIXME: add test for oauth example"
   },
   "dependencies": {
     "@ianwalter/nrg": "^0.3.1"
