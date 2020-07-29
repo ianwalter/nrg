@@ -44,6 +44,6 @@
     "@ianwalter/nrg": "^0.3.0"
   },
   "peerDependencies": {
-    "@ianwalter/nrg": "^0.3.0"
+    "@ianwalter/nrg": ">= 0.3.1"
   }
 }
