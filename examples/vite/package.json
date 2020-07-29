@@ -9,7 +9,7 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "test": "bff",
+    "test": "echo TODO: add test for vite example",
     "start": "vite",
     "serve": "node serve"
   },
