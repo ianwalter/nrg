@@ -1,20 +1,5 @@
 # @ianwalter/nrg
 
-## 0.4.0
-
-### Minor Changes
-
-- 139bfbf: Adding #333: Oauth support
-- 049edd8: Adding #348: Rate limit middleware
-
-### Patch Changes
-
-- @ianwalter/nrg-mq@2.0.0
-- @ianwalter/nrg-print@2.0.0
-- @ianwalter/nrg-router@2.0.0
-- @ianwalter/nrg-session@8.0.0
-- @ianwalter/nrg-test@2.0.0
-
 ## 0.3.1
 
 ### Patch Changes
