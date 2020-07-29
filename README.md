@@ -28,7 +28,7 @@
 ✅ &nbsp; Optional OAuth integration with providers like GitHub, Twitter, etc.
           via [grant][grantUrl]
 
-✅ &nbsp; Optional rate limiting
+✅ &nbsp; Optional rate limiting via [node-rate-limiter-flexible][rlfUrl]
 
 🚧 &nbsp; CLI for setup, migrations, seeding, and custom scripts
 
@@ -68,6 +68,7 @@ Created by [Ian Walter](https://ianwalter.dev)
 [knexUrl]: https://knexjs.org/
 [objectionUrl]: https://vincit.github.io/objection.js/
 [grantUrl]: https://github.com/simov/grant
+[rlfUrl]: https://github.com/animir/node-rate-limiter-flexible
 [webpackUrl]: https://webpack.js.org/
 [amqpUrl]: https://github.com/squaremo/amqp.node
 [rabbitmqUrl]: https://www.rabbitmq.com/
