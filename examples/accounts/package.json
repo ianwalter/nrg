@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "accounts-example",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "author": {
     "name": "Ian Walter",
@@ -13,7 +13,7 @@
     "test": "NODE_ENV=test bff"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.3.0"
+    "@ianwalter/nrg": "^0.4.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0"
