@@ -25,7 +25,7 @@
 
 ✅ &nbsp; Optional, ready-to-role (ha ha, get it?) user account system
 
-🚧 &nbsp; Optional OAuth integration with providers like GitHub, Twitter, etc.
+✅ &nbsp; Optional OAuth integration with providers like GitHub, Twitter, etc.
           via [grant][grantUrl]
 
 🚧 &nbsp; CLI for setup, migrations, seeding, and custom scripts

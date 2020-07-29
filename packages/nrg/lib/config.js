@@ -13,6 +13,7 @@ const compress = require('koa-compress')
 const nrgPrint = require('@ianwalter/nrg-print')
 const nrgTest = require('@ianwalter/nrg-test')
 const koaWebpack = require('koa-webpack')
+const oauthProviders = require('grant/config/oauth.json')
 const { handleError } = require('./middleware/error')
 const { setRequestId } = require('./middleware/requestId')
 const { httpsRedirect } = require('./middleware/httpsRedirect')
@@ -197,6 +198,14 @@ module.exports = function config (options = {}) {
           app.use(nrgSession({ store: app.redis }, app))
         }
       },
+      // Middleware for enabling OAuth authentication using simov/grant. Not
+      // enabled by default.
+      oauth (app) {
+        if (cfg.oauth.enabled) {
+          const grant = require('grant').koa()
+          app.use(grant(cfg.oauth))
+        }
+      },
       // Middleware to help protect against Cross-Site Request Forgery (CSRF)
       // attacks using koa-csrf. Enabled by default if session middleware is
       // enabled.
@@ -329,6 +338,17 @@ module.exports = function config (options = {}) {
       }
     },
     keys: process.env.APP_KEYS?.split(','),
+    oauth: {
+      get enabled () {
+        return Object.keys(this).some(key => oauthProviders[key])
+      },
+      defaults: {
+        get origin () {
+          return cfg.baseUrl
+        },
+        transport: 'session'
+      }
+    },
     redis: {
       get enabled () {
         return !!(cfg.keys?.length || Object.values(this.connection).length)

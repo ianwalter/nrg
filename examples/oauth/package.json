@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "accounts-example",
-  "version": "1.0.2",
+  "name": "oauth-example",
+  "version": "1.0.0",
   "description": "",
   "author": {
     "name": "Ian Walter",
@@ -9,11 +9,11 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "pretest": "pnpx nrg migrate && pnpx nrg seed && pnpx nrg run deleteAllEmail",
-    "test": "NODE_ENV=test bff"
+    "start": "node serve",
+    "test": "echo TODO: add test for oauth example"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.3.0"
+    "@ianwalter/nrg": "^0.3.1"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0"
