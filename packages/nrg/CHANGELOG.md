@@ -1,5 +1,12 @@
 # @ianwalter/nrg
 
+## 0.4.0
+
+### Minor Changes
+
+- f312613: Adding #333: Oauth support
+- f312613: Adding #348: Rate limit middleware
+
 ## 0.3.1
 
 ### Patch Changes
