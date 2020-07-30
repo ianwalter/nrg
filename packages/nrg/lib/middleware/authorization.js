@@ -4,10 +4,14 @@ const { UnauthorizedError } = require('../errors')
 
 function handleAuthorization (ctx, next, options) {
   const account = ctx.session.account
-  if (account && account.enabled && account.emailVerified) {
+  if (account?.enabled && account.emailVerified) {
     if (!options.roles || options.match(account.roles || [], options.roles)) {
       return next()
     }
+    ctx.log.ns('nrg.auth').warn('Unauthorized role', {
+      account: { id: account.id, roles: account.roles },
+      roles: options.roles
+    })
   } else if (options.redirect) {
     let redirect = options.loginRedirect || '/login'
     if (ctx.session.unverifiedAccount) {

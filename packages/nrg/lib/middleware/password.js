@@ -17,7 +17,7 @@ async function hashPassword (ctx, next) {
 
 async function comparePasswords (ctx, next) {
   const payload = ctx.state.validation?.data
-  if (payload.password) {
+  if (payload?.password) {
     // Determine the password to compare against.
     const password = ctx.state.account
       ? ctx.state.account.password
