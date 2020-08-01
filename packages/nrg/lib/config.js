@@ -215,6 +215,9 @@ module.exports = function config (options = {}) {
       // enabled by default.
       oauth (app) {
         if (cfg.oauth.enabled) {
+          if (app.log) {
+            app.log.ns('nrg.plugins').debug('Adding OAuth middleware')
+          }
           const grant = require('grant').koa()
           app.use(grant(cfg.oauth))
         }
