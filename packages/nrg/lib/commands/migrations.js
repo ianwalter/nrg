@@ -1,5 +1,5 @@
 const path = require('path')
-const fs = require('fs')
+const { promises: fs } = require('fs')
 
 const migrationsSource = path.join(__dirname, '..', '..', 'migrations')
 
