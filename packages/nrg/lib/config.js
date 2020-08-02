@@ -259,9 +259,9 @@ module.exports = function config (options = {}) {
           app.use(json({ pretty: true }))
         }
       },
-      // If the Next.js integration is enabled, add the Next.js adapter '
-      // middleware so that you can execute a page's getServerSideProps function
-      // with the nrg request context.
+      // If the Next.js integration is enabled, add the Next.js adapter
+      // middleware so that you can execute some logic from a page's
+      // getServerSideProps function with the nrg request context.
       adaptNext (app) {
         if (cfg.next.enabled) {
           const { adaptNext } = require('./middleware/next')
