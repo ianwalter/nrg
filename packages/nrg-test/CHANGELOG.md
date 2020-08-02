@@ -1,6 +1,13 @@
 # @ianwalter/nrg-test
 
+## 1.1.0
+
+### Minor Changes
+
+- 3610195: Adding #367: Explicit Next.js integration
+
 ## 1.0.0
+
 ### Minor Changes
 
 - 4450ca6: - Changed app.start to app.serve

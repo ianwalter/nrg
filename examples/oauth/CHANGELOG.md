@@ -1,6 +1,17 @@
 # oauth-example
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [4a8bcfd]
+- Updated dependencies [3cff5a5]
+- Updated dependencies [3610195]
+- Updated dependencies [27c456e]
+  - @ianwalter/nrg@0.5.0
+
 ## 1.0.1
+
 ### Patch Changes
 
 - Updated dependencies [f312613]

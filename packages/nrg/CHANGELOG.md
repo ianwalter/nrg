@@ -1,5 +1,20 @@
 # @ianwalter/nrg
 
+## 0.5.0
+
+### Minor Changes
+
+- 3610195: Adding #367: Explicit Next.js integration
+
+### Patch Changes
+
+- 4a8bcfd: Adding debug log for OAuth middleware
+- 3cff5a5: Fixing copy migrations command
+- 27c456e: Adding warning log for unauthorized role
+- Updated dependencies [3610195]
+  - @ianwalter/nrg-print@1.1.0
+  - @ianwalter/nrg-test@1.1.0
+
 ## 0.4.0
 
 ### Minor Changes
