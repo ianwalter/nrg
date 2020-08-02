@@ -88,11 +88,15 @@ const { slowDown } = require('./lib/middleware/slowDown')
 
 const { httpsRedirect } = require('./lib/middleware/httpsRedirect')
 
+const { adaptNext } = require('./lib/middleware/next')
+
 const swap = require('./lib/utilities/swap')
 const getRandomTimeout = require('./lib/utilities/getRandomTimeout')
 const getTestEmail = require('./lib/utilities/getTestEmail')
 const extractEmailToken = require('./lib/utilities/extractEmailToken')
 const getHostUrl = require('./lib/utilities/getHostUrl')
+
+const serve = require('./lib/app/serve')
 
 const config = require('./lib/config')
 
@@ -256,6 +260,9 @@ module.exports = {
   // HTTP to HTTPS redirect:
   httpsRedirect,
 
+  // Adapt Next.js middleware to be executed with the nrg request context.
+  adaptNext,
+
   /**
    * Error classes:
    */
@@ -287,6 +294,11 @@ module.exports = {
   getTestEmail,
   extractEmailToken,
   getHostUrl,
+
+  /**
+   * App methods:
+   */
+  serve,
 
   /**
    * Default config:

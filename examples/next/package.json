@@ -11,7 +11,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "pretest": "next build",
+    "test": "bff"
   },
   "dependencies": {
     "@ianwalter/nrg": "^0.4.0",
@@ -20,6 +22,7 @@
     "react-dom": "16.13.1"
   },
   "devDependencies": {
+    "@ianwalter/bff": "^9.10.0",
     "@ianwalter/eslint-config-react": "^3.2.0"
   },
   "eslintConfig": {

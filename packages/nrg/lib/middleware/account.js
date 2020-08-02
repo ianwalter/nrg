@@ -33,8 +33,8 @@ function reduceAccountForClient (ctx, next) {
 }
 
 async function validatePasswordUpdate (ctx, next) {
-  if (ctx.request.body.newPassword) {
-    const { body } = ctx.request
+  const body = ctx.request.body || ctx.req.body || {}
+  if (body.newPassword) {
     ctx.log
       .ns('nrg.accounts.password')
       .debug('account.validatePasswordUpdate', { body })

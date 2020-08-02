@@ -1,9 +1,9 @@
 const http = require('http')
 const getHostUrl = require('../utilities/getHostUrl')
 
-module.exports = function serve (port, hostname) {
+module.exports = function serve (port, hostname, callback) {
   // Create the server instance by specifying the app's callback as the handler.
-  const server = http.createServer(this.callback())
+  const server = http.createServer(callback || this.callback())
 
   // Prefer the port and hostname passed as arguments to those configured in the
   // app even if the port is 0 (which means use a random unused port) so that
@@ -33,7 +33,7 @@ module.exports = function serve (port, hostname) {
       // environment (e.g. development or test).
       // https://github.com/nodejs/node/issues/2642
       // Logic influenced by https://github.com/isaacs/server-destroy
-      if (!this.context.cfg.isProd) {
+      if (!this.context?.cfg?.isProd) {
         const sockets = []
 
         // Keep track of all active connections.

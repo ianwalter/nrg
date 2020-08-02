@@ -1,5 +1,4 @@
 const path = require('path')
-const bodyParser = require('koa-bodyparser')
 const { knexSnakeCaseMappers } = require('objection')
 const readPkgUp = require('read-pkg-up')
 const {
@@ -9,22 +8,7 @@ const {
   isString,
   isOptional
 } = require('@ianwalter/correct')
-const compress = require('koa-compress')
-const nrgPrint = require('@ianwalter/nrg-print')
-const nrgTest = require('@ianwalter/nrg-test')
-const koaWebpack = require('koa-webpack')
 const oauthProviders = require('grant/config/oauth.json')
-const { handleError } = require('./middleware/error')
-const { setRequestId } = require('./middleware/requestId')
-const { httpsRedirect } = require('./middleware/httpsRedirect')
-const Account = require('./models/Account')
-const Token = require('./models/Token')
-const { serveStatic, serveWebpack } = require('./middleware/client')
-const { rateLimit } = require('./middleware/rateLimit')
-const serve = require('./app/serve')
-const close = require('./app/close')
-const getHostUrl = require('./utilities/getHostUrl')
-const createRateLimiter = require('./utilities/createRateLimiter')
 
 // Get the end-user's package.json data so that it can be used to provide
 // defaults.
@@ -78,7 +62,7 @@ module.exports = function config (options = {}) {
     // [String] A URL based on the hostname and port properties above that the
     // application server will listen on.
     get hostUrl () {
-      return getHostUrl(this.hostname, this.port)
+      return require('./utilities/getHostUrl')(this.hostname, this.port)
     },
     // [String] The base, or root, URL of your application. Defaults to the
     // APP_BASE_URL environment variable or the hostUrl property above.
@@ -122,6 +106,7 @@ module.exports = function config (options = {}) {
       // option Object is not falsy.
       logger (app) {
         if (cfg.log) {
+          const nrgPrint = require('@ianwalter/nrg-print')
           const { logger, middleware } = nrgPrint(cfg.log)
           logger.ns('nrg.plugins').debug('Adding nrgPrint middleware')
           app.log = logger
@@ -133,6 +118,7 @@ module.exports = function config (options = {}) {
         if (app.log) {
           app.log.ns('nrg.plugins').debug('Adding handleError middleware')
         }
+        const { handleError } = require('./middleware/error')
         app.use(handleError)
       },
       // Middleware for setting a unique identifier for each request using
@@ -141,6 +127,7 @@ module.exports = function config (options = {}) {
         if (app.log) {
           app.log.ns('nrg.plugins').debug('Adding setRequestId middleware')
         }
+        const { setRequestId } = require('./middleware/requestId')
         app.use(setRequestId)
       },
       log (app) {
@@ -151,10 +138,11 @@ module.exports = function config (options = {}) {
       // X-Forwarded-Proto header. Enabled by default if application is in
       // production mode.
       httpsRedirect (app) {
-        if (cfg.isProd && !cfg.isCli) {
+        if (cfg.isProd && !cfg.isCli && !cfg.next.enabled) {
           if (app.log) {
             app.log.ns('nrg.plugins').debug('Adding httpsRedirect middleware')
           }
+          const { httpsRedirect } = require('./middleware/httpsRedirect')
           app.use(httpsRedirect)
         }
       },
@@ -166,6 +154,7 @@ module.exports = function config (options = {}) {
           if (app.log) {
             app.log.ns('nrg.plugins').debug('Adding static middleware')
           }
+          const { serveStatic } = require('./middleware/client')
           app.use(serveStatic)
         }
       },
@@ -176,7 +165,8 @@ module.exports = function config (options = {}) {
           if (app.log) {
             app.log.ns('nrg.plugins').debug('Adding Webpack middleware')
           }
-          app.context.webpackMiddleware = koaWebpack(rest)
+          app.context.webpackMiddleware = require('koa-webpack')(rest)
+          const { serveWebpack } = require('./middleware/client')
           app.use(serveWebpack)
         }
       },
@@ -204,11 +194,12 @@ module.exports = function config (options = {}) {
       // node-rate-limiter-flexible.
       rateLimit (app) {
         if (cfg.rateLimit.enabled) {
-          const rateLimiter = createRateLimiter(cfg.rateLimit, app)
           if (app.log) {
             app.log.ns('nrg.plugins').debug('Adding rate limit middleware')
           }
-          app.use(rateLimit(rateLimiter))
+          const createRateLimiter = require('./utilities/createRateLimiter')
+          const { rateLimit } = require('./middleware/rateLimit')
+          app.use(rateLimit(createRateLimiter(cfg.rateLimit, app)))
         }
       },
       // Middleware for enabling OAuth authentication using simov/grant. Not
@@ -238,20 +229,23 @@ module.exports = function config (options = {}) {
       // work with (e.g. JSON String to JS Object) using koa-bodyParser. Enabled
       // by default for 'json', 'form', and 'text'.
       bodyParser (app) {
-        if (app.log) {
-          app.log.ns('nrg.plugins').debug('Adding koa-bodyParser middleware')
+        if (!cfg.next.enabled) {
+          if (app.log) {
+            app.log.ns('nrg.plugins').debug('Adding koa-bodyParser middleware')
+          }
+          const bodyParser = require('koa-bodyparser')
+          app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
         }
-        app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
       },
       // Middleware for compressing response bodies using brotli or other
       // configured zlib-supported algorithms like gzip using koa-compress.
       // Enabled by default.
       compress (app) {
-        if (!cfg.isCli) {
+        if (!cfg.isCli && !cfg.next.enabled) {
           if (app.log) {
             app.log.ns('nrg.plugins').debug('Adding koa-compress middleware')
           }
-          app.use(compress())
+          app.use(require('koa-compress')())
         }
       },
       // Middleware that prettifies JSON bodies making them easier to read.
@@ -263,6 +257,15 @@ module.exports = function config (options = {}) {
           }
           const json = require('koa-json')
           app.use(json({ pretty: true }))
+        }
+      },
+      // If the Next.js integration is enabled, add the Next.js adapter
+      // middleware so that you can execute some logic from a page's
+      // getServerSideProps function with the nrg request context.
+      adaptNext (app) {
+        if (cfg.next.enabled) {
+          const { adaptNext } = require('./middleware/next')
+          app.use(adaptNext)
         }
       },
       // Plugin for adding nrg-router which allows assigning middleware to
@@ -316,16 +319,22 @@ module.exports = function config (options = {}) {
       // Add a serve method to the app that makes it easy to start listening for
       // connections.
       serve (app) {
-        app.serve = serve
+        if (!cfg.next.enabled) app.serve = require('./app/serve')
       },
       // If not in production, add a utility to allow making test requests.
       test (app) {
-        if (!cfg.isProd) app.test = nrgTest(app)
+        if (!cfg.isProd) app.test = require('@ianwalter/nrg-test')(app)
       },
       // If not in production, add a utility that allows closing any connections
       // opened when the app was created.
       close (app) {
-        if (!cfg.isProd) app.close = close
+        if (!cfg.isProd) app.close = require('./app/close')
+      },
+      // If the Next.js integration is enabled, add a "next" app method to allow
+      // you to get the result of "nextAdapter" middleware and use it to pass
+      // data to the page component.
+      next (app) {
+        if (cfg.next.enabled) app.next = require('./app/next')
       }
     },
     static: {
@@ -472,8 +481,8 @@ module.exports = function config (options = {}) {
         return this.dummyPassword
       },
       models: {
-        Account,
-        Token
+        Account: require('./models/Account'),
+        Token: require('./models/Token')
       }
     },
     validators: {
@@ -486,6 +495,7 @@ module.exports = function config (options = {}) {
       },
       email: new SchemaValidator({ email }),
       emailVerification: new SchemaValidator({ email, token }),
+      password: new SchemaValidator({ password }),
       passwordReset: new SchemaValidator({
         email,
         token,
@@ -496,6 +506,9 @@ module.exports = function config (options = {}) {
       get accountUpdate () {
         return new SchemaValidator(cfg.accounts.models.Account.updateSchema)
       }
+    },
+    next: {
+      enabled: false
     }
   }
 

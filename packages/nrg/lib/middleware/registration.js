@@ -9,7 +9,7 @@ const { excluding } = require('@ianwalter/extract')
  * middleware.
  */
 async function validateRegistration (ctx, next) {
-  const { body } = ctx.request
+  const body = ctx.request.body || ctx.req.body || {}
   ctx.log
     .ns('nrg.accounts')
     .debug('registration.validateRegistration', { body })

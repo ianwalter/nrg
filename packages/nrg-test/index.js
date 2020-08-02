@@ -39,7 +39,20 @@ module.exports = function nrgTest (app) {
         return this.requestWithCsrf('delete', { ...options, body })
       },
       async request (method, options) {
-        const server = await app.serve(0)
+        const nrg = require('@ianwalter/nrg')
+
+        let server
+        if (app.serve) {
+          server = await app.serve(0)
+        } else if (app.next) {
+          const next = require('next')
+          const nextApp = next({ dev: app.isDev })
+          await nextApp.prepare()
+          server = await nrg.serve(0, 'localhost', nextApp.getRequestHandler())
+        } else {
+          server = await nrg.serve(0, 'localhost', app.callback())
+        }
+
         const response = await requester[method](server.url + path, options)
         await server.destroy()
         return response
