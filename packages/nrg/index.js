@@ -96,6 +96,8 @@ const getTestEmail = require('./lib/utilities/getTestEmail')
 const extractEmailToken = require('./lib/utilities/extractEmailToken')
 const getHostUrl = require('./lib/utilities/getHostUrl')
 
+const serve = require('./lib/app/serve')
+
 const config = require('./lib/config')
 
 module.exports = {
@@ -292,6 +294,11 @@ module.exports = {
   getTestEmail,
   extractEmailToken,
   getHostUrl,
+
+  /**
+   * App methods:
+   */
+  serve,
 
   /**
    * Default config:
