@@ -1,14 +1,14 @@
 importers:
   .:
     devDependencies:
-      '@changesets/cli': 2.9.2
+      '@changesets/cli': github.com/ianwalter/changesets-cli/6279dcf334a6d1b875b607afcf654c91848285bf
       '@ianwalter/eslint-config': 5.3.0
       '@ianwalter/renovate-config': 1.3.0
       '@ianwalter/vuepress-theme-brooks': 1.2.0
       npm-run-all: 4.1.5
       vuepress: 1.5.2
     specifiers:
-      '@changesets/cli': ^2.9.2
+      '@changesets/cli': ianwalter/changesets-cli
       '@ianwalter/eslint-config': ^5.3.0
       '@ianwalter/renovate-config': ^1.3.0
       '@ianwalter/vuepress-theme-brooks': ^1.2.0
@@ -2028,7 +2028,7 @@ packages:
       integrity: sha512-K0ioacsw8JgzDSPpUiGWokMvLzGvnZPXLrTsJfyHPrFsnp4yoKn+Ap/8NNZgWKZG9o5+qotH8tAa8AXn8gTN5A==
   /@babel/runtime/7.10.5:
     dependencies:
-      regenerator-runtime: 0.13.5
+      regenerator-runtime: 0.13.7
     resolution:
       integrity: sha512-otddXKhdNn7d0ptoFRHtMLa8LqDxLYwTjB4nYgM1yy5N6gU/MUf8zqyyLltCH3yAVitBzmwK4us+DD0l/MauAg==
   /@babel/runtime/7.9.6:
@@ -2129,41 +2129,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-TvcqUhNhKoqwE+L8dFtcwwAmos4+fqwmSkOWP3TSjw7K/inz2wjC46bA7IFtbx2hrwEq1iG0RCweQZTS2vrx1w==
-  /@changesets/cli/2.9.2:
-    dependencies:
-      '@babel/runtime': 7.10.5
-      '@changesets/apply-release-plan': 4.0.0
-      '@changesets/assemble-release-plan': 3.0.0
-      '@changesets/config': 1.3.0
-      '@changesets/errors': 0.1.4
-      '@changesets/get-dependents-graph': 1.1.3
-      '@changesets/get-release-plan': 2.0.0
-      '@changesets/git': 1.0.5
-      '@changesets/logger': 0.0.5
-      '@changesets/pre': 1.0.5
-      '@changesets/read': 0.4.6
-      '@changesets/types': 3.1.0
-      '@changesets/write': 0.1.3
-      '@manypkg/get-packages': 1.1.0
-      '@types/semver': 6.2.1
-      boxen: 1.3.0
-      chalk: 2.4.2
-      enquirer: 2.3.6
-      fs-extra: 7.0.1
-      human-id: 1.0.2
-      is-ci: 2.0.0
-      meow: 5.0.0
-      outdent: 0.5.0
-      p-limit: 2.3.0
-      preferred-pm: 3.0.1
-      semver: 5.7.1
-      spawndamnit: 2.0.0
-      term-size: 2.2.0
-      tty-table: 2.8.13
-    dev: true
-    hasBin: true
-    resolution:
-      integrity: sha512-1L9391G4YlofC1UbfwmBrsefwC03mJHK5Cn8oSozhQJMbRlCJLBJiOn5PHFruVMFcvACGER3R+2Yv62pGKneDw==
   /@changesets/config/1.3.0:
     dependencies:
       '@changesets/errors': 0.1.4
@@ -12061,9 +12026,6 @@ packages:
   /regenerate/1.4.1:
     resolution:
       integrity: sha512-j2+C8+NtXQgEKWk49MMP5P/u2GhnahTtVkRIHr5R5lVRlbKvmQ+oS+A5aLKWp2ma5VkT8sh6v+v4hbH0YHR66A==
-  /regenerator-runtime/0.13.5:
-    resolution:
-      integrity: sha512-ZS5w8CpKFinUzOwW3c83oPeVXoNsrLsaCoLtJvAClH135j/R77RuymhiSErhm2lKcwSCIpmvIWSbDkIfAqKQlA==
   /regenerator-runtime/0.13.7:
     resolution:
       integrity: sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==
@@ -14851,3 +14813,40 @@ packages:
     dev: false
     resolution:
       integrity: sha1-KOwXzwl0PtyrBW3dixsGJizHPDA=
+  github.com/ianwalter/changesets-cli/6279dcf334a6d1b875b607afcf654c91848285bf:
+    dependencies:
+      '@babel/runtime': 7.10.5
+      '@changesets/apply-release-plan': 4.0.0
+      '@changesets/assemble-release-plan': 3.0.0
+      '@changesets/config': 1.3.0
+      '@changesets/errors': 0.1.4
+      '@changesets/get-dependents-graph': 1.1.3
+      '@changesets/get-release-plan': 2.0.0
+      '@changesets/git': 1.0.5
+      '@changesets/logger': 0.0.5
+      '@changesets/pre': 1.0.5
+      '@changesets/read': 0.4.6
+      '@changesets/types': 3.1.0
+      '@changesets/write': 0.1.3
+      '@manypkg/get-packages': 1.1.0
+      '@types/semver': 6.2.1
+      boxen: 1.3.0
+      chalk: 2.4.2
+      enquirer: 2.3.6
+      fs-extra: 7.0.1
+      human-id: 1.0.2
+      is-ci: 2.0.0
+      meow: 5.0.0
+      outdent: 0.5.0
+      p-limit: 2.3.0
+      preferred-pm: 3.0.1
+      semver: 5.7.1
+      spawndamnit: 2.0.0
+      term-size: 2.2.0
+      tty-table: 2.8.13
+    dev: true
+    hasBin: true
+    name: '@changesets/cli'
+    resolution:
+      tarball: 'https://codeload.github.com/ianwalter/changesets-cli/tar.gz/6279dcf334a6d1b875b607afcf654c91848285bf'
+    version: 2.9.2
