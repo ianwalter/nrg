@@ -42,7 +42,7 @@ const startEmailVerification = [
 ]
 
 async function validateEmailVerification (ctx, next) {
-  const { body } = ctx.request
+  const body = ctx.request.body || ctx.req.body || {}
   const validation = await ctx.cfg.validators.emailVerification.validate(body)
   ctx.log
     .ns('nrg.accounts.email')

@@ -12,7 +12,8 @@ function checkSessionAuthentication (ctx, next) {
  * and extract the data to the context so it can be used in later middleware.
  */
 async function validateLogin (ctx, next) {
-  const validation = await ctx.cfg.validators.login.validate(ctx.request.body)
+  const body = ctx.request.body || ctx.req.body || {}
+  const validation = await ctx.cfg.validators.login.validate(body)
   ctx.log.ns('nrg.accounts.session').debug('session.validateLogin', validation)
   if (validation.isValid) {
     ctx.state.validation = validation

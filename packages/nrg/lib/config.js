@@ -17,12 +17,14 @@ const oauthProviders = require('grant/config/oauth.json')
 const { handleError } = require('./middleware/error')
 const { setRequestId } = require('./middleware/requestId')
 const { httpsRedirect } = require('./middleware/httpsRedirect')
+const { adaptNext } = require('./middleware/next')
 const Account = require('./models/Account')
 const Token = require('./models/Token')
 const { serveStatic, serveWebpack } = require('./middleware/client')
 const { rateLimit } = require('./middleware/rateLimit')
 const serve = require('./app/serve')
 const close = require('./app/close')
+const next = require('./app/next')
 const getHostUrl = require('./utilities/getHostUrl')
 const createRateLimiter = require('./utilities/createRateLimiter')
 
@@ -151,7 +153,7 @@ module.exports = function config (options = {}) {
       // X-Forwarded-Proto header. Enabled by default if application is in
       // production mode.
       httpsRedirect (app) {
-        if (cfg.isProd && !cfg.isCli) {
+        if (cfg.isProd && !cfg.isCli && !cfg.next) {
           if (app.log) {
             app.log.ns('nrg.plugins').debug('Adding httpsRedirect middleware')
           }
@@ -238,16 +240,18 @@ module.exports = function config (options = {}) {
       // work with (e.g. JSON String to JS Object) using koa-bodyParser. Enabled
       // by default for 'json', 'form', and 'text'.
       bodyParser (app) {
-        if (app.log) {
-          app.log.ns('nrg.plugins').debug('Adding koa-bodyParser middleware')
+        if (!cfg.next) {
+          if (app.log) {
+            app.log.ns('nrg.plugins').debug('Adding koa-bodyParser middleware')
+          }
+          app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
         }
-        app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
       },
       // Middleware for compressing response bodies using brotli or other
       // configured zlib-supported algorithms like gzip using koa-compress.
       // Enabled by default.
       compress (app) {
-        if (!cfg.isCli) {
+        if (!cfg.isCli && !cfg.next) {
           if (app.log) {
             app.log.ns('nrg.plugins').debug('Adding koa-compress middleware')
           }
@@ -264,6 +268,10 @@ module.exports = function config (options = {}) {
           const json = require('koa-json')
           app.use(json({ pretty: true }))
         }
+      },
+      // FIXME:
+      adaptNext (app) {
+        if (cfg.next) app.use(adaptNext)
       },
       // Plugin for adding nrg-router which allows assigning middleware to
       // be executed when a request URL matches a given path.
@@ -316,7 +324,7 @@ module.exports = function config (options = {}) {
       // Add a serve method to the app that makes it easy to start listening for
       // connections.
       serve (app) {
-        app.serve = serve
+        if (!cfg.next) app.serve = serve
       },
       // If not in production, add a utility to allow making test requests.
       test (app) {
@@ -326,6 +334,10 @@ module.exports = function config (options = {}) {
       // opened when the app was created.
       close (app) {
         if (!cfg.isProd) app.close = close
+      },
+      // FIXME:
+      next (app) {
+        if (cfg.next) app.next = next
       }
     },
     static: {
@@ -486,6 +498,7 @@ module.exports = function config (options = {}) {
       },
       email: new SchemaValidator({ email }),
       emailVerification: new SchemaValidator({ email, token }),
+      password: new SchemaValidator({ password }),
       passwordReset: new SchemaValidator({
         email,
         token,
@@ -496,6 +509,9 @@ module.exports = function config (options = {}) {
       get accountUpdate () {
         return new SchemaValidator(cfg.accounts.models.Account.updateSchema)
       }
+    },
+    next: {
+      enabled: false
     }
   }
 

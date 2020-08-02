@@ -49,16 +49,20 @@ module.exports = function nrgPrint (options = {}) {
 
       await next()
 
-      let res = `${ctx.method} ${ctx.url} ${ctx.status} Response`
+      if (ctx.respond !== false) {
+        let res = `${ctx.method} ${ctx.url} ${ctx.status} Response`
 
-      // Update the request object with the current timestamp and the elapsed
-      // time from the timer so that it can be used in the response log.
-      request.timestamp = new Date()
-      request.responseTime = timer.duration()
+        // Update the request object with the current timestamp and the elapsed
+        // time from the timer so that it can be used in the response log.
+        request.timestamp = new Date()
+        request.responseTime = timer.duration()
 
-      if (!options.ndjson) res += ` ${chalk.dim(`in ${request.responseTime}`)}`
+        if (!options.ndjson) {
+          res += ` ${chalk.dim(`in ${request.responseTime}`)}`
+        }
 
-      ctx.log.log(res)
+        ctx.log.log(res)
+      }
     }
   }
 }

@@ -1,7 +1,8 @@
 const { ValidationError } = require('../errors')
 
 async function validateEmail (ctx, next) {
-  const validation = await ctx.cfg.validators.email.validate(ctx.request.body)
+  const body = ctx.request.body || ctx.req.body || {}
+  const validation = await ctx.cfg.validators.email.validate(body)
   ctx.log.ns('nrg.accounts.email').debug('email.validateEmail', validation)
   if (validation.isValid) {
     ctx.state.validation = validation
