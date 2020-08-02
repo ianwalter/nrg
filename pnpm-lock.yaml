@@ -135,7 +135,7 @@ importers:
       koa-send: 5.0.1
       koa-webpack: 5.3.0_webpack@4.43.0
       mailgen: 2.0.13
-      nanoid: 3.1.10
+      nanoid: 3.1.12
       nodemailer: 6.4.11
       objection: 2.2.2_knex@0.21.2
       pg: 8.3.0_pg@8.3.0
@@ -180,7 +180,7 @@ importers:
       koa-send: ^5.0.1
       koa-webpack: ^5.3.0
       mailgen: ^2.0.13
-      nanoid: ^3.1.10
+      nanoid: ^3.1.12
       nodemailer: ^6.4.11
       objection: ^2.2.2
       pg: ^8.3.0
@@ -345,7 +345,6 @@ packages:
       browserslist: 4.13.0
       invariant: 2.2.4
       semver: 5.7.1
-    dev: true
     resolution:
       integrity: sha512-mPVoWNzIpYJHbWje0if7Ck36bpbtTvIxOi9+6WSK9wjGEXearAqlwBoTQvVjsAY2VIwgcs8V940geY3okzRCEw==
   /@babel/compat-data/7.11.0:
@@ -456,7 +455,7 @@ packages:
       integrity: sha512-a3rYhlsGV0UHNDvrtOXBg8/OpfV0OKTkxKPzIplS1zpx7CygDcWWxckxZeDd3gzPzC4kUT0A4nVFDK0wGMh4MQ==
   /@babel/helper-compilation-targets/7.10.4_@babel+core@7.7.7:
     dependencies:
-      '@babel/compat-data': 7.11.0
+      '@babel/compat-data': 7.10.5
       '@babel/core': 7.7.7
       browserslist: 4.13.0
       invariant: 2.2.4
@@ -471,11 +470,11 @@ packages:
     dependencies:
       '@babel/core': 7.10.5
       '@babel/helper-function-name': 7.10.4
-      '@babel/helper-member-expression-to-functions': 7.10.5
+      '@babel/helper-member-expression-to-functions': 7.11.0
       '@babel/helper-optimise-call-expression': 7.10.4
       '@babel/helper-plugin-utils': 7.10.4
       '@babel/helper-replace-supers': 7.10.4
-      '@babel/helper-split-export-declaration': 7.10.4
+      '@babel/helper-split-export-declaration': 7.11.0
     dev: true
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -547,12 +546,6 @@ packages:
       '@babel/types': 7.11.0
     resolution:
       integrity: sha512-wljroF5PgCk2juF69kanHVs6vrLwIPNp6DLD+Lrl3hoQ3PpPPikaDRNFA+0t81NOoMt2DL6WW/mdU8k4k6ZzuA==
-  /@babel/helper-member-expression-to-functions/7.10.5:
-    dependencies:
-      '@babel/types': 7.10.5
-    dev: true
-    resolution:
-      integrity: sha512-HiqJpYD5+WopCXIAbQDG0zye5XYVvcO9w/DHp5GsaGkRUaamLj2bEtu6i8rnGGprAhHM3qidCMgp71HF4endhA==
   /@babel/helper-member-expression-to-functions/7.11.0:
     dependencies:
       '@babel/types': 7.11.0
@@ -584,7 +577,6 @@ packages:
       '@babel/template': 7.10.4
       '@babel/types': 7.11.0
       lodash: 4.17.19
-    dev: false
     resolution:
       integrity: sha512-02EVu8COMuTRO1TAzdMtpBPbe6aQ1w/8fePD2YgQmxZU4gpNWaL9gK3Jp7dxlkUlUCJOTaSeA+Hrm1BRQwqIhg==
   /@babel/helper-optimise-call-expression/7.10.4:
@@ -1208,7 +1200,7 @@ packages:
       '@babel/helper-optimise-call-expression': 7.10.4
       '@babel/helper-plugin-utils': 7.10.4
       '@babel/helper-replace-supers': 7.10.4
-      '@babel/helper-split-export-declaration': 7.10.4
+      '@babel/helper-split-export-declaration': 7.11.0
       globals: 11.12.0
     dev: true
     peerDependencies:
@@ -1402,7 +1394,7 @@ packages:
   /@babel/plugin-transform-modules-amd/7.10.5_@babel+core@7.10.5:
     dependencies:
       '@babel/core': 7.10.5
-      '@babel/helper-module-transforms': 7.10.5
+      '@babel/helper-module-transforms': 7.11.0
       '@babel/helper-plugin-utils': 7.10.4
       babel-plugin-dynamic-import-node: 2.3.3
     dev: true
@@ -1449,7 +1441,7 @@ packages:
     dependencies:
       '@babel/core': 7.10.5
       '@babel/helper-hoist-variables': 7.10.4
-      '@babel/helper-module-transforms': 7.10.5
+      '@babel/helper-module-transforms': 7.11.0
       '@babel/helper-plugin-utils': 7.10.4
       babel-plugin-dynamic-import-node: 2.3.3
     dev: true
@@ -1472,7 +1464,7 @@ packages:
   /@babel/plugin-transform-modules-umd/7.10.4_@babel+core@7.10.5:
     dependencies:
       '@babel/core': 7.10.5
-      '@babel/helper-module-transforms': 7.10.5
+      '@babel/helper-module-transforms': 7.11.0
       '@babel/helper-plugin-utils': 7.10.4
     dev: true
     peerDependencies:
@@ -1976,7 +1968,7 @@ packages:
       '@babel/helper-plugin-utils': 7.10.4
       '@babel/plugin-proposal-unicode-property-regex': 7.10.4_@babel+core@7.10.5
       '@babel/plugin-transform-dotall-regex': 7.10.4_@babel+core@7.10.5
-      '@babel/types': 7.10.5
+      '@babel/types': 7.9.6
       esutils: 2.0.3
     dev: true
     peerDependencies:
@@ -2098,7 +2090,6 @@ packages:
       '@babel/helper-validator-identifier': 7.10.4
       lodash: 4.17.19
       to-fast-properties: 2.0.0
-    dev: false
     resolution:
       integrity: sha512-qxXzvBO//jO9ZnoasKF1uJzHd2+M6Q2ZPIVfnFps8JJvXy0ZBbwbNOmE6SGIY5XOY6d1Bo5lb9d9RJ8nv3WSeA==
   /@changesets/apply-release-plan/4.0.0:
@@ -9924,13 +9915,13 @@ packages:
     optional: true
     resolution:
       integrity: sha512-isWHgVjnFjh2x2yuJ/tj3JbwoHu3UC2dX5G/88Cm24yB6YopVgxvBObDY7n5xW6ExmFhJpSEQqFPvq9zaXc8Jw==
-  /nanoid/3.1.10:
+  /nanoid/3.1.12:
     dev: false
     engines:
       node: ^10 || ^12 || >=13.7
     hasBin: true
     resolution:
-      integrity: sha512-iZFMXKeXWkxzlfmMfM91gw7YhN2sdJtixY+eZh9V6QWJWTOiurhpKhBMgr82pfzgSqglQgqYSCowEYsz8D++6w==
+      integrity: sha512-1qstj9z5+x491jfiC4Nelk+f8XBad7LN20PmyWINJEMRSf3wcAjAWysw1qaA8z6NSKe2sjq1hRSDpBH5paCb6A==
   /nanomatch/1.2.13:
     dependencies:
       arr-diff: 4.0.0
@@ -14866,5 +14857,6 @@ packages:
     hasBin: true
     name: '@changesets/cli'
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/ianwalter/changesets-cli/tar.gz/42635f3b95735a4d4ec86e4aa05a9104bf7873b7'
     version: 2.9.2
