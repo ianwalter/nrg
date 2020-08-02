@@ -259,7 +259,9 @@ module.exports = function config (options = {}) {
           app.use(json({ pretty: true }))
         }
       },
-      // FIXME:
+      // If the Next.js integration is enabled, add the Next.js adapter '
+      // middleware so that you can execute a page's getServerSideProps function
+      // with the nrg request context.
       adaptNext (app) {
         if (cfg.next.enabled) {
           const { adaptNext } = require('./middleware/next')
@@ -328,7 +330,9 @@ module.exports = function config (options = {}) {
       close (app) {
         if (!cfg.isProd) app.close = require('./app/close')
       },
-      // FIXME:
+      // If the Next.js integration is enabled, add a "next" app method to allow
+      // you to get the result of "nextAdapter" middleware and use it to pass
+      // data to the page component.
       next (app) {
         if (cfg.next.enabled) app.next = require('./app/next')
       }
