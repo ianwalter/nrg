@@ -267,7 +267,7 @@ importers:
       pedding: ^1.1.0
       should: ^11.2.1
       supertest: ^4.0.2
-      uid-safe: ^2.1.4
+      uid-safe: ^2.1.5
   packages/nrg-test:
     dependencies:
       '@ianwalter/requester': 2.4.1
