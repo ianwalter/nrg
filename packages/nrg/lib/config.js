@@ -264,6 +264,9 @@ module.exports = function config (options = {}) {
       // getServerSideProps function with the nrg request context.
       adaptNext (app) {
         if (cfg.next.enabled) {
+          if (app.log) {
+            app.log.ns('nrg.plugins').debug('Adding Next.js adapter middleware')
+          }
           const { adaptNext } = require('./middleware/next')
           app.use(adaptNext)
         }
