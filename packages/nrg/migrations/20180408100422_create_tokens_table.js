@@ -2,8 +2,8 @@ exports.up = knex => knex.schema.createTable('tokens', t => {
   t.increments()
   t.string('value').unique().notNullable()
   t.integer('accountId').unsigned().notNullable().index()
-  t.enum('type', ['email', 'password']).index().notNullable()
-  t.string('email').index().notNullable()
+  t.enum('type', ['email', 'password']).notNullable().index()
+  t.string('email').notNullable().index()
   t.timestamp('expiresAt').notNullable()
   t.timestamps(true, true)
 

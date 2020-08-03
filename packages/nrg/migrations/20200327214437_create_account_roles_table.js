@@ -4,7 +4,7 @@
 // permission scheme for your application.
 exports.up = knex => knex.schema.createTable('accountRoles', t => {
   t.increments()
-  t.integer('accountId').unsigned().notNullable()
+  t.integer('accountId').unsigned().notNullable().index()
   t.integer('roleId').unsigned().notNullable()
   t.timestamps(true, true)
 
