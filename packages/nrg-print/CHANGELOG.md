@@ -1,5 +1,11 @@
 # @ianwalter/nrg-print
 
+## 1.2.0
+
+### Minor Changes
+
+- ba5c2f9: Updating print to v8.1.0
+
 ## 1.1.0
 
 ### Minor Changes

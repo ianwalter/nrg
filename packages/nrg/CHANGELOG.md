@@ -1,5 +1,14 @@
 # @ianwalter/nrg
 
+## 0.5.1
+
+### Patch Changes
+
+- ba5c2f9: Updating print to v8.1.0
+- Updated dependencies [ba5c2f9]
+  - @ianwalter/nrg-print@1.2.0
+  - @ianwalter/nrg-mq@1.0.1
+
 ## 0.5.0
 
 ### Minor Changes
