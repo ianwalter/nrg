@@ -140,7 +140,7 @@ importers:
       objection: 2.2.2_knex@0.21.2
       pg: 8.3.0_pg@8.3.0
       pkg-dir: 4.2.0
-      rate-limiter-flexible: 2.1.9
+      rate-limiter-flexible: 2.1.10
       read-pkg-up: 7.0.1
       replace-string: 3.1.0
       require-from-string: 2.0.2
@@ -185,7 +185,7 @@ importers:
       objection: ^2.2.2
       pg: ^8.3.0
       pkg-dir: ^4.2.0
-      rate-limiter-flexible: ^2.1.9
+      rate-limiter-flexible: ^2.1.10
       read-pkg-up: ^7.0.1
       replace-string: ^3.1.0
       require-from-string: ^2.0.2
@@ -194,8 +194,8 @@ importers:
     dependencies:
       '@ianwalter/clone': 5.0.0
       '@ianwalter/print': 8.1.0
-      amqp-connection-manager: 3.2.0_amqplib@0.5.6
-      amqplib: 0.5.6
+      amqp-connection-manager: 3.2.0_amqplib@0.6.0
+      amqplib: 0.6.0
     devDependencies:
       '@ianwalter/bff': 9.10.0
       dotenv: 8.2.0
@@ -204,7 +204,7 @@ importers:
       '@ianwalter/clone': ^5.0.0
       '@ianwalter/print': ^8.1.0
       amqp-connection-manager: ^3.2.0
-      amqplib: ^0.5.6
+      amqplib: ^0.6.0
       dotenv: ^8.2.0
   packages/nrg-print:
     dependencies:
@@ -3486,9 +3486,9 @@ packages:
   /alphanum-sort/1.0.2:
     resolution:
       integrity: sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
-  /amqp-connection-manager/3.2.0_amqplib@0.5.6:
+  /amqp-connection-manager/3.2.0_amqplib@0.6.0:
     dependencies:
-      amqplib: 0.5.6
+      amqplib: 0.6.0
       promise-breaker: 5.0.0
     dev: false
     engines:
@@ -3498,7 +3498,7 @@ packages:
       amqplib: '*'
     resolution:
       integrity: sha512-CnxBqUXd6ft4DbGs8YXNp0hDZgWiDQAghxG6JRJuxGbGEQdAjsb4oRR9PWBqO5V/Gssp7lDKigXX+DtSczID2w==
-  /amqplib/0.5.6:
+  /amqplib/0.6.0:
     dependencies:
       bitsyntax: 0.1.0
       bluebird: 3.7.2
@@ -3508,9 +3508,9 @@ packages:
       url-parse: 1.4.7
     dev: false
     engines:
-      node: '>=0.8 <=12'
+      node: '>=0.8 <=14'
     resolution:
-      integrity: sha512-J4TR0WAMPBHN+tgTuhNsSObfM9eTVTZm/FNw0LyaGfbiLsBxqSameDNYpChUFXW4bnTKHDXy0ab+nuLhumnRrQ==
+      integrity: sha512-zXCh4jQ77TBZe1YtvZ1n7sUxnTjnNagpy8MVi2yc1ive239pS3iLwm4e4d5o4XZGx1BdTKQ/U0ZmaDU3c8MxYQ==
   /anser/1.4.9:
     dev: false
     resolution:
@@ -11786,10 +11786,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
-  /rate-limiter-flexible/2.1.9:
+  /rate-limiter-flexible/2.1.10:
     dev: false
     resolution:
-      integrity: sha512-ueIXEHLZZqDBetuzyMbtSQ1Gh6Y5rw8ULoNuGA7L3xZ6njPIc2oM0ZlmsY9rS8rPU4yvdw7lk6MLbWU7WTNfnQ==
+      integrity: sha512-Pa+8TPD4xYaiCUB5K4a/+j2FHDUe4HP1g49JmKEmkOkhqPaeVqxJsZuuVaza/svSCOT+V73vtsyBiSFK/e1yXw==
   /raw-body/2.4.0:
     dependencies:
       bytes: 3.1.0
