@@ -204,7 +204,7 @@ importers:
       '@ianwalter/clone': ^5.0.0
       '@ianwalter/print': ^8.1.0
       amqp-connection-manager: ^3.2.0
-      amqplib: ^0.5.5
+      amqplib: ^0.5.6
       dotenv: ^8.2.0
   packages/nrg-print:
     dependencies:
