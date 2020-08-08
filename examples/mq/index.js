@@ -29,9 +29,9 @@ const app = createApp({
 // sends a successful response.
 app.use(async ctx => {
   const msg = { greeting: 'Hello!' }
-  await ctx.mq.test.pub(msg)
+  const send = ctx.mq.test.pub(msg)
   ctx.log.info('Message sent!', msg)
-  await asleep(200)
+  await send
   ctx.body = messages[0]
 })
 
