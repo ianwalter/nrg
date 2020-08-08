@@ -16,6 +16,9 @@ const cwd = module.parent.parent.parent.filename
 const { packageJson = {}, path: packagePath } = readPkgUp.sync({ cwd }) || {}
 const dir = path.dirname(packagePath)
 
+// Load environment variables from .env file.
+require('dotenv').config({ path: path.join(dir, '.env') })
+
 // Validator properties.
 const email = { isEmail }
 const token = { isString }
@@ -23,9 +26,6 @@ const password = { isStrongPassword }
 
 let logMiddleware
 module.exports = function config (options = {}) {
-  // Load environment variables from .env file.
-  require('dotenv').config({ path: path.join(dir, '.env') })
-
   const cfg = {
     // The project root directory.
     dir,
@@ -109,7 +109,7 @@ module.exports = function config (options = {}) {
           const nrgPrint = require('@ianwalter/nrg-print')
           const { logger, middleware } = nrgPrint(cfg.log)
           logger.ns('nrg.plugins').debug('Adding nrgPrint middleware')
-          app.log = logger
+          app.log = app.context.log = logger
           logMiddleware = middleware
         }
       },
@@ -290,7 +290,7 @@ module.exports = function config (options = {}) {
         if (cfg.mq.enabled) {
           if (app.log) app.log.ns('nrg.plugins').debug('Adding nrg-mq')
           const mq = require('@ianwalter/nrg-mq')
-          app.mq = app.context.mq = mq(cfg.mq)
+          app.mq = app.context.mq = mq(app, cfg.mq)
         }
       },
       // If email is enabled, set up instances of Mailgen to generate emails and

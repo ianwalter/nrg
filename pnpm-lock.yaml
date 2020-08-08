@@ -193,7 +193,6 @@ importers:
   packages/nrg-mq:
     dependencies:
       '@ianwalter/clone': 5.0.0
-      '@ianwalter/print': 8.1.0
       amqp-connection-manager: 3.2.0_amqplib@0.6.0
       amqplib: 0.6.0
     devDependencies:
@@ -202,7 +201,6 @@ importers:
     specifiers:
       '@ianwalter/bff': ^9.6.0
       '@ianwalter/clone': ^5.0.0
-      '@ianwalter/print': ^8.1.0
       amqp-connection-manager: ^3.2.0
       amqplib: ^0.6.0
       dotenv: ^8.2.0
