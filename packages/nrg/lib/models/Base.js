@@ -5,7 +5,6 @@ module.exports = class Base extends Model {
   constructor (data) {
     super()
     Object.assign(this, data)
-    if (!this.id) this.id = nanoid()
   }
 
   $beforeInsert () {
