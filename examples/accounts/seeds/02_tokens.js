@@ -12,6 +12,7 @@ const mismatchEmailUser = accounts.find(a => a.firstName === 'Mismatch Email')
 const readOnlyUser = accounts.find(a => a.firstName === 'Read Only')
 const tokens = [
   {
+    id: 'previous',
     token: 'iJustC4n7!gnore',
     value: bcrypt.hashSync('iJustC4n7!gnore', salt),
     type: 'email',
@@ -20,6 +21,7 @@ const tokens = [
     expiresAt: addDays(new Date(), 1).toISOString()
   },
   {
+    id: 'expired',
     token: 'theSp@rksSt!llThere',
     value: bcrypt.hashSync('theSp@rksSt!llThere', salt),
     type: 'email',
@@ -28,6 +30,7 @@ const tokens = [
     expiresAt: subDays(new Date(), 1).toISOString()
   },
   {
+    id: 'wrong',
     token: '!sntItPr3ttyT0ThinkS0',
     value: bcrypt.hashSync('!sntItPr3ttyT0ThinkS0', salt),
     type: 'email',
@@ -36,6 +39,7 @@ const tokens = [
     expiresAt: addDays(new Date(), 1).toISOString()
   },
   {
+    id: 'mismatch',
     token: '!mStvckFor3v3rInUrMind',
     value: bcrypt.hashSync('!mStvckFor3v3rInUrMind', salt),
     type: 'email',
@@ -44,6 +48,7 @@ const tokens = [
     expiresAt: addDays(new Date(), 1).toISOString()
   },
   {
+    id: 'read',
     token: 'f@!lure8yD3s!gn',
     value: bcrypt.hashSync('f@!lure8yD3s!gn', salt),
     type: 'password',
@@ -56,7 +61,7 @@ const tokens = [
 module.exports = {
   tokens,
   seed: async knex => {
-    await knex.raw('TRUNCATE TABLE tokens RESTART IDENTITY CASCADE')
+    await knex.raw('TRUNCATE TABLE tokens CASCADE')
     return knex('tokens').insert(tokens.map(t => excluding(t, 'token')))
   }
 }

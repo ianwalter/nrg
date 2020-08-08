@@ -45,7 +45,7 @@ Object {
   "email": "unverified_test@example.com",
   "emailVerified": false,
   "firstName": "Unverified",
-  "id": 4,
+  "id": "unverified",
   "lastName": "Test",
 }
 `;
@@ -55,7 +55,7 @@ Object {
   "email": "general_test@example.com",
   "emailVerified": true,
   "firstName": "General",
-  "id": 1,
+  "id": "general",
   "lastName": "Test",
 }
 `;

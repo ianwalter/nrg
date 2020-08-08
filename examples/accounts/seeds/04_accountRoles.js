@@ -7,10 +7,12 @@ const adminUser = accounts.find(a => a.firstName === 'Admin')
 const adminRole = roles.find(r => r.name === 'admin')
 const accountRoles = [
   {
+    id: 'owner',
     accountId: ownerUser.id,
     roleId: ownerRole.id
   },
   {
+    id: 'admin',
     accountId: adminUser.id,
     roleId: adminRole.id
   }
@@ -19,7 +21,7 @@ const accountRoles = [
 module.exports = {
   accountRoles,
   seed: async knex => {
-    await knex.raw('TRUNCATE TABLE account_roles RESTART IDENTITY CASCADE')
+    await knex.raw('TRUNCATE TABLE account_roles CASCADE')
     return knex('account_roles').insert(accountRoles)
   }
 }

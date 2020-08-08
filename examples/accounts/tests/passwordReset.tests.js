@@ -47,7 +47,8 @@ test('Password Reset • Success', async t => {
     date: t.expect.any(String),
     time: t.expect.any(String),
     envelope: {
-      remoteAddress: t.expect.any(String)
+      remoteAddress: t.expect.any(String),
+      host: t.expect.any(String)
     },
     headers: t.expect.any(Object)
   })

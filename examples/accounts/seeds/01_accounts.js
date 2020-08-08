@@ -5,7 +5,7 @@ const salt = bcrypt.genSaltSync(12)
 const encryptedPassword = bcrypt.hashSync(password, salt)
 const accounts = [
   {
-    id: 1,
+    id: 'general',
     firstName: 'General',
     lastName: 'Test',
     email: 'general_test@example.com',
@@ -13,7 +13,7 @@ const accounts = [
     emailVerified: true
   },
   {
-    id: 2,
+    id: 'reset',
     firstName: 'Password Reset',
     lastName: 'Test',
     email: 'password_reset_test@example.com',
@@ -21,7 +21,7 @@ const accounts = [
     emailVerified: true
   },
   {
-    id: 3,
+    id: 'update',
     firstName: 'Account Update',
     lastName: 'Test',
     email: 'account_update_test@example.com',
@@ -29,7 +29,7 @@ const accounts = [
     emailVerified: true
   },
   {
-    id: 4,
+    id: 'unverified',
     firstName: 'Unverified',
     lastName: 'Test',
     email: 'unverified_test@example.com',
@@ -37,7 +37,7 @@ const accounts = [
     emailVerified: false
   },
   {
-    id: 5,
+    id: 'disabled',
     firstName: 'Disabled',
     lastName: 'Test',
     email: 'disabled_test@example.com',
@@ -46,7 +46,7 @@ const accounts = [
     enabled: false
   },
   {
-    id: 6,
+    id: 'owner',
     firstName: 'Owner',
     lastName: 'Test',
     email: 'owner_test@example.com',
@@ -55,7 +55,7 @@ const accounts = [
     enabled: true
   },
   {
-    id: 7,
+    id: 'admin',
     firstName: 'Admin',
     lastName: 'Test',
     email: 'admin_test@example.com',
@@ -64,7 +64,7 @@ const accounts = [
     enabled: true
   },
   {
-    id: 8,
+    id: 'password',
     firstName: 'Change Password',
     lastName: 'Test',
     email: 'change_password_test@example.com',
@@ -73,7 +73,7 @@ const accounts = [
     enabled: true
   },
   {
-    id: 9,
+    id: 'read',
     firstName: 'Read Only',
     lastName: 'Test',
     email: 'read_only_test@example.com',
@@ -82,7 +82,7 @@ const accounts = [
     enabled: true
   },
   {
-    id: 10,
+    id: 'email',
     firstName: 'Change Email',
     lastName: 'Test',
     email: 'change_email_test@example.com',
@@ -91,7 +91,7 @@ const accounts = [
     enabled: true
   },
   {
-    id: 11,
+    id: 'previous',
     firstName: 'Previous Email',
     lastName: 'Token Test',
     email: 'previous_email_token_test@example.com',
@@ -99,7 +99,7 @@ const accounts = [
     emailVerified: false
   },
   {
-    id: 12,
+    id: 'expired',
     firstName: 'Expired Email',
     lastName: 'Token Test',
     email: 'expired_email_token_test@example.com',
@@ -107,7 +107,7 @@ const accounts = [
     emailVerified: false
   },
   {
-    id: 13,
+    id: 'wrong',
     firstName: 'Wrong Email',
     lastName: 'Token Test',
     email: 'wrong_email_token_test@example.com',
@@ -115,7 +115,7 @@ const accounts = [
     emailVerified: false
   },
   {
-    id: 14,
+    id: 'mismatch',
     firstName: 'Mismatch Email',
     lastName: 'Token Test',
     email: 'mismatch_email_token_test@example.com',
@@ -123,7 +123,7 @@ const accounts = [
     emailVerified: false
   },
   {
-    id: 15,
+    id: 'willVerify',
     firstName: 'Will Verify',
     lastName: 'Test',
     email: 'will_verify_test@example.com',
@@ -131,7 +131,7 @@ const accounts = [
     emailVerified: false
   },
   {
-    id: 16,
+    id: 'resetVerify',
     firstName: 'Reset Verify',
     lastName: 'Test',
     email: 'reset_verify_test@example.com',
@@ -139,7 +139,7 @@ const accounts = [
     emailVerified: false
   },
   {
-    id: 17,
+    id: 'existingVerified',
     firstName: 'Existing Verified',
     lastName: 'Test',
     email: 'existing_verified_test@example.com',
@@ -147,7 +147,7 @@ const accounts = [
     emailVerified: true
   },
   {
-    id: 18,
+    id: 'existingUnverified',
     firstName: 'Existing Unverified',
     lastName: 'Test',
     email: 'existing_unverified_test@example.com',
@@ -160,10 +160,7 @@ module.exports = {
   password,
   accounts,
   seed: async knex => {
-    await knex.raw('TRUNCATE TABLE accounts RESTART IDENTITY CASCADE')
+    await knex.raw('TRUNCATE TABLE accounts CASCADE')
     await knex('accounts').insert(accounts)
-    await knex.raw(`
-      SELECT setval('accounts_id_seq',  (SELECT MAX(id) + 1 FROM accounts))
-    `)
   }
 }

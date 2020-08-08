@@ -1,4 +1,5 @@
 const { Model } = require('objection')
+const { nanoid } = require('nanoid')
 
 module.exports = class Base extends Model {
   constructor (data) {
@@ -10,6 +11,7 @@ module.exports = class Base extends Model {
     const timestamp = new Date().toISOString()
     this.createdAt = timestamp
     this.updatedAt = timestamp
+    if (!this.id) this.id = nanoid()
   }
 
   $beforeUpdate () {

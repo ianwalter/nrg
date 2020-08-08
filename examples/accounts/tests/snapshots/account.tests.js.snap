@@ -23,7 +23,7 @@ Object {
   "email": "change_password_test@example.com",
   "emailVerified": true,
   "firstName": "Change Password",
-  "id": 8,
+  "id": "password",
   "lastName": "Test",
 }
 `;

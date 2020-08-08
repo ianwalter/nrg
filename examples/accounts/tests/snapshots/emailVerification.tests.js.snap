@@ -188,7 +188,7 @@ Object {
   "email": "will_verify_test@example.com",
   "emailVerified": true,
   "firstName": "Will Verify",
-  "id": 15,
+  "id": "willVerify",
   "lastName": "Test",
 }
 `;
