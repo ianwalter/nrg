@@ -53,7 +53,7 @@ const accounts = [
     password: encryptedPassword,
     emailVerified: true,
     enabled: true
-  }),
+  },
   {
     id: 'admin',
     firstName: 'Admin',
@@ -89,7 +89,7 @@ const accounts = [
     password: encryptedPassword,
     emailVerified: true,
     enabled: true
-  }),
+  },
   {
     id: 'previous',
     firstName: 'Previous Email',
@@ -121,7 +121,7 @@ const accounts = [
     email: 'mismatch_email_token_test@example.com',
     password: encryptedPassword,
     emailVerified: false
-  }),
+  },
   {
     id: 'willVerify',
     firstName: 'Will Verify',
