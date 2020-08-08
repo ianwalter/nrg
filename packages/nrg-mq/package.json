@@ -8,9 +8,6 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
-  "scripts": {
-    "test": "bff"
-  },
   "files": [
     "index.js"
   ],
@@ -35,12 +32,7 @@
   },
   "dependencies": {
     "@ianwalter/clone": "^5.0.0",
-    "@ianwalter/print": "^8.1.0",
     "amqp-connection-manager": "^3.2.0",
     "amqplib": "^0.6.0"
-  },
-  "devDependencies": {
-    "@ianwalter/bff": "^9.6.0",
-    "dotenv": "^8.2.0"
   }
 }
