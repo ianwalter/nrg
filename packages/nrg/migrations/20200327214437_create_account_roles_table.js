@@ -3,9 +3,9 @@
 // necessary but this offers a little more flexibility when customizing the
 // permission scheme for your application.
 exports.up = knex => knex.schema.createTable('accountRoles', t => {
-  t.increments()
-  t.integer('accountId').unsigned().notNullable().index()
-  t.integer('roleId').unsigned().notNullable()
+  t.string('id').primary()
+  t.string('accountId').notNullable().index()
+  t.string('roleId').notNullable()
   t.timestamps(true, true)
 
   t.foreign('accountId').references('id').inTable('accounts')

@@ -6,6 +6,7 @@ const Base = require('./lib/models/Base')
 const Account = require('./lib/models/Account')
 const Token = require('./lib/models/Token')
 const Role = require('./lib/models/Role')
+const AccountRole = require('./lib/models/AccountRole')
 
 const {
   GeneralError,
@@ -284,6 +285,7 @@ module.exports = {
   Account,
   Token,
   Role,
+  AccountRole,
 
   /**
    * Utilities:
