@@ -2,11 +2,11 @@ const { Role } = require('@ianwalter/nrg')
 
 const roles = [
   new Role({
-    id: 1,
+    id: 'owner',
     name: 'owner'
   }),
   new Role({
-    id: 2,
+    id: 'admin',
     name: 'admin'
   })
 ]

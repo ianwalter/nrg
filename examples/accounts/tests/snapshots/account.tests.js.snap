@@ -18,12 +18,4 @@ Object {
 }
 `;
 
-exports[`Account • Update password 3`] = `
-Object {
-  "email": "change_password_test@example.com",
-  "emailVerified": true,
-  "firstName": "Change Password",
-  "id": 8,
-  "lastName": "Test",
-}
-`;
+exports[`Account • Update password 3`] = `Object {}`;

@@ -31,7 +31,7 @@ Object {
       "address": "support@example.com",
       "args": false,
     },
-    "host": "[127.0.0.1]",
+    "host": "ians-macbook-pro.local",
     "remoteAddress": Any<String>,
     "to": Array [
       Object {
@@ -188,7 +188,7 @@ Object {
   "email": "will_verify_test@example.com",
   "emailVerified": true,
   "firstName": "Will Verify",
-  "id": 15,
+  "id": "willVerify",
   "lastName": "Test",
 }
 `;

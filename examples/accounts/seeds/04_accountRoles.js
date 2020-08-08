@@ -8,10 +8,12 @@ const adminUser = accounts.find(a => a.firstName === 'Admin')
 const adminRole = roles.find(r => r.name === 'admin')
 const accountRoles = [
   new AccountRole({
+    id: 'owner',
     accountId: ownerUser.id,
     roleId: ownerRole.id
   }),
   new AccountRole({
+    id: 'admin',
     accountId: adminUser.id,
     roleId: adminRole.id
   })
