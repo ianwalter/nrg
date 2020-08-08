@@ -25,13 +25,11 @@ importers:
   examples/mq:
     dependencies:
       '@ianwalter/nrg': 'link:../../packages/nrg'
-      '@ianwalter/sleep': 0.0.1
     devDependencies:
       '@ianwalter/bff': 9.10.0
     specifiers:
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/nrg': ^0.5.0
-      '@ianwalter/sleep': ^0.0.1
   examples/next:
     dependencies:
       '@ianwalter/nrg': 'link:../../packages/nrg'
@@ -195,15 +193,10 @@ importers:
       '@ianwalter/clone': 5.0.0
       amqp-connection-manager: 3.2.0_amqplib@0.6.0
       amqplib: 0.6.0
-    devDependencies:
-      '@ianwalter/bff': 9.10.0
-      dotenv: 8.2.0
     specifiers:
-      '@ianwalter/bff': ^9.6.0
       '@ianwalter/clone': ^5.0.0
       amqp-connection-manager: ^3.2.0
       amqplib: ^0.6.0
-      dotenv: ^8.2.0
   packages/nrg-print:
     dependencies:
       '@ianwalter/cloneable': 2.0.0
@@ -2517,6 +2510,7 @@ packages:
     resolution:
       integrity: sha512-R7UMduly07w5DdRE++8rJkA5dHbHN6ugZnD2lTXpiMIwYMILEDyz85I++r1vwxgmVBAJxkkjjKYFshL6qbh6zw==
   /@ianwalter/sleep/0.0.1:
+    dev: true
     resolution:
       integrity: sha512-8L+ATaiOSBawXIhMD9Y9CHMFdcqy9YaV/R+fvLJSkge1kgdXigs0Rz+FLQlBdTw1ovpT+ygINlfUvbGJLB2zrQ==
   /@ianwalter/subpub/3.0.0:

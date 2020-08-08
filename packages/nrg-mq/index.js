@@ -2,7 +2,7 @@ const amqp = require('amqp-connection-manager')
 const clone = require('@ianwalter/clone')
 
 module.exports = function mq (app, config) {
-  const log = app.log?.ns('nrg.mq') || { debug: () => {} }
+  const log = app?.log?.ns('nrg.mq') || { debug: () => {} }
 
   // Publish the message to the queue or exchange.
   function pub ({ exchange = '', queue }, content, options) {

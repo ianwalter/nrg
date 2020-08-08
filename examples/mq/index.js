@@ -1,4 +1,3 @@
-const { asleep } = require('@ianwalter/sleep')
 const { createApp } = require('@ianwalter/nrg')
 
 const messages = []
@@ -28,11 +27,11 @@ const app = createApp({
 // Add a handler that publishes a message, receives an acknowledgement, and
 // sends a successful response.
 app.use(async ctx => {
-  const msg = { greeting: 'Hello!' }
+  const msg = { id: ctx.request.id }
   const send = ctx.mq.test.pub(msg)
   ctx.log.info('Message sent!', msg)
   await send
-  ctx.body = messages[0]
+  ctx.body = messages
 })
 
 // Export the app if required, otherwise start the server.
