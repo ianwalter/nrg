@@ -6,6 +6,9 @@ module.exports = class Role extends Base {
   }
 
   static match (accountRoles, conditionRoles) {
-    return accountRoles.find(r => conditionRoles.find(name => r.name === name))
+    return accountRoles.find(accountRole => conditionRoles.find(role => {
+      if (typeof role === 'string') return accountRole.name === role
+      return accountRole.name === role.name && accountRole.scope === role.scope
+    }))
   }
 }
