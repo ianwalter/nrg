@@ -15,12 +15,11 @@ module.exports = function nrgLogger (options = {}) {
     logger,
     middleware: async function nrgLoggerMiddleware (ctx, next) {
       const timer = createTimer()
-      const date = new Date()
       const request = {
         id: ctx.req.id,
         method: ctx.method,
         path: ctx.url,
-        timestamp: date.toISOString()
+        timestamp: new Date()
       }
 
       ctx.logger = logger.create({
@@ -29,7 +28,7 @@ module.exports = function nrgLogger (options = {}) {
           return request
         },
         get extraItems () {
-          return [formatTimestamp(date), `• ${ctx.req.id} •`]
+          return [formatTimestamp(request.timestamp), `• ${ctx.req.id} •`]
         }
       })
 
@@ -42,7 +41,7 @@ module.exports = function nrgLogger (options = {}) {
 
         // Update the request object with the current timestamp and the elapsed
         // time from the timer so that it can be used in the response log.
-        request.timestamp = new Date().toISOString()
+        request.timestamp = new Date()
         request.responseTime = timer.duration()
 
         if (!options.ndjson) {

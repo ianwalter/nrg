@@ -104,8 +104,8 @@ importers:
       vite-plugin-react: ^3.0.2
   packages/nrg:
     dependencies:
-      '@generates/cli': 0.0.5
-      '@generates/logger': 0.0.5
+      '@generates/cli': 0.0.6
+      '@generates/logger': 0.0.6
       '@ianwalter/cloneable': 2.0.0
       '@ianwalter/correct': 1.1.0
       '@ianwalter/dot': 1.0.4
@@ -148,15 +148,15 @@ importers:
     devDependencies:
       '@ianwalter/bff': 9.10.0
     specifiers:
-      '@generates/cli': ^0.0.5
-      '@generates/logger': ^0.0.5
+      '@generates/cli': ^0.0.6
+      '@generates/logger': ^0.0.6
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
       '@ianwalter/correct': ^1.1.0
       '@ianwalter/dot': ^1.0.4
       '@ianwalter/extract': ^1.0.1
       '@ianwalter/merge': ^9.0.1
-      '@ianwalter/nrg-logger': ^0.0.2
+      '@ianwalter/nrg-logger': ^0.0.3
       '@ianwalter/nrg-mq': ^1.1.0
       '@ianwalter/nrg-router': ^1.0.0
       '@ianwalter/nrg-session': ^7.0.0
@@ -192,17 +192,17 @@ importers:
       webpack: ^4.44.1
   packages/nrg-logger:
     dependencies:
-      '@generates/logger': 0.0.5
+      '@generates/logger': 0.0.6
       '@ianwalter/cloneable': 2.0.0
       '@ianwalter/timer': 2.0.2
     devDependencies:
       '@ianwalter/bff': 9.10.0
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
-      '@generates/logger': ^0.0.5
+      '@generates/logger': ^0.0.6
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
-      '@ianwalter/nrg': ^0.7.0
+      '@ianwalter/nrg': ^0.7.1
       '@ianwalter/timer': ^2.0.2
   packages/nrg-mq:
     dependencies:
@@ -2272,9 +2272,9 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==
-  /@generates/cli/0.0.5:
+  /@generates/cli/0.0.6:
     dependencies:
-      '@generates/logger': 0.0.5
+      '@generates/logger': 0.0.6
       '@ianwalter/dot': 1.0.4
       '@ianwalter/merge': 9.0.1
       camelcase: 6.0.0
@@ -2284,10 +2284,10 @@ packages:
       read-pkg-up: 7.0.1
     dev: false
     resolution:
-      integrity: sha512-kPHDF0YxL2QJVkmbnNQ/hXZ8HABKNZYBaZLcKQ0yus9LcU5HuYPelFlV587Ym/8pQXnlQZzN3ObN9Ze+l+mkBA==
-  /@generates/logger/0.0.5:
+      integrity: sha512-ssLGSmHxqa1eXi0CRUbQc6enpYv5JqSUod+Fr2zE/zU7ZPvf6UKYA++Ea5XLeKeqMPftZT4DZsLCPpERCLbPuQ==
+  /@generates/logger/0.0.6:
     dependencies:
-      '@generates/cli': 0.0.5
+      '@generates/cli': 0.0.6
       '@ianwalter/chromafi': 1.0.1
       '@ianwalter/clone': 6.0.1
       '@ianwalter/cloneable': 2.0.0
@@ -2302,7 +2302,7 @@ packages:
     dev: false
     hasBin: true
     resolution:
-      integrity: sha512-f72jsny4iGFkdE+nIVPhuI1XqE5hbOwmvjmcfdps90OcejZ4XWeJUkobiyXDqLhEHDfLgGgPqvhsz6Dfcu2p9w==
+      integrity: sha512-muP0P5gRkx9YKje3ZLsA46pHoguR7UfJb5/YcfL0Y6lqlltPpJcg8nBbzZy5KNJ7x6kGITMRaxs79dpYk7Bh2g==
   /@hapi/address/2.1.4:
     deprecated: This version has been deprecated and is no longer supported or maintained
     dev: false
