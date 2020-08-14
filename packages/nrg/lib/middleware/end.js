@@ -13,7 +13,7 @@ function addToResponse (ctx, next) {
   if (ctx.state.body) {
     ctx.body = ctx.state.body
   } else if (ctx.state.status !== 204) {
-    ctx.log
+    ctx.logger
       .ns('nrg.end')
       .warn('addToResponse middleware executed without ctx.state.body')
   }

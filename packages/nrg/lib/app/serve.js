@@ -14,7 +14,7 @@ module.exports = function serve (port, hostname, callback) {
   return new Promise(resolve => {
     server.listen(portToUse, hostnameToUse, err => {
       if (err) {
-        if (this.log) this.log.error(err)
+        if (this.logger) this.logger.error(err)
         process.exit(1)
       }
 
@@ -23,8 +23,8 @@ module.exports = function serve (port, hostname, callback) {
       // easily know what URL to use.
       server.url = getHostUrl(hostnameToUse, portToUse || server.address().port)
 
-      if (this.log) {
-        this.log
+      if (this.logger) {
+        this.logger
           .ns('nrg.server')
           .info(`${this.context.cfg.name} server started:`, server.url)
       }

@@ -1,4 +1,4 @@
-const { print, chalk } = require('@ianwalter/print')
+const { createLogger, chalk } = require('@generates/logger')
 const createTimer = require('@ianwalter/timer')
 
 function formatTimestamp (date) {
@@ -9,7 +9,7 @@ function formatTimestamp (date) {
 }
 
 module.exports = function nrgPrint (options = {}) {
-  const logger = print.create(options)
+  const logger = createLogger(options)
 
   return {
     logger,
@@ -22,30 +22,17 @@ module.exports = function nrgPrint (options = {}) {
         timestamp: new Date()
       }
 
-      ctx.log = logger.create({
+      ctx.logger = logger.create({
         ...options,
-        collectOutput ({ items, ...log }) {
-          if (this.ndjson) {
-            return [{
-              ...items,
-              ...request,
-              message: items.message,
-              level: log.level,
-              type: log.type,
-              namespace: this.namespace
-            }]
-          }
-          return [
-            log.prefix,
-            formatTimestamp(request.timestamp),
-            `• ${ctx.req.id} •`,
-            this.namespace ? `${chalk.blue.bold(this.namespace)} •` : '',
-            ...(items || [])
-          ]
+        get extraJson () {
+          return request
+        },
+        get extraItems () {
+          return [formatTimestamp(request.timestamp), `• ${ctx.req.id} •`]
         }
       })
 
-      ctx.log.log(`${ctx.method} ${ctx.url} Request`)
+      ctx.logger.log(`${ctx.method} ${ctx.url} Request`)
 
       await next()
 
@@ -61,7 +48,7 @@ module.exports = function nrgPrint (options = {}) {
           res += ` ${chalk.dim(`in ${request.responseTime}`)}`
         }
 
-        ctx.log.log(res)
+        ctx.logger.log(res)
       }
     }
   }

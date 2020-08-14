@@ -1,0 +1,20 @@
+🐛  [34m[1mnrg.plugins[22m[39m • [35mAdding nrgPrint middleware[39m
+🐛  [34m[1mnrg.plugins[22m[39m • [35mAdding handleError middleware[39m
+🐛  [34m[1mnrg.plugins[22m[39m • [35mAdding setRequestId middleware[39m
+🐛  [34m[1mnrg.plugins[22m[39m • [35mAdding koa-bodyParser middleware[39m
+🐛  [34m[1mnrg.plugins[22m[39m • [35mAdding koa-compress middleware[39m
+🐛  [34m[1mnrg.plugins[22m[39m • [35mAdding koa-json middleware[39m
+🐛  [34m[1mnrg.router[22m[39m • [35mAdding route[39m GET /health
+💁  [36m[1mHello![22m[39m
+    1 {
+    2   data: 123
+    3 }
+💁  [34m[1mnrg.server[22m[39m • [36m[1m@ianwalter/nrg-logger server started:[22m[39m http://localhost:55939
+    [37m[1m8/14/2020 12:18:50.957am[22m[39m • 4wQkko1fZwFJAEONerRDJ • GET /test Request
+💁  [37m[1m8/14/2020 12:18:50.957am[22m[39m • 4wQkko1fZwFJAEONerRDJ • [36m[1mEntered middleware![22m[39m
+🐛  [37m[1m8/14/2020 12:18:50.957am[22m[39m • 4wQkko1fZwFJAEONerRDJ • [34m[1mmiddleware.debug[22m[39m • [35mTesting, testing, 1, 2, 3...[39m
+    1 {
+    2   url: '/test'
+    3 }
+    [37m[1m8/14/2020 12:18:50.971am[22m[39m • 4wQkko1fZwFJAEONerRDJ • GET /test 204 Response [2min 14.546ms[22m
+✅  [32m[1mExiting...[22m[39m

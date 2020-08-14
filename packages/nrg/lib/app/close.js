@@ -7,7 +7,7 @@ module.exports = function close () {
 
   if (this.mq) {
     // Silence channel ended error.
-    this.mq.channel.on('error', err => this.log.ns('nrg.mq').debug(err))
+    this.mq.channel.on('error', err => this.logger.ns('nrg.mq').debug(err))
 
     // Close message queue connection.
     this.mq.connection.close()

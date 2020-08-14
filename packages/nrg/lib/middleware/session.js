@@ -1,7 +1,7 @@
 const { ValidationError, BadRequestError } = require('../errors')
 
 function checkSessionAuthentication (ctx, next) {
-  if (ctx.session.account) {
+  if (ctx.session?.account) {
     throw new BadRequestError('Session is already authenticated')
   }
   return next()
@@ -14,7 +14,8 @@ function checkSessionAuthentication (ctx, next) {
 async function validateLogin (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   const validation = await ctx.cfg.validators.login.validate(body)
-  ctx.log.ns('nrg.accounts.session').debug('session.validateLogin', validation)
+  const logger = ctx.logger.ns('nrg.accounts.session')
+  logger.debug('session.validateLogin', validation)
   if (validation.isValid) {
     ctx.state.validation = validation
     return next()
@@ -23,12 +24,12 @@ async function validateLogin (ctx, next) {
 }
 
 async function createUserSession (ctx, next) {
-  const log = ctx.log.ns('nrg.accounts.session')
+  const logger = ctx.logger.ns('nrg.accounts.session')
   const { account } = ctx.state
-  log.debug('session.createUserSession', { account })
+  logger.debug('session.createUserSession', { account })
 
   if (account?.enabled) {
-    log.info(
+    logger.info(
       'session.createUserSession • Created session for account:',
       account.id
     )
@@ -42,7 +43,7 @@ async function createUserSession (ctx, next) {
     // Continue to the next middleware.
     return next()
   } else if (account) {
-    log.warn(
+    logger.warn(
       'session.createUserSession • Disabled account login attempt',
       { account }
     )

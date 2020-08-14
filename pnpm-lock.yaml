@@ -102,18 +102,18 @@ importers:
       vite-plugin-react: ^3.0.2
   packages/nrg:
     dependencies:
-      '@ianwalter/cli': 4.1.0
+      '@generates/cli': 0.0.4
+      '@generates/logger': 0.0.4
       '@ianwalter/cloneable': 2.0.0
       '@ianwalter/correct': 1.1.0
       '@ianwalter/dot': 1.0.4
       '@ianwalter/extract': 1.0.1
       '@ianwalter/merge': 9.0.1
+      '@ianwalter/nrg-logger': 'link:../nrg-logger'
       '@ianwalter/nrg-mq': 'link:../nrg-mq'
-      '@ianwalter/nrg-print': 'link:../nrg-print'
       '@ianwalter/nrg-router': 'link:../nrg-router'
       '@ianwalter/nrg-session': 'link:../nrg-session'
       '@ianwalter/nrg-test': 'link:../nrg-test'
-      '@ianwalter/print': 8.1.0
       '@ianwalter/requester': 2.4.1
       '@ianwalter/url': 2.0.0
       bcrypt: 5.0.0
@@ -146,19 +146,19 @@ importers:
     devDependencies:
       '@ianwalter/bff': 9.10.0
     specifiers:
+      '@generates/cli': ^0.0.4
+      '@generates/logger': ^0.0.4
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/cli': ^4.1.0
       '@ianwalter/cloneable': ^2.0.0
       '@ianwalter/correct': ^1.1.0
       '@ianwalter/dot': ^1.0.4
       '@ianwalter/extract': ^1.0.1
       '@ianwalter/merge': ^9.0.1
+      '@ianwalter/nrg-logger': ^0.0.1
       '@ianwalter/nrg-mq': ^1.1.0
-      '@ianwalter/nrg-print': ^1.2.0
       '@ianwalter/nrg-router': ^1.0.0
       '@ianwalter/nrg-session': ^7.0.0
       '@ianwalter/nrg-test': ^1.1.0
-      '@ianwalter/print': ^8.1.0
       '@ianwalter/requester': ^2.4.1
       '@ianwalter/url': ^2.0.0
       bcrypt: 5.0.0
@@ -188,6 +188,20 @@ importers:
       replace-string: ^3.1.0
       require-from-string: ^2.0.2
       webpack: ^4.44.1
+  packages/nrg-logger:
+    dependencies:
+      '@generates/logger': 0.0.4
+      '@ianwalter/cloneable': 2.0.0
+      '@ianwalter/timer': 2.0.2
+    devDependencies:
+      '@ianwalter/bff': 9.10.0
+      '@ianwalter/nrg': 'link:../nrg'
+    specifiers:
+      '@generates/logger': ^0.0.4
+      '@ianwalter/bff': ^9.10.0
+      '@ianwalter/cloneable': ^2.0.0
+      '@ianwalter/nrg': ^0.6.1
+      '@ianwalter/timer': ^2.0.2
   packages/nrg-mq:
     dependencies:
       '@ianwalter/clone': 5.0.0
@@ -197,20 +211,6 @@ importers:
       '@ianwalter/clone': ^5.0.0
       amqp-connection-manager: ^3.2.0
       amqplib: ^0.6.0
-  packages/nrg-print:
-    dependencies:
-      '@ianwalter/cloneable': 2.0.0
-      '@ianwalter/print': 8.1.0
-      '@ianwalter/timer': 2.0.2
-    devDependencies:
-      '@ianwalter/bff': 9.10.0
-      '@ianwalter/nrg': 'link:../nrg'
-    specifiers:
-      '@ianwalter/bff': ^9.10.0
-      '@ianwalter/cloneable': ^2.0.0
-      '@ianwalter/nrg': ^0.6.1
-      '@ianwalter/print': ^8.1.0
-      '@ianwalter/timer': ^2.0.2
   packages/nrg-router:
     dependencies:
       '@ianwalter/router': 3.3.0
@@ -2270,6 +2270,37 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==
+  /@generates/cli/0.0.4:
+    dependencies:
+      '@generates/logger': 0.0.4
+      '@ianwalter/dot': 1.0.4
+      '@ianwalter/merge': 9.0.1
+      camelcase: 6.0.0
+      common-tags: 1.8.0
+      decamelize: 4.0.0
+      getopts: 2.2.5
+      read-pkg-up: 7.0.1
+    dev: false
+    resolution:
+      integrity: sha512-KOfRhWMZA+ToTQaCYQgBnw5G1WBhUTrjukx5a7zIp24OzH9T4weyd1cv9cQ8F6VRjRRqpMRpuTb/U73Al9YTwQ==
+  /@generates/logger/0.0.4:
+    dependencies:
+      '@generates/cli': 0.0.4
+      '@ianwalter/chromafi': 1.0.1
+      '@ianwalter/clone': 6.0.1
+      '@ianwalter/cloneable': 2.0.0
+      '@ianwalter/dot': 1.0.4
+      '@ianwalter/merge': 9.0.1
+      chalk: 4.1.0
+      has-ansi: 4.0.0
+      has-emoji: 1.1.0
+      marked: 1.1.1
+      marked-terminal: 4.1.0_marked@1.1.1
+      strip-ansi: 6.0.0
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-b/Q1yez4B8gSa/zJWEkkUZxHqTLkQ9xB7qxW+vTrIiyKMo6nqrFalMq8D5fiPk9SGU9qO71rwOwW/l9k+mL7oQ==
   /@hapi/address/2.1.4:
     deprecated: This version has been deprecated and is no longer supported or maintained
     dev: false
@@ -2311,7 +2342,7 @@ packages:
       '@ianwalter/cli': 4.1.0
       '@ianwalter/clone': 6.0.1
       '@ianwalter/cloneable': 2.0.0
-      '@ianwalter/print': 8.0.6
+      '@ianwalter/print': 8.1.0
       '@ianwalter/sleep': 0.0.1
       '@ianwalter/subpub': 3.0.0
       '@ianwalter/timer': 2.0.2
@@ -2453,24 +2484,6 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-i8wUEyEa9BZMbzhFHJ29CEjzZXBvu0ckjWkVZOuUOE96LkA3jI1vWtHD+EHzIK/r54STjUGKAp3EyeiEhK4e+w==
-  /@ianwalter/print/8.0.6:
-    dependencies:
-      '@ianwalter/chromafi': 1.0.1
-      '@ianwalter/cli': 4.1.0
-      '@ianwalter/clone': 6.0.1
-      '@ianwalter/cloneable': 2.0.0
-      '@ianwalter/dot': 1.0.4
-      '@ianwalter/merge': 9.0.1
-      chalk: 4.1.0
-      has-ansi: 4.0.0
-      has-emoji: 1.1.0
-      marked: 1.1.1
-      marked-terminal: 4.1.0_marked@1.1.1
-      strip-ansi: 6.0.0
-    dev: true
-    hasBin: true
-    resolution:
-      integrity: sha512-MCRl/Oo8NrGgH9+esghyiyUBuCV4sYl1i0L64uqNq6xwFsCSw/FbiohL27ivVkXsy06nWSVa9q4xfdZpNkqzCg==
   /@ianwalter/print/8.1.0:
     dependencies:
       '@ianwalter/chromafi': 1.0.1
@@ -2485,7 +2498,7 @@ packages:
       marked: 1.1.1
       marked-terminal: 4.1.0_marked@1.1.1
       strip-ansi: 6.0.0
-    dev: false
+    dev: true
     hasBin: true
     resolution:
       integrity: sha512-1C3oH2YYpfPsRELDK2GDLEyzUNqBu4RMFrkbL+IFG5QrigAKX0wC64gjcmXkgGI9wGUEQ0R3vjnR/yMzC+Yymw==
@@ -5130,6 +5143,12 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
+  /camelcase/6.0.0:
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-8KMDF1Vz2gzOq54ONPJS65IvTUaB1cHJ2DMM7MbPmLZljDH1qpzzLsWdiN9pHh6qvkRVDTi/07+eNGch/oLU4w==
   /caniuse-api/3.0.0:
     dependencies:
       browserslist: 4.13.0

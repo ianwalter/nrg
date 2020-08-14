@@ -18,7 +18,7 @@ module.exports = function nrgTest (app) {
       if (cookie) options.headers.cookie = cookie
       if (csrf) options.headers['csrf-token'] = csrf
       if (app.log) {
-        app.log.ns('nrg.test').debug(
+        app.logger.ns('nrg.test').debug(
           `Extracted options for ${path} test request`,
           options
         )
@@ -60,9 +60,9 @@ module.exports = function nrgTest (app) {
       async requestWithCsrf (method, options) {
         const headers = options?.headers
         if (csrfIsEnabled && (!headers || !headers['csrf-token'])) {
-          const log = app.log && app.log.ns('nrg.test')
-          if (log) {
-            log.debug(`Adding CSRF token for ${method} ${path} test request`)
+          const logger = app.logger && app.logger.ns('nrg.test')
+          if (logger) {
+            logger.debug(`Adding CSRF token for ${method} ${path} test request`)
           }
 
           // Make a request to the CSRF token endpoint to get a CSRF token for
@@ -79,8 +79,8 @@ module.exports = function nrgTest (app) {
             ...cookie ? { cookie } : {}
           }
 
-          if (log) {
-            log.debug(
+          if (logger) {
+            logger.debug(
               `Modified options for ${method} ${path} test request`,
               options
             )

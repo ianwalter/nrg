@@ -6,7 +6,7 @@ async function hashPassword (ctx, next) {
   const data = ctx.state.passwordValidation?.data || ctx.state.validation?.data
   const password = data?.newPassword || data?.password
   if (password) {
-    ctx.log
+    ctx.logger
       .ns('nrg.accounts.password')
       .debug('password.hashPassword', { password })
     const salt = await bcrypt.genSalt(ctx.cfg.hash.rounds)
@@ -28,7 +28,7 @@ async function comparePasswords (ctx, next) {
     const passwordsMatch = await bcrypt.compare(payload.password, password)
 
     // Log the password and whether the passwords match for debugging purposes.
-    ctx.log
+    ctx.logger
       .ns('nrg.accounts.password')
       .debug('password.comparePasswords', { payload, password, passwordsMatch })
 

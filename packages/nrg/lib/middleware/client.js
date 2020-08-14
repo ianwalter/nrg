@@ -7,12 +7,12 @@ async function serveStatic (ctx, next) {
     try {
       result = await send(ctx, ctx.path, options)
     } catch (err) {
-      const log = ctx.log.ns('nrg.static')
+      const logger = ctx.logger.ns('nrg.static')
       if (fallback) {
-        log.debug(err)
+        logger.debug(err)
         return fallback(ctx, next, err)
       }
-      log.warn(err)
+      logger.warn(err)
     }
   }
   return result || next()

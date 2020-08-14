@@ -9,7 +9,7 @@ const methods = [
 const routers = {}
 
 module.exports = function nrgRouter (app) {
-  const log = app.log?.ns('nrg.router') || { debug: () => {} }
+  const log = app.logger?.ns('nrg.router') || { debug: () => {} }
 
   // Add a route to the route tree.
   app.addRoute = function addRoute (method, path, ...middleware) {

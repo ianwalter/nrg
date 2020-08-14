@@ -44,7 +44,7 @@ const startEmailVerification = [
 async function validateEmailVerification (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   const validation = await ctx.cfg.validators.emailVerification.validate(body)
-  ctx.log
+  ctx.logger
     .ns('nrg.accounts.email')
     .debug('emailVerification.validateEmailVerification', validation)
   if (validation.isValid) {
@@ -67,7 +67,7 @@ async function getAccountWithEmailTokens (ctx, next) {
     .orderBy('tokens.createdAt', 'desc')
     .limit(1)
 
-  ctx.log
+  ctx.logger
     .ns('nrg.accounts.email')
     .debug('emailVerification.getAccountWithEmailTokens', ctx.state.account)
 
@@ -81,7 +81,8 @@ async function verifyEmail (ctx, next) {
   // gotten here.
   const email = ctx.state.validation.data.email
   const data = { email, emailVerified: true }
-  ctx.log.ns('nrg.accounts.email').debug('emailVerification.verifyEmail', data)
+  const logger = ctx.logger.ns('nrg.accounts.email')
+  logger.debug('emailVerification.verifyEmail', data)
   if (!ctx.state.account.emailVerified || ctx.state.account.email !== email) {
     await ctx.state.account.$set(data).$query().patch()
   }

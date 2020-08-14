@@ -3,7 +3,7 @@ const { ValidationError } = require('../errors')
 async function validateEmail (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   const validation = await ctx.cfg.validators.email.validate(body)
-  ctx.log.ns('nrg.accounts.email').debug('email.validateEmail', validation)
+  ctx.logger.ns('nrg.accounts.email').debug('email.validateEmail', validation)
   if (validation.isValid) {
     ctx.state.validation = validation
     return next()
@@ -24,9 +24,9 @@ function handleSendEmail (ctx, next, options) {
     ctx.nodemailer.sendMail(
       { ...email, ...ctx.state.email },
       (err, info) => {
-        const log = ctx.log.ns('nrg.accounts.email')
-        if (err) log.error('email.handleSendEmail', err)
-        log.debug('email.handleSendEmail • Nodemailer response', info)
+        const logger = ctx.logger.ns('nrg.accounts.email')
+        if (err) logger.error('email.handleSendEmail', err)
+        logger.debug('email.handleSendEmail • Nodemailer response', info)
       }
     )
   }

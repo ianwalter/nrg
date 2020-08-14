@@ -11,7 +11,7 @@ async function handleGenerateToken (ctx, next, options) {
   ctx.state.hashedToken = await bcrypt.hash(ctx.state.token, rounds)
 
   const debug = { token: ctx.state.token, hashedToken: ctx.state.hashedToken }
-  ctx.log.ns('nrg.accounts.token').debug('token.handleGenerateToken', debug)
+  ctx.logger.ns('nrg.accounts.token').debug('token.handleGenerateToken', debug)
 
   return next()
 }
@@ -36,12 +36,12 @@ async function handleInsertToken (ctx, next, options) {
   }
 
   const data = ctx.state.validation.data
-  const log = ctx.log.ns('nrg.accounts.token')
+  const logger = ctx.logger.ns('nrg.accounts.token')
   if (isEmail && !ctx.state.emailChanged && account && account.emailVerified) {
     // Log a warning that someone is trying to create a email verification token
     // for an account that already has it's email verified and is not tryting to
     // change their email.
-    log.warn(
+    logger.warn(
       'token.handleInsertToken •',
       'Email token request that has already been verified',
       data
@@ -49,7 +49,7 @@ async function handleInsertToken (ctx, next, options) {
   } else if (isEmail && !account) {
     // Log a warning that someone is trying to create a email verification token
     // for an account that doesn't exist.
-    log.warn(
+    logger.warn(
       'token.handleInsertToken •',
       'Email token request that does not match an enabled account',
       { data, account: excluding(account, 'password') }
@@ -57,7 +57,7 @@ async function handleInsertToken (ctx, next, options) {
   } else if (options.type === 'password' && !account) {
     // Log a warning that someone is trying to reset a password for an account
     // that doesn't exist.
-    log.warn(
+    logger.warn(
       'token.handleInsertToken •',
       'Password token request that does not match an enabled account',
       { data, account: excluding(account, 'password') }
@@ -69,7 +69,7 @@ async function handleInsertToken (ctx, next, options) {
       account: excluding(account, 'password'),
       hashedToken: ctx.state.hashedToken
     }
-    log.debug('token.handleInsertToken • Inserting hashed token', debug)
+    logger.debug('token.handleInsertToken • Inserting hashed token', debug)
 
     // Insert the token into the database. Don't wait for the insert to complete
     // so that information is not leaked through request timing.
@@ -82,7 +82,7 @@ async function handleInsertToken (ctx, next, options) {
         accountId: account.id,
         expiresAt: addDays(new Date(), 1).toISOString()
       })
-      .catch(err => log.error(`Error inserting ${options.type} token`, err))
+      .catch(err => logger.error(`Error inserting ${options.type} token`, err))
 
     // Mark the token as having been inserted so that downstream middleware can
     // know whether if it's valid or not.
@@ -129,18 +129,18 @@ async function verifyToken (ctx, next) {
 
   // Determine that the supplied token is valid if the token was found, the
   // token values match, and the token is not expired.
-  const log = ctx.log.ns('nrg.accounts.token')
+  const logger = ctx.logger.ns('nrg.accounts.token')
   if (hasStoredToken && tokensMatch && token.isNotExpired()) {
     // Delete the password token now that the user's password has been
     // changed.
-    token.$query().delete().catch(err => log.error(err))
+    token.$query().delete().catch(err => logger.error(err))
 
     // Continue to the next middleware.
     return next()
   }
 
   const debug = { hasStoredToken, storedToken: token, ...payload, tokensMatch }
-  log.debug('token.verifyToken • Invalid token', debug)
+  logger.debug('token.verifyToken • Invalid token', debug)
 
   // Return a 400 Bad Request if the token is invalid. The user cannot be told
   // if this is because the token is expired because that could leak that an

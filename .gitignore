@@ -1,8 +1,9 @@
 node_modules
 docs/.vuepress/dist
+.next
+.vscode
 .DS_Store
 .yalc
-yalc.lock
-.next
 .env
+yalc.lock
 packages/nrg-print/output.txt
