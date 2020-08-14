@@ -46,7 +46,7 @@
     "@ianwalter/requester": "^2.4.1",
     "@ianwalter/url": "^2.0.0",
     "@generates/cli": "^0.0.6",
-    "@generates/logger": "^0.0.6",
+    "@generates/logger": "^0.0.7",
     "bcrypt": "5.0.0",
     "cheerio": "^1.0.0-rc.3",
     "date-fns": "^2.15.0",
