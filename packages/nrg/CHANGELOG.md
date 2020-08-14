@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.6.0
+
+### Minor Changes
+
+- 870fe01: Changed DB models to use nanoid for IDs instead of sequential integers
+
 ## 0.5.1
 
 ### Patch Changes
