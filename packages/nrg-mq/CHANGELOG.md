@@ -1,5 +1,11 @@
 # @ianwalter/nrg-mq
 
+## 1.1.0
+
+### Minor Changes
+
+- 0e09758: Refactoring nrg-mq api to be able to use app.context
+
 ## 1.0.1
 
 ### Patch Changes

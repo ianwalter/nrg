@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.6.1
+
+### Patch Changes
+
+- Updating nrg-mq
+
 ## 0.6.0
 
 ### Minor Changes
