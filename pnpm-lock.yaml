@@ -3,6 +3,7 @@ importers:
     devDependencies:
       '@changesets/cli': github.com/ianwalter/changesets-cli/2ccdb208fc0cd5d7de11e68d0def5cef71284f73
       '@ianwalter/eslint-config': 5.3.0
+      '@ianwalter/nrg': 'link:packages/nrg'
       '@ianwalter/renovate-config': 1.4.0
       '@ianwalter/vuepress-theme-brooks': 1.2.0
       npm-run-all: 4.1.5
@@ -10,6 +11,7 @@ importers:
     specifiers:
       '@changesets/cli': ianwalter/changesets-cli#2ccdb208fc0cd5d7de11e68d0def5cef71284f73
       '@ianwalter/eslint-config': ^5.3.0
+      '@ianwalter/nrg': ^0.7.0
       '@ianwalter/renovate-config': ^1.4.0
       '@ianwalter/vuepress-theme-brooks': ^1.2.0
       npm-run-all: ^4.1.5
@@ -102,8 +104,8 @@ importers:
       vite-plugin-react: ^3.0.2
   packages/nrg:
     dependencies:
-      '@generates/cli': 0.0.4
-      '@generates/logger': 0.0.4
+      '@generates/cli': 0.0.5
+      '@generates/logger': 0.0.5
       '@ianwalter/cloneable': 2.0.0
       '@ianwalter/correct': 1.1.0
       '@ianwalter/dot': 1.0.4
@@ -146,8 +148,8 @@ importers:
     devDependencies:
       '@ianwalter/bff': 9.10.0
     specifiers:
-      '@generates/cli': ^0.0.4
-      '@generates/logger': ^0.0.4
+      '@generates/cli': ^0.0.5
+      '@generates/logger': ^0.0.5
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
       '@ianwalter/correct': ^1.1.0
@@ -190,14 +192,14 @@ importers:
       webpack: ^4.44.1
   packages/nrg-logger:
     dependencies:
-      '@generates/logger': 0.0.4
+      '@generates/logger': 0.0.5
       '@ianwalter/cloneable': 2.0.0
       '@ianwalter/timer': 2.0.2
     devDependencies:
       '@ianwalter/bff': 9.10.0
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
-      '@generates/logger': ^0.0.4
+      '@generates/logger': ^0.0.5
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
       '@ianwalter/nrg': ^0.7.0
@@ -2270,9 +2272,9 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==
-  /@generates/cli/0.0.4:
+  /@generates/cli/0.0.5:
     dependencies:
-      '@generates/logger': 0.0.4
+      '@generates/logger': 0.0.5
       '@ianwalter/dot': 1.0.4
       '@ianwalter/merge': 9.0.1
       camelcase: 6.0.0
@@ -2282,10 +2284,10 @@ packages:
       read-pkg-up: 7.0.1
     dev: false
     resolution:
-      integrity: sha512-KOfRhWMZA+ToTQaCYQgBnw5G1WBhUTrjukx5a7zIp24OzH9T4weyd1cv9cQ8F6VRjRRqpMRpuTb/U73Al9YTwQ==
-  /@generates/logger/0.0.4:
+      integrity: sha512-kPHDF0YxL2QJVkmbnNQ/hXZ8HABKNZYBaZLcKQ0yus9LcU5HuYPelFlV587Ym/8pQXnlQZzN3ObN9Ze+l+mkBA==
+  /@generates/logger/0.0.5:
     dependencies:
-      '@generates/cli': 0.0.4
+      '@generates/cli': 0.0.5
       '@ianwalter/chromafi': 1.0.1
       '@ianwalter/clone': 6.0.1
       '@ianwalter/cloneable': 2.0.0
@@ -2300,7 +2302,7 @@ packages:
     dev: false
     hasBin: true
     resolution:
-      integrity: sha512-b/Q1yez4B8gSa/zJWEkkUZxHqTLkQ9xB7qxW+vTrIiyKMo6nqrFalMq8D5fiPk9SGU9qO71rwOwW/l9k+mL7oQ==
+      integrity: sha512-f72jsny4iGFkdE+nIVPhuI1XqE5hbOwmvjmcfdps90OcejZ4XWeJUkobiyXDqLhEHDfLgGgPqvhsz6Dfcu2p9w==
   /@hapi/address/2.1.4:
     deprecated: This version has been deprecated and is no longer supported or maintained
     dev: false

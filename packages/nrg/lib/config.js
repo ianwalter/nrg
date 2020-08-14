@@ -86,7 +86,7 @@ module.exports = function config (options = {}) {
       // request headers and set-cookie response headers otherwise.
       get redact () {
         return this.level !== 'debug'
-          ? ['req.headers.cookie', 'res.headers["set-cookie"]']
+          ? ['req.headers.cookie', 'res.headers.set-cookie']
           : []
       },
       // [Boolean] Whether or not to add event handlers for 'unhandledRejection'

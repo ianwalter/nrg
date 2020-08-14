@@ -3,7 +3,6 @@ const nrg = require('@ianwalter/nrg')
 const app = nrg.createApp({
   name: 'Accounts Example',
   port: 9999,
-  log: { level: 'error' },
   keys: ['terra', 'incognita'],
   db: {
     connection: {

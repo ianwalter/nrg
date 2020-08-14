@@ -1,4 +1,4 @@
-const { createApp } = require('../')
+const { createApp } = require('@ianwalter/nrg')
 
 createApp()
 
