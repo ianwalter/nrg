@@ -79,8 +79,8 @@ module.exports = function nrgTest (app) {
             ...cookie ? { cookie } : {}
           }
 
-          if (log) {
-            log.debug(
+          if (logger) {
+            logger.debug(
               `Modified options for ${method} ${path} test request`,
               options
             )
