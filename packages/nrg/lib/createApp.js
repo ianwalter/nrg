@@ -29,8 +29,8 @@ module.exports = function createApp (options = {}) {
   // Promise rejections that happen within the current process.
   if (cfg.log?.unhandled) {
     // FIXME: use synchronous logger instances for this.
-    process.on('unhandledRejection', err => app.log.error(err))
-    process.on('uncaughtException', err => app.log.error(err))
+    process.on('unhandledRejection', err => app.logger.error(err))
+    process.on('uncaughtException', err => app.logger.error(err))
   }
 
   // If session keys are configured, add them to the app.

@@ -4,7 +4,7 @@ function enrichAndLogError (err, ctx) {
   err.logLevel = err.logLevel || (err.status >= 500 ? 'error' : 'warn')
 
   // Log error.
-  ctx.log[err.logLevel](err)
+  ctx.logger[err.logLevel](err)
 }
 
 function addErrorToResponse (err, ctx) {

@@ -106,17 +106,17 @@ module.exports = function config (options = {}) {
       // option Object is not falsy.
       logger (app) {
         if (cfg.log) {
-          const nrgPrint = require('@ianwalter/nrg-print')
-          const { logger, middleware } = nrgPrint(cfg.log)
+          const nrgLogger = require('@ianwalter/nrg-logger')
+          const { logger, middleware } = nrgLogger(cfg.log)
           logger.ns('nrg.plugins').debug('Adding nrgPrint middleware')
-          app.log = app.context.log = logger
+          app.logger = app.context.logger = logger
           logMiddleware = middleware
         }
       },
       // FIXME: comment.
       error (app) {
-        if (app.log) {
-          app.log.ns('nrg.plugins').debug('Adding handleError middleware')
+        if (app.logger) {
+          app.logger.ns('nrg.plugins').debug('Adding handleError middleware')
         }
         const { handleError } = require('./middleware/error')
         app.use(handleError)
@@ -124,8 +124,8 @@ module.exports = function config (options = {}) {
       // Middleware for setting a unique identifier for each request using
       // nanoid so that request logs are easier to trace. Enabled by default.
       requestId (app) {
-        if (app.log) {
-          app.log.ns('nrg.plugins').debug('Adding setRequestId middleware')
+        if (app.logger) {
+          app.logger.ns('nrg.plugins').debug('Adding setRequestId middleware')
         }
         const { setRequestId } = require('./middleware/requestId')
         app.use(setRequestId)
@@ -139,8 +139,9 @@ module.exports = function config (options = {}) {
       // production mode.
       httpsRedirect (app) {
         if (cfg.isProd && !cfg.isCli && !cfg.next.enabled) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding httpsRedirect middleware')
+          if (app.logger) {
+            const logger = app.logger.ns('nrg.plugins')
+            logger.debug('Adding httpsRedirect middleware')
           }
           const { httpsRedirect } = require('./middleware/httpsRedirect')
           app.use(httpsRedirect)
@@ -151,8 +152,8 @@ module.exports = function config (options = {}) {
       static (app) {
         const enabled = cfg.static.enabled && !cfg.webpack.enabled && !cfg.isCli
         if (enabled) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding static middleware')
+          if (app.logger) {
+            app.logger.ns('nrg.plugins').debug('Adding static middleware')
           }
           const { serveStatic } = require('./middleware/client')
           app.use(serveStatic)
@@ -162,8 +163,8 @@ module.exports = function config (options = {}) {
       webpack (app) {
         const { enabled, ...rest } = cfg.webpack
         if (enabled && !cfg.isCli) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding Webpack middleware')
+          if (app.logger) {
+            app.logger.ns('nrg.plugins').debug('Adding Webpack middleware')
           }
           app.context.webpackMiddleware = require('koa-webpack')(rest)
           const { serveWebpack } = require('./middleware/client')
@@ -173,7 +174,7 @@ module.exports = function config (options = {}) {
       // If enabled, add a redis instance to the app and server context.
       redis (app) {
         if (cfg.redis.enabled) {
-          if (app.log) app.log.ns('nrg.plugins').debug('Adding Redis')
+          if (app.logger) app.logger.ns('nrg.plugins').debug('Adding Redis')
           const redisStore = require('koa-redis')
           app.redis = app.context.redis = redisStore(cfg.redis.connection)
         }
@@ -183,8 +184,8 @@ module.exports = function config (options = {}) {
       // session keys are passed as options.
       session (app) {
         if (cfg.keys?.length && !cfg.isCli) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding nrg-session middleware')
+          if (app.logger) {
+            app.logger.ns('nrg.plugins').debug('Adding nrg-session middleware')
           }
           const nrgSession = require('@ianwalter/nrg-session')
           app.use(nrgSession({ store: app.redis }, app))
@@ -194,8 +195,8 @@ module.exports = function config (options = {}) {
       // node-rate-limiter-flexible.
       rateLimit (app) {
         if (cfg.rateLimit.enabled) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding rate limit middleware')
+          if (app.logger) {
+            app.logger.ns('nrg.plugins').debug('Adding rate limit middleware')
           }
           const createRateLimiter = require('./utilities/createRateLimiter')
           const { rateLimit } = require('./middleware/rateLimit')
@@ -206,8 +207,8 @@ module.exports = function config (options = {}) {
       // enabled by default.
       oauth (app) {
         if (cfg.oauth.enabled) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding OAuth middleware')
+          if (app.logger) {
+            app.logger.ns('nrg.plugins').debug('Adding OAuth middleware')
           }
           const grant = require('grant').koa()
           app.use(grant(cfg.oauth))
@@ -218,8 +219,8 @@ module.exports = function config (options = {}) {
       // enabled.
       csrf (app) {
         if (cfg.keys?.length && cfg.plugins.session && !cfg.isCli) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding koa-csrf middleware')
+          if (app.logger) {
+            app.logger.ns('nrg.plugins').debug('Adding koa-csrf middleware')
           }
           const CSRF = require('koa-csrf')
           app.use(new CSRF())
@@ -230,8 +231,9 @@ module.exports = function config (options = {}) {
       // by default for 'json', 'form', and 'text'.
       bodyParser (app) {
         if (!cfg.next.enabled) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding koa-bodyParser middleware')
+          if (app.logger) {
+            const logger = app.logger.ns('nrg.plugins')
+            logger.debug('Adding koa-bodyParser middleware')
           }
           const bodyParser = require('koa-bodyparser')
           app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
@@ -242,8 +244,8 @@ module.exports = function config (options = {}) {
       // Enabled by default.
       compress (app) {
         if (!cfg.isCli && !cfg.next.enabled) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding koa-compress middleware')
+          if (app.logger) {
+            app.logger.ns('nrg.plugins').debug('Adding koa-compress middleware')
           }
           app.use(require('koa-compress')())
         }
@@ -252,8 +254,8 @@ module.exports = function config (options = {}) {
       // Enabled by default if in development mode.
       prettyJson (app) {
         if (cfg.isDev) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding koa-json middleware')
+          if (app.logger) {
+            app.logger.ns('nrg.plugins').debug('Adding koa-json middleware')
           }
           const json = require('koa-json')
           app.use(json({ pretty: true }))
@@ -264,8 +266,9 @@ module.exports = function config (options = {}) {
       // getServerSideProps function with the nrg request context.
       adaptNext (app) {
         if (cfg.next.enabled) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding Next.js adapter middleware')
+          if (app.logger) {
+            const logger = app.logger.ns('nrg.plugins')
+            logger.debug('Adding Next.js adapter middleware')
           }
           const { adaptNext } = require('./middleware/next')
           app.use(adaptNext)
@@ -278,7 +281,9 @@ module.exports = function config (options = {}) {
       // to use that instance.
       db (app) {
         if (cfg.db.enabled) {
-          if (app.log) app.log.ns('nrg.plugins').debug('Adding Objection.js')
+          if (app.logger) {
+            app.logger.ns('nrg.plugins').debug('Adding Objection.js')
+          }
           const knex = require('knex')
           const { Model } = require('objection')
           app.db = app.context.db = knex(cfg.db)
@@ -288,7 +293,7 @@ module.exports = function config (options = {}) {
       // Set up the message queue client if enabled.
       mq (app) {
         if (cfg.mq.enabled) {
-          if (app.log) app.log.ns('nrg.plugins').debug('Adding nrg-mq')
+          if (app.logger) app.logger.ns('nrg.plugins').debug('Adding nrg-mq')
           const mq = require('@ianwalter/nrg-mq')
           app.mq = app.context.mq = mq(app, cfg.mq)
         }
@@ -297,8 +302,8 @@ module.exports = function config (options = {}) {
       // Nodemailer to send them.
       email (app) {
         if (cfg.email.enabled) {
-          if (app.log) {
-            app.log.ns('nrg.plugins').debug('Adding Nodemailer and Mailgen')
+          if (app.logger) {
+            app.logger.ns('nrg.plugins').debug('Adding Nodemailer and Mailgen')
           }
           const nodemailer = require('nodemailer')
           const Mailgen = require('mailgen')

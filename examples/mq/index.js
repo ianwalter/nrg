@@ -15,7 +15,7 @@ const app = createApp({
         // content to the messages array and acknowledges that the message was
         // received.
         async sub (ctx, msg) {
-          ctx.log.info('Message received!', msg)
+          ctx.logger.info('Message received!', msg)
           messages.push({ msg: msg.content, received: new Date() })
           return msg.ack()
         }
@@ -29,7 +29,7 @@ const app = createApp({
 app.use(async ctx => {
   const msg = { id: ctx.request.id }
   const send = ctx.mq.test.pub(msg)
-  ctx.log.info('Message sent!', msg)
+  ctx.logger.info('Message sent!', msg)
   await send
   ctx.body = messages
 })

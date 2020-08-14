@@ -2,15 +2,15 @@ const { createApp } = require('@ianwalter/nrg')
 
 const app = createApp()
 
-app.log.info('Hello!', { data: 123 })
+app.logger.info('Hello!', { data: 123 })
 
 app.use((ctx, next) => {
-  ctx.log.info('Entered middleware!')
+  ctx.logger.info('Entered middleware!')
   return next()
 })
 
 app.use(ctx => {
-  ctx.log.ns('middleware.debug').debug(
+  ctx.logger.ns('middleware.debug').debug(
     'Testing, testing, 1, 2, 3...',
     { url: ctx.url }
   )
@@ -19,7 +19,7 @@ app.use(ctx => {
 
 async function run () {
   await app.test('/test').get()
-  app.log.success('Exiting...')
+  app.logger.success('Exiting...')
   app.close()
 }
 

@@ -10,7 +10,7 @@ const { excluding } = require('@ianwalter/extract')
  */
 async function validateRegistration (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
-  ctx.log
+  ctx.logger
     .ns('nrg.accounts')
     .debug('registration.validateRegistration', { body })
   const validation = await ctx.cfg.validators.registration.validate(body)
@@ -22,10 +22,10 @@ async function validateRegistration (ctx, next) {
 }
 
 async function createAccount (ctx, next) {
-  const log = ctx.log.ns('nrg.accounts')
+  const logger = ctx.logger.ns('nrg.accounts')
   const password = ctx.state.hashedPassword
   const data = merge({}, ctx.state.validation.data, { password })
-  log.debug('registration.createAccount', data)
+  logger.debug('registration.createAccount', data)
 
   try {
     const { Account } = ctx.cfg.accounts.models
@@ -33,7 +33,7 @@ async function createAccount (ctx, next) {
     // Create the account by saving the submitted data to the database.
     ctx.state.account = await Account.query().insert(data)
     const account = excluding(ctx.state.account, 'password')
-    log.info('registration.createAccount • Account inserted', account)
+    logger.info('registration.createAccount • Account inserted', account)
 
     // Add a property to the session indicating that it belongs to a user who
     // has not completed the email verification process.
@@ -44,12 +44,12 @@ async function createAccount (ctx, next) {
       if (account?.emailVerified) {
         // Warn about the request trying to register an email address already
         // associated with an existing, verified account.
-        log.warn('registration.createAccount', err)
+        logger.warn('registration.createAccount', err)
       } else if (account) {
         // If the account isn't verified, overwrite it with the data from the
         // request so that others can't block a user from creating an account
         // with their email address.
-        log.warn(
+        logger.warn(
           'registration.createAccount • Updating unverified account',
           {
             data: excluding(data, 'password'),

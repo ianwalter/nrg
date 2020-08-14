@@ -2,7 +2,7 @@
 
 const path = require('path')
 const cli = require('@ianwalter/cli')
-const { print } = require('@ianwalter/print')
+const { createLogger } = require('@generates/logger')
 const cloneable = require('@ianwalter/cloneable')
 const { excluding } = require('@ianwalter/extract')
 const healthcheck = require('./lib/commands/healthcheck')
@@ -36,14 +36,14 @@ async function run () {
   try {
     app = require(appPath)
   } catch (err) {
-    print.fatal(err)
+    createLogger().fatal(err)
     process.exit(1)
   }
 
-  const log = app.log.ns('nrg.cli')
+  const logger = app.logger.ns('nrg.cli')
 
   if (config.help) {
-    log.info(config.helpText)
+    logger.info(config.helpText)
   } else if (commands[0] === 'copy') {
     if (commands[1] === 'migrations') {
       await copyMigrations({ commands }, app)
@@ -61,11 +61,11 @@ async function run () {
     } else if (commands[1] === 'secret') {
       const uid = require('uid-safe')
       const bytes = parseInt(commands[2]) || app.context.cfg.hash.bytes
-      log.log('🔑', await uid(bytes))
+      logger.log('🔑', await uid(bytes))
     } else if (commands[1] === 'migration') {
       app.db.migrate.make(commands[2])
     } else {
-      log.fatal('New what? Available: secret, migration, seed')
+      logger.fatal('New what? Available: secret, migration, seed')
       process.exit(1)
     }
   } else if (commands[0] === 'seed') {
@@ -77,28 +77,28 @@ async function run () {
         const script = require(path.resolve(`scripts/${commands[1]}`))
         await script(app)
       } catch (err) {
-        log.error(err)
+        logger.error(err)
         process.exit(1)
       }
     } else {
       // FIXME: add available scripts.
-      log.fatal('Run what?')
+      logger.fatal('Run what?')
       process.exit(1)
     }
   } else if (commands[0] === 'healthcheck') {
-    await healthcheck({ config, print }, app)
+    await healthcheck(app, config)
   } else if (commands[0] === 'print') {
     if (commands[1] === 'config') {
       let cfg = excluding(app.context.cfg, 'helpText')
       if (!config.all) cfg = cloneable(cfg)
-      log.info('Application config:', dot.get(cfg, commands[2]))
+      logger.info('Application config:', dot.get(cfg, commands[2]))
     } else {
-      log.fatal('Print what? Available: config')
+      logger.fatal('Print what? Available: config')
       process.exit(1)
     }
   } else {
-    log.error('Unknown command:', commands[0], '\n\n')
-    log.info(config.helpText)
+    logger.error('Unknown command:', commands[0], '\n\n')
+    logger.info(config.helpText)
   }
 
   // Close any connections opened when the app was created.
@@ -106,7 +106,8 @@ async function run () {
 }
 
 run().catch(err => {
-  print.write('\n')
-  print.fatal(err)
+  const logger = createLogger()
+  logger.write('\n')
+  logger.fatal(err)
   process.exit(1)
 })

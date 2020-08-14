@@ -9,7 +9,7 @@ const { ValidationError } = require('../errors')
  */
 async function getAccount (ctx, next) {
   const data = ctx.state.validation?.data
-  if (ctx.session && ctx.session.account) {
+  if (ctx.session?.account) {
     ctx.state.account = ctx.session.account
   } else if (data?.email) {
     const { Account } = ctx.cfg.accounts.models
@@ -22,7 +22,7 @@ async function getAccount (ctx, next) {
     ctx.state.account = await query
   }
   const { account } = ctx.state
-  ctx.log.ns('nrg.accounts').debug('account.getAccount', { account })
+  ctx.logger.ns('nrg.accounts').debug('account.getAccount', { account })
   return next()
 }
 
@@ -35,7 +35,7 @@ function reduceAccountForClient (ctx, next) {
 async function validatePasswordUpdate (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   if (body.newPassword) {
-    ctx.log
+    ctx.logger
       .ns('nrg.accounts.password')
       .debug('account.validatePasswordUpdate', { body })
     const validation = await ctx.cfg.validators.passwordUpdate.validate(body)
@@ -50,7 +50,7 @@ async function validatePasswordUpdate (ctx, next) {
 
 async function validateAccountUpdate (ctx, next) {
   const { body } = ctx.request
-  ctx.log.ns('nrg.accounts').debug('account.validateAccountUpdate', { body })
+  ctx.logger.ns('nrg.accounts').debug('account.validateAccountUpdate', { body })
   const validation = await ctx.cfg.validators.accountUpdate.validate(body)
   if (validation.isValid) {
     ctx.state.validation = validation
@@ -86,7 +86,8 @@ async function updateAccount (ctx, next) {
   const payload = ctx.state.validation.data
   const data = excluding(merge({}, payload, { password }), 'email')
 
-  ctx.log.ns('nrg.accounts').debug('account.updateAccount', { payload, data })
+  const logger = ctx.logger.ns('nrg.accounts')
+  logger.debug('account.updateAccount', { payload, data })
 
   // Update the database and session with the updated account data.
   if (Object.keys(data).length) { // FIXME: replace with @ianwalter/correct.

@@ -8,13 +8,13 @@ function handleAuthorization (ctx, next, options) {
     if (!options.roles || options.match(account.roles || [], options.roles)) {
       return next()
     }
-    ctx.log.ns('nrg.auth').warn('Unauthorized role', {
+    ctx.logger.ns('nrg.auth').warn('Unauthorized role', {
       account: { id: account.id, roles: account.roles },
       roles: options.roles
     })
   } else if (options.redirect) {
     let redirect = options.loginRedirect || '/login'
-    if (ctx.session.unverifiedAccount) {
+    if (ctx.session?.unverifiedAccount) {
       redirect = options.verificationRedirect || '/verify-email'
     }
     return ctx.redirect(redirect)

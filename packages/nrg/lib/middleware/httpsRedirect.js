@@ -3,7 +3,7 @@ const createUrl = require('@ianwalter/url')
 function httpsRedirect (ctx, next) {
   const protocol = ctx.get('x-forwarded-proto')
   if (protocol && protocol.toLowerCase() === 'http') {
-    ctx.log
+    ctx.logger
       .ns('nrg.middleware')
       .debug('httpsRedirect • Redirecting http request to https')
     ctx.status = 301

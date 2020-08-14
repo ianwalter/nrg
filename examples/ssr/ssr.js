@@ -8,7 +8,7 @@ export default pageTemplate => ctx => {
     page = ctx.url.includes('not-found') ? { status: 404 } : App.render(ctx)
   } catch (err) {
     // Log the error if one is thrown when rendering the page.
-    ctx.log.error(err)
+    ctx.logger.error(err)
 
     // Instead of a Svelte app/page, we'll just show the words "Internal Server
     // Error" on the page.
