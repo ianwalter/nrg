@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@generates/cli": "^0.0.4",
+    "@generates/cli": "^0.0.5",
     "@ianwalter/cloneable": "^2.0.0",
     "@ianwalter/correct": "^1.1.0",
     "@ianwalter/dot": "^1.0.4",
