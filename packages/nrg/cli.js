@@ -25,6 +25,8 @@ const { _: commands, packageJson, ...config } = cli({
   }
 })
 
+const logger = createLogger({ namespace: 'nrg.cli' })
+
 // Add the CLI onfig to the NRG_CLI environment variable so that nrg knows that
 // it's running in a CLI context and it can merge the options with the
 // app-supplied and default options.
@@ -36,11 +38,9 @@ async function run () {
   try {
     app = require(appPath)
   } catch (err) {
-    createLogger().fatal(err)
+    logger.fatal(err)
     process.exit(1)
   }
-
-  const logger = app.logger.ns('nrg.cli')
 
   if (config.help) {
     logger.info(config.helpText)
@@ -106,7 +106,6 @@ async function run () {
 }
 
 run().catch(err => {
-  const logger = createLogger()
   logger.write('\n')
   logger.fatal(err)
   process.exit(1)
