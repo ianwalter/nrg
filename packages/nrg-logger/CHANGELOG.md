@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.0.5
+
+### Patch Changes
+
+- 01b7d2c: Updating logger and usign @generates/merger
+
 ## 0.0.4
 
 ### Patch Changes
