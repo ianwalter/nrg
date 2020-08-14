@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const path = require('path')
-const cli = require('@ianwalter/cli')
+const cli = require('@generates/cli')
 const { createLogger } = require('@generates/logger')
 const cloneable = require('@ianwalter/cloneable')
 const { excluding } = require('@ianwalter/extract')

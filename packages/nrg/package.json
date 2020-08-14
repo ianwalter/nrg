@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@ianwalter/cli": "^4.1.0",
+    "@generates/cli": "^0.0.3",
     "@ianwalter/cloneable": "^2.0.0",
     "@ianwalter/correct": "^1.1.0",
     "@ianwalter/dot": "^1.0.4",
@@ -46,7 +46,7 @@
     "@ianwalter/nrg-test": "^1.1.0",
     "@ianwalter/requester": "^2.4.1",
     "@ianwalter/url": "^2.0.0",
-    "@generates/logger": "^0.0.2",
+    "@generates/logger": "^0.0.3",
     "bcrypt": "5.0.0",
     "cheerio": "^1.0.0-rc.3",
     "date-fns": "^2.15.0",
