@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.0.4
+
+### Patch Changes
+
+- a2e1da9: Fixing date prop merge issue in logger
+
 ## 0.0.3
 
 ### Patch Changes
