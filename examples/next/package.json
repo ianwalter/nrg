@@ -16,7 +16,7 @@
     "test": "bff"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.6.0",
+    "@ianwalter/nrg": "^0.6.1",
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1"

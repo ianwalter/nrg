@@ -12,7 +12,7 @@
     "test": "bff"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.6.0"
+    "@ianwalter/nrg": "^0.6.1"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0"
