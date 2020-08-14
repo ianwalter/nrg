@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.7.1
+
+### Patch Changes
+
+- eeadb27: Fixing log timestamp destructuring issue
+- Updated dependencies [eeadb27]
+  - @ianwalter/nrg-logger@0.0.3
+
 ## 0.7.0
 
 ### Minor Changes
