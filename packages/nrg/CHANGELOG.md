@@ -1,5 +1,16 @@
 # @ianwalter/nrg
 
+## 0.7.0
+
+### Minor Changes
+
+- 6dcdcdf: Replacing nrg-print with nrg-logger
+
+### Patch Changes
+
+- Updated dependencies [6dcdcdf]
+  - @ianwalter/nrg-logger@0.0.2
+
 ## 0.6.1
 
 ### Patch Changes

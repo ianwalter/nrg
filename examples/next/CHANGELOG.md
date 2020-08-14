@@ -1,5 +1,12 @@
 # next-example
 
+## 2.0.2
+
+### Patch Changes
+
+- Updated dependencies [6dcdcdf]
+  - @ianwalter/nrg@0.7.0
+
 ## 2.0.1
 
 ### Patch Changes
