@@ -1,4 +1,4 @@
-const merge = require('@ianwalter/merge')
+const { merge } = require('@generates/merger')
 const getRandomTimeout = require('../utilities/getRandomTimeout')
 
 function handleSlowDown (ctx, next, options) {

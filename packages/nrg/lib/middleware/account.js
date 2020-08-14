@@ -1,5 +1,5 @@
 const compose = require('koa-compose')
-const merge = require('@ianwalter/merge')
+const { merge } = require('@generates/merger')
 const { excluding } = require('@ianwalter/extract')
 const { startEmailVerification } = require('./emailVerification')
 const { ValidationError } = require('../errors')

@@ -1,4 +1,4 @@
-const merge = require('@ianwalter/merge')
+const { merge } = require('@generates/merger')
 const { ValidationError } = require('../errors')
 const Account = require('../models/Account')
 const { excluding } = require('@ianwalter/extract')

@@ -1,4 +1,4 @@
-const merge = require('@ianwalter/merge')
+const { merge } = require('@generates/merger')
 const dot = require('@ianwalter/dot')
 
 function addToResponse (ctx, next) {

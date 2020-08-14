@@ -1,4 +1,4 @@
-const merge = require('@ianwalter/merge')
+const { merge } = require('@generates/merger')
 const createUrl = require('@ianwalter/url')
 const { ValidationError } = require('../errors')
 const { generateToken, insertToken } = require('./token')

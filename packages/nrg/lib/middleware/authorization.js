@@ -1,4 +1,4 @@
-const merge = require('@ianwalter/merge')
+const { merge } = require('@generates/merger')
 const Role = require('../models/Role')
 const { UnauthorizedError } = require('../errors')
 

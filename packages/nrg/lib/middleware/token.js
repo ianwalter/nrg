@@ -1,7 +1,7 @@
 const uid = require('uid-safe')
 const bcrypt = require('bcrypt')
 const addDays = require('date-fns/addDays')
-const merge = require('@ianwalter/merge')
+const { merge } = require('@generates/merger')
 const { BadRequestError } = require('../errors')
 const { excluding } = require('@ianwalter/extract')
 
