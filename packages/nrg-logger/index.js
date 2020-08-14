@@ -24,24 +24,11 @@ module.exports = function nrgPrint (options = {}) {
 
       ctx.logger = logger.create({
         ...options,
-        collectOutput ({ items, ...log }) {
-          if (this.ndjson) {
-            return [{
-              ...items,
-              ...request,
-              message: items.message,
-              level: log.level,
-              type: log.type,
-              namespace: this.namespace
-            }]
-          }
-          return [
-            log.prefix,
-            formatTimestamp(request.timestamp),
-            `• ${ctx.req.id} •`,
-            this.namespace ? `${chalk.blue.bold(this.namespace)} •` : '',
-            ...(items || [])
-          ]
+        get extraJson () {
+          return request
+        },
+        get extraItems () {
+          return [formatTimestamp(request.timestamp), `• ${ctx.req.id} •`]
         }
       })
 

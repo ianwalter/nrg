@@ -38,7 +38,7 @@
   "dependencies": {
     "@ianwalter/cloneable": "^2.0.0",
     "@ianwalter/timer": "^2.0.2",
-    "@generates/logger": "^0.0.3"
+    "@generates/logger": "^0.0.4"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",
