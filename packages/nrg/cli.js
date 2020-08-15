@@ -7,6 +7,7 @@ const cloneable = require('@ianwalter/cloneable')
 const { excluding } = require('@ianwalter/extract')
 const healthcheck = require('./lib/commands/healthcheck')
 const { copyMigrations } = require('./lib/commands/migrations')
+const newId = require('./lib/commands/newId')
 const dot = require('@ianwalter/dot')
 
 const { _: commands, packageJson, ...config } = cli({
@@ -59,8 +60,7 @@ async function run () {
       // Make a new seed.
       app.db.seed.make(commands[2])
     } else if (commands[1] === 'id') {
-      const { nanoid } = require('nanoid')
-      logger.log('🆔', nanoid())
+      newId({ logger })
     } else if (commands[1] === 'migration') {
       app.db.migrate.make(commands[2])
     } else {
