@@ -58,10 +58,9 @@ async function run () {
     if (commands[1] === 'seed') {
       // Make a new seed.
       app.db.seed.make(commands[2])
-    } else if (commands[1] === 'secret') {
-      const uid = require('uid-safe')
-      const bytes = parseInt(commands[2]) || app.context.cfg.hash.bytes
-      logger.log('🔑', await uid(bytes))
+    } else if (commands[1] === 'id') {
+      const { nanoid } = require('nanoid')
+      logger.log('🆔', nanoid())
     } else if (commands[1] === 'migration') {
       app.db.migrate.make(commands[2])
     } else {
