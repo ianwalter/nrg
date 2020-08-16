@@ -1,5 +1,11 @@
 # @ianwalter/nrg-test
 
+## 1.1.1
+
+### Patch Changes
+
+- 8a9d13e: Adding #400: getSession middleware
+
 ## 1.1.0
 
 ### Minor Changes

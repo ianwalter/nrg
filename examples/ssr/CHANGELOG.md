@@ -1,5 +1,13 @@
 # ssr-example
 
+## 1.0.7
+
+### Patch Changes
+
+- Updated dependencies [4b7f893]
+- Updated dependencies [8a9d13e]
+  - @ianwalter/nrg@0.8.0
+
 ## 1.0.6
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @ianwalter/nrg
 
+## 0.8.0
+
+### Minor Changes
+
+- 8a9d13e: Adding #400: getSession middleware
+
+### Patch Changes
+
+- 4b7f893: Replacing new secret command with new id using nanoid
+- Updated dependencies [8a9d13e]
+  - @ianwalter/nrg-test@1.1.1
+
 ## 0.7.3
 
 ### Patch Changes
