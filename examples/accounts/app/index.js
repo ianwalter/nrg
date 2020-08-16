@@ -4,6 +4,7 @@ const app = nrg.createApp({
   name: 'Accounts Example',
   port: 9999,
   keys: ['terra', 'incognita'],
+  // log: { level: 'debug' },
   db: {
     connection: {
       database: 'nrg',
@@ -19,6 +20,9 @@ const app = nrg.createApp({
   },
   accounts: { enabled: true }
 })
+
+// Allow users to get their session data.
+app.get('/session', ...nrg.session)
 
 // Allow users to login.
 app.post('/registration', ...nrg.registration)

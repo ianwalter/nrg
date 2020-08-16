@@ -73,7 +73,8 @@ const {
   checkSessionAuthentication,
   validateLogin,
   createUserSession,
-  clearSession
+  clearSession,
+  getSession
 } = require('./lib/middleware/session')
 
 const {
@@ -176,6 +177,13 @@ module.exports = {
     hashPassword,
     createAccount,
     ...startEmailVerification,
+    addToResponse
+  ],
+
+  // Get Session:
+  session: [
+    reduceAccountForClient,
+    getSession,
     addToResponse
   ],
 

@@ -59,9 +59,15 @@ async function clearSession (ctx, next) {
   return next()
 }
 
+async function getSession (ctx, next) {
+  ctx.state.body = { csrfToken: ctx.csrf, account: ctx.state.body }
+  return next()
+}
+
 module.exports = {
   checkSessionAuthentication,
   validateLogin,
   createUserSession,
-  clearSession
+  clearSession,
+  getSession
 }

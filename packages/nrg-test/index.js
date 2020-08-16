@@ -65,9 +65,9 @@ module.exports = function nrgTest (app) {
             logger.debug(`Adding CSRF token for ${method} ${path} test request`)
           }
 
-          // Make a request to the CSRF token endpoint to get a CSRF token for
-          // the test request.
-          const response = await test('/csrf-token').get(options)
+          // Make a request to the session token endpoint to get a CSRF token
+          // for the test request.
+          const response = await test('/session').get(options)
           if (!response.ok) throw new HttpError(response)
 
           // Add the CSRF token and session cookie to the request headers.

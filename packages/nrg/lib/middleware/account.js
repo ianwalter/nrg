@@ -8,12 +8,10 @@ const { ValidationError } = require('../errors')
  *
  */
 async function getAccount (ctx, next) {
-  const data = ctx.state.validation?.data
-  if (ctx.session?.account) {
-    ctx.state.account = ctx.session.account
-  } else if (data?.email) {
+  const email = ctx.session.account?.email || ctx.state.validation?.data?.email
+  if (email) {
     const { Account } = ctx.cfg.accounts.models
-    const query = Account.query().findOne({ email: data.email, enabled: true })
+    const query = Account.query().findOne({ email, enabled: true })
 
     // Also query the account roles if a relation is defined on the Account
     // model.
@@ -27,8 +25,11 @@ async function getAccount (ctx, next) {
 }
 
 function reduceAccountForClient (ctx, next) {
-  const { Account } = ctx.cfg.accounts.models
-  ctx.state.body = Account.extractClientData(ctx.session.account)
+  const account = ctx.state.account || ctx.session?.account
+  if (account) {
+    const { Account } = ctx.cfg.accounts.models
+    ctx.state.body = Account.extractClientData(account)
+  }
   return next()
 }
 
