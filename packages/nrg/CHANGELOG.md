@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.8.3
+
+### Patch Changes
+
+- d9abda1: Fixing typo in redis connection config, port -> password
+
 ## 0.8.2
 
 ### Patch Changes
