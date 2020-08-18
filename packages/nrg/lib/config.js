@@ -326,10 +326,10 @@ module.exports = function config (options = {}) {
       test (app) {
         if (!cfg.isProd) app.test = require('@ianwalter/nrg-test')(app)
       },
-      // If not in production, add a utility that allows closing any connections
-      // opened when the app was created.
+      // Add a utility that allows closing any connections opened when the app
+      // was created.
       close (app) {
-        if (!cfg.isProd) app.close = require('./app/close')
+        app.close = require('./app/close')
       },
       // If the Next.js integration is enabled, add a "next" app method to allow
       // you to get the result of "nextAdapter" middleware and use it to pass
