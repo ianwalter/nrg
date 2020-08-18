@@ -1,5 +1,11 @@
 # @ianwalter/nrg-test
 
+## 1.1.2
+
+### Patch Changes
+
+- e408904: Adding back csrf endpoint and updating requester
+
 ## 1.1.1
 
 ### Patch Changes
