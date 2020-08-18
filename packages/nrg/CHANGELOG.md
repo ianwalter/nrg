@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.8.1
+
+### Patch Changes
+
+- 1d42647: Remove production condition when adding app.close
+
 ## 0.8.0
 
 ### Minor Changes
