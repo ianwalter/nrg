@@ -389,7 +389,7 @@ module.exports = function config (options = {}) {
       connection: {
         ...process.env.REDIS_HOST ? { host: process.env.REDIS_HOST } : {},
         ...process.env.REDIS_PORT ? { port: process.env.REDIS_PORT } : {},
-        ...process.env.REDIS_PASS ? { port: process.env.REDIS_PASS } : {}
+        ...process.env.REDIS_PASS ? { password: process.env.REDIS_PASS } : {}
       }
     },
     db: {
