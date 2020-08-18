@@ -1,10 +1,9 @@
-const { Requester, HttpError } = require('@ianwalter/requester')
+const { Requester } = require('@ianwalter/requester')
 
 const requester = new Requester({ shouldThrow: false })
 
 module.exports = function nrgTest (app) {
   const { plugins } = app.context.cfg
-  const csrfIsEnabled = app.keys?.length && plugins.session && plugins.csrf
 
   return function test (path, options) {
     // If options has a statusCode, treat it as a response to a previous request
@@ -59,16 +58,15 @@ module.exports = function nrgTest (app) {
       },
       async requestWithCsrf (method, options) {
         const headers = options?.headers
-        if (csrfIsEnabled && (!headers || !headers['csrf-token'])) {
+        if (plugins.csrfEndpoint && (!headers || !headers['csrf-token'])) {
           const logger = app.logger && app.logger.ns('nrg.test')
           if (logger) {
             logger.debug(`Adding CSRF token for ${method} ${path} test request`)
           }
 
-          // Make a request to the session token endpoint to get a CSRF token
-          // for the test request.
-          const response = await test('/session').get(options)
-          if (!response.ok) throw new HttpError(response)
+          // Make a request to the CSRF token endpoint to get a CSRF token for
+          // the test request.
+          const response = await test('/csrf-token').get(options)
 
           // Add the CSRF token and session cookie to the request headers.
           const csrfToken = response.body.csrfToken

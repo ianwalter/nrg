@@ -116,7 +116,7 @@ importers:
       '@ianwalter/nrg-router': 'link:../nrg-router'
       '@ianwalter/nrg-session': 'link:../nrg-session'
       '@ianwalter/nrg-test': 'link:../nrg-test'
-      '@ianwalter/requester': 2.4.1
+      '@ianwalter/requester': 2.4.2
       '@ianwalter/url': 2.0.0
       bcrypt: 5.0.0
       cheerio: 1.0.0-rc.3
@@ -161,7 +161,7 @@ importers:
       '@ianwalter/nrg-router': ^1.0.0
       '@ianwalter/nrg-session': ^7.0.0
       '@ianwalter/nrg-test': ^1.1.1
-      '@ianwalter/requester': ^2.4.1
+      '@ianwalter/requester': ^2.4.2
       '@ianwalter/url': ^2.0.0
       bcrypt: 5.0.0
       cheerio: ^1.0.0-rc.3
@@ -2612,6 +2612,15 @@ packages:
       '@ianwalter/print': 8.1.0
     resolution:
       integrity: sha512-fYhKHV2V2I7lv+K8UiN+Jwz/nwjZECeVWgF4laaf/S+ipI7KeoQwbLaf/ed6h8kRFgIK6mYerysrgv7P/IXC/A==
+  /@ianwalter/requester/2.4.2:
+    dependencies:
+      '@ianwalter/base-error': 6.1.0
+      '@ianwalter/clone': 6.0.1
+      '@ianwalter/merge': 9.0.1
+      '@ianwalter/print': 8.1.0
+    dev: false
+    resolution:
+      integrity: sha512-fhJOIhtlXisDa8EHp0i13v5yDs4HtwZCjprv6k8n6HN94FDBJwxUZW0Jggb2lktrelwm7GI0D3UFZQomnF6vdw==
   /@ianwalter/router/3.3.0:
     dependencies:
       '@ianwalter/merge': 6.0.0

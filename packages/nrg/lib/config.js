@@ -314,8 +314,15 @@ module.exports = function config (options = {}) {
       },
       // Plugin for adding a simple health check endpoint if the application has
       // been configured with a router.
-      health (app) {
+      healthEndpoint (app) {
         if (cfg.plugins.router) app.get('/health', ctx => (ctx.status = 200))
+      },
+      // Plugin for adding an endpoint that returns a valid CSRF token if the
+      // application is in test mode.
+      csrfEndpoint (app) {
+        if (cfg.keys?.length && cfg.plugins.router && cfg.isTest) {
+          app.get('/csrf-token', ctx => (ctx.body = { csrfToken: ctx.csrf }))
+        }
       },
       // Add a serve method to the app that makes it easy to start listening for
       // connections.
