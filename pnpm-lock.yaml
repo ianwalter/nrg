@@ -109,7 +109,7 @@ importers:
       '@generates/merger': 0.0.1
       '@ianwalter/cloneable': 2.0.0
       '@ianwalter/correct': 1.1.0
-      '@ianwalter/dot': 1.0.4
+      '@ianwalter/dot': 1.0.5
       '@ianwalter/extract': 1.0.1
       '@ianwalter/nrg-logger': 'link:../nrg-logger'
       '@ianwalter/nrg-mq': 'link:../nrg-mq'
@@ -154,7 +154,7 @@ importers:
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
       '@ianwalter/correct': ^1.1.0
-      '@ianwalter/dot': ^1.0.4
+      '@ianwalter/dot': ^1.0.5
       '@ianwalter/extract': ^1.0.1
       '@ianwalter/nrg-logger': ^0.0.5
       '@ianwalter/nrg-mq': ^1.1.0
@@ -2450,6 +2450,10 @@ packages:
   /@ianwalter/dot/1.0.4:
     resolution:
       integrity: sha512-bq6q4ZXWzQfBbE29i6trTwAtmmRzSWU0D/fSPhA/tDNbxhSlXDYUxfITtq1cctqi+s4BV4PgYIjxNkLeePK1mQ==
+  /@ianwalter/dot/1.0.5:
+    dev: false
+    resolution:
+      integrity: sha512-xOtXmoeKrLudrNF5noqJPXJkMtm33A/Hhy/UPV0z5pWCtPa8pN1b5NFgrsFZsA/UsUN47MKWjLazPuZIO77ljw==
   /@ianwalter/eslint-config-react/3.2.0:
     dependencies:
       '@ianwalter/eslint-config': 5.3.0
