@@ -3,12 +3,14 @@ const Role = require('../models/Role')
 const { UnauthorizedError } = require('../errors')
 
 function handleAuthorization (ctx, next, options) {
+  const logger = ctx.logger.ns('nrg.auth')
   const account = ctx.session.account
-  if (account?.enabled && account.emailVerified) {
+  logger.debug('handleAuthorization', { account })
+  if (account && account.enabled !== false && account.emailVerified !== false) {
     if (!options.roles || options.match(account.roles || [], options.roles)) {
       return next()
     }
-    ctx.logger.ns('nrg.auth').warn('Unauthorized role', {
+    logger.warn('Unauthorized role', {
       account: { id: account.id, roles: account.roles },
       roles: options.roles
     })
