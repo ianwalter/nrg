@@ -1,5 +1,12 @@
 # @ianwalter/nrg
 
+## 0.8.4
+
+### Patch Changes
+
+- 0e7a537: Updating @ianwalter/dot to 1.0.5
+- ac773c3: Improving handleAuthorization logic
+
 ## 0.8.3
 
 ### Patch Changes
