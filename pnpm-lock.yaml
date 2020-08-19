@@ -11,7 +11,7 @@ importers:
     specifiers:
       '@changesets/cli': ianwalter/changesets-cli#2ccdb208fc0cd5d7de11e68d0def5cef71284f73
       '@ianwalter/eslint-config': ^5.3.0
-      '@ianwalter/nrg': ^0.8.3
+      '@ianwalter/nrg': ^0.8.4
       '@ianwalter/renovate-config': ^1.4.0
       '@ianwalter/vuepress-theme-brooks': ^1.2.0
       npm-run-all: ^4.1.5
@@ -202,7 +202,7 @@ importers:
       '@generates/logger': ^0.0.7
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
-      '@ianwalter/nrg': ^0.8.3
+      '@ianwalter/nrg': ^0.8.4
       '@ianwalter/timer': ^2.0.2
   packages/nrg-mq:
     dependencies:
@@ -221,7 +221,7 @@ importers:
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.8.3
+      '@ianwalter/nrg': ^0.8.4
       '@ianwalter/router': ^3.3.0
   packages/nrg-session:
     dependencies:
@@ -245,7 +245,7 @@ importers:
       supertest: 4.0.2
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.8.3
+      '@ianwalter/nrg': ^0.8.4
       benchmark: ^2.1.4
       common-tags: ^1.8.0
       copy-to: ~2.0.1
@@ -269,7 +269,7 @@ importers:
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      '@ianwalter/nrg': ^0.8.3
+      '@ianwalter/nrg': ^0.8.4
       '@ianwalter/requester': ^2.4.1
 lockfileVersion: 5.1
 packages:
