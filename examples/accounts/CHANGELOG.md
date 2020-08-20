@@ -1,5 +1,16 @@
 # accounts-example
 
+## 1.1.0
+
+### Minor Changes
+
+- 8e0e610: Cleaning up csrf endpoint testing logic
+
+### Patch Changes
+
+- Updated dependencies [8e0e610]
+  - @ianwalter/nrg@0.9.0
+
 ## 1.0.7
 
 ### Patch Changes

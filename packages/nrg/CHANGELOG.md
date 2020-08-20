@@ -1,5 +1,16 @@
 # @ianwalter/nrg
 
+## 0.9.0
+
+### Minor Changes
+
+- 8e0e610: Cleaning up csrf endpoint testing logic
+
+### Patch Changes
+
+- Updated dependencies [8e0e610]
+  - @ianwalter/nrg-test@1.2.0
+
 ## 0.8.4
 
 ### Patch Changes
