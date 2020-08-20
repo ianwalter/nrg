@@ -317,13 +317,6 @@ module.exports = function config (options = {}) {
       healthEndpoint (app) {
         if (cfg.plugins.router) app.get('/health', ctx => (ctx.status = 200))
       },
-      // Plugin for adding an endpoint that returns a valid CSRF token if the
-      // application is in test mode.
-      csrfEndpoint (app) {
-        if (cfg.keys?.length && cfg.plugins.router && cfg.isTest) {
-          app.get('/csrf-token', ctx => (ctx.body = { csrfToken: ctx.csrf }))
-        }
-      },
       // Add a serve method to the app that makes it easy to start listening for
       // connections.
       serve (app) {
@@ -331,7 +324,7 @@ module.exports = function config (options = {}) {
       },
       // If not in production, add a utility to allow making test requests.
       test (app) {
-        if (!cfg.isProd) app.test = require('@ianwalter/nrg-test')(app)
+        if (!cfg.isProd) app.test = require('@ianwalter/nrg-test')(app, cfg)
       },
       // Add a utility that allows closing any connections opened when the app
       // was created.
@@ -517,6 +510,9 @@ module.exports = function config (options = {}) {
     },
     next: {
       enabled: false
+    },
+    test: {
+      csrfPath: undefined
     }
   }
 

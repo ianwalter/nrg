@@ -2,9 +2,7 @@ const { Requester } = require('@ianwalter/requester')
 
 const requester = new Requester({ shouldThrow: false })
 
-module.exports = function nrgTest (app) {
-  const { plugins } = app.context.cfg
-
+module.exports = function nrgTest (app, cfg = {}) {
   return function test (path, options) {
     // If options has a statusCode, treat it as a response to a previous request
     // and try to extract headers from it to be reused for current request to
@@ -58,7 +56,7 @@ module.exports = function nrgTest (app) {
       },
       async requestWithCsrf (method, options) {
         const headers = options?.headers
-        if (plugins.csrfEndpoint && (!headers || !headers['csrf-token'])) {
+        if (cfg.test?.csrfPath && (!headers || !headers['csrf-token'])) {
           const logger = app.logger && app.logger.ns('nrg.test')
           if (logger) {
             logger.debug(`Adding CSRF token for ${method} ${path} test request`)
@@ -66,7 +64,7 @@ module.exports = function nrgTest (app) {
 
           // Make a request to the CSRF token endpoint to get a CSRF token for
           // the test request.
-          const response = await test('/csrf-token').get(options)
+          const response = await test(cfg.test.csrfPath).get(options)
 
           // Add the CSRF token and session cookie to the request headers.
           const csrfToken = response.body.csrfToken

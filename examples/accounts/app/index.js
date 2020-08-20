@@ -18,7 +18,8 @@ const app = nrg.createApp({
       address: 'support@example.com'
     }
   },
-  accounts: { enabled: true }
+  accounts: { enabled: true },
+  test: { csrfPath: '/session' }
 })
 
 // Allow users to get their session data.

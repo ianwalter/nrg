@@ -6,4 +6,4 @@ docs/.vuepress/dist
 .yalc
 .env
 yalc.lock
-packages/nrg-print/output.txt
+packages/nrg-logger/output.txt
