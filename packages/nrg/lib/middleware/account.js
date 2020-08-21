@@ -50,7 +50,7 @@ async function validatePasswordUpdate (ctx, next) {
 }
 
 async function validateAccountUpdate (ctx, next) {
-  const { body } = ctx.request
+  const body = ctx.request.body || ctx.req.body || {}
   ctx.logger.ns('nrg.accounts').debug('account.validateAccountUpdate', { body })
   const validation = await ctx.cfg.validators.accountUpdate.validate(body)
   if (validation.isValid) {
@@ -84,7 +84,7 @@ async function updatePassword (ctx, next) {
 async function updateAccount (ctx, next) {
   // Collect the user data into a single Object.
   const password = ctx.state.hashedPassword
-  const payload = ctx.state.validation.data
+  const payload = ctx.state.validation?.data
   const data = excluding(merge({}, payload, { password }), 'email')
 
   const logger = ctx.logger.ns('nrg.accounts')
