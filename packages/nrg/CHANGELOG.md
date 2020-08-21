@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.9.1
+
+### Patch Changes
+
+- bf4ac05: Improving account update logic to be more flexible
+
 ## 0.9.0
 
 ### Minor Changes
