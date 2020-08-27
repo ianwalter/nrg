@@ -120,7 +120,7 @@ importers:
       '@ianwalter/url': 2.0.0
       bcrypt: 5.0.0
       cheerio: 1.0.0-rc.3
-      date-fns: 2.15.0
+      date-fns: 2.16.0
       devalue: 2.0.1
       dotenv: 8.2.0
       ejs: 3.1.3
@@ -165,7 +165,7 @@ importers:
       '@ianwalter/url': ^2.0.0
       bcrypt: 5.0.0
       cheerio: ^1.0.0-rc.3
-      date-fns: ^2.15.0
+      date-fns: ^2.16.0
       devalue: ^2.0.1
       dotenv: ^8.2.0
       ejs: ^3.1.3
@@ -6237,6 +6237,12 @@ packages:
       node: '>=0.11'
     resolution:
       integrity: sha512-ZCPzAMJZn3rNUvvQIMlXhDr4A+Ar07eLeGsGREoWU19a3Pqf5oYa+ccd+B3F6XVtQY6HANMFdOQ8A+ipFnvJdQ==
+  /date-fns/2.16.0:
+    dev: false
+    engines:
+      node: '>=0.11'
+    resolution:
+      integrity: sha512-DWTRyfOA85sZ4IiXPHhiRIOs3fW5U6Msrp+gElXARa6EpoQTXPyHQmh7hr+ssw2nx9FtOQWnAMJKgL5vaJqILw==
   /date-format/0.0.2:
     dev: true
     resolution:
