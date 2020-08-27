@@ -1,5 +1,16 @@
 # @ianwalter/nrg
 
+## 0.10.0
+
+### Minor Changes
+
+- f9abe92: Refactoring nrg-mq so it can more easily be used without an app
+
+### Patch Changes
+
+- Updated dependencies [f9abe92]
+  - @ianwalter/nrg-mq@1.2.0
+
 ## 0.9.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @ianwalter/nrg-mq
 
+## 1.2.0
+
+### Minor Changes
+
+- f9abe92: Refactoring nrg-mq so it can more easily be used without an app
+
 ## 1.1.0
 
 ### Minor Changes
