@@ -295,7 +295,7 @@ module.exports = function config (options = {}) {
         if (cfg.mq.enabled) {
           if (app.logger) app.logger.ns('nrg.plugins').debug('Adding nrg-mq')
           const mq = require('@ianwalter/nrg-mq')
-          app.mq = app.context.mq = mq(app, cfg.mq)
+          app.mq = app.context.mq = mq({ app, ...cfg.mq })
         }
       },
       // If email is enabled, set up instances of Mailgen to generate emails and

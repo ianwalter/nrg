@@ -11,14 +11,16 @@ const app = createApp({
     queues: [
       {
         name: 'test',
-        // Set up a subscription to the "test" queue that saves the message
-        // content to the messages array and acknowledges that the message was
-        // received.
-        async sub (ctx, msg) {
-          ctx.logger.info('Message received!', msg)
-          messages.push({ msg: msg.content, received: new Date() })
-          return msg.ack()
-        }
+        subcriptions: [
+          // Set up a subscription to the "test" queue that saves the message
+          // content to the messages array and acknowledges that the message was
+          // received.
+          async function testSubscription (ctx) {
+            ctx.logger.info('Message received!', ctx.message)
+            messages.push({ msg: ctx.message.content, received: new Date() })
+            return ctx.ack()
+          }
+        ]
       }
     ]
   }
