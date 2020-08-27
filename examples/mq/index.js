@@ -11,7 +11,7 @@ const app = createApp({
     queues: [
       {
         name: 'test',
-        subcriptions: [
+        subscriptions: [
           // Set up a subscription to the "test" queue that saves the message
           // content to the messages array and acknowledges that the message was
           // received.

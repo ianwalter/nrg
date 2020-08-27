@@ -63,7 +63,7 @@ module.exports = function mq ({ app, ...config }) {
 
         // If subscription handlers were specified in the config, subscribe them
         // to the queue immediately.
-        if (queue.subcriptions) queue.subcriptions.map(queue.sub)
+        if (queue.subscriptions) queue.subscriptions.map(queue.sub)
       }))
     }
   })
