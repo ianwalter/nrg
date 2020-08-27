@@ -34,7 +34,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@ianwalter/clone": "^5.0.0",
     "amqp-connection-manager": "^3.2.0",
     "amqplib": "^0.6.0"
   },

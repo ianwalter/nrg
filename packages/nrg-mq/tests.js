@@ -12,7 +12,7 @@ test('mq', async t => {
   const { connection, example } = nrgMq({ urls, queues: ['example'] })
 
   // Wait for the connection to the example queue.
-  await example.ready()
+  await example.ready
 
   // Subscribe to the example queue so that the assertion is run when receiving
   // a message.

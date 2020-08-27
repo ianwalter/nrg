@@ -1,6 +1,6 @@
 const { createApp } = require('@ianwalter/nrg')
 
-const messages = []
+let num = 0
 const host = process.env.MQ_HOST || 'localhost'
 const port = process.env.MQ_PORT || 25672
 const app = createApp({
@@ -10,18 +10,19 @@ const app = createApp({
     ],
     queues: [
       {
-        name: 'test',
+        name: 'add',
         subscriptions: [
-          // Set up a subscription to the "test" queue that saves the message
+          // Set up a subscription to the "add" queue that saves the message
           // content to the messages array and acknowledges that the message was
           // received.
-          async function testSubscription (ctx) {
+          function addSubscription (ctx) {
             ctx.logger.info('Message received!', ctx.message)
-            messages.push({ msg: ctx.message.content, received: new Date() })
-            return ctx.ack()
+            num = ctx.message.content.num
+            ctx.ack()
           }
         ]
-      }
+      },
+      'result'
     ]
   }
 })
@@ -29,11 +30,11 @@ const app = createApp({
 // Add a handler that publishes a message, receives an acknowledgement, and
 // sends a successful response.
 app.use(async ctx => {
-  const msg = { id: ctx.request.id }
-  const send = ctx.mq.test.pub(msg)
+  const msg = { result: ctx.request.body.num + num }
+  await ctx.mq.result.ready
+  await ctx.mq.result.pub(msg)
   ctx.logger.info('Message sent!', msg)
-  await send
-  ctx.body = messages
+  ctx.body = msg
 })
 
 // Export the app if required, otherwise start the server.
