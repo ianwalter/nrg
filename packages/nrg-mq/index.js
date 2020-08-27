@@ -22,7 +22,7 @@ module.exports = function mq ({ app, ...config }) {
   // Buffers.
   function sub (fn) {
     return rawMessage => {
-      const ctx = { ...app.context }
+      const ctx = { ...app?.context }
       ctx.ack = () => channelWrapper.ack(rawMessage)
       ctx.nack = () => channelWrapper.nack(rawMessage)
       try {
@@ -31,7 +31,7 @@ module.exports = function mq ({ app, ...config }) {
         return fn({ ...ctx, message })
       } catch (err) {
         logger.error(err)
-        return ctx.nack()
+        ctx.nack()
       }
     }
   }
@@ -53,7 +53,7 @@ module.exports = function mq ({ app, ...config }) {
         // If subscription handlers were specified in the config, subscribe them
         // to the queue immediately.
         if (queue.subscriptions) {
-          queue.subscriptions.map(queue.sub)
+          await Promise.all(queue.subscriptions.map(queue.sub))
           delete queue.subscriptions
         }
       }))
