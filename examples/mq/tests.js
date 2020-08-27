@@ -8,7 +8,7 @@ test('Message Queue', async t => {
 
   // Subscribe to the "result" queue.
   let result
-  app.mq.result.sub(ctx => {
+  await app.mq.result.sub(ctx => {
     result = ctx.message.content.result
     ctx.ack()
   })
