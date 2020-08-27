@@ -137,7 +137,7 @@ importers:
       mailgen: 2.0.13
       nanoid: 3.1.12
       nodemailer: 6.4.11
-      objection: 2.2.2_knex@0.21.5
+      objection: 2.2.3_knex@0.21.5
       pg: 8.3.3_pg@8.3.3
       pkg-dir: 4.2.0
       rate-limiter-flexible: 2.1.10
@@ -182,7 +182,7 @@ importers:
       mailgen: ^2.0.13
       nanoid: ^3.1.12
       nodemailer: ^6.4.11
-      objection: ^2.2.2
+      objection: ^2.2.3
       pg: ^8.3.3
       pkg-dir: ^4.2.0
       rate-limiter-flexible: ^2.1.10
@@ -12139,7 +12139,7 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-WTa54g2K8iu0kmS/us18jEmdv1a4Wi//BZ/DTVYEcH0XhLM5NYdpDHja3gt57VrZLcNAO2WGA+KpWsDBaHt6eA==
-  /objection/2.2.2_knex@0.21.5:
+  /objection/2.2.3_knex@0.21.5:
     dependencies:
       ajv: 6.12.3
       db-errors: 0.2.3
@@ -12150,7 +12150,7 @@ packages:
     peerDependencies:
       knex: 0.x
     resolution:
-      integrity: sha512-+1Ap7u9NQRochzDW5/BggUlKi94JfZGTJwQJuNXo8DwmAb8czEirvxcWBcX91/MmQq0BQUJjM4RPSiZhnkkWQw==
+      integrity: sha512-uNya9GuHlNeix7H0URthVE3+CmAlXmxkU69LAcRnncLjujJ8l1YX8JCB2GVSErTYS3Oc2xneF1ZWaR/MS8r63g==
   /obuf/1.1.2:
     dev: true
     resolution:

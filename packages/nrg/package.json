@@ -66,7 +66,7 @@
     "mailgen": "^2.0.13",
     "nanoid": "^3.1.12",
     "nodemailer": "^6.4.11",
-    "objection": "^2.2.2",
+    "objection": "^2.2.3",
     "pg": "^8.3.3",
     "pkg-dir": "^4.2.0",
     "rate-limiter-flexible": "^2.1.10",
