@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@ianwalter/requester": "^2.4.1"
+    "@ianwalter/requester": "^2.4.2"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",

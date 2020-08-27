@@ -264,14 +264,14 @@ importers:
       uid-safe: ^2.1.5
   packages/nrg-test:
     dependencies:
-      '@ianwalter/requester': 2.4.1
+      '@ianwalter/requester': 2.4.2
     devDependencies:
       '@ianwalter/bff': 9.10.0
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/nrg': ^0.9.1
-      '@ianwalter/requester': ^2.4.1
+      '@ianwalter/requester': ^2.4.2
 lockfileVersion: 5.1
 packages:
   /@ampproject/toolbox-core/2.5.4:
@@ -2529,15 +2529,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zmHUJ06LbexUu1ARDxf9bnZuFCBsHiC+VVOFOy4G2TR9svg8YTP9m4dm+EYr9EXca/eqgwWHpLRxspYkxthfAw==
-  /@ianwalter/requester/2.4.1:
-    dependencies:
-      '@ianwalter/base-error': 6.1.0
-      '@ianwalter/clone': 6.0.1
-      '@ianwalter/merge': 9.0.1
-      '@ianwalter/print': 8.1.0
-    dev: false
-    resolution:
-      integrity: sha512-fYhKHV2V2I7lv+K8UiN+Jwz/nwjZECeVWgF4laaf/S+ipI7KeoQwbLaf/ed6h8kRFgIK6mYerysrgv7P/IXC/A==
   /@ianwalter/requester/2.4.2:
     dependencies:
       '@ianwalter/base-error': 6.1.0
