@@ -33,8 +33,8 @@ module.exports = function config (options = {}) {
     // or "nrg app".
     name: packageJson.name || 'nrg app',
     // [String] The host environment in relation to your application (e.g.
-    // production, stage, development, etc). Defaults to the NRG_ENV or APP_ENV
-    // environment variables.
+    // production, stage, development, etc). Defaults to the APP_ENV environment
+    // variables.
     env: process.env.APP_ENV,
     // [Boolean] Whether the application is running in "development" mode.
     // Defaults to true if the NODE_ENV environment variable is set to
