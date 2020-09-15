@@ -139,8 +139,9 @@ async function verifyToken (ctx, next) {
     return next()
   }
 
-  const debug = { hasStoredToken, storedToken: token, ...payload, tokensMatch }
-  logger.debug('token.verifyToken • Invalid token', debug)
+  const info = { hasStoredToken, tokensMatch, valid: token.isNotExpired() }
+  logger.warn('token.verifyToken • Invalid token', info)
+  logger.debug('token.verifyToken • Tokens', { storedToken: token, ...payload })
 
   // Return a 400 Bad Request if the token is invalid. The user cannot be told
   // if this is because the token is expired because that could leak that an
