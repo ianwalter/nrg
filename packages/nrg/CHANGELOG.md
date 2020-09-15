@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.10.1
+
+### Patch Changes
+
+- e10fb70: Improving verifyToken logging
+
 ## 0.10.0
 
 ### Minor Changes
