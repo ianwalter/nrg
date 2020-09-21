@@ -108,7 +108,7 @@ module.exports = function config (options = {}) {
         if (cfg.log) {
           const nrgLogger = require('@ianwalter/nrg-logger')
           const { logger, middleware } = nrgLogger(cfg.log)
-          logger.ns('nrg.plugins').debug('Adding nrgPrint middleware')
+          logger.ns('nrg.plugins').debug('Adding nrg-logger middleware')
           app.logger = app.context.logger = logger
           logMiddleware = middleware
         }
@@ -116,7 +116,7 @@ module.exports = function config (options = {}) {
       // FIXME: comment.
       error (app) {
         if (app.logger) {
-          app.logger.ns('nrg.plugins').debug('Adding handleError middleware')
+          app.logger.ns('nrg.plugins').debug('Adding error middleware')
         }
         const { handleError } = require('./middleware/error')
         app.use(handleError)
@@ -125,7 +125,7 @@ module.exports = function config (options = {}) {
       // nanoid so that request logs are easier to trace. Enabled by default.
       requestId (app) {
         if (app.logger) {
-          app.logger.ns('nrg.plugins').debug('Adding setRequestId middleware')
+          app.logger.ns('nrg.plugins').debug('Adding requestId middleware')
         }
         const { setRequestId } = require('./middleware/requestId')
         app.use(setRequestId)
@@ -196,7 +196,7 @@ module.exports = function config (options = {}) {
       rateLimit (app) {
         if (cfg.rateLimit.enabled) {
           if (app.logger) {
-            app.logger.ns('nrg.plugins').debug('Adding rate limit middleware')
+            app.logger.ns('nrg.plugins').debug('Adding rateLimit middleware')
           }
           const createRateLimiter = require('./utilities/createRateLimiter')
           const { rateLimit } = require('./middleware/rateLimit')
