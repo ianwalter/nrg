@@ -21,14 +21,15 @@ module.exports = function nrgLogger (options = {}) {
         path: ctx.url,
         timestamp: new Date()
       }
+      ctx.state.log = Object.assign(request, ctx.state.log)
 
       ctx.logger = logger.create({
         ...options,
         get extraJson () {
-          return request
+          return ctx.state.log
         },
         get extraItems () {
-          return [formatTimestamp(request.timestamp), `• ${ctx.req.id} •`]
+          return [formatTimestamp(ctx.state.log.timestamp), `• ${ctx.req.id} •`]
         }
       })
 
@@ -37,18 +38,18 @@ module.exports = function nrgLogger (options = {}) {
       await next()
 
       if (ctx.respond !== false) {
-        let res = `${ctx.method} ${ctx.url} ${ctx.status} Response`
+        let entry = `${ctx.method} ${ctx.url} ${ctx.status} Response`
 
-        // Update the request object with the current timestamp and the elapsed
-        // time from the timer so that it can be used in the response log.
-        request.timestamp = new Date()
-        request.responseTime = timer.duration()
+        Object.assign(
+          ctx.state.log,
+          { timestamp: new Date(), responseTime: timer.duration() }
+        )
 
         if (!options.ndjson) {
-          res += ` ${chalk.dim(`in ${request.responseTime}`)}`
+          entry += ` ${chalk.dim(`in ${ctx.state.log.responseTime}`)}`
         }
 
-        ctx.logger.log(res)
+        ctx.logger.log(entry)
       }
     }
   }
