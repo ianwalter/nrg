@@ -1,5 +1,12 @@
 # @ianwalter/nrg
 
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies [2e3e0a7]
+  - @ianwalter/nrg-logger@0.1.0
+
 ## 0.10.1
 
 ### Patch Changes

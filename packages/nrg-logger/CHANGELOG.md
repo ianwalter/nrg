@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.1.0
+
+### Minor Changes
+
+- 2e3e0a7: Exposing request / response logging using ctx.state.log
+
 ## 0.0.5
 
 ### Patch Changes

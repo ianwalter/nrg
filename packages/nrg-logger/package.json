@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/nrg-logger",
   "descripton": "A logger plugin for the nrg web framework",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
@@ -42,6 +42,6 @@
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",
-    "@ianwalter/nrg": "^0.10.1"
+    "@ianwalter/nrg": "^0.10.2"
   }
 }
