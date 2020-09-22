@@ -110,7 +110,7 @@ module.exports = function config (options = {}) {
           if (cfg.log) {
             const nrgLogger = require('@ianwalter/nrg-logger')
             const { logger, middleware } = nrgLogger(cfg.log)
-            logger.ns('nrg.plugins').debug('Adding nrg-logger middleware')
+            logger.ns('nrg.plugins').debug('Adding nrg-logger')
             app.logger = app.context.logger = logger
             ctx.log = logger.ns('nrg.plugins')
             ctx.logMiddleware = middleware
@@ -130,7 +130,10 @@ module.exports = function config (options = {}) {
           app.use(setRequestId)
         },
         log (app, ctx) {
-          if (ctx.logMiddleware) app.use(ctx.logMiddleware)
+          if (ctx.logMiddleware) {
+            if (ctx.log) ctx.log.debug('Adding log middleware')
+            app.use(ctx.logMiddleware)
+          }
         },
         // Middleware for redirecting requests using the http protocol to a
         // version of the URL that uses the https protocol when a request has
