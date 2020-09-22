@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.11.1
+
+### Patch Changes
+
+- 4b5a73f: Moving session middleware above log so session properties can be included in req/req logs
+- Updated dependencies [4b5a73f]
+  - @ianwalter/nrg-logger@0.1.1
+
 ## 0.11.0
 
 ### Minor Changes
