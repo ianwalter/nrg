@@ -97,6 +97,8 @@ const getRandomTimeout = require('./lib/utilities/getRandomTimeout')
 const getTestEmail = require('./lib/utilities/getTestEmail')
 const extractEmailToken = require('./lib/utilities/extractEmailToken')
 const getHostUrl = require('./lib/utilities/getHostUrl')
+const plugBefore = require('./lib/utilities/plugBefore')
+const plugAfter = require('./lib/utilities/plugAfter')
 
 const serve = require('./lib/app/serve')
 
@@ -304,6 +306,8 @@ module.exports = {
   getTestEmail,
   extractEmailToken,
   getHostUrl,
+  plugBefore,
+  plugAfter,
 
   /**
    * App methods:
