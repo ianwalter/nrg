@@ -1,5 +1,15 @@
 # @ianwalter/nrg
 
+## 0.11.0
+
+### Minor Changes
+
+- 655cc90: Adding #429: plugBefore / plugAfter utilities
+
+### Patch Changes
+
+- ae5da22: Updating plugin logs
+
 ## 0.10.2
 
 ### Patch Changes

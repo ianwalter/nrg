@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",
-    "@ianwalter/nrg": "^0.10.0",
+    "@ianwalter/nrg": "^0.11.0",
     "koa-mount": "^4.0.0",
     "vite": "^1.0.0-rc.3",
     "vite-plugin-react": "^3.0.2"
