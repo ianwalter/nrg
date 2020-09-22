@@ -40,10 +40,8 @@ module.exports = function nrgLogger (options = {}) {
       if (ctx.respond !== false) {
         let entry = `${ctx.method} ${ctx.url} ${ctx.status} Response`
 
-        Object.assign(
-          ctx.state.log,
-          { timestamp: new Date(), responseTime: timer.duration() }
-        )
+        ctx.state.log.timestamp = new Date()
+        ctx.state.log.responseTime = timer.duration()
 
         if (!options.ndjson) {
           entry += ` ${chalk.dim(`in ${ctx.state.log.responseTime}`)}`

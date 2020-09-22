@@ -49,7 +49,8 @@ module.exports = function config (options = {}) {
     // Defaults to true if the NODE_ENV environment variable is set to
     // 'production'.
     isProd: process.env.NODE_ENV === 'production',
-    // FIXME:
+    // [Boolean] Whether the application is running through the CLI and should
+    // change run behavior accordingly. Defaults to false.
     isCli: false,
     // [String] The hostname that the server should serve requests for. Defaults
     // to the APP_HOSTNAME environment variable or '0.0.0.0' if in development
@@ -103,9 +104,8 @@ module.exports = function config (options = {}) {
     // [Object] Key-value entries of plugins the application will use.
     get plugins () {
       const plugins = {
-        // Middleware for logging request/responses and making a logger
-        // available to middleware via `ctx`. Enabled by default if the log
-        // option Object is not falsy.
+        // Adds a logger instance to the app and ctx. Enabled by default if the
+        // log option Object is not falsy.
         logger (app, ctx) {
           if (cfg.log) {
             const nrgLogger = require('@ianwalter/nrg-logger')
@@ -116,7 +116,8 @@ module.exports = function config (options = {}) {
             ctx.logMiddleware = middleware
           }
         },
-        // FIXME: comment.
+        // Middleware that logs and builds responses for errors thrown in
+        // subsequent middleware. Enabled by default.
         error (app, ctx) {
           if (ctx.log) ctx.log.debug('Adding error middleware')
           const { handleError } = require('./middleware/error')
@@ -129,6 +130,26 @@ module.exports = function config (options = {}) {
           const { setRequestId } = require('./middleware/requestId')
           app.use(setRequestId)
         },
+        // If enabled, add a redis instance to the app and server context.
+        redis (app, ctx) {
+          if (cfg.redis.enabled) {
+            if (ctx.log) ctx.log.debug('Adding Redis')
+            const redisStore = require('koa-redis')
+            app.redis = app.context.redis = redisStore(cfg.redis.connection)
+          }
+        },
+        // Middleware for enabling server-side user sessions using
+        // @ianwalter/nrg-session. Enabled by default if keys used to generate
+        // the session keys are passed as options.
+        session (app, ctx) {
+          if (cfg.keys?.length && !cfg.isCli) {
+            if (ctx.log) ctx.log.debug('Adding nrg-session middleware')
+            const nrgSession = require('@ianwalter/nrg-session')
+            app.use(nrgSession({ store: app.redis }, app))
+          }
+        },
+        // Middleware for logging request/responses. Enabled by default if
+        // logMiddleware has been added to ctx.
         log (app, ctx) {
           if (ctx.logMiddleware) {
             if (ctx.log) ctx.log.debug('Adding log middleware')
@@ -155,7 +176,8 @@ module.exports = function config (options = {}) {
             app.use(serveStatic)
           }
         },
-        // FIXME: comment.
+        // Middleware for supporting Webpack compilation / Hot Module Reloading
+        // (HMR) during development. Enabled through the webpack.enabled option.
         webpack (app, ctx) {
           const { enabled, ...rest } = cfg.webpack
           if (enabled && !cfg.isCli) {
@@ -163,24 +185,6 @@ module.exports = function config (options = {}) {
             app.context.webpackMiddleware = require('koa-webpack')(rest)
             const { serveWebpack } = require('./middleware/client')
             app.use(serveWebpack)
-          }
-        },
-        // If enabled, add a redis instance to the app and server context.
-        redis (app, ctx) {
-          if (cfg.redis.enabled) {
-            if (ctx.log) ctx.log.debug('Adding Redis')
-            const redisStore = require('koa-redis')
-            app.redis = app.context.redis = redisStore(cfg.redis.connection)
-          }
-        },
-        // Middleware for enabling server-side user sessions using
-        // @ianwalter/nrg-session. Enabled by default if keys used to generate
-        // the session keys are passed as options.
-        session (app, ctx) {
-          if (cfg.keys?.length && !cfg.isCli) {
-            if (ctx.log) ctx.log.debug('Adding nrg-session middleware')
-            const nrgSession = require('@ianwalter/nrg-session')
-            app.use(nrgSession({ store: app.redis }, app))
           }
         },
         // Middleware for enabling app-wide IP-based rate limiting using
