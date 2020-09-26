@@ -1,0 +1,12 @@
+{
+  "name": "nrg",
+  "image": "ianwalter/devcontainer",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "tlent.jest-snapshot-language-support"
+  ],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ]
+}
