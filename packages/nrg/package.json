@@ -73,7 +73,7 @@
     "read-pkg-up": "^7.0.1",
     "replace-string": "^3.1.0",
     "require-from-string": "^2.0.2",
-    "webpack": "^4.44.1"
+    "webpack": "^4.44.2"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0"
