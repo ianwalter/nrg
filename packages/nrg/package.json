@@ -69,10 +69,12 @@
     "objection": "^2.2.3",
     "pg": "^8.3.3",
     "pkg-dir": "^4.2.0",
+    "qrcode": "^1.4.4",
     "rate-limiter-flexible": "^2.1.10",
     "read-pkg-up": "^7.0.1",
     "replace-string": "^3.1.0",
     "require-from-string": "^2.0.2",
+    "speakeasy": "^2.0.0",
     "webpack": "^4.44.1"
   },
   "devDependencies": {
