@@ -485,7 +485,8 @@ module.exports = function config (options = {}) {
       models: {
         Account: require('./models/Account'),
         Token: require('./models/Token')
-      }
+      },
+      twoFactor: false
     },
     validators: {
       get login () {
@@ -507,7 +508,8 @@ module.exports = function config (options = {}) {
       passwordUpdate: new SchemaValidator({ password, newPassword: password }),
       get accountUpdate () {
         return new SchemaValidator(cfg.accounts.models.Account.updateSchema)
-      }
+      },
+      twoFactor: new SchemaValidator({ code: { isString } })
     },
     next: {
       enabled: false
