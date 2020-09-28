@@ -18,7 +18,7 @@ module.exports = function nrgLogger (options = {}) {
       const request = {
         id: ctx.req.id,
         method: ctx.method,
-        path: ctx.url,
+        path: ctx.path,
         timestamp: new Date()
       }
       ctx.state.log = Object.assign(request, ctx.state.log)
