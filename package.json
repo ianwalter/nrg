@@ -71,9 +71,6 @@
   "renovate": {
     "extends": [
       "@ianwalter"
-    ],
-    "ignoreDeps": [
-      "@ianwalter/nrg-*"
     ]
   }
 }
