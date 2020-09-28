@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.1.2
+
+### Patch Changes
+
+- d4c1452: Changing ctx.url to ctx.path in logger
+
 ## 0.1.1
 
 ### Patch Changes
