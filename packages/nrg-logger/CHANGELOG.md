@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.1.3
+
+### Patch Changes
+
+- 0b6728e: Using ctx.state.log.path in logger
+
 ## 0.1.2
 
 ### Patch Changes
