@@ -33,12 +33,12 @@ module.exports = function nrgLogger (options = {}) {
         }
       })
 
-      ctx.logger.log(`${ctx.method} ${ctx.url} Request`)
+      ctx.logger.log(`${ctx.method} ${ctx.state.log.path} Request`)
 
       await next()
 
       if (ctx.respond !== false) {
-        let entry = `${ctx.method} ${ctx.url} ${ctx.status} Response`
+        let entry = `${ctx.method} ${ctx.state.log.path} ${ctx.status} Response`
 
         ctx.state.log.timestamp = new Date()
         ctx.state.log.responseTime = timer.duration()
