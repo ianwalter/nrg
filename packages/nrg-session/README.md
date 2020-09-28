@@ -160,4 +160,4 @@ Hippocratic License - See [LICENSE][licenseUrl]
 [koaUrl]: https://koajs.com/
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg-session.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg-session
-[licenseUrl]: https://github.com/ianwalter/nrg/blob/master/packages/nrg-session/LICENSE
+[licenseUrl]: https://github.com/ianwalter/nrg/blob/main/packages/nrg-session/LICENSE

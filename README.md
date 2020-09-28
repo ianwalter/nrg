@@ -63,7 +63,7 @@ Created by [Ian Walter](https://ianwalter.dev)
 [ciUrl]: https://github.com/ianwalter/nrg/actions
 [nrgUrl]: https://nrg.ianwalter.dev
 [koaUrl]: https://koajs.com/
-[nrgRouterUrl]: https://github.com/ianwalter/nrg/blob/master/packages/nrg-router#readme
+[nrgRouterUrl]: https://github.com/ianwalter/nrg/blob/main/packages/nrg-router#readme
 [printUrl]: https://github.com/ianwalter/print
 [redisUrl]: https://redis.io/
 [postgresUrl]: https://www.postgresql.org/
@@ -75,4 +75,4 @@ Created by [Ian Walter](https://ianwalter.dev)
 [webpackUrl]: https://webpack.js.org/
 [amqpUrl]: https://github.com/squaremo/amqp.node
 [rabbitmqUrl]: https://www.rabbitmq.com/
-[licenseUrl]: https://github.com/ianwalter/nrg/blob/master/LICENSE
+[licenseUrl]: https://github.com/ianwalter/nrg/blob/main/LICENSE
