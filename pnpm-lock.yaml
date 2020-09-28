@@ -111,7 +111,7 @@ importers:
       '@ianwalter/correct': 1.1.0
       '@ianwalter/dot': 1.0.5
       '@ianwalter/extract': 1.0.1
-      '@ianwalter/nrg-logger': 'link:../nrg-logger'
+      '@ianwalter/nrg-logger': 0.1.2
       '@ianwalter/nrg-mq': 'link:../nrg-mq'
       '@ianwalter/nrg-router': 'link:../nrg-router'
       '@ianwalter/nrg-session': 'link:../nrg-session'
@@ -206,13 +206,13 @@ importers:
       '@ianwalter/timer': ^2.0.2
   packages/nrg-mq:
     dependencies:
-      amqp-connection-manager: 3.2.0_amqplib@0.6.0
+      amqp-connection-manager: 3.2.1_amqplib@0.6.0
       amqplib: 0.6.0
     devDependencies:
       '@ianwalter/bff': 9.10.0
     specifiers:
       '@ianwalter/bff': ^9.10.0
-      amqp-connection-manager: ^3.2.0
+      amqp-connection-manager: ^3.2.1
       amqplib: ^0.6.0
   packages/nrg-router:
     dependencies:
@@ -2460,6 +2460,14 @@ packages:
   /@ianwalter/merge/9.0.1:
     resolution:
       integrity: sha512-Wu7eAZEsfuW0FJsVsdsNaWAtlY/6Viy74HQpZ8A81KutjhNO5cyPRkiBGletuX9kDUTOdSwWJokPnu/o4yE3KA==
+  /@ianwalter/nrg-logger/0.1.2:
+    dependencies:
+      '@generates/logger': 0.0.7
+      '@ianwalter/cloneable': 2.0.0
+      '@ianwalter/timer': 2.0.2
+    dev: false
+    resolution:
+      integrity: sha512-kZiv57Gmtzwcplu30PLUdcV4uIdHeusTdSsOO5shFNaMpzKMIs9ARTKdVy5vPN7yby+OEHa0WL+JNjdUvqHL7w==
   /@ianwalter/print/5.3.0:
     dependencies:
       '@ianwalter/chromafi': 1.0.1
@@ -3540,7 +3548,7 @@ packages:
   /alphanum-sort/1.0.2:
     resolution:
       integrity: sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
-  /amqp-connection-manager/3.2.0_amqplib@0.6.0:
+  /amqp-connection-manager/3.2.1_amqplib@0.6.0:
     dependencies:
       amqplib: 0.6.0
       promise-breaker: 5.0.0
@@ -3551,7 +3559,7 @@ packages:
     peerDependencies:
       amqplib: '*'
     resolution:
-      integrity: sha512-CnxBqUXd6ft4DbGs8YXNp0hDZgWiDQAghxG6JRJuxGbGEQdAjsb4oRR9PWBqO5V/Gssp7lDKigXX+DtSczID2w==
+      integrity: sha512-dDs2hg8MEtuYlXMzIqWwFx4N5Fjm8vXAQNyukDavyrYsgnQVt+rtJ+oosMP7eOXukSdquCoVqOaWr/Ih6txwTA==
   /amqplib/0.6.0:
     dependencies:
       bitsyntax: 0.1.0
