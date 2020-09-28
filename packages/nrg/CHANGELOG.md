@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.11.2
+
+### Patch Changes
+
+- 3999d1d: Update dependency knex to ^0.21.6
+
 ## 0.11.1
 
 ### Patch Changes
