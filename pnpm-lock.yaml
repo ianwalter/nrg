@@ -156,7 +156,7 @@ importers:
       '@ianwalter/correct': ^1.1.0
       '@ianwalter/dot': ^1.0.5
       '@ianwalter/extract': ^1.0.1
-      '@ianwalter/nrg-logger': ^0.1.2
+      '@ianwalter/nrg-logger': ^0.1.3
       '@ianwalter/nrg-mq': ^1.2.1
       '@ianwalter/nrg-router': ^1.0.0
       '@ianwalter/nrg-session': ^7.0.0
