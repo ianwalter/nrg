@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.11.3
+
+### Patch Changes
+
+- 2bfa662: Updating nrg-logger
+
 ## 0.11.2
 
 ### Patch Changes
