@@ -1,5 +1,11 @@
 # @ianwalter/nrg-test
 
+## 1.2.1
+
+### Patch Changes
+
+- 2147c0a: Fixing session config
+
 ## 1.2.0
 
 ### Minor Changes

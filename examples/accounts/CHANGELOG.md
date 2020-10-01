@@ -1,5 +1,13 @@
 # accounts-example
 
+## 1.1.3
+
+### Patch Changes
+
+- 2147c0a: Fixing session config
+- Updated dependencies [2147c0a]
+  - @ianwalter/nrg@0.11.4
+
 ## 1.1.2
 
 ### Patch Changes

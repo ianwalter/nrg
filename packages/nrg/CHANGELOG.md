@@ -1,5 +1,16 @@
 # @ianwalter/nrg
 
+## 0.11.4
+
+### Patch Changes
+
+- 2147c0a: Fixing session config
+- Updated dependencies [2147c0a]
+  - @ianwalter/nrg-logger@0.1.4
+  - @ianwalter/nrg-router@1.0.1
+  - @ianwalter/nrg-session@7.0.1
+  - @ianwalter/nrg-test@1.2.1
+
 ## 0.11.3
 
 ### Patch Changes
