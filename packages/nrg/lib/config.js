@@ -368,8 +368,10 @@ module.exports = function config (options = {}) {
     sessions: {
       // Resets the session age when a new request comes in.
       rolling: true,
-      // Set the session max age to 1 week in milliseconds.
-      maxAge: 24 * 60 * 60 * 1000 * 7
+      cookie: {
+        // Set the session max age to 1 week in milliseconds.
+        maxAge: 24 * 60 * 60 * 1000 * 7
+      }
     },
     oauth: {
       get enabled () {
