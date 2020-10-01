@@ -366,8 +366,10 @@ module.exports = function config (options = {}) {
     },
     keys: process.env.APP_KEYS?.split(','),
     sessions: {
-      // Resets the session TTL when a new request comes in.
-      rolling: true
+      // Resets the session age when a new request comes in.
+      rolling: true,
+      // Set the session max age to 1 week in milliseconds.
+      maxAge: 24 * 60 * 60 * 1000 * 7
     },
     oauth: {
       get enabled () {
