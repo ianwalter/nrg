@@ -9,6 +9,9 @@ const methods = [
 const routers = {}
 
 module.exports = function nrgRouter (app) {
+  // Tell the CSRF middleware that this router will handle CSRF exceptions.
+  this.handleCsrf = true
+
   const log = app.logger?.ns('nrg.router') || { debug: () => {} }
 
   // Add a route to the route tree.

@@ -145,7 +145,7 @@ module.exports = function config (options = {}) {
           if (cfg.keys?.length && !cfg.isCli) {
             if (ctx.log) ctx.log.debug('Adding nrg-session middleware')
             const nrgSession = require('@ianwalter/nrg-session')
-            app.use(nrgSession({ store: app.redis }, app))
+            app.use(nrgSession({ store: app.redis, ...cfg.sessions }, app))
           }
         },
         // Middleware for logging request/responses. Enabled by default if
@@ -365,6 +365,12 @@ module.exports = function config (options = {}) {
       }
     },
     keys: process.env.APP_KEYS?.split(','),
+    sessions: {
+      // Resets the session age when a new request comes in.
+      rolling: true,
+      // Set the session max age to 1 week in milliseconds.
+      maxAge: 24 * 60 * 60 * 1000 * 7
+    },
     oauth: {
       get enabled () {
         return Object.keys(this).some(key => oauthProviders[key])

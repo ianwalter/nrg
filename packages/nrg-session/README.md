@@ -1,7 +1,7 @@
 # @ianwalter/nrg-session
 > Session middleware for the nrg (or koa) web framework
 
-**Fork of koa/session in progress**
+**Fork of [koajs/generic-session](https://github.com/koajs/generic-session) in progress**
 
 
 Simple session middleware for Koa. Defaults to cookie-based sessions and

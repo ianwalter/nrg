@@ -25,7 +25,7 @@ const app = nrg.createApp({
 // Allow users to get their session data.
 app.get('/session', ...nrg.session)
 
-// Allow users to login.
+// Allow users to register an account.
 app.post('/registration', ...nrg.registration)
 
 // Allow users to verify their email address.
