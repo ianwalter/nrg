@@ -1,5 +1,15 @@
 # @ianwalter/nrg-router
 
+## 1.1.0
+
+### Minor Changes
+
+- 90eef70: Add #449: Add disableCsrf middleware
+
+### Patch Changes
+
+- 837574d: Add #450: Don't add the router middleware until first route is registered
+
 ## 1.0.1
 
 ### Patch Changes
