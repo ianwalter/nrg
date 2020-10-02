@@ -67,4 +67,7 @@ app.get('/hi', nrg.requireAuthorization({ roles: ['admin', 'owner'] }), ctx => {
   ctx.body = 'Hiya boss!'
 })
 
+// Endpoint to test the disableCsrf middleware.
+app.delete('/session', nrg.disableCsrf, ...nrg.logout)
+
 module.exports = app

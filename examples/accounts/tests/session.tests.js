@@ -30,3 +30,8 @@ test('Session • Rolling, rolling, rolling', async t => {
   response = await app.test('/account', response).get()
   t.expect(response.statusCode).toBe(200)
 })
+
+test('Session • Endpoint with CSRF disabled', async t => {
+  const response = await app.test('/session').delete()
+  t.expect(response.statusCode).toBe(200)
+})
