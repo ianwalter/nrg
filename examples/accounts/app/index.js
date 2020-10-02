@@ -18,6 +18,11 @@ const app = nrg.createApp({
       address: 'support@example.com'
     }
   },
+  sessions: {
+    cookie: {
+      maxAge: 5000 // 5 Seconds in milliseconds.
+    }
+  },
   accounts: { enabled: true },
   test: { csrfPath: '/session' }
 })
