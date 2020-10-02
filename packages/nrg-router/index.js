@@ -7,6 +7,7 @@ const methods = [
   'DELETE'
 ]
 const routers = {}
+const isNotDisableCsrf = middleware => middleware.name !== 'disableCsrf'
 
 module.exports = function nrgRouter (app) {
   const log = app.logger?.ns('nrg.router') || { debug: () => {} }
@@ -43,7 +44,7 @@ module.exports = function nrgRouter (app) {
     }
 
     // If CSRF is enabled, prepend the CSRF middleware to the middleware stack.
-    if (csrfMiddleware && middleware.every(m => m.name !== 'disableCsrf')) {
+    if (csrfMiddleware && middleware.every(isNotDisableCsrf)) {
       middleware.unshift(csrfMiddleware)
     }
 
