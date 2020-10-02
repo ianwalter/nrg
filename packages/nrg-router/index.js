@@ -28,8 +28,7 @@ module.exports = function nrgRouter (app) {
     }
 
     // If CSRF is enabled, prepend the CSRF middleware to the middleware stack.
-    const isCsrfEnabled = middleware.every(m => m.name !== 'disableCsrf')
-    if (method !== 'GET' && csrfMiddleware && isCsrfEnabled) {
+    if (csrfMiddleware && middleware.every(m => m.name !== 'disableCsrf')) {
       middleware.unshift(csrfMiddleware)
     }
 
