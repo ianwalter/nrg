@@ -22,6 +22,8 @@ module.exports = function nrgRouter (app) {
   app.addRoute = function addRoute (method, path, ...middleware) {
     log.debug('Adding route', method, path)
 
+    // Only adding the middleware once a route is registered so you can still
+    // use app.use before routes.
     if (!middlewareAdded) {
       // Add the router middleware to the app so that it can match requests to
       // routes.
@@ -30,6 +32,7 @@ module.exports = function nrgRouter (app) {
         return next()
       })
 
+      // Ensure the middleware isn't added again.
       middlewareAdded = true
     }
 
