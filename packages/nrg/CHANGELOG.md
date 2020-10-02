@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.11.6
+
+### Patch Changes
+
+- 49b2dbd: Add #456: Remember me
+
 ## 0.11.5
 
 ### Patch Changes
