@@ -51,3 +51,16 @@ test('Login • Unverified user can login', async t => {
   t.expect(response.statusCode).toBe(201)
   t.expect(response.body).toMatchSnapshot()
 })
+
+test('Login • Remember me', async t => {
+  const body = { ...generalUser, password, rememberMe: true }
+  let response = await app.test('/login').post(body)
+  t.expect(response.statusCode).toBe(201)
+
+  // Sleep for 5 seconds so that the session would expire if rememberMe was
+  // false.
+  await t.asleep(5000)
+
+  response = await app.test('/account', response).get()
+  t.expect(response.statusCode).toBe(200)
+})

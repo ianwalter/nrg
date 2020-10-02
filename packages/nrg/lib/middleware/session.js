@@ -37,6 +37,13 @@ async function createUserSession (ctx, next) {
     // Add the account data to the current session.
     ctx.session.account = account
 
+    // If the rememberMe functionality is enabled and the user has selected
+    // rememberMe, set the session cookie maxAge to null so that it won't have
+    // a set expiry.
+    if (ctx.cfg.sessions.rememberMe && ctx.state.validation.data.rememberMe) {
+      ctx.session.cookie.maxAge = null
+    }
+
     // Set the status to 201 to indicate a new user session was created.
     ctx.state.status = 201
 
@@ -64,10 +71,16 @@ async function getSession (ctx, next) {
   return next()
 }
 
+function resetSession (ctx, next) {
+  ctx.session.resetTime = new Date()
+  return next()
+}
+
 module.exports = {
   checkSessionAuthentication,
   validateLogin,
   createUserSession,
   clearSession,
-  getSession
+  getSession,
+  resetSession
 }

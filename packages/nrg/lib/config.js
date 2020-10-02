@@ -6,7 +6,8 @@ const {
   isEmail,
   isStrongPassword,
   isString,
-  isOptional
+  isOptional,
+  isBoolean
 } = require('@ianwalter/correct')
 const oauthProviders = require('grant/config/oauth.json')
 
@@ -366,11 +367,16 @@ module.exports = function config (options = {}) {
     },
     keys: process.env.APP_KEYS?.split(','),
     sessions: {
-      // Resets the session age when a new request comes in.
+      // Resets the session age on each new request.
       rolling: true,
+      // The remember me option which will set the cookie.maxAge to null if
+      // selected is enabled by default.
+      rememberMe: true,
       cookie: {
-        // Set the session max age to 1 week in milliseconds.
-        maxAge: 24 * 60 * 60 * 1000 * 7
+        // Set the default session max age (essentially the idle timeout if
+        // using rolling = true) to 30 minutes in milliseconds.
+        // See: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#session-expiration
+        maxAge: 30 * 60 * 1000
       }
     },
     oauth: {
@@ -497,7 +503,9 @@ module.exports = function config (options = {}) {
     },
     validators: {
       get login () {
-        return new SchemaValidator(cfg.accounts.models.Account.loginSchema)
+        const s = cfg.accounts.models.Account.loginSchema
+        if (cfg.sessions.rememberMe) s.rememberMe = { isBoolean, isOptional }
+        return new SchemaValidator(s)
       },
       get registration () {
         const { Account } = cfg.accounts.models
