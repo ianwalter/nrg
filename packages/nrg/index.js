@@ -75,7 +75,8 @@ const {
   createUserSession,
   clearSession,
   getSession,
-  resetSession
+  resetSession,
+  disableCsrf
 } = require('./lib/middleware/session')
 
 const {
@@ -149,11 +150,13 @@ module.exports = {
   sendEmail,
 
   // Email Verification:
+  disableCsrf,
   generateEmailVerificationEmail,
   validateEmailVerification,
   getAccountWithEmailTokens,
   verifyEmail,
   emailVerification: [
+    disableCsrf,
     validateEmailVerification,
     getAccountWithEmailTokens,
     verifyToken,
@@ -166,6 +169,7 @@ module.exports = {
   // Resend Email Verification:
   startEmailVerification,
   resendEmailVerification: [
+    disableCsrf,
     validateEmail,
     getAccount,
     ...startEmailVerification,
@@ -176,6 +180,7 @@ module.exports = {
   validateRegistration,
   createAccount,
   registration: [
+    disableCsrf,
     validateRegistration,
     hashPassword,
     createAccount,
@@ -205,6 +210,7 @@ module.exports = {
   validateLogin,
   createUserSession,
   login: [
+    disableCsrf,
     checkSessionAuthentication,
     validateLogin,
     getAccount,
@@ -224,6 +230,7 @@ module.exports = {
   // Forgot Password:
   generatePasswordResetEmail,
   forgotPassword: [
+    disableCsrf,
     validateEmail,
     generateToken,
     getAccount,
@@ -238,6 +245,7 @@ module.exports = {
   getAccountWithPasswordTokens,
   updatePassword,
   passwordReset: [
+    disableCsrf,
     validatePasswordReset,
     getAccountWithPasswordTokens,
     verifyToken,

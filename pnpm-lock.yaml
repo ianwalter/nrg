@@ -129,7 +129,6 @@ importers:
       koa: 2.13.0
       koa-bodyparser: 4.3.0
       koa-compress: 5.0.1
-      koa-csrf: 3.0.8
       koa-json: 2.0.2
       koa-redis: 4.0.1
       koa-send: 5.0.1
@@ -174,7 +173,6 @@ importers:
       koa: ^2.13.0
       koa-bodyparser: ^4.3.0
       koa-compress: ^5.0.1
-      koa-csrf: ^3.0.8
       koa-json: ^2.0.2
       koa-redis: ^4.0.1
       koa-send: ^5.0.1
@@ -217,6 +215,7 @@ importers:
   packages/nrg-router:
     dependencies:
       '@ianwalter/router': 3.3.0
+      koa-csrf: 3.0.8
     devDependencies:
       '@ianwalter/bff': 9.10.0
       '@ianwalter/nrg': 'link:../nrg'
@@ -224,6 +223,7 @@ importers:
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/nrg': ^0.11.6
       '@ianwalter/router': ^3.3.0
+      koa-csrf: ^3.0.8
   packages/nrg-session:
     dependencies:
       copy-to: 2.0.1

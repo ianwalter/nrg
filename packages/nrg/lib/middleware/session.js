@@ -76,11 +76,16 @@ function resetSession (ctx, next) {
   return next()
 }
 
+function disableCsrf (ctx, next) {
+  return next()
+}
+
 module.exports = {
   checkSessionAuthentication,
   validateLogin,
   createUserSession,
   clearSession,
   getSession,
-  resetSession
+  resetSession,
+  disableCsrf
 }

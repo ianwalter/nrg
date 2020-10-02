@@ -207,16 +207,6 @@ module.exports = function config (options = {}) {
             app.use(grant(cfg.oauth))
           }
         },
-        // Middleware to help protect against Cross-Site Request Forgery (CSRF)
-        // attacks using koa-csrf. Enabled by default if session middleware is
-        // enabled.
-        csrf (app, ctx) {
-          if (cfg.keys?.length && cfg.plugins.session && !cfg.isCli) {
-            if (ctx.log) ctx.log.debug('Adding koa-csrf middleware')
-            const CSRF = require('koa-csrf')
-            app.use(new CSRF())
-          }
-        },
         // Middleware for parsing request bodies into a format that's easier to
         // work with (e.g. JSON String to JS Object) using koa-bodyParser.
         // Enabled by default for 'json', 'form', and 'text'.
@@ -367,6 +357,8 @@ module.exports = function config (options = {}) {
     },
     keys: process.env.APP_KEYS?.split(','),
     sessions: {
+      // Tells the router to use CSRF middleware.
+      csrf: true,
       // Resets the session age on each new request.
       rolling: true,
       // The remember me option which will set the cookie.maxAge to null if
