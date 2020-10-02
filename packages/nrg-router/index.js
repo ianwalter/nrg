@@ -18,8 +18,23 @@ module.exports = function nrgRouter (app) {
   }
 
   // Add a route to the route tree.
+  let middlewareAdded = false
   app.addRoute = function addRoute (method, path, ...middleware) {
     log.debug('Adding route', method, path)
+
+    // Only adding the middleware once a route is registered so you can still
+    // use app.use before routes.
+    if (!middlewareAdded) {
+      // Add the router middleware to the app so that it can match requests to
+      // routes.
+      app.use(function matchRouteMiddleware (ctx, next) {
+        if (routers[ctx.method]) return routers[ctx.method].match(ctx, next)
+        return next()
+      })
+
+      // Ensure the middleware isn't added again.
+      middlewareAdded = true
+    }
 
     let router = routers[method]
     if (!router) {
@@ -40,12 +55,5 @@ module.exports = function nrgRouter (app) {
     app[method.toLowerCase()] = (path, ...middleware) => {
       app.addRoute(method, path, ...middleware)
     }
-  })
-
-  // Add the router middleware to the app so that it can match requests to
-  // routes.
-  app.use(function matchRouteMiddleware (ctx, next) {
-    if (routers[ctx.method]) return routers[ctx.method].match(ctx, next)
-    return next()
   })
 }
