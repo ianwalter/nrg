@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/nrg",
   "description": "A batteries-included Node.js web framework",
-  "version": "0.11.4",
+  "version": "0.11.5",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
