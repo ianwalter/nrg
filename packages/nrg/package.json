@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/nrg",
   "description": "A batteries-included Node.js web framework",
-  "version": "0.11.6",
+  "version": "0.12.0",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
@@ -42,7 +42,7 @@
     "@ianwalter/extract": "^1.0.1",
     "@ianwalter/nrg-logger": "^0.1.4",
     "@ianwalter/nrg-mq": "^1.2.1",
-    "@ianwalter/nrg-router": "^1.0.1",
+    "@ianwalter/nrg-router": "^1.1.0",
     "@ianwalter/nrg-session": "^7.0.1",
     "@ianwalter/nrg-test": "^1.2.1",
     "@ianwalter/requester": "^2.4.2",

@@ -1,5 +1,17 @@
 # @ianwalter/nrg
 
+## 0.12.0
+
+### Minor Changes
+
+- 90eef70: Add #449: Add disableCsrf middleware
+
+### Patch Changes
+
+- Updated dependencies [90eef70]
+- Updated dependencies [837574d]
+  - @ianwalter/nrg-router@1.1.0
+
 ## 0.11.6
 
 ### Patch Changes
