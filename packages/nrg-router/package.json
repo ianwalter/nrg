@@ -35,7 +35,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@ianwalter/router": "^3.3.0"
+    "@ianwalter/router": "^3.3.0",
+    "koa-csrf": "^3.0.8"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",

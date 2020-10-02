@@ -9,10 +9,13 @@ const methods = [
 const routers = {}
 
 module.exports = function nrgRouter (app) {
-  // Tell the CSRF middleware that this router will handle CSRF exceptions.
-  this.handleCsrf = true
-
   const log = app.logger?.ns('nrg.router') || { debug: () => {} }
+
+  let csrfMiddleware
+  if (app.context?.cfg?.sessions?.csrf && app.context.cfg.keys) {
+    const CSRF = require('koa-csrf')
+    csrfMiddleware = new CSRF()
+  }
 
   // Add a route to the route tree.
   app.addRoute = function addRoute (method, path, ...middleware) {
@@ -22,6 +25,12 @@ module.exports = function nrgRouter (app) {
     if (!router) {
       const baseUrl = app.context.baseUrl || 'http://localhost'
       router = routers[method] = new Router(baseUrl)
+    }
+
+    // If CSRF is enabled, prepend the CSRF middleware to the middleware stack.
+    const isCsrfEnabled = middleware.every(m => m.name !== 'disableCsrf')
+    if (method !== 'GET' && csrfMiddleware && isCsrfEnabled) {
+      middleware.unshift(csrfMiddleware)
     }
 
     router.add(path, ...middleware)
@@ -37,9 +46,7 @@ module.exports = function nrgRouter (app) {
   // Add the router middleware to the app so that it can match requests to
   // routes.
   app.use(function matchRouteMiddleware (ctx, next) {
-    if (routers[ctx.method]) {
-      return routers[ctx.method].match(ctx, next)
-    }
+    if (routers[ctx.method]) return routers[ctx.method].match(ctx, next)
     return next()
   })
 }

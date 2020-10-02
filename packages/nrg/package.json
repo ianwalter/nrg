@@ -58,7 +58,6 @@
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
     "koa-compress": "^5.0.1",
-    "koa-csrf": "^3.0.8",
     "koa-json": "^2.0.2",
     "koa-redis": "^4.0.1",
     "koa-send": "^5.0.1",
