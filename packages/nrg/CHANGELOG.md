@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.12.1
+
+### Patch Changes
+
+- e3ac81c: Improving passwordResetPath config
+
 ## 0.12.0
 
 ### Minor Changes
