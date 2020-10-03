@@ -1,11 +1,12 @@
 const { merge } = require('@generates/merger')
 const createUrl = require('@ianwalter/url')
 
-function handlePasswordResetEmail (ctx, next, options) {
+function handlePasswordResetEmail (ctx, next, options = {}) {
   const { passwordReset } = ctx.cfg.email.templates
   const payload = ctx.state.validation.data
   const { name } = ctx.state
-  const url = createUrl(ctx.cfg.baseUrl, options.path)
+  const resetPath = options.path || ctx.cfg.accounts.passwordResetPath
+  const url = createUrl(ctx.cfg.baseUrl, resetPath)
   url.search = { email: payload.email, token: ctx.state.token }
   const link = url.href
   const body = merge({}, passwordReset, { name, action: { button: { link } } })
@@ -21,15 +22,9 @@ function handlePasswordResetEmail (ctx, next, options) {
   return next()
 }
 
-const passwordResetEmailDefaults = { path: '/password-reset' }
-
-function generatePasswordResetEmail (ctx, next) {
-  let options = passwordResetEmailDefaults
-  if (!next) {
-    options = merge({}, options, ctx)
-    return (ctx, next) => handlePasswordResetEmail(ctx, next, options)
-  }
-  return handlePasswordResetEmail(ctx, next, options)
+function generatePasswordResetEmail (optOrCtx, next) {
+  if (!next) return (ctx, next) => handlePasswordResetEmail(ctx, next, optOrCtx)
+  return handlePasswordResetEmail(optOrCtx, next)
 }
 
 module.exports = { generatePasswordResetEmail }

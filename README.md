@@ -14,7 +14,7 @@
 
 ✅ &nbsp; Optional fast routing through a [tree-based router][nrgRouterUrl]
 
-✅ &nbsp; Optional beautiful logging via [Print][printUrl]
+✅ &nbsp; Optional beautiful logging
 
 ✅ &nbsp; Optional session-handling and CSRF protection using a backend like
           [Redis][redisUrl]
@@ -64,7 +64,6 @@ Created by [Ian Walter](https://ianwalter.dev)
 [nrgUrl]: https://nrg.ianwalter.dev
 [koaUrl]: https://koajs.com/
 [nrgRouterUrl]: https://github.com/ianwalter/nrg/blob/main/packages/nrg-router#readme
-[printUrl]: https://github.com/ianwalter/print
 [redisUrl]: https://redis.io/
 [postgresUrl]: https://www.postgresql.org/
 [knexUrl]: https://knexjs.org/

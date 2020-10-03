@@ -491,7 +491,8 @@ module.exports = function config (options = {}) {
       models: {
         Account: require('./models/Account'),
         Token: require('./models/Token')
-      }
+      },
+      passwordResetPath: '/reset-password'
     },
     validators: {
       get login () {
