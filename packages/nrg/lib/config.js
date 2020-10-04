@@ -384,9 +384,11 @@ module.exports = function config (options = {}) {
     },
     redis: {
       get enabled () {
-        return !!(cfg.keys?.length || Object.values(this.connection).length)
+        return typeof this.connection === 'string' ||
+          !!(cfg.keys?.length || Object.values(this.connection).length)
       },
-      connection: process.env.REDIS_URL || {
+      connection: {
+        ...process.env.REDIS_URL ? { url: process.env.REDIS_URL } : {},
         ...process.env.REDIS_HOST ? { host: process.env.REDIS_HOST } : {},
         ...process.env.REDIS_PORT ? { port: process.env.REDIS_PORT } : {},
         ...process.env.REDIS_PASS ? { password: process.env.REDIS_PASS } : {}
@@ -394,7 +396,8 @@ module.exports = function config (options = {}) {
     },
     db: {
       get enabled () {
-        return !!(Object.values(this.connection).length || options.db)
+        return typeof this.connection === 'string' ||
+          !!(Object.values(this.connection).length || options.db)
       },
       client: 'pg',
       connection: process.env.DB_URL || {
