@@ -397,7 +397,7 @@ module.exports = function config (options = {}) {
         return !!(Object.values(this.connection).length || options.db)
       },
       client: 'pg',
-      connection: {
+      connection: process.env.DB_URL || {
         ...process.env.DB_HOST ? { host: process.env.DB_HOST } : {},
         ...process.env.DB_PORT ? { port: process.env.DB_PORT } : {},
         ...process.env.DB_NAME ? { database: process.env.DB_NAME } : {},
