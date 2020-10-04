@@ -1,5 +1,12 @@
 # @ianwalter/nrg
 
+## 0.12.2
+
+### Patch Changes
+
+- 24ccb51: Adding DB_URL to config
+- 4b988eb: Adding REDIS_URL to config
+
 ## 0.12.1
 
 ### Patch Changes
