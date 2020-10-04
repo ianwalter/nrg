@@ -386,7 +386,7 @@ module.exports = function config (options = {}) {
       get enabled () {
         return !!(cfg.keys?.length || Object.values(this.connection).length)
       },
-      connection: {
+      connection: process.env.REDIS_URL || {
         ...process.env.REDIS_HOST ? { host: process.env.REDIS_HOST } : {},
         ...process.env.REDIS_PORT ? { port: process.env.REDIS_PORT } : {},
         ...process.env.REDIS_PASS ? { password: process.env.REDIS_PASS } : {}
