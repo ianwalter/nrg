@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.12.3
+
+### Patch Changes
+
+- 40c7910: Fixing REDIS_URL config
+
 ## 0.12.2
 
 ### Patch Changes
