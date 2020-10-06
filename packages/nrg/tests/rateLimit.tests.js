@@ -5,7 +5,7 @@ test('Rate limit', async t => {
   const app = createApp({
     rateLimit: {
       client: 'memory',
-      points: 1, // Allow one request...
+      points: 1, // Allow 1 request...
       duration: 10 // every 10 seconds.
     }
   })
