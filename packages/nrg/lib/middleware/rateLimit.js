@@ -4,7 +4,7 @@ function rateLimit (rateLimiter) {
       await rateLimiter.consume(ctx.ip)
       return next()
     } catch (err) {
-      ctx.logger.debug('Rate limit', err)
+      ctx.logger.warn('Rate limit', ctx.ip, err)
       ctx.status = 429
       ctx.body = 'Too Many Requests'
     }
