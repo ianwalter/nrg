@@ -422,11 +422,6 @@ module.exports = function config (options = {}) {
       get enabled () {
         return this.points !== undefined && this.duration !== undefined
       },
-      get client () {
-        if (cfg.redis.enabled) return 'redis'
-        if (cfg.db.enabled) return 'db'
-        return 'memory'
-      },
       storeType: 'knex'
     },
     email: {
