@@ -1,5 +1,12 @@
 # @ianwalter/nrg
 
+## 0.12.4
+
+### Patch Changes
+
+- 9ccd4cf: Improve rate-limit log and add proxy config
+- f1d6a78: Update dependency pg to ^8.4.0
+
 ## 0.12.3
 
 ### Patch Changes
