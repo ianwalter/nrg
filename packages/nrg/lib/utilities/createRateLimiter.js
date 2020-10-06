@@ -1,9 +1,9 @@
 module.exports = function createRateLimiter (cfg, app) {
-  if (cfg.client === 'redis') {
+  if (app.redis) {
     const { RateLimiterRedis } = require('rate-limiter-flexible')
     cfg.storeClient = app.redis
     return new RateLimiterRedis(cfg)
-  } else if (cfg.client === 'db') {
+  } else if (app.db) {
     const { RateLimiterPostgres } = require('rate-limiter-flexible')
     cfg.storeClient = app.db
     return new RateLimiterPostgres(cfg)
