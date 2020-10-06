@@ -21,6 +21,7 @@ jobs:
       SMTP_PORT: 25
       MAILDEV_HOST: maildev
       MAILDEV_PORT: 80
+      DEBUG: nrg.rateLimit
     services:
       postgres:
         image: postgres:12.3

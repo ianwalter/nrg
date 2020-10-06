@@ -30,7 +30,8 @@
     "docs:build": "vuepress build docs",
     "docker": "npm-run-all -p docker:*",
     "docker:mq": "docker-compose -f examples/mq/docker-compose.yml --project-directory examples/mq up",
-    "docker:accounts": "docker-compose -f examples/accounts/docker-compose.yml --project-directory examples/accounts up"
+    "docker:accounts": "docker-compose -f examples/accounts/docker-compose.yml --project-directory examples/accounts up",
+    "down": "docker-compose -f examples/mq/docker-compose.yml --project-directory examples/mq down -v && docker-compose -f examples/accounts/docker-compose.yml --project-directory examples/accounts down -v"
   },
   "homepage": "https://github.com/ianwalter/nrg#readme",
   "repository": {

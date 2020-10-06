@@ -193,9 +193,8 @@ module.exports = function config (options = {}) {
         rateLimit (app, ctx) {
           if (cfg.rateLimit.enabled) {
             if (ctx.log) ctx.log.debug('Adding rateLimit middleware')
-            const createRateLimiter = require('./utilities/createRateLimiter')
             const { rateLimit } = require('./middleware/rateLimit')
-            app.use(rateLimit(createRateLimiter(cfg.rateLimit, app)))
+            app.use(rateLimit(cfg.rateLimit, app))
           }
         },
         // Middleware for enabling OAuth authentication using simov/grant. Not
@@ -421,11 +420,6 @@ module.exports = function config (options = {}) {
     rateLimit: {
       get enabled () {
         return this.points !== undefined && this.duration !== undefined
-      },
-      get client () {
-        if (cfg.redis.enabled) return 'redis'
-        if (cfg.db.enabled) return 'db'
-        return 'memory'
       },
       storeType: 'knex'
     },
