@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.12.5
+
+### Patch Changes
+
+- 0884f8e: Fix rate limiting
+
 ## 0.12.4
 
 ### Patch Changes
