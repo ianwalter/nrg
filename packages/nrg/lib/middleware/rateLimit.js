@@ -1,6 +1,9 @@
-function rateLimit (rateLimiter) {
+const createRateLimiter = require('../utilities/createRateLimiter')
+
+function rateLimit (cfg = {}) {
   return async (ctx, next) => {
     try {
+      const rateLimiter = createRateLimiter(cfg, ctx)
       await rateLimiter.consume(ctx.request.ip)
       return next()
     } catch (err) {
