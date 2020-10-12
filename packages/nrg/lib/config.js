@@ -7,7 +7,9 @@ const {
   isStrongPassword,
   isString,
   isOptional,
-  isBoolean
+  isBoolean,
+  trim,
+  lowercase
 } = require('@ianwalter/correct')
 const oauthProviders = require('grant/config/oauth.json')
 
@@ -21,8 +23,8 @@ const dir = path.dirname(packagePath)
 require('dotenv').config({ path: path.join(dir, '.env') })
 
 // Validator properties.
-const email = { isEmail }
-const token = { isString }
+const email = { isEmail, trim, lowercase }
+const token = { isString, trim }
 const password = { isStrongPassword }
 
 const byBefore = ([_, v]) => v.$pos === 'before'

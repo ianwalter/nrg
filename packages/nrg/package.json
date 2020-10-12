@@ -37,7 +37,7 @@
     "@generates/logger": "^0.0.7",
     "@generates/merger": "^0.0.1",
     "@ianwalter/cloneable": "^2.0.0",
-    "@ianwalter/correct": "^1.1.0",
+    "@ianwalter/correct": "^1.2.1",
     "@ianwalter/dot": "^1.0.5",
     "@ianwalter/extract": "^1.0.1",
     "@ianwalter/nrg-logger": "^0.1.4",

@@ -3,7 +3,9 @@ const {
   isString,
   isEmail,
   isStrongPassword,
-  isOptional
+  isOptional,
+  trim,
+  lowercase
 } = require('@ianwalter/correct')
 const { including } = require('@ianwalter/extract')
 const Base = require('./Base')
@@ -15,25 +17,25 @@ module.exports = class Account extends Base {
 
   static get loginSchema () {
     return {
-      email: { isEmail },
+      email: { isEmail, trim, lowercase },
       password: { isString }
     }
   }
 
   static get registrationSchema () {
     return {
-      firstName: { isString },
-      lastName: { isString },
-      email: { isEmail },
+      firstName: { isString, trim },
+      lastName: { isString, trim },
+      email: { isEmail, trim, lowercase },
       password: { isStrongPassword }
     }
   }
 
   static get updateSchema () {
     return {
-      firstName: { isString, isOptional },
-      lastName: { isString, isOptional },
-      email: { isEmail, isOptional },
+      firstName: { isString, isOptional, trim },
+      lastName: { isString, isOptional, trim },
+      email: { isEmail, isOptional, trim, lowercase },
       password: { isStrongPassword, isOptional }
     }
   }
