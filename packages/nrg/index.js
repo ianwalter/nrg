@@ -55,7 +55,7 @@ const {
   generateEmailVerificationEmail,
   startEmailVerification,
   validateEmailVerification,
-  getAccountWithEmailTokens,
+  getEmailTokens,
   verifyEmail
 } = require('./lib/middleware/emailVerification')
 
@@ -85,7 +85,7 @@ const {
 
 const {
   validatePasswordReset,
-  getAccountWithPasswordTokens
+  getPasswordTokens
 } = require('./lib/middleware/passwordReset')
 
 const { slowDown } = require('./lib/middleware/slowDown')
@@ -153,12 +153,13 @@ module.exports = {
   disableCsrf,
   generateEmailVerificationEmail,
   validateEmailVerification,
-  getAccountWithEmailTokens,
+  getEmailTokens,
   verifyEmail,
   emailVerification: [
     disableCsrf,
     validateEmailVerification,
-    getAccountWithEmailTokens,
+    getAccount,
+    getEmailTokens,
     verifyToken,
     verifyEmail,
     createUserSession,
@@ -242,12 +243,13 @@ module.exports = {
 
   // Password Reset:
   validatePasswordReset,
-  getAccountWithPasswordTokens,
+  getPasswordTokens,
   updatePassword,
   passwordReset: [
     disableCsrf,
     validatePasswordReset,
-    getAccountWithPasswordTokens,
+    getAccount,
+    getPasswordTokens,
     verifyToken,
     verifyEmail,
     hashPassword,

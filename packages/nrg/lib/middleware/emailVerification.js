@@ -54,22 +54,15 @@ async function validateEmailVerification (ctx, next) {
   throw new ValidationError(validation)
 }
 
-async function getAccountWithEmailTokens (ctx, next) {
-  const { Account } = ctx.cfg.accounts.models
-  const email = ctx.state.validation.data.email.trim().toLowerCase()
-  ctx.state.account = await Account.query()
-    .withGraphJoined('tokens')
-    .findOne({
-      'tokens.email': email,
-      'accounts.enabled': true,
-      'tokens.type': 'email'
-    })
-    .orderBy('tokens.createdAt', 'desc')
-    .limit(1)
+async function getEmailTokens (ctx, next) {
+  if (ctx.state.account) {
+    const logger = ctx.logger.ns('nrg.accounts.email')
+    logger.info('getEmailTokens')
 
-  ctx.logger
-    .ns('nrg.accounts.email')
-    .debug('emailVerification.getAccountWithEmailTokens', ctx.state.account)
+    await ctx.state.account.$fetchGraph('tokens(forEmailVerification)')
+
+    logger.debug('getEmailTokens • Account', ctx.state.account)
+  }
 
   return next()
 }
@@ -98,6 +91,6 @@ module.exports = {
   generateEmailVerificationEmail,
   startEmailVerification,
   validateEmailVerification,
-  getAccountWithEmailTokens,
+  getEmailTokens,
   verifyEmail
 }

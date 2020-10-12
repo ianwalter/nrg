@@ -21,6 +21,21 @@ module.exports = class Token extends Base {
     }
   }
 
+  static get modifiers() {
+    return {
+      forEmailVerification (builder) {
+        builder
+          .findOne({ 'tokens.type': 'email' })
+          .orderBy('tokens.createdAt', 'desc')
+      },
+      forPasswordReset (builder) {
+        builder
+          .findOne({ 'tokens.type': 'password' })
+          .orderBy('tokens.createdAt', 'desc')
+      }
+    }
+  }
+
   isNotExpired () {
     return isFuture(new Date(this.expiresAt))
   }
