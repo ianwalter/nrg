@@ -55,29 +55,39 @@ async function validateEmailVerification (ctx, next) {
 }
 
 async function getEmailTokens (ctx, next) {
-  if (ctx.state.account) {
-    const logger = ctx.logger.ns('nrg.accounts.email')
-    logger.info('getEmailTokens')
+  const { Account } = ctx.cfg.accounts.models
+  const logger = ctx.logger.ns('nrg.accounts.email')
+  logger.info('getEmailTokens')
 
-    await ctx.state.account.$fetchGraph('tokens(forEmailVerification)')
+  ctx.state.account = await Account.query()
+    .withGraphJoined('tokens')
+    .findOne({
+      'tokens.email': ctx.state.validation.data.email,
+      'accounts.enabled': true,
+      'tokens.type': 'email'
+    })
+    .orderBy('tokens.createdAt', 'desc')
 
-    logger.debug('getEmailTokens • Account', ctx.state.account)
-  }
+  logger.debug('getEmailTokens • Tokens', ctx.state.tokens)
 
   return next()
 }
 
 async function verifyEmail (ctx, next) {
+  const logger = ctx.logger.ns('nrg.accounts.email')
+  const data = { email: ctx.state.validation.data.email, emailVerified: true }
+  logger.info('verifyEmail', data)
+
   // Update the email and emailVerified values in the database and session. It's
   // safe to update the email here because if the request contained a different
   // email, the tokens wouldn't have matched, and the request wouldn't have
   // gotten here.
-  const email = ctx.state.validation.data.email
-  const data = { email, emailVerified: true }
-  const logger = ctx.logger.ns('nrg.accounts.email')
-  logger.debug('emailVerification.verifyEmail', data)
-  if (!ctx.state.account.emailVerified || ctx.state.account.email !== email) {
+  const { email, emailVerified } = ctx.state.account
+  if (email !== data.email || !emailVerified) {
     await ctx.state.account.$set(data).$query().patch()
+    logger.info('verifyEmail • Account updated')
+  } else {
+    logger.warn('verifyEmail • Account not updated', { email, emailVerified })
   }
 
   // Delete the property indicating the session belongs to a user who has not

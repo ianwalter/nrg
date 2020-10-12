@@ -159,10 +159,10 @@ module.exports = {
   emailVerification: [
     disableCsrf,
     validateEmailVerification,
-    getAccount,
     getEmailTokens,
     verifyToken,
     verifyEmail,
+    getAccount,
     createUserSession,
     reduceAccountForClient,
     addToResponse
