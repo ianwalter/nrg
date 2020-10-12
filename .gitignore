@@ -1,9 +1,8 @@
+.next
+.pnpm-store
+.vscode
 node_modules
 docs/.vuepress/dist
-.next
-.vscode
 .DS_Store
-.yalc
 .env
-yalc.lock
 packages/nrg-logger/output.txt
