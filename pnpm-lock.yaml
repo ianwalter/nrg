@@ -108,7 +108,7 @@ importers:
       '@generates/logger': 0.0.7
       '@generates/merger': 0.0.1
       '@ianwalter/cloneable': 2.0.0
-      '@ianwalter/correct': 1.2.0
+      '@ianwalter/correct': 1.2.1
       '@ianwalter/dot': 1.0.5
       '@ianwalter/extract': 1.0.1
       '@ianwalter/nrg-logger': 'link:../nrg-logger'
@@ -152,7 +152,7 @@ importers:
       '@generates/merger': ^0.0.1
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
-      '@ianwalter/correct': ^1.2.0
+      '@ianwalter/correct': ^1.2.1
       '@ianwalter/dot': ^1.0.5
       '@ianwalter/extract': ^1.0.1
       '@ianwalter/nrg-logger': ^0.1.4
@@ -2425,7 +2425,7 @@ packages:
   /@ianwalter/cloneable/2.0.0:
     resolution:
       integrity: sha512-ZMKux34x/+EJIc6RCu01MmFXbW1rDSCCHvL9Bu81Hy/QGwvYu/lJACXWEbiCC/q7kDfVhA8LWNcLeMsp7G5a/A==
-  /@ianwalter/correct/1.2.0:
+  /@ianwalter/correct/1.2.1:
     dependencies:
       '@ianwalter/base-error': 6.1.0
       date-fns: 2.16.1
@@ -2435,7 +2435,7 @@ packages:
       zxcvbn: 4.4.2
     dev: false
     resolution:
-      integrity: sha512-7Hi9rO4uZFEhRwYcueuQbOz9SBQlLa0hEq8O1X4RxmaQdEJD/5BoodG73jRIeOnGIvAndsv58Na9046eErgeGA==
+      integrity: sha512-MJrLVtUft6ahk/tptLH/krhMwxT5tZJEm9qssPrZfhqMYXkhGs39Ik47u3SWrccC2LPCWu1jjTFCANTPoQ6biQ==
   /@ianwalter/dot/1.0.5:
     resolution:
       integrity: sha512-xOtXmoeKrLudrNF5noqJPXJkMtm33A/Hhy/UPV0z5pWCtPa8pN1b5NFgrsFZsA/UsUN47MKWjLazPuZIO77ljw==
