@@ -154,6 +154,7 @@ module.exports = {
   generateEmailVerificationEmail,
   validateEmailVerification,
   getEmailTokens,
+  getAccount,
   verifyEmail,
   emailVerification: [
     disableCsrf,
@@ -198,7 +199,6 @@ module.exports = {
   ],
 
   // Account:
-  getAccount,
   reduceAccountForClient,
   account: [
     requireAuthorization,

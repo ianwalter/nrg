@@ -21,7 +21,7 @@ module.exports = class Token extends Base {
     }
   }
 
-  static get modifiers() {
+  static get modifiers () {
     return {
       forEmailVerification (builder) {
         builder

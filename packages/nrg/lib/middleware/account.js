@@ -20,7 +20,7 @@ async function getAccount (ctx, next) {
     ctx.state.account = await query
   }
   const { account } = ctx.state
-  ctx.logger.ns('nrg.accounts').debug('account.getAccount', { account })
+  ctx.logger.ns('nrg.accounts').debug('account.getAccount', { email, account })
   return next()
 }
 
