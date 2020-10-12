@@ -108,7 +108,7 @@ importers:
       '@generates/logger': 0.0.7
       '@generates/merger': 0.0.1
       '@ianwalter/cloneable': 2.0.0
-      '@ianwalter/correct': 1.1.0
+      '@ianwalter/correct': 1.2.0
       '@ianwalter/dot': 1.0.5
       '@ianwalter/extract': 1.0.1
       '@ianwalter/nrg-logger': 'link:../nrg-logger'
@@ -152,7 +152,7 @@ importers:
       '@generates/merger': ^0.0.1
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
-      '@ianwalter/correct': ^1.1.0
+      '@ianwalter/correct': ^1.2.0
       '@ianwalter/dot': ^1.0.5
       '@ianwalter/extract': ^1.0.1
       '@ianwalter/nrg-logger': ^0.1.4
@@ -2425,17 +2425,17 @@ packages:
   /@ianwalter/cloneable/2.0.0:
     resolution:
       integrity: sha512-ZMKux34x/+EJIc6RCu01MmFXbW1rDSCCHvL9Bu81Hy/QGwvYu/lJACXWEbiCC/q7kDfVhA8LWNcLeMsp7G5a/A==
-  /@ianwalter/correct/1.1.0:
+  /@ianwalter/correct/1.2.0:
     dependencies:
       '@ianwalter/base-error': 6.1.0
-      date-fns: 2.16.0
+      date-fns: 2.16.1
       decamelize: 4.0.0
       is-phone: 2.0.0
       isemail: 3.2.0
       zxcvbn: 4.4.2
     dev: false
     resolution:
-      integrity: sha512-enkw8vymGsGDIIVlJQsG7hmN9HQJwwhgnY+Z2ysQBuUhsLCcD4JROZdVGE+oHa2RLPMKMN8phBZJrshUCiauLw==
+      integrity: sha512-7Hi9rO4uZFEhRwYcueuQbOz9SBQlLa0hEq8O1X4RxmaQdEJD/5BoodG73jRIeOnGIvAndsv58Na9046eErgeGA==
   /@ianwalter/dot/1.0.5:
     resolution:
       integrity: sha512-xOtXmoeKrLudrNF5noqJPXJkMtm33A/Hhy/UPV0z5pWCtPa8pN1b5NFgrsFZsA/UsUN47MKWjLazPuZIO77ljw==
@@ -5620,6 +5620,12 @@ packages:
       node: '>=0.11'
     resolution:
       integrity: sha512-DWTRyfOA85sZ4IiXPHhiRIOs3fW5U6Msrp+gElXARa6EpoQTXPyHQmh7hr+ssw2nx9FtOQWnAMJKgL5vaJqILw==
+  /date-fns/2.16.1:
+    dev: false
+    engines:
+      node: '>=0.11'
+    resolution:
+      integrity: sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ==
   /date-format/0.0.2:
     dev: true
     resolution:
@@ -13794,6 +13800,7 @@ packages:
     resolution:
       integrity: sha512-7uf7ZQdPAl+lwb1ldUYJFY/raZRUCuaNx7lMJ+F16jrVwN1+c35C2pBMGIY0mCqdKm5sm45jqELJJLGM3UG9Pw==
   /svelte/3.24.0:
+    dev: false
     engines:
       node: '>= 8'
     resolution:
