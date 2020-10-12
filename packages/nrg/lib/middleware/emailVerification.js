@@ -68,7 +68,7 @@ async function getEmailTokens (ctx, next) {
     })
     .orderBy('tokens.createdAt', 'desc')
 
-  logger.debug('getEmailTokens • Tokens', ctx.state.tokens)
+  logger.debug('getEmailTokens • Account', ctx.state.account)
 
   return next()
 }
@@ -76,7 +76,7 @@ async function getEmailTokens (ctx, next) {
 async function verifyEmail (ctx, next) {
   const logger = ctx.logger.ns('nrg.accounts.email')
   const data = { email: ctx.state.validation.data.email, emailVerified: true }
-  logger.info('verifyEmail', data)
+  logger.info('verifyEmail', { email: data.email })
 
   // Update the email and emailVerified values in the database and session. It's
   // safe to update the email here because if the request contained a different
