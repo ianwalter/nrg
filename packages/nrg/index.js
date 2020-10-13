@@ -70,7 +70,6 @@ const {
 } = require('./lib/middleware/account')
 
 const {
-  checkSessionAuthentication,
   validateLogin,
   createUserSession,
   clearSession,
@@ -212,10 +211,10 @@ module.exports = {
   createUserSession,
   login: [
     disableCsrf,
-    checkSessionAuthentication,
     validateLogin,
     getAccount,
     comparePasswords,
+    clearSession,
     createUserSession,
     reduceAccountForClient,
     addToResponse

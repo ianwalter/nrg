@@ -23,7 +23,7 @@ test('Require Authorization • Authorized after login', async t => {
 
   // Verify the data is the same as the data received after login.
   t.expect(accountResponse.statusCode).toBe(200)
-  t.expect(accountResponse.body).toEqual(loginResponse.body)
+  t.expect(accountResponse.body).toEqual(loginResponse.body.account)
 })
 
 test('Require Authorization • Authorized with single role', async t => {

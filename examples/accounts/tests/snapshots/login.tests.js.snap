@@ -2,7 +2,14 @@
 
 exports[`Login • Already logged in 1`] = `
 Object {
-  "message": "Session is already authenticated",
+  "account": Object {
+    "email": "general_test@example.com",
+    "emailVerified": true,
+    "firstName": "General",
+    "id": "general",
+    "lastName": "Test",
+  },
+  "csrfToken": Any<String>,
 }
 `;
 
@@ -42,20 +49,26 @@ Object {
 
 exports[`Login • Unverified user can login 1`] = `
 Object {
-  "email": "unverified_test@example.com",
-  "emailVerified": false,
-  "firstName": "Unverified",
-  "id": "unverified",
-  "lastName": "Test",
+  "account": Object {
+    "email": "unverified_test@example.com",
+    "emailVerified": false,
+    "firstName": "Unverified",
+    "id": "unverified",
+    "lastName": "Test",
+  },
+  "csrfToken": Any<String>,
 }
 `;
 
 exports[`Login • Valid credentials 1`] = `
 Object {
-  "email": "general_test@example.com",
-  "emailVerified": true,
-  "firstName": "General",
-  "id": "general",
-  "lastName": "Test",
+  "account": Object {
+    "email": "general_test@example.com",
+    "emailVerified": true,
+    "firstName": "General",
+    "id": "general",
+    "lastName": "Test",
+  },
+  "csrfToken": Any<String>,
 }
 `;

@@ -28,7 +28,7 @@ test('Login • Invalid credentials', async t => {
 test('Login • Valid credentials', async t => {
   const response = await app.test('/login').post({ ...generalUser, password })
   t.expect(response.statusCode).toBe(201)
-  t.expect(response.body).toMatchSnapshot()
+  t.expect(response.body).toMatchSnapshot({ csrfToken: t.expect.any(String) })
 })
 
 test('Login • Disabled user', async t => {
@@ -39,17 +39,18 @@ test('Login • Disabled user', async t => {
 
 test('Login • Already logged in', async t => {
   const credentials = { ...generalUser, password }
-  let response = await app.test('/login').post(credentials)
-  response = await app.test('/login', response).post(credentials)
-  t.expect(response.statusCode).toBe(400)
-  t.expect(response.body).toMatchSnapshot()
+  const one = await app.test('/login').post(credentials)
+  const two = await app.test('/login', one).post(credentials)
+  t.expect(two.statusCode).toBe(201)
+  t.expect(two.body).toMatchSnapshot({ csrfToken: t.expect.any(String) })
+  t.expect(one.headers['set-cookie']).not.toEqual(two.headers['set-cookie'])
 })
 
 test('Login • Unverified user can login', async t => {
   const credentials = { ...unverifiedUser, password }
   const response = await app.test('/login').post(credentials)
   t.expect(response.statusCode).toBe(201)
-  t.expect(response.body).toMatchSnapshot()
+  t.expect(response.body).toMatchSnapshot({ csrfToken: t.expect.any(String) })
 })
 
 test('Login • Remember me', async t => {

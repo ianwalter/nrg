@@ -1,7 +1,7 @@
 {
-  "name": "@ianwalter/nrg-router",
-  "description": "A tree-based router for the nrg web framework",
-  "version": "1.1.0",
+  "name": "@ianwalter/nrg-csrf",
+  "description": "CSRF middleware for the nrg web framework",
+  "version": "0.0.0",
   "license": "SEE LICENSE IN LICENSE",
   "author": {
     "name": "Ian Walter",
@@ -9,36 +9,38 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "bff",
-    "example:hello": "node examples/helloWorld"
+    "test": "bff"
   },
-  "files": [
-    "index.js"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ianwalter/nrg.git",
-    "directory": "packages/nrg-router"
+    "directory": "packages/nrg-csrf"
   },
   "keywords": [
-    "nrg",
-    "koa",
-    "router",
-    "tree",
-    "route"
+    "csrf",
+    "cross",
+    "site",
+    "request",
+    "forgery",
+    "security",
+    "middleware",
+    "token"
   ],
+  "files": [
+    "index.js"
+  ],
+  "homepage": "https://github.com/ianwalter/nrg/blob/main/packages/nrg-csrf#readme",
   "bugs": {
     "url": "https://github.com/ianwalter/nrg/issues"
   },
-  "homepage": "https://github.com/ianwalter/nrg/blob/main/packages/nrg-router#readme",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@ianwalter/router": "^3.3.0"
+    "csrf": "^3.1.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",
-    "@ianwalter/nrg": "^0.12.5"
+    "@ianwalter/nrg": "workspace:^0.12.5"
   }
 }

@@ -64,24 +64,19 @@ module.exports = function (options = {}) {
   let storeStatus = 'available'
   let waitStore = Promise.resolve()
 
-  // notify user that this store is not
-  // meant for a production environment
+  // Notify user that this store is not meant for a production environment.
   if (process.env.NODE_ENV === 'production' && client instanceof MemoryStore) {
-    // eslint-disable-next-line
     console.warn(warning)
   }
 
   const sessionIdStore = options.sessionIdStore || {
-
-    get: function () {
+    get () {
       return this.cookies.get(key, cookie)
     },
-
-    set: function (sid, session) {
+    set (sid, session) {
       this.cookies.set(key, sid, session.cookie)
     },
-
-    reset: function () {
+    reset () {
       this.cookies.set(key, null)
     }
   }

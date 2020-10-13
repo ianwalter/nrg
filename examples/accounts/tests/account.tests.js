@@ -22,7 +22,7 @@ test('Account • Get', async t => {
   // Verify the data is the same as the data received after login and what's in
   // the database.
   const record = await Account.query().findById(generalUser.id)
-  t.expect(accountResponse.body).toEqual(response.body)
+  t.expect(accountResponse.body).toEqual(response.body.account)
   t.expect(accountResponse.body).toEqual(Account.extractClientData(record))
 })
 
@@ -182,8 +182,8 @@ test('Account • Update email address', async t => {
   // Verify that the user can login with the new email address.
   response = await app.test('/login').post({ email, password })
   t.expect(response.statusCode).toBe(201)
-  t.expect(response.body.firstName).toEqual(updates.firstName)
-  t.expect(response.body.lastName).toEqual(updates.lastName)
+  t.expect(response.body.account.firstName).toEqual(updates.firstName)
+  t.expect(response.body.account.lastName).toEqual(updates.lastName)
 })
 
 test('Account • Unverified user account update', async t => {

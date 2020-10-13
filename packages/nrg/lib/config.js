@@ -159,6 +159,16 @@ module.exports = function config (options = {}) {
             app.use(ctx.logMiddleware)
           }
         },
+        // Add Cross-Site Request Forgery (CSRF) middleware that will allow
+        // other middleware to generate CSRF tokens using the
+        // ctx.generateCsrfToken method. Also add CSRF protection middleware to
+        // the ctx so the router plugin can use it to protect relevant
+        // endpoints.
+        csrf (app, ctx) {
+          if (cfg.keys?.length && cfg.sessions.csrf && !cfg.isCli) {
+            require('@ianwalter/nrg-csrf').install(app, ctx)
+          }
+        },
         // Middleware for redirecting requests using the http protocol to a
         // version of the URL that uses the https protocol when a request has
         // the X-Forwarded-Proto header. Enabled by default if application is in
@@ -386,7 +396,7 @@ module.exports = function config (options = {}) {
     redis: {
       get enabled () {
         return typeof this.connection === 'string' ||
-          !!(cfg.keys?.length || Object.values(this.connection).length)
+          !!Object.values(this.connection).length
       },
       connection: {
         ...process.env.REDIS_URL ? { url: process.env.REDIS_URL } : {},

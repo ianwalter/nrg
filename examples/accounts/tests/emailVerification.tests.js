@@ -36,7 +36,7 @@ test('Email Verification • Success', async t => {
   const payload = { ...willVerifyUser, token }
   let response = await app.test('/verify-email').post(payload)
   t.expect(response.statusCode).toBe(201)
-  t.expect(response.body).toMatchSnapshot()
+  t.expect(response.body).toMatchSnapshot({ csrfToken: t.expect.any(String) })
 
   // Verify that emailVerified is set to true in the database.
   const record = await Account.query().findById(willVerifyUser.id)

@@ -66,11 +66,11 @@ test('Registration • Success', async t => {
   // Verify the email address.
   response = await app.test('/verify-email').post({ ...payload, token })
   t.expect(response.statusCode).toBe(201)
-  t.expect(response.body.firstName).toBe(payload.firstName)
-  t.expect(response.body.lastName).toBe(payload.lastName)
+  t.expect(response.body.account.firstName).toBe(payload.firstName)
+  t.expect(response.body.account.lastName).toBe(payload.lastName)
 
   // Verify that the email was verified.
-  const record = await Account.query().findById(response.body.id)
+  const record = await Account.query().findById(response.body.account.id)
   t.expect(record.emailVerified).toBe(true)
 })
 
@@ -102,8 +102,8 @@ test('Registration • Existing unverified email', async t => {
   // Verify the email address.
   response = await app.test('/verify-email').post({ ...payload, token })
   t.expect(response.statusCode).toBe(201)
-  t.expect(response.body.firstName).toBe(payload.firstName)
-  t.expect(response.body.lastName).toBe(payload.lastName)
+  t.expect(response.body.account.firstName).toBe(payload.firstName)
+  t.expect(response.body.account.lastName).toBe(payload.lastName)
 
   // Verify that the correct account data is stored in the database.
   const record = await Account.query().findById(unverifiedUser.id)
