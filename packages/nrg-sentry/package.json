@@ -1,0 +1,15 @@
+{
+  "name": "@ianwalter/nrg-sentry",
+  "scripts": {
+    "test": "bff"
+  },
+  "dependencies": {
+    "@ianwalter/nrg": "workspace:^0.12.5",
+    "@sentry/node": "^5.26.0",
+    "@sentry/tracing": "^5.26.0"
+  },
+  "devDependencies": {
+    "@ianwalter/bff": "^9.10.0",
+    "sentry-testkit": "^3.2.1"
+  }
+}

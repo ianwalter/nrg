@@ -41,6 +41,6 @@
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",
-    "@ianwalter/nrg": "^0.13.0"
+    "@ianwalter/nrg": "workspace:^0.12.5"
   }
 }
