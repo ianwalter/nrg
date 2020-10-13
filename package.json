@@ -9,7 +9,6 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "lint": "eslint .",
-    "nrg": "node packages/nrg/cli.js",
     "test:mq": "pnpm test --filter mq-example",
     "test:ssr": "pnpm test --filter ssr-example",
     "test:static": "pnpm test --filter static-example",
@@ -50,7 +49,6 @@
   "devDependencies": {
     "@changesets/cli": "^2.11.0",
     "@ianwalter/eslint-config": "^5.4.0",
-    "@ianwalter/nrg": "^0.12.5",
     "@ianwalter/renovate-config": "^1.4.0",
     "@ianwalter/vuepress-theme-brooks": "^1.2.0",
     "npm-run-all": "^4.1.5",
