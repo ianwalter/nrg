@@ -25,10 +25,12 @@ async function getAccount (ctx, next) {
 }
 
 function reduceAccountForClient (ctx, next) {
-  const account = ctx.state.account || ctx.session?.account
-  if (account) {
+  const entireAccount = ctx.state.account || ctx.session?.account
+  if (entireAccount) {
     const { Account } = ctx.cfg.accounts.models
-    ctx.state.body = Account.extractClientData(account)
+    const account = Account.extractClientData(entireAccount)
+    ctx.logger.ns('nrg.accounts.session').info('CTX', ctx.state.body)
+    ctx.state.body = ctx.state.body ? { ...ctx.state.body, account } : account
   }
   return next()
 }

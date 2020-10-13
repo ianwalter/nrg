@@ -159,6 +159,17 @@ module.exports = function config (options = {}) {
             app.use(ctx.logMiddleware)
           }
         },
+        // FIXME:
+        csrf (app, ctx) {
+          if (cfg.keys?.length && cfg.sessions.csrf && !cfg.isCli) {
+            if (ctx.log) {
+              ctx.log.debug('Adding nrg-csrf csrfGeneration middleware')
+            }
+            const nrgCsrf = require('@ianwalter/nrg-csrf')
+            app.use(nrgCsrf.csrfGeneration)
+            ctx.csrfValidation = nrgCsrf.csrfValidation
+          }
+        },
         // Middleware for redirecting requests using the http protocol to a
         // version of the URL that uses the https protocol when a request has
         // the X-Forwarded-Proto header. Enabled by default if application is in

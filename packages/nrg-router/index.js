@@ -9,19 +9,13 @@ const methods = [
 const routers = {}
 const isNotDisableCsrf = middleware => middleware.name !== 'disableCsrf'
 
-module.exports = function nrgRouter (app) {
-  const log = app.logger?.ns('nrg.router') || { debug: () => {} }
-
-  let csrfMiddleware
-  if (app.context?.cfg?.sessions?.csrf && app.context.cfg.keys) {
-    const CSRF = require('koa-csrf')
-    csrfMiddleware = new CSRF()
-  }
+module.exports = function nrgRouter (app, ctx) {
+  const logger = app.logger?.ns('nrg.router') || { debug: () => {} }
 
   // Add a route to the route tree.
   let middlewareAdded = false
   app.addRoute = function addRoute (method, path, ...middleware) {
-    log.debug('Adding route', method, path)
+    logger.debug('Adding route', method, path)
 
     // Only adding the middleware once a route is registered so you can still
     // use app.use before routes.
@@ -44,8 +38,8 @@ module.exports = function nrgRouter (app) {
     }
 
     // If CSRF is enabled, prepend the CSRF middleware to the middleware stack.
-    if (csrfMiddleware && middleware.every(isNotDisableCsrf)) {
-      middleware.unshift(csrfMiddleware)
+    if (ctx.csrfValidation && middleware.every(isNotDisableCsrf)) {
+      middleware.unshift(ctx.csrfValidation)
     }
 
     router.add(path, ...middleware)

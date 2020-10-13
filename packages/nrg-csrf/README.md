@@ -1,17 +1,12 @@
-# @ianwalter/nrg-logger
-> A logger plugin for the [nrg][nrgUrl] web framework
+# @ianwalter/nrg-csrf
+> CSRF middleware for the [nrg][nrgUrl] web framework
 
 [![npm page][npmImage]][npmUrl]
 
 ## About
 
-FIXME
-
-## Features
-
-- [x] Uses print to output request/response logs for nrg servers
-- [x] Can output logs to NDJSON (by default in production)
-- [ ] Can send raw log data to other software via `transports`
+This middleware is based on [@ianwalter/express-csrf][expressCsrUrl] which is in
+turn based on [csurf][csurfUrl]. Also influenced by [koa/csrf][koaCsrfUrl].
 
 ## License
 
