@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/nrg-csrf",
   "description": "CSRF middleware for the nrg web framework",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "SEE LICENSE IN LICENSE",
   "author": {
     "name": "Ian Walter",
@@ -41,6 +41,6 @@
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",
-    "@ianwalter/nrg": "workspace:^0.12.5"
+    "@ianwalter/nrg": "workspace:^0.13.0"
   }
 }

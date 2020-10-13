@@ -1,5 +1,11 @@
 # @ianwalter/nrg-router
 
+## 1.1.1
+
+### Patch Changes
+
+- 247f40f: Adding nrg-csrf, nrg-sentry, and session regeneration
+
 ## 1.1.0
 
 ### Minor Changes
