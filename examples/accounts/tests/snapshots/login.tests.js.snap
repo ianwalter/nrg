@@ -49,20 +49,26 @@ Object {
 
 exports[`Login • Unverified user can login 1`] = `
 Object {
-  "email": "unverified_test@example.com",
-  "emailVerified": false,
-  "firstName": "Unverified",
-  "id": "unverified",
-  "lastName": "Test",
+  "account": Object {
+    "email": "unverified_test@example.com",
+    "emailVerified": false,
+    "firstName": "Unverified",
+    "id": "unverified",
+    "lastName": "Test",
+  },
+  "csrfToken": "ZVcXVm1p-zy_t-zoK2etSXl1JVswq7JMkRNg",
 }
 `;
 
 exports[`Login • Valid credentials 1`] = `
 Object {
-  "email": "general_test@example.com",
-  "emailVerified": true,
-  "firstName": "General",
-  "id": "general",
-  "lastName": "Test",
+  "account": Object {
+    "email": "general_test@example.com",
+    "emailVerified": true,
+    "firstName": "General",
+    "id": "general",
+    "lastName": "Test",
+  },
+  "csrfToken": "GJdwblgI-yms0oyAnKulVUQY7ZdmuH7G5MNg",
 }
 `;

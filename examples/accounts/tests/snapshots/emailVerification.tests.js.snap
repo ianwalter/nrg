@@ -185,11 +185,14 @@ Object {
 
 exports[`Email Verification • Success 2`] = `
 Object {
-  "email": "will_verify_test@example.com",
-  "emailVerified": true,
-  "firstName": "Will Verify",
-  "id": "willVerify",
-  "lastName": "Test",
+  "account": Object {
+    "email": "will_verify_test@example.com",
+    "emailVerified": true,
+    "firstName": "Will Verify",
+    "id": "willVerify",
+    "lastName": "Test",
+  },
+  "csrfToken": "02A49xz6-XOmhyljeJz3UEk5QKNwdifwsjXA",
 }
 `;
 

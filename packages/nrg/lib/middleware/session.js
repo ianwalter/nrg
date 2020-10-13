@@ -41,13 +41,17 @@ async function createUserSession (ctx, next) {
     // Set the status to 201 to indicate a new user session was created.
     ctx.state.status = 201
 
+    // Add a CSRF token to the body (if it wasn't already added by clearSession)
+    // so that the login response is consistent whether you are already logged
+    // in or not.
+    if (!ctx.state.body?.csrfToken) {
+      ctx.state.body = { csrfToken: ctx.generateCsrfToken() }
+    }
+
     // Continue to the next middleware.
     return next()
   } else if (account) {
-    logger.warn(
-      'session.createUserSession • Disabled account login attempt',
-      { account }
-    )
+    logger.warn('session.createUserSession • Disabled account login attempt')
   }
 
   // Inform the user that their account credentials are incorrect
