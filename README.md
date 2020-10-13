@@ -43,6 +43,8 @@
 ✅ &nbsp; Optional message queue pub/sub using [AMQP][amqpUrl] /
           [RabbitMQ][rabbitmqUrl]
 
+✅ &nbsp; Optional [Sentry][sentryUrl] integration
+
 ## Installation
 
 ```console
@@ -74,4 +76,5 @@ Created by [Ian Walter](https://ianwalter.dev)
 [webpackUrl]: https://webpack.js.org/
 [amqpUrl]: https://github.com/squaremo/amqp.node
 [rabbitmqUrl]: https://www.rabbitmq.com/
+[sentryUrl]: https://sentry.io
 [licenseUrl]: https://github.com/ianwalter/nrg/blob/main/LICENSE
