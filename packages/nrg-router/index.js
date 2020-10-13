@@ -38,8 +38,8 @@ module.exports = function nrgRouter (app, ctx) {
     }
 
     // If CSRF is enabled, prepend the CSRF middleware to the middleware stack.
-    if (ctx.csrfValidation && middleware.every(isNotDisableCsrf)) {
-      middleware.unshift(ctx.csrfValidation)
+    if (ctx.csrfVerification && middleware.every(isNotDisableCsrf)) {
+      middleware.unshift(ctx.csrfVerification)
     }
 
     router.add(path, ...middleware)

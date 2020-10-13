@@ -1,10 +1,9 @@
 const { test } = require('@ianwalter/bff')
 const { createApp, disableCsrf } = require('@ianwalter/nrg')
-const { csrfGeneration, csrfValidation } = require('.')
+const nrgCsrf = require('.')
 
 function csrf (app, ctx) {
-  app.use(csrfGeneration)
-  ctx.csrfValidation = csrfValidation
+  nrgCsrf.install(app, ctx)
 }
 
 test('Ignored method', async t => {

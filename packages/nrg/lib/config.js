@@ -159,15 +159,14 @@ module.exports = function config (options = {}) {
             app.use(ctx.logMiddleware)
           }
         },
-        // FIXME:
+        // Add Cross-Site Request Forgery (CSRF) middleware that will allow
+        // other middleware to generate CSRF tokens using the
+        // ctx.generateCsrfToken method. Also add CSRF protection middleware to
+        // the ctx so the router plugin can use it to protect relevant
+        // endpoints.
         csrf (app, ctx) {
           if (cfg.keys?.length && cfg.sessions.csrf && !cfg.isCli) {
-            if (ctx.log) {
-              ctx.log.debug('Adding nrg-csrf csrfGeneration middleware')
-            }
-            const nrgCsrf = require('@ianwalter/nrg-csrf')
-            app.use(nrgCsrf.csrfGeneration)
-            ctx.csrfValidation = nrgCsrf.csrfValidation
+            require('@ianwalter/nrg-csrf').install(app, ctx)
           }
         },
         // Middleware for redirecting requests using the http protocol to a

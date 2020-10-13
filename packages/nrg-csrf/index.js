@@ -34,7 +34,7 @@ function csrfGeneration (ctx, next) {
   return next()
 }
 
-function csrfValidation (ctx, next) {
+function csrfVerification (ctx, next) {
   // Continue to the next middleware right away if the request method is in the
   // ignored list.
   if (ignoredMethods.includes(ctx.method)) return next()
@@ -55,4 +55,13 @@ function csrfValidation (ctx, next) {
   throw new InvalidCsrfError(token)
 }
 
-module.exports = { InvalidCsrfError, csrfGeneration, csrfValidation }
+module.exports = {
+  InvalidCsrfError,
+  csrfGeneration,
+  csrfVerification,
+  install (app, ctx) {
+    if (ctx.log) ctx.log.debug('Adding nrg-csrf middleware')
+    app.use(csrfGeneration)
+    ctx.csrfVerification = csrfVerification
+  }
+}
