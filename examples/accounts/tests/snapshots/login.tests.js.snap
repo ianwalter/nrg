@@ -56,7 +56,7 @@ Object {
     "id": "unverified",
     "lastName": "Test",
   },
-  "csrfToken": "ZVcXVm1p-zy_t-zoK2etSXl1JVswq7JMkRNg",
+  "csrfToken": Any<String>,
 }
 `;
 
@@ -69,6 +69,6 @@ Object {
     "id": "general",
     "lastName": "Test",
   },
-  "csrfToken": "GJdwblgI-yms0oyAnKulVUQY7ZdmuH7G5MNg",
+  "csrfToken": Any<String>,
 }
 `;

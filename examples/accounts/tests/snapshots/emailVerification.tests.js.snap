@@ -192,7 +192,7 @@ Object {
     "id": "willVerify",
     "lastName": "Test",
   },
-  "csrfToken": "02A49xz6-XOmhyljeJz3UEk5QKNwdifwsjXA",
+  "csrfToken": Any<String>,
 }
 `;
 

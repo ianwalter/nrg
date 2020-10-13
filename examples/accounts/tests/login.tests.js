@@ -28,7 +28,7 @@ test('Login • Invalid credentials', async t => {
 test('Login • Valid credentials', async t => {
   const response = await app.test('/login').post({ ...generalUser, password })
   t.expect(response.statusCode).toBe(201)
-  t.expect(response.body).toMatchSnapshot()
+  t.expect(response.body).toMatchSnapshot({ csrfToken: t.expect.any(String) })
 })
 
 test('Login • Disabled user', async t => {
@@ -50,7 +50,7 @@ test('Login • Unverified user can login', async t => {
   const credentials = { ...unverifiedUser, password }
   const response = await app.test('/login').post(credentials)
   t.expect(response.statusCode).toBe(201)
-  t.expect(response.body).toMatchSnapshot()
+  t.expect(response.body).toMatchSnapshot({ csrfToken: t.expect.any(String) })
 })
 
 test('Login • Remember me', async t => {

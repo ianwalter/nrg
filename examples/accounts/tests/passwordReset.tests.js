@@ -57,7 +57,7 @@ test('Password Reset • Success', async t => {
   const payload = { ...testUser, token, password: 'fjioenfkj02kqwmkl606' }
   let response = await app.test('/reset-password').post(payload)
   t.expect(response.statusCode).toBe(201)
-  t.expect(response.body).toMatchSnapshot()
+  t.expect(response.body).toMatchSnapshot({ csrfToken: t.expect.any(String) })
 
   // Logout.
   await app.test('/logout', response).delete()
@@ -69,7 +69,7 @@ test('Password Reset • Success', async t => {
   // Login and verify that the new password is able to log the user in.
   response = await app.test('/login').post(payload)
   t.expect(response.statusCode).toBe(201)
-  t.expect(response.body).toMatchSnapshot()
+  t.expect(response.body).toMatchSnapshot({ csrfToken: t.expect.any(String) })
 })
 
 test('Password Reset • Verify email through reset', async t => {
