@@ -397,7 +397,7 @@ module.exports = function config (options = {}) {
     redis: {
       get enabled () {
         return typeof this.connection === 'string' ||
-          !!(cfg.keys?.length || Object.values(this.connection).length)
+          !!Object.values(this.connection).length
       },
       connection: {
         ...process.env.REDIS_URL ? { url: process.env.REDIS_URL } : {},

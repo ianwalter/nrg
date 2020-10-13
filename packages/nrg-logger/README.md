@@ -24,4 +24,4 @@ Created by [Ian Walter](https://ianwalter.dev)
 [nrgUrl]: https://github.com/ianwalter/nrg
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg-print.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg-print
-[licenseUrl]: https://github.com/ianwalter/nrg/blob/main/LICENSE
+[licenseUrl]: https://github.com/ianwalter/nrg/blob/main/packages/nrg-logger/LICENSE

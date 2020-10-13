@@ -20,6 +20,7 @@ test('Error', async t => {
   // Wait for the asynchronous error reporting flow to complete.
   await t.asleep(100)
 
+  t.print.log('testkit.reports()[0]', testkit.reports()[0])
   t.expect(res.statusCode).toBe(500)
   t.expect(res.body).toBe('Internal Server Error')
   t.expect(testkit.reports()[0].error.message).toBe('Bow to the cow')

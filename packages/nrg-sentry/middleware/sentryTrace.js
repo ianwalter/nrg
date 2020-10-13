@@ -4,6 +4,7 @@ const {
   stripUrlQueryAndFragment
 } = require('@sentry/tracing')
 
+// Adapted from: https://docs.sentry.io/platforms/node/guides/koa/
 module.exports = async function sentryTrace (ctx, next) {
   const reqMethod = (ctx.method || '').toUpperCase()
   const reqUrl = ctx.url && stripUrlQueryAndFragment(ctx.url)
