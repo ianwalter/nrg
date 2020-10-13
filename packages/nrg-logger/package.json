@@ -42,6 +42,6 @@
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",
-    "@ianwalter/nrg": "^0.12.5"
+    "@ianwalter/nrg": "^0.13.0"
   }
 }

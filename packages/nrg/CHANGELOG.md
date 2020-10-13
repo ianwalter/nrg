@@ -1,5 +1,20 @@
 # @ianwalter/nrg
 
+## 0.13.0
+
+### Minor Changes
+
+- 247f40f: Adding nrg-csrf, nrg-sentry, and session regeneration
+- 26de34a: Add #485: Split token middleware
+
+### Patch Changes
+
+- a98fbf2: Update dependency pg to ^8.4.1
+- Updated dependencies [247f40f]
+  - @ianwalter/nrg-csrf@1.0.0
+  - @ianwalter/nrg-router@1.1.1
+  - @ianwalter/nrg-session@7.0.2
+
 ## 0.12.5
 
 ### Patch Changes
