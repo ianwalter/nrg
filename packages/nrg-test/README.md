@@ -1,8 +1,6 @@
 # @ianwalter/nrg-test
 > A test request plugin for the nrg framework
 
-
-
 ## License
 
 Hippocratic License - See [LICENSE][licenseUrl]

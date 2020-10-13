@@ -17,6 +17,6 @@ Hippocratic License - See [LICENSE][licenseUrl]
 Created by [Ian Walter](https://ianwalter.dev)
 
 [nrgUrl]: https://github.com/ianwalter/nrg
-[npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg-print.svg
-[npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg-print
+[npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg-csrf.svg
+[npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg-csrf
 [licenseUrl]: https://github.com/ianwalter/nrg/blob/main/packages/nrg-csrf/LICENSE

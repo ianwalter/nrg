@@ -22,6 +22,6 @@ Hippocratic License - See [LICENSE][licenseUrl]
 Created by [Ian Walter](https://ianwalter.dev)
 
 [nrgUrl]: https://github.com/ianwalter/nrg
-[npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg-print.svg
-[npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg-print
+[npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg-logger.svg
+[npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg-logger
 [licenseUrl]: https://github.com/ianwalter/nrg/blob/main/packages/nrg-logger/LICENSE

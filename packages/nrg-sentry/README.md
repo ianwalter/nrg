@@ -13,6 +13,6 @@ Created by [Ian Walter](https://ianwalter.dev)
 
 [sentryUrl]: https://sentry.io
 [nrgUrl]: https://github.com/ianwalter/nrg
-[npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg-print.svg
-[npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg-print
+[npmImage]: https://img.shields.io/npm/v/@ianwalter/nrg-sentry.svg
+[npmUrl]: https://www.npmjs.com/package/@ianwalter/nrg-sentry
 [licenseUrl]: https://github.com/ianwalter/nrg/blob/main/packages/nrg-sentry/LICENSE
