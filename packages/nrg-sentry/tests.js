@@ -24,6 +24,8 @@ test('Error', async t => {
   t.expect(res.statusCode).toBe(500)
   t.expect(res.body).toBe('Internal Server Error')
   t.expect(testkit.reports()[0].error.message).toBe('Bow to the cow')
+
+  // FIXME: how do I test tracing?
 })
 
 test('Warning', async t => {

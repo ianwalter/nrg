@@ -9,6 +9,7 @@ Object {
     "id": "general",
     "lastName": "Test",
   },
+  "csrfToken": Any<String>,
 }
 `;
 

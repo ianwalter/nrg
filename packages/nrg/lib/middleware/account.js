@@ -29,7 +29,6 @@ function reduceAccountForClient (ctx, next) {
   if (entireAccount) {
     const { Account } = ctx.cfg.accounts.models
     const account = Account.extractClientData(entireAccount)
-    ctx.logger.ns('nrg.accounts.session').info('CTX', ctx.state.body)
     ctx.state.body = ctx.state.body ? { ...ctx.state.body, account } : account
   }
   return next()

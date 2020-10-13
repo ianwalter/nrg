@@ -37,12 +37,14 @@ test('Login • Disabled user', async t => {
   t.expect(response.body).toMatchSnapshot()
 })
 
-test.only('Login • Already logged in', async t => {
+test('Login • Already logged in', async t => {
   const credentials = { ...generalUser, password }
   const one = await app.test('/login').post(credentials)
   const two = await app.test('/login', one).post(credentials)
   t.expect(two.statusCode).toBe(201)
-  t.expect(two.body).toMatchSnapshot()
+  t.expect(two.body).toMatchSnapshot({
+    csrfToken: t.expect.any(String)
+  })
   t.expect(one.headers['set-cookie']).not.toEqual(two.headers['set-cookie'])
 })
 

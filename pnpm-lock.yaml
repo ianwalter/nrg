@@ -111,6 +111,7 @@ importers:
       '@ianwalter/correct': 1.2.1
       '@ianwalter/dot': 1.0.5
       '@ianwalter/extract': 1.0.1
+      '@ianwalter/nrg-csrf': 'link:../nrg-csrf'
       '@ianwalter/nrg-logger': 'link:../nrg-logger'
       '@ianwalter/nrg-mq': 1.2.1
       '@ianwalter/nrg-router': 'link:../nrg-router'
@@ -155,6 +156,7 @@ importers:
       '@ianwalter/correct': ^1.2.1
       '@ianwalter/dot': ^1.0.5
       '@ianwalter/extract': ^1.0.1
+      '@ianwalter/nrg-csrf': ^1.0.0
       '@ianwalter/nrg-logger': ^0.1.4
       '@ianwalter/nrg-mq': ^1.2.1
       '@ianwalter/nrg-router': ^1.1.0
@@ -225,7 +227,6 @@ importers:
   packages/nrg-router:
     dependencies:
       '@ianwalter/router': 3.3.0
-      koa-csrf: 3.0.8
     devDependencies:
       '@ianwalter/bff': 9.10.0
       '@ianwalter/nrg': 'link:../nrg'
@@ -233,7 +234,6 @@ importers:
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/nrg': ^0.12.5
       '@ianwalter/router': ^3.3.0
-      koa-csrf: ^3.0.8
   packages/nrg-sentry:
     dependencies:
       '@ianwalter/nrg': 'link:../nrg'
@@ -9431,14 +9431,6 @@ packages:
       node: '>= 4'
     resolution:
       integrity: sha1-2kCHXfSd4FOQmNFwC1CCDOvNIdA=
-  /koa-csrf/3.0.8:
-    dependencies:
-      csrf: 3.1.0
-    dev: false
-    engines:
-      node: '>= 6.4'
-    resolution:
-      integrity: sha512-qCuFFGKEoc/6o229CwOT3638hp/2WNTUwLnKDezdXYYO/N6caS4l6isYJsjgqpZNjzjM53ZPISbLMMnlfHHv1g==
   /koa-etag/3.0.0:
     dependencies:
       etag: 1.8.1

@@ -64,14 +64,14 @@ async function clearSession (ctx, next) {
     if (!ctx.session.account) logger.info('clearSession')
     if (ctx.session.account) logger.info('clearSession • Existing session')
     await ctx.regenerateSession()
-    ctx.state.body = { csrfToken: ctx.csrf }
-    logger.info('clearSession', ctx.state.body, ctx.csrf)
+    ctx.state.body = { csrfToken: ctx.generateCsrfToken() }
   }
   return next()
 }
 
 async function getSession (ctx, next) {
-  ctx.state.body = { csrfToken: ctx.csrf, account: ctx.state.body }
+  const csrfToken = ctx.generateCsrfToken()
+  ctx.state.body = { csrfToken, account: ctx.state.body }
   return next()
 }
 
