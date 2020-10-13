@@ -19,7 +19,7 @@ async function validateLogin (ctx, next) {
 async function createUserSession (ctx, next) {
   const logger = ctx.logger.ns('nrg.accounts.session')
   const { account } = ctx.state
-  logger.debug('session.createUserSession', { account }, ctx.state)
+  logger.debug('session.createUserSession', { account })
 
   if (account?.enabled) {
     logger.info(

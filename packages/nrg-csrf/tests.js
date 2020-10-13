@@ -1,4 +1,3 @@
-
 const { test } = require('@ianwalter/bff')
 const { createApp, disableCsrf } = require('@ianwalter/nrg')
 const { csrfGeneration, csrfValidation } = require('.')

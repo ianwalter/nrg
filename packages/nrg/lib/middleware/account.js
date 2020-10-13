@@ -29,7 +29,7 @@ function reduceAccountForClient (ctx, next) {
   if (entireAccount) {
     const { Account } = ctx.cfg.accounts.models
     const account = Account.extractClientData(entireAccount)
-    ctx.state.body = ctx.state.body ? { ...ctx.state.body, account } : account
+    ctx.state.body = { ...ctx.state.body, account }
   }
   return next()
 }

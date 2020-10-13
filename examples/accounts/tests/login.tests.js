@@ -42,9 +42,7 @@ test('Login • Already logged in', async t => {
   const one = await app.test('/login').post(credentials)
   const two = await app.test('/login', one).post(credentials)
   t.expect(two.statusCode).toBe(201)
-  t.expect(two.body).toMatchSnapshot({
-    csrfToken: t.expect.any(String)
-  })
+  t.expect(two.body).toMatchSnapshot({ csrfToken: t.expect.any(String) })
   t.expect(one.headers['set-cookie']).not.toEqual(two.headers['set-cookie'])
 })
 
