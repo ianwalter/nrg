@@ -1,5 +1,6 @@
 const { test } = require('@ianwalter/bff')
 const Sentry = require('@sentry/node')
+const Integrations = require('@sentry/integrations')
 const sentryTestkit = require('sentry-testkit')
 const { createApp } = require('@ianwalter/nrg')
 const nrgSentry = require('.')
@@ -9,7 +10,10 @@ test('Error', async t => {
   Sentry.init({
     dsn: 'https://abc123@a321.ingest.sentry.io/123',
     transport: sentryTransport,
-    tracesSampleRate: 1.0
+    tracesSampleRate: 1.0,
+    integrations: [
+      new Integrations.Transaction()
+    ]
   })
 
   const app = createApp({ plugins: { ...nrgSentry() } })
@@ -20,7 +24,7 @@ test('Error', async t => {
   // Wait for the asynchronous error reporting flow to complete.
   await t.asleep(100)
 
-  t.print.log('testkit.reports()[0]', testkit.reports()[0])
+  // t.print.log('testkit.reports()[0]', testkit.reports()[0])
   t.expect(res.statusCode).toBe(500)
   t.expect(res.body).toBe('Internal Server Error')
   t.expect(testkit.reports()[0].error.message).toBe('Bow to the cow')

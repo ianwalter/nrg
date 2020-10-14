@@ -36,6 +36,9 @@ module.exports = function createApp (options = {}) {
   // If session keys are configured, add them to the app.
   if (cfg.keys) app.keys = cfg.keys
 
+  // If using a proxy, configure the app to accept proxy headers.
+  if (cfg.proxy) app.proxy = cfg.proxy
+
   // Iterate over all of the configured plugins and integrate them with the app.
   const ctx = {}
   for (const plugin of Object.values(cfg.plugins)) if (plugin) plugin(app, ctx)
