@@ -3,14 +3,14 @@ importers:
     devDependencies:
       '@changesets/cli': 2.11.1
       '@ianwalter/eslint-config': 5.4.0
-      '@ianwalter/renovate-config': 1.4.0
+      '@ianwalter/renovate-config': 1.4.1
       '@ianwalter/vuepress-theme-brooks': 1.2.0
       npm-run-all: 4.1.5
       vuepress: 1.7.0
     specifiers:
       '@changesets/cli': ^2.11.1
       '@ianwalter/eslint-config': ^5.4.0
-      '@ianwalter/renovate-config': ^1.4.0
+      '@ianwalter/renovate-config': ^1.4.1
       '@ianwalter/vuepress-theme-brooks': ^1.2.0
       npm-run-all: ^4.1.5
       vuepress: ^1.7.0
@@ -2584,10 +2584,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-1C3oH2YYpfPsRELDK2GDLEyzUNqBu4RMFrkbL+IFG5QrigAKX0wC64gjcmXkgGI9wGUEQ0R3vjnR/yMzC+Yymw==
-  /@ianwalter/renovate-config/1.4.0:
+  /@ianwalter/renovate-config/1.4.1:
     dev: true
     resolution:
-      integrity: sha512-zmHUJ06LbexUu1ARDxf9bnZuFCBsHiC+VVOFOy4G2TR9svg8YTP9m4dm+EYr9EXca/eqgwWHpLRxspYkxthfAw==
+      integrity: sha512-i0see4GuHnUZDfcgzskNu8iYBvMNGXJYR96Q5zPVVqrkCkeVuGA46NHIwggw8VTvYwwEJhZAFoWsH7t6sAZL/A==
   /@ianwalter/requester/2.4.2:
     dependencies:
       '@ianwalter/base-error': 6.1.0
