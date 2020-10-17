@@ -34,7 +34,7 @@
     "access": "public"
   },
   "dependencies": {
-    "amqp-connection-manager": "^3.2.0",
+    "amqp-connection-manager": "^3.2.1",
     "amqplib": "^0.6.0"
   },
   "devDependencies": {
