@@ -6,3 +6,4 @@ docs/.vuepress/dist
 .DS_Store
 .env
 packages/nrg-logger/output.txt
+package-lock.json
