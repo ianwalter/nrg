@@ -1,0 +1,24 @@
+name: Changeset
+on:
+  pull_request:
+    types: [labeled]
+jobs:
+  changeset:
+    runs-on: ubuntu-latest
+    container:
+      image: ianwalter/pnpm:v1.2.0
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Add Changeset
+        uses: generates/changeset-action@v2.0.1
+      - name: Install Dependencies
+        run: pnpm i -r --frozen-lockfile=false
+      - name: Commit Changes
+        uses: generates/commit-action@v1.0.1
+        with:
+          token: ${{ secrets.GH_PAT }}
