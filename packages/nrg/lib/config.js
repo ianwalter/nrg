@@ -15,7 +15,7 @@ const oauthProviders = require('grant/config/oauth.json')
 
 // Get the end-user's package.json data so that it can be used to provide
 // defaults.
-const cwd = module.parent.parent.parent.filename
+const cwd = process.cwd()
 const { packageJson = {}, path: packagePath } = readPkgUp.sync({ cwd }) || {}
 const dir = path.dirname(packagePath)
 

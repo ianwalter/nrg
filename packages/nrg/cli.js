@@ -37,7 +37,14 @@ async function run () {
   const appPath = path.resolve(config.app)
   let app
   try {
-    app = require(appPath)
+    if (appPath.includes('.mjs') || packageJson.type === 'module') {
+      const dist = require('@ianwalter/dist')
+      const requireFromString = require('require-from-string')
+      const { cjs: [_, content] } = await dist({ input: appPath, cjs: true })
+      app = requireFromString(content, appPath)
+    } else {
+      app = require(appPath)
+    }
   } catch (err) {
     logger.fatal(err)
     process.exit(1)
