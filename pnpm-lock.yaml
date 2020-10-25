@@ -134,7 +134,7 @@ importers:
       koa-send: 5.0.1
       koa-webpack: 6.0.0_webpack@4.44.1
       mailgen: 2.0.13
-      nanoid: 3.1.12
+      nanoid: 3.1.15
       nodemailer: 6.4.11
       objection: 2.2.3_knex@0.21.6
       pg: 8.4.1_pg@8.4.1
@@ -180,7 +180,7 @@ importers:
       koa-send: ^5.0.1
       koa-webpack: ^6.0.0
       mailgen: ^2.0.13
-      nanoid: ^3.1.12
+      nanoid: ^3.1.15
       nodemailer: ^6.4.11
       objection: ^2.2.3
       pg: ^8.4.1
@@ -241,12 +241,12 @@ importers:
       '@sentry/tracing': 5.27.1
     devDependencies:
       '@ianwalter/bff': 9.10.0
-      '@sentry/integrations': 5.26.0
+      '@sentry/integrations': 5.27.1
       sentry-testkit: 3.2.1
     specifiers:
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/nrg': 'workspace:^0.13.0'
-      '@sentry/integrations': ^5.26.0
+      '@sentry/integrations': ^5.27.1
       '@sentry/node': ^5.26.0
       '@sentry/tracing': ^5.27.1
       sentry-testkit: ^3.2.1
@@ -3025,16 +3025,6 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-Ubrw7K52orTVsaxpz8Su40FPXugKipoQC+zPrXcH+JIMB+o18kutF81Ae4WzuUqLfP7YB91eAlRrP608zw0EXA==
-  /@sentry/hub/5.26.0:
-    dependencies:
-      '@sentry/types': 5.26.0
-      '@sentry/utils': 5.26.0
-      tslib: 1.14.1
-    dev: false
-    engines:
-      node: '>=6'
-    resolution:
-      integrity: sha512-lAYeWvvhGYS6eQ5d0VEojw0juxGc3v4aAu8VLvMKWcZ1jXD13Bhc46u9Nvf4qAY6BAQsJDQcpEZLpzJu1bk1Qw==
   /@sentry/hub/5.27.1:
     dependencies:
       '@sentry/types': 5.27.1
@@ -3047,15 +3037,15 @@ packages:
       integrity: sha512-RBHo3T92s6s4Ian1pZcPlmNtFqB+HAP6xitU+ZNA48bYUK+R1vvqEcI8Xs83FyNaRGCgclp9erDFQYyAuxY4vw==
   /@sentry/integrations/5.26.0:
     dependencies:
-      '@sentry/types': 5.26.0
-      '@sentry/utils': 5.26.0
+      '@sentry/types': 5.27.1
+      '@sentry/utils': 5.27.1
       localforage: 1.8.1
       tslib: 1.14.1
     dev: true
     engines:
       node: '>=6'
     resolution:
-      integrity: sha512-XBMPm3wWW+3EJvWFHdVcl0PSWjjNEzmQxjjWeMv9vLWAC1zhS8gcpk/LyDIFWojJBzhASD8f1mLv2ZdKZtA1ZQ==
+      integrity: sha512-7E3ZHQvT1YuUvv8PMk8PUjBhlYo87k2hzsuvgup1+CxO8DwxsNr0C06/x5D3e5Tk93K1LXTj5R/553a84wZESQ==
   /@sentry/minimal/5.26.0:
     dependencies:
       '@sentry/hub': 5.26.0
@@ -3117,12 +3107,13 @@ packages:
     resolution:
       integrity: sha512-GBmdR8Ky/nv4KOa6+DEnOSBkFOFhM+asR8Y/gw2qSUWCwzKuWHh9BEnDwxtSI8CMvgUwOIZ5wiiqJGc1unYfCw==
   /@sentry/types/5.26.0:
+    dev: false
     engines:
       node: '>=6'
     resolution:
       integrity: sha512-ugpa1ePOhK55pjsyutAsa2tiJVQEyGYCaOXzaheg/3+EvhMdoW+owiZ8wupfvPhtZFIU3+FPOVz0d5k9K5d1rw==
   /@sentry/types/5.27.1:
-    dev: false
+    dev: true
     engines:
       node: '>=6'
     resolution:
@@ -3131,6 +3122,7 @@ packages:
     dependencies:
       '@sentry/types': 5.26.0
       tslib: 1.14.1
+    dev: false
     engines:
       node: '>=6'
     resolution:
@@ -3139,7 +3131,7 @@ packages:
     dependencies:
       '@sentry/types': 5.27.1
       tslib: 1.14.1
-    dev: false
+    dev: true
     engines:
       node: '>=6'
     resolution:
@@ -10810,13 +10802,13 @@ packages:
     optional: true
     resolution:
       integrity: sha512-isWHgVjnFjh2x2yuJ/tj3JbwoHu3UC2dX5G/88Cm24yB6YopVgxvBObDY7n5xW6ExmFhJpSEQqFPvq9zaXc8Jw==
-  /nanoid/3.1.12:
+  /nanoid/3.1.15:
     dev: false
     engines:
-      node: ^10 || ^12 || >=13.7
+      node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1
     hasBin: true
     resolution:
-      integrity: sha512-1qstj9z5+x491jfiC4Nelk+f8XBad7LN20PmyWINJEMRSf3wcAjAWysw1qaA8z6NSKe2sjq1hRSDpBH5paCb6A==
+      integrity: sha512-n8rXUZ8UU3lV6+43atPrSizqzh25n1/f00Wx1sCiE7R1sSHytZLTTiQl8DjC4IDLOnEZDlgJhy0yO4VsIpMxow==
   /nanomatch/1.2.13:
     dependencies:
       arr-diff: 4.0.0
