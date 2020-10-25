@@ -145,12 +145,12 @@ importers:
       require-from-string: 2.0.2
       webpack: 4.44.1_webpack@4.44.1
     devDependencies:
-      '@ianwalter/bff': 9.10.0
+      '@ianwalter/bff': 9.12.1
     specifiers:
       '@generates/cli': ^0.0.7
       '@generates/logger': ^0.0.8
       '@generates/merger': ^0.0.1
-      '@ianwalter/bff': ^9.10.0
+      '@ianwalter/bff': ^9.12.1
       '@ianwalter/cloneable': ^2.0.0
       '@ianwalter/correct': ^1.2.1
       '@ianwalter/dist': ^6.0.0
@@ -194,10 +194,10 @@ importers:
     dependencies:
       csrf: 3.1.0
     devDependencies:
-      '@ianwalter/bff': 9.10.0
+      '@ianwalter/bff': 9.12.1
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
-      '@ianwalter/bff': ^9.10.0
+      '@ianwalter/bff': ^9.12.1
       '@ianwalter/nrg': 'workspace:^0.13.0'
       csrf: ^3.1.0
   packages/nrg-logger:
@@ -206,11 +206,11 @@ importers:
       '@ianwalter/cloneable': 2.0.0
       '@ianwalter/timer': 2.0.2
     devDependencies:
-      '@ianwalter/bff': 9.10.0
+      '@ianwalter/bff': 9.12.1
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
       '@generates/logger': ^0.0.8
-      '@ianwalter/bff': ^9.10.0
+      '@ianwalter/bff': ^9.12.1
       '@ianwalter/cloneable': ^2.0.0
       '@ianwalter/nrg': ^0.13.0
       '@ianwalter/timer': ^2.0.2
@@ -219,19 +219,19 @@ importers:
       amqp-connection-manager: 3.2.0_amqplib@0.6.0
       amqplib: 0.6.0
     devDependencies:
-      '@ianwalter/bff': 9.10.0
+      '@ianwalter/bff': 9.12.1
     specifiers:
-      '@ianwalter/bff': ^9.10.0
+      '@ianwalter/bff': ^9.12.1
       amqp-connection-manager: ^3.2.0
       amqplib: ^0.6.0
   packages/nrg-router:
     dependencies:
       '@ianwalter/router': 3.3.0
     devDependencies:
-      '@ianwalter/bff': 9.10.0
+      '@ianwalter/bff': 9.12.1
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
-      '@ianwalter/bff': ^9.10.0
+      '@ianwalter/bff': ^9.12.1
       '@ianwalter/nrg': ^0.13.0
       '@ianwalter/router': ^3.3.0
   packages/nrg-sentry:
@@ -240,11 +240,11 @@ importers:
       '@sentry/node': 5.26.0
       '@sentry/tracing': 5.27.1
     devDependencies:
-      '@ianwalter/bff': 9.10.0
+      '@ianwalter/bff': 9.12.1
       '@sentry/integrations': 5.27.1
       sentry-testkit: 3.2.1
     specifiers:
-      '@ianwalter/bff': ^9.10.0
+      '@ianwalter/bff': ^9.12.1
       '@ianwalter/nrg': 'workspace:^0.13.0'
       '@sentry/integrations': ^5.27.1
       '@sentry/node': ^5.26.0
@@ -258,7 +258,7 @@ importers:
       parseurl: 1.3.3
       uid-safe: 2.1.5
     devDependencies:
-      '@ianwalter/bff': 9.10.0
+      '@ianwalter/bff': 9.12.1
       '@ianwalter/nrg': 'link:../nrg'
       benchmark: 2.1.4
       common-tags: 1.8.0
@@ -271,7 +271,7 @@ importers:
       should: 11.2.1
       supertest: 4.0.2
     specifiers:
-      '@ianwalter/bff': ^9.10.0
+      '@ianwalter/bff': ^9.12.1
       '@ianwalter/nrg': ^0.13.0
       benchmark: ^2.1.4
       common-tags: ^1.8.0
@@ -292,10 +292,10 @@ importers:
     dependencies:
       '@ianwalter/requester': 2.4.2
     devDependencies:
-      '@ianwalter/bff': 9.10.0
+      '@ianwalter/bff': 9.12.1
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
-      '@ianwalter/bff': ^9.10.0
+      '@ianwalter/bff': ^9.12.1
       '@ianwalter/nrg': ^0.13.0
       '@ianwalter/requester': ^2.4.2
 lockfileVersion: 5.1
@@ -2449,7 +2449,6 @@ packages:
       decamelize: 4.0.0
       getopts: 2.2.5
       read-pkg-up: 7.0.1
-    dev: false
     resolution:
       integrity: sha512-ssLGSmHxqa1eXi0CRUbQc6enpYv5JqSUod+Fr2zE/zU7ZPvf6UKYA++Ea5XLeKeqMPftZT4DZsLCPpERCLbPuQ==
   /@generates/cli/0.0.7:
@@ -2462,7 +2461,6 @@ packages:
       decamelize: 4.0.0
       getopts: 2.2.5
       read-pkg-up: 7.0.1
-    dev: false
     resolution:
       integrity: sha512-tL4jZ6n+x+/17gzj9zIgK3WHhQBkwRAMKx8zF5HOohYASaJ0TizjWp+KLd5Ep29NoNQzEFWrbZqcW8OAX6FQHw==
   /@generates/logger/0.0.6:
@@ -2479,7 +2477,6 @@ packages:
       marked: 1.2.0
       marked-terminal: 4.1.0_marked@1.2.0
       strip-ansi: 6.0.0
-    dev: false
     hasBin: true
     resolution:
       integrity: sha512-muP0P5gRkx9YKje3ZLsA46pHoguR7UfJb5/YcfL0Y6lqlltPpJcg8nBbzZy5KNJ7x6kGITMRaxs79dpYk7Bh2g==
@@ -2497,7 +2494,6 @@ packages:
       marked: 1.2.0
       marked-terminal: 4.1.0_marked@1.2.0
       strip-ansi: 6.0.0
-    dev: false
     hasBin: true
     resolution:
       integrity: sha512-uUOtIQx3AL4J3j2I9dgIj/pDJutYv5edIrC8mZ6/1cWWbP7vOVb+0m5E+9maGu0qHttgfbwtYLakmhb+5PaEGA==
@@ -2515,12 +2511,10 @@ packages:
       marked: 1.2.0
       marked-terminal: 4.1.0_marked@1.2.0
       strip-ansi: 6.0.0
-    dev: false
     hasBin: true
     resolution:
       integrity: sha512-ppgd01vaoFmlhogGMpNnR9FkMKp8F2J61qn89zbfylHOh0lecsRTyt8hGt4fyzX6H14AsRC2oHRse4HJp+Aw8Q==
   /@generates/merger/0.0.1:
-    dev: false
     resolution:
       integrity: sha512-A0zgTrlKJcroOOxx7GOY+OmVvGYVusG0UlhJLC/q8OvpQzF5xHE/jwW7mfPt5anJwHaRgWcWwjfQAFtk3HtYRA==
   /@hapi/address/4.1.0:
@@ -2575,6 +2569,30 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-8D0oYIgpCJK6tLsEqPcRvuwma7+3NrLmVWvvhFcRXGX/SEe6U7P05Zt6NRtRhgEyY3ZPK4pXYPjs4uQ8wRDMGA==
+  /@ianwalter/bff/9.12.1:
+    dependencies:
+      '@generates/logger': 0.0.8
+      '@ianwalter/cli': 4.1.0
+      '@ianwalter/clone': 6.0.1
+      '@ianwalter/cloneable': 2.0.0
+      '@ianwalter/print': 8.1.0
+      '@ianwalter/sleep': 0.0.1
+      '@ianwalter/subpub': 3.0.0
+      '@ianwalter/timer': 2.0.2
+      array-shuffle: 1.0.1
+      callsites: 3.1.0
+      camaro: 6.0.4
+      common-tags: 1.8.0
+      expect: 26.5.3
+      globby: 11.0.1
+      jest-snapshot: 26.5.3
+      junit-report-builder: 2.1.0
+      p-series: 2.1.0
+      workerpool: 6.0.2
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-bF+etehzUFNaWiKKDg2HGPYNZnCXyZJVLlp42ZfIQ4Atd9yLl7p1r2Bh0dsBYdttPpm7z5LM/AAd1iv9ys7RcQ==
   /@ianwalter/chromafi/1.0.1:
     dependencies:
       ansi-mark: 1.0.4
@@ -3025,6 +3043,16 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-Ubrw7K52orTVsaxpz8Su40FPXugKipoQC+zPrXcH+JIMB+o18kutF81Ae4WzuUqLfP7YB91eAlRrP608zw0EXA==
+  /@sentry/hub/5.26.0:
+    dependencies:
+      '@sentry/types': 5.26.0
+      '@sentry/utils': 5.26.0
+      tslib: 1.14.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-lAYeWvvhGYS6eQ5d0VEojw0juxGc3v4aAu8VLvMKWcZ1jXD13Bhc46u9Nvf4qAY6BAQsJDQcpEZLpzJu1bk1Qw==
   /@sentry/hub/5.27.1:
     dependencies:
       '@sentry/types': 5.27.1
@@ -3035,7 +3063,7 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-RBHo3T92s6s4Ian1pZcPlmNtFqB+HAP6xitU+ZNA48bYUK+R1vvqEcI8Xs83FyNaRGCgclp9erDFQYyAuxY4vw==
-  /@sentry/integrations/5.26.0:
+  /@sentry/integrations/5.27.1:
     dependencies:
       '@sentry/types': 5.27.1
       '@sentry/utils': 5.27.1
@@ -3113,7 +3141,6 @@ packages:
     resolution:
       integrity: sha512-ugpa1ePOhK55pjsyutAsa2tiJVQEyGYCaOXzaheg/3+EvhMdoW+owiZ8wupfvPhtZFIU3+FPOVz0d5k9K5d1rw==
   /@sentry/types/5.27.1:
-    dev: true
     engines:
       node: '>=6'
     resolution:
@@ -3131,7 +3158,6 @@ packages:
     dependencies:
       '@sentry/types': 5.27.1
       tslib: 1.14.1
-    dev: true
     engines:
       node: '>=6'
     resolution:
@@ -5031,7 +5057,6 @@ packages:
     resolution:
       integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
   /camelcase/6.0.0:
-    dev: false
     engines:
       node: '>=10'
     resolution:
@@ -6121,7 +6146,6 @@ packages:
     resolution:
       integrity: sha512-4TgkVUsmmu7oCSyGBm5FvfMoACuoh9EOidm7V5/J2X2djAwwt57qb3F2KMP2ITqODTCSwb+YRV+0Zqrv18k/hw==
   /decamelize/4.0.0:
-    dev: false
     engines:
       node: '>=10'
     resolution:
