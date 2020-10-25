@@ -38,7 +38,7 @@
     "@ianwalter/router": "^3.3.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.10.0",
+    "@ianwalter/bff": "^9.12.1",
     "@ianwalter/nrg": "^0.13.0"
   }
 }

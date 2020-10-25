@@ -18,6 +18,6 @@ const outputs = [
 
 test('example', async t => {
   const output = await fs.readFile('./output.txt', 'utf8')
-  t.print.info('Output:', `\n\n${output}\n\n`)
+  t.logger.info('Output:', `\n\n${output}\n\n`)
   for (const output of outputs) t.expect(output).toContain(output)
 })
