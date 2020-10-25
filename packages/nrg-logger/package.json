@@ -41,7 +41,7 @@
     "@generates/logger": "^0.0.8"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.10.0",
+    "@ianwalter/bff": "^9.12.1",
     "@ianwalter/nrg": "^0.13.0"
   }
 }
