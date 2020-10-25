@@ -64,7 +64,7 @@
     "koa-redis": "^4.0.1",
     "koa-send": "^5.0.1",
     "koa-webpack": "^6.0.0",
-    "mailgen": "^2.0.13",
+    "mailgen": "^2.0.14",
     "nanoid": "^3.1.15",
     "nodemailer": "^6.4.11",
     "objection": "^2.2.3",
