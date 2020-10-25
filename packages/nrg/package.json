@@ -70,7 +70,7 @@
     "objection": "^2.2.3",
     "pg": "^8.4.1",
     "pkg-dir": "^4.2.0",
-    "rate-limiter-flexible": "^2.1.10",
+    "rate-limiter-flexible": "^2.1.13",
     "read-pkg-up": "^7.0.1",
     "replace-string": "^3.1.0",
     "require-from-string": "^2.0.2",
