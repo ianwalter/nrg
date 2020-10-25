@@ -103,7 +103,7 @@ importers:
   packages/nrg:
     dependencies:
       '@generates/cli': 0.0.7
-      '@generates/logger': 0.0.7
+      '@generates/logger': 0.0.8
       '@generates/merger': 0.0.1
       '@ianwalter/cloneable': 2.0.0
       '@ianwalter/correct': 1.2.1
@@ -148,7 +148,7 @@ importers:
       '@ianwalter/bff': 9.10.0
     specifiers:
       '@generates/cli': ^0.0.7
-      '@generates/logger': ^0.0.7
+      '@generates/logger': ^0.0.8
       '@generates/merger': ^0.0.1
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
@@ -202,14 +202,14 @@ importers:
       csrf: ^3.1.0
   packages/nrg-logger:
     dependencies:
-      '@generates/logger': 0.0.7
+      '@generates/logger': 0.0.8
       '@ianwalter/cloneable': 2.0.0
       '@ianwalter/timer': 2.0.2
     devDependencies:
       '@ianwalter/bff': 9.10.0
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
-      '@generates/logger': ^0.0.7
+      '@generates/logger': ^0.0.8
       '@ianwalter/bff': ^9.10.0
       '@ianwalter/cloneable': ^2.0.0
       '@ianwalter/nrg': ^0.13.0
@@ -2501,6 +2501,24 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-uUOtIQx3AL4J3j2I9dgIj/pDJutYv5edIrC8mZ6/1cWWbP7vOVb+0m5E+9maGu0qHttgfbwtYLakmhb+5PaEGA==
+  /@generates/logger/0.0.8:
+    dependencies:
+      '@generates/cli': 0.0.7
+      '@generates/merger': 0.0.1
+      '@ianwalter/chromafi': 1.0.1
+      '@ianwalter/clone': 6.0.1
+      '@ianwalter/cloneable': 2.0.0
+      '@ianwalter/dot': 1.0.5
+      chalk: 4.1.0
+      has-ansi: 4.0.0
+      has-emoji: 1.1.0
+      marked: 1.2.0
+      marked-terminal: 4.1.0_marked@1.2.0
+      strip-ansi: 6.0.0
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-ppgd01vaoFmlhogGMpNnR9FkMKp8F2J61qn89zbfylHOh0lecsRTyt8hGt4fyzX6H14AsRC2oHRse4HJp+Aw8Q==
   /@generates/merger/0.0.1:
     dev: false
     resolution:
