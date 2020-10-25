@@ -40,8 +40,8 @@ async function run () {
     if (appPath.includes('.mjs') || packageJson.type === 'module') {
       const dist = require('@ianwalter/dist')
       const requireFromString = require('require-from-string')
-      const { cjs: [_, content] } = await dist({ input: appPath, cjs: true })
-      app = requireFromString(content, appPath)
+      const { cjs } = await dist({ input: appPath, cjs: true })
+      app = requireFromString(cjs[1], appPath)
     } else {
       app = require(appPath)
     }
