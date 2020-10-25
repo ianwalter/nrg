@@ -25,3 +25,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Update lock file
+        run: pnpm i -r
+      - name: Commit changes
+        uses: generates/commit-action@v1.0.1
+        with:
+          token: ${{ secrets.GH_PAT }}
+          message: Updated lock file
