@@ -36,7 +36,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@ianwalter/nrg": "workspace:^0.13.0",
+    "@ianwalter/nrg": "^0.13.0",
     "@sentry/node": "^5.27.1",
     "@sentry/tracing": "^5.27.1"
   },
