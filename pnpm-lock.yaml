@@ -124,7 +124,7 @@ importers:
       devalue: 2.0.1
       dotenv: 8.2.0
       ejs: 3.1.3
-      grant: 5.3.0
+      grant: 5.4.5
       knex: 0.21.6_pg@8.4.1
       koa: 2.13.0
       koa-bodyparser: 4.3.0
@@ -170,7 +170,7 @@ importers:
       devalue: ^2.0.1
       dotenv: ^8.2.0
       ejs: ^3.1.3
-      grant: ^5.3.0
+      grant: ^5.4.5
       knex: ^0.21.6
       koa: ^2.13.0
       koa-bodyparser: ^4.3.0
@@ -3025,6 +3025,16 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-Ubrw7K52orTVsaxpz8Su40FPXugKipoQC+zPrXcH+JIMB+o18kutF81Ae4WzuUqLfP7YB91eAlRrP608zw0EXA==
+  /@sentry/hub/5.26.0:
+    dependencies:
+      '@sentry/types': 5.26.0
+      '@sentry/utils': 5.26.0
+      tslib: 1.14.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-lAYeWvvhGYS6eQ5d0VEojw0juxGc3v4aAu8VLvMKWcZ1jXD13Bhc46u9Nvf4qAY6BAQsJDQcpEZLpzJu1bk1Qw==
   /@sentry/hub/5.27.1:
     dependencies:
       '@sentry/types': 5.27.1
@@ -3035,7 +3045,7 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-RBHo3T92s6s4Ian1pZcPlmNtFqB+HAP6xitU+ZNA48bYUK+R1vvqEcI8Xs83FyNaRGCgclp9erDFQYyAuxY4vw==
-  /@sentry/integrations/5.26.0:
+  /@sentry/integrations/5.27.1:
     dependencies:
       '@sentry/types': 5.27.1
       '@sentry/utils': 5.27.1
@@ -3113,7 +3123,6 @@ packages:
     resolution:
       integrity: sha512-ugpa1ePOhK55pjsyutAsa2tiJVQEyGYCaOXzaheg/3+EvhMdoW+owiZ8wupfvPhtZFIU3+FPOVz0d5k9K5d1rw==
   /@sentry/types/5.27.1:
-    dev: true
     engines:
       node: '>=6'
     resolution:
@@ -3131,7 +3140,6 @@ packages:
     dependencies:
       '@sentry/types': 5.27.1
       tslib: 1.14.1
-    dev: true
     engines:
       node: '>=6'
     resolution:
@@ -8090,7 +8098,7 @@ packages:
   /graceful-fs/4.2.4:
     resolution:
       integrity: sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
-  /grant/5.3.0:
+  /grant/5.4.5:
     dependencies:
       qs: 6.9.4
       request-compose: 2.1.0
@@ -8104,7 +8112,7 @@ packages:
       jwk-to-pem: 2.0.4
       jws: 4.0.0
     resolution:
-      integrity: sha512-beZI6F93qzv+bejv4/WLwrfjK3RoAR0ngK3CI1ZmvDiGfL9d6ttS2hGJAE3cjmTtxZGFLSoM9cCYf/Ys532U2A==
+      integrity: sha512-w1/mbzGEztHSpZIH96K0O43lgascuvP/jyiXpu6JsLQ4Hu7c3ZKb7KqDTQhRQdmJ+oZoyDffPK2reuVn6eU9Kw==
   /grapheme-splitter/1.0.4:
     dev: true
     resolution:
