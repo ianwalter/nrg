@@ -238,7 +238,7 @@ importers:
     dependencies:
       '@ianwalter/nrg': 'link:../nrg'
       '@sentry/node': 5.26.0
-      '@sentry/tracing': 5.26.0
+      '@sentry/tracing': 5.27.1
     devDependencies:
       '@ianwalter/bff': 9.10.0
       '@sentry/integrations': 5.27.1
@@ -248,7 +248,7 @@ importers:
       '@ianwalter/nrg': 'workspace:^0.13.0'
       '@sentry/integrations': ^5.27.1
       '@sentry/node': ^5.26.0
-      '@sentry/tracing': ^5.26.0
+      '@sentry/tracing': ^5.27.1
       sentry-testkit: ^3.2.1
   packages/nrg-session:
     dependencies:
@@ -3025,17 +3025,17 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-Ubrw7K52orTVsaxpz8Su40FPXugKipoQC+zPrXcH+JIMB+o18kutF81Ae4WzuUqLfP7YB91eAlRrP608zw0EXA==
-  /@sentry/hub/5.26.0:
+  /@sentry/hub/5.27.1:
     dependencies:
-      '@sentry/types': 5.26.0
-      '@sentry/utils': 5.26.0
+      '@sentry/types': 5.27.1
+      '@sentry/utils': 5.27.1
       tslib: 1.14.1
     dev: false
     engines:
       node: '>=6'
     resolution:
-      integrity: sha512-lAYeWvvhGYS6eQ5d0VEojw0juxGc3v4aAu8VLvMKWcZ1jXD13Bhc46u9Nvf4qAY6BAQsJDQcpEZLpzJu1bk1Qw==
-  /@sentry/integrations/5.27.1:
+      integrity: sha512-RBHo3T92s6s4Ian1pZcPlmNtFqB+HAP6xitU+ZNA48bYUK+R1vvqEcI8Xs83FyNaRGCgclp9erDFQYyAuxY4vw==
+  /@sentry/integrations/5.26.0:
     dependencies:
       '@sentry/types': 5.27.1
       '@sentry/utils': 5.27.1
@@ -3056,6 +3056,16 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-mdFo3FYaI1W3KEd8EHATYx8mDOZIxeoUhcBLlH7Iej6rKvdM7p8GoECrmHPU1l6sCCPtBuz66QT5YeXc7WILsA==
+  /@sentry/minimal/5.27.1:
+    dependencies:
+      '@sentry/hub': 5.27.1
+      '@sentry/types': 5.27.1
+      tslib: 1.14.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-MHXCeJdA1NAvaJuippcM8nrWScul8iTN0Q5nnFkGctGIGmmiZHTXAYkObqJk7H3AK+CP7r1jqN2aQj5Nd9CtyA==
   /@sentry/node/5.26.0:
     dependencies:
       '@sentry/core': 5.26.0
@@ -3084,6 +3094,18 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-N9qWGmKrFJYKFTZBe8zVT3Qiju0+9bbNJuyun69T+fqP3PCDh+aRlRiP+OKTJyeCZjNG5HIvIlU8wTVUDoYfjQ==
+  /@sentry/tracing/5.27.1:
+    dependencies:
+      '@sentry/hub': 5.27.1
+      '@sentry/minimal': 5.27.1
+      '@sentry/types': 5.27.1
+      '@sentry/utils': 5.27.1
+      tslib: 1.14.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-GBmdR8Ky/nv4KOa6+DEnOSBkFOFhM+asR8Y/gw2qSUWCwzKuWHh9BEnDwxtSI8CMvgUwOIZ5wiiqJGc1unYfCw==
   /@sentry/types/5.26.0:
     dev: false
     engines:

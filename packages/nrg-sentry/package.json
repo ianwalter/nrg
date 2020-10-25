@@ -38,7 +38,7 @@
   "dependencies": {
     "@ianwalter/nrg": "workspace:^0.13.0",
     "@sentry/node": "^5.26.0",
-    "@sentry/tracing": "^5.26.0"
+    "@sentry/tracing": "^5.27.1"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0",
