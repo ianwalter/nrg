@@ -134,7 +134,7 @@ importers:
       koa-send: 5.0.1
       koa-webpack: 6.0.0_webpack@4.44.1
       mailgen: 2.0.13
-      nanoid: 3.1.15
+      nanoid: 3.1.16
       nodemailer: 6.4.11
       objection: 2.2.3_knex@0.21.6
       pg: 8.4.2_pg@8.4.2
@@ -180,7 +180,7 @@ importers:
       koa-send: ^5.0.1
       koa-webpack: ^6.0.0
       mailgen: ^2.0.13
-      nanoid: ^3.1.15
+      nanoid: ^3.1.16
       nodemailer: ^6.4.11
       objection: ^2.2.3
       pg: ^8.4.2
@@ -10758,13 +10758,13 @@ packages:
     optional: true
     resolution:
       integrity: sha512-isWHgVjnFjh2x2yuJ/tj3JbwoHu3UC2dX5G/88Cm24yB6YopVgxvBObDY7n5xW6ExmFhJpSEQqFPvq9zaXc8Jw==
-  /nanoid/3.1.15:
+  /nanoid/3.1.16:
     dev: false
     engines:
       node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1
     hasBin: true
     resolution:
-      integrity: sha512-n8rXUZ8UU3lV6+43atPrSizqzh25n1/f00Wx1sCiE7R1sSHytZLTTiQl8DjC4IDLOnEZDlgJhy0yO4VsIpMxow==
+      integrity: sha512-+AK8MN0WHji40lj8AEuwLOvLSbWYApQpre/aFJZD71r43wVRLrOYS4FmJOPQYon1TqB462RzrrxlfA74XRES8w==
   /nanomatch/1.2.13:
     dependencies:
       arr-diff: 4.0.0
