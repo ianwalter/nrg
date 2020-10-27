@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.13.1
+
+### Patch Changes
+
+- 37b0073: Update dependency nanoid to ^3.1.16
+- 0090070: Update dependency knex to ^0.21.7
+- 70e036d: Update dependency pg to ^8.4.2
+
 ## 0.13.0
 
 ### Minor Changes
