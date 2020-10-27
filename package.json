@@ -47,7 +47,7 @@
     "url": "https://github.com/ianwalter/nrg/issues"
   },
   "devDependencies": {
-    "@changesets/cli": "2.11.1",
+    "@changesets/cli": "^2.11.1",
     "@ianwalter/eslint-config": "^5.4.0",
     "@ianwalter/renovate-config": "^1.4.2",
     "@ianwalter/vuepress-theme-brooks": "^1.2.0",
