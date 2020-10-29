@@ -116,7 +116,7 @@ importers:
       '@ianwalter/nrg-router': 'link:../nrg-router'
       '@ianwalter/nrg-session': 'link:../nrg-session'
       '@ianwalter/nrg-test': 'link:../nrg-test'
-      '@ianwalter/requester': 2.4.2
+      '@ianwalter/requester': 2.4.3
       '@ianwalter/url': 2.0.0
       bcrypt: 5.0.0
       cheerio: 1.0.0-rc.3
@@ -162,7 +162,7 @@ importers:
       '@ianwalter/nrg-router': ^1.1.1
       '@ianwalter/nrg-session': ^7.0.2
       '@ianwalter/nrg-test': ^1.2.1
-      '@ianwalter/requester': ^2.4.2
+      '@ianwalter/requester': ^2.4.3
       '@ianwalter/url': ^2.0.0
       bcrypt: 5.0.0
       cheerio: ^1.0.0-rc.3
@@ -290,14 +290,14 @@ importers:
       uid-safe: ^2.1.5
   packages/nrg-test:
     dependencies:
-      '@ianwalter/requester': 2.4.2
+      '@ianwalter/requester': 2.4.3
     devDependencies:
       '@ianwalter/bff': 9.12.1
       '@ianwalter/nrg': 'link:../nrg'
     specifiers:
       '@ianwalter/bff': ^9.12.1
       '@ianwalter/nrg': ^0.13.0
-      '@ianwalter/requester': ^2.4.2
+      '@ianwalter/requester': ^2.4.3
 lockfileVersion: 5.1
 packages:
   /@ampproject/toolbox-core/2.5.4:
@@ -2774,15 +2774,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zsqqCE28FwCvBbXmDQgCwnGa5R1HEiNaMZD4QUwdVuycMT1xtv1TDAj4YiP878M4jgiU83iY1BdUXtjkpxu/Tw==
-  /@ianwalter/requester/2.4.2:
+  /@ianwalter/requester/2.4.3:
     dependencies:
-      '@ianwalter/base-error': 6.1.0
       '@ianwalter/clone': 6.0.1
       '@ianwalter/merge': 9.0.1
       '@ianwalter/print': 8.1.0
     dev: false
     resolution:
-      integrity: sha512-fhJOIhtlXisDa8EHp0i13v5yDs4HtwZCjprv6k8n6HN94FDBJwxUZW0Jggb2lktrelwm7GI0D3UFZQomnF6vdw==
+      integrity: sha512-6Ol37RZmeAPN2fvwK64SN2RrlCiv09dqRuXoCv3eHoNuIuOYrruahQ6TDcJuk77UWtsxEcilhXrQQf/cK4Kc9g==
   /@ianwalter/rollup-plugin-hashbang/1.3.0:
     dependencies:
       magic-string: 0.25.7
