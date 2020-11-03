@@ -41,7 +41,7 @@ module.exports = function nrgLogger (options = {}) {
 
       await next()
 
-      if (ctx.respond !== false && shouldLog) {
+      if (ctx.respond !== false) {
         let entry = `${ctx.method} ${ctx.state.log.path} ${ctx.status} Response`
 
         ctx.state.log.timestamp = new Date()
@@ -51,7 +51,7 @@ module.exports = function nrgLogger (options = {}) {
           entry += ` ${chalk.dim(`in ${ctx.state.log.responseTime}`)}`
         }
 
-        ctx.logger.log(entry)
+        if (shouldLog) ctx.logger.log(entry)
       }
     }
   }

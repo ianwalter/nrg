@@ -98,7 +98,7 @@ module.exports = function config (options = {}) {
       // [Boolean] Whether or not to add event handlers for 'unhandledRejection'
       // and 'unhandledException' events that log the errors. Defaults to true.
       unhandled: true,
-      //
+      // [Boolean] Whether to log health check requests like normal requests.
       logHealthRequests: false
     },
     get stackTraceLimit () {
@@ -106,7 +106,8 @@ module.exports = function config (options = {}) {
         ? 20
         : Error.stackTraceLimit
     },
-    //
+    // [String|Boolean] The path that should be used to register the health
+    // check endpoint or false if the endpoint shouldn't be registered.
     healthEndpoint: '/health',
     // [Object] Key-value entries of plugins the application will use.
     get plugins () {
