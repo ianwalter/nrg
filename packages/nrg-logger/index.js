@@ -21,6 +21,8 @@ module.exports = function nrgLogger (options = {}) {
         path: ctx.path,
         timestamp: new Date()
       }
+      const shouldLog = ctx.path !== ctx.cfg.healthEndpoint ||
+        options.logHealthRequests
       ctx.state.log = Object.assign(request, ctx.state.log)
 
       ctx.logger = logger.create({
@@ -33,11 +35,13 @@ module.exports = function nrgLogger (options = {}) {
         }
       })
 
-      ctx.logger.log(`${ctx.method} ${ctx.state.log.path} Request`)
+      if (shouldLog) {
+        ctx.logger.log(`${ctx.method} ${ctx.state.log.path} Request`)
+      }
 
       await next()
 
-      if (ctx.respond !== false) {
+      if (ctx.respond !== false && shouldLog) {
         let entry = `${ctx.method} ${ctx.state.log.path} ${ctx.status} Response`
 
         ctx.state.log.timestamp = new Date()
