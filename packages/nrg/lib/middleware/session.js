@@ -74,7 +74,7 @@ async function clearSession (ctx, next) {
 }
 
 async function getSession (ctx, next) {
-  const csrfToken = ctx.generateCsrfToken()
+  const csrfToken = ctx.generateCsrfToken && ctx.generateCsrfToken()
   ctx.state.body = { csrfToken, account: ctx.state.body }
   return next()
 }

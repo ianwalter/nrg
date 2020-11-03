@@ -97,13 +97,18 @@ module.exports = function config (options = {}) {
       },
       // [Boolean] Whether or not to add event handlers for 'unhandledRejection'
       // and 'unhandledException' events that log the errors. Defaults to true.
-      unhandled: true
+      unhandled: true,
+      // [Boolean] Whether to log health check requests like normal requests.
+      logHealthRequests: false
     },
     get stackTraceLimit () {
       return (this.isDev && Error.stackTraceLimit === 10)
         ? 20
         : Error.stackTraceLimit
     },
+    // [String|Boolean] The path that should be used to register the health
+    // check endpoint or false if the endpoint shouldn't be registered.
+    healthEndpoint: '/health',
     // [Object] Key-value entries of plugins the application will use.
     get plugins () {
       const plugins = {
@@ -292,8 +297,13 @@ module.exports = function config (options = {}) {
         },
         // Plugin for adding a simple health check endpoint if the application
         // has been configured with a router.
-        healthEndpoint (app) {
-          if (cfg.plugins.router) app.get('/health', ctx => (ctx.status = 200))
+        healthEndpoint (app, ctx) {
+          if (cfg.plugins.router && cfg.healthEndpoint) {
+            if (ctx.log) {
+              ctx.log.debug('Adding health endpoint:', cfg.healthEndpoint)
+            }
+            app.get(cfg.healthEndpoint, ctx => (ctx.status = 200))
+          }
         },
         // Add a serve method to the app that makes it easy to start listening
         // for connections.
