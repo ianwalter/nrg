@@ -1,6 +1,17 @@
 # @ianwalter/nrg-sentry
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [0493e66]
+- Updated dependencies [7d92ad0]
+- Updated dependencies [dbf75a0]
+- Updated dependencies [3d53bf2]
+  - @ianwalter/nrg@0.14.0
+
 ## 1.0.0
+
 ### Major Changes
 
 - 247f40f: Adding nrg-csrf, nrg-sentry, and session regeneration

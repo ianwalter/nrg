@@ -1,5 +1,21 @@
 # @ianwalter/nrg
 
+## 0.14.0
+
+### Minor Changes
+
+- 7d92ad0: Update dependency knex to ^0.21.12
+- dbf75a0: Adding configuration for logging health check requests
+
+### Patch Changes
+
+- 0493e66: Update dependency @ianwalter/requester to ^2.4.3
+- 3d53bf2: Update dependency knex to ^0.21.8
+- Updated dependencies [0493e66]
+- Updated dependencies [dbf75a0]
+  - @ianwalter/nrg-test@1.2.2
+  - @ianwalter/nrg-logger@0.2.0
+
 ## 0.13.1
 
 ### Patch Changes

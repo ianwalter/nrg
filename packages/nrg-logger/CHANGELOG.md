@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.2.0
+
+### Minor Changes
+
+- dbf75a0: Adding configuration for logging health check requests
+
 ## 0.1.4
 
 ### Patch Changes
