@@ -1,0 +1,25 @@
+name: Version
+on:
+  push:
+    branches:
+      - changeset-release/main
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    container:
+      image: ianwalter/pnpm:v1.2.0
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          # This makes Actions fetch all Git history so that Changesets can
+          # generate changelogs with the correct commits.
+          fetch-depth: 0
+      - name: Install
+        run: pnpm i -r --frozen-lockfile=false
+      - name: Commit changes
+        uses: generates/commit-action@v1.0.1
+        with:
+          token: ${{ secrets.GH_PAT }}
+          message: Updated lock file
