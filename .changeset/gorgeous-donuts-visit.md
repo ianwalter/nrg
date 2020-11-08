@@ -1,5 +1,4 @@
 ---
-"nrg": patch
 "@ianwalter/nrg": patch
 ---
 
