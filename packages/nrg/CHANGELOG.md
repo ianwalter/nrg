@@ -1,5 +1,12 @@
 # @ianwalter/nrg
 
+## 0.14.1
+
+### Patch Changes
+
+- d7f4e07: Update dependency nodemailer to ^6.4.15
+- ca925b3: Falling back csrfToken value to null on getSession
+
 ## 0.14.0
 
 ### Minor Changes
