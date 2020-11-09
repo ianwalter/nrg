@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.14.2
+
+### Patch Changes
+
+- 82ad727: Improving ValidationError logging
+
 ## 0.14.1
 
 ### Patch Changes
