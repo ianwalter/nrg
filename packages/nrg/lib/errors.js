@@ -69,8 +69,9 @@ class NotFoundError extends HttpError {
  * A HTTP error used to provide feedback when a request body fails validation.
  */
 class ValidationError extends BadRequestError {
-  constructor ({ message = 'Validation Error', feedback }) {
+  constructor ({ message = 'Validation Error', feedback, validations }) {
     super(message)
+    this.validations = validations
     this.body = { message, feedback }
   }
 }
