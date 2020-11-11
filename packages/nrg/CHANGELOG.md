@@ -1,5 +1,16 @@
 # @ianwalter/nrg
 
+## 0.15.0
+
+### Minor Changes
+
+- 89f6ed7: Update dependency pg to ^8.5.0
+
+### Patch Changes
+
+- Updated dependencies [e8bf434]
+  - @ianwalter/nrg-logger@0.2.1
+
 ## 0.14.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.2.1
+
+### Patch Changes
+
+- e8bf434: Fix #553: Timestamps not getting updated on logs between req and res
+
 ## 0.2.0
 
 ### Minor Changes
