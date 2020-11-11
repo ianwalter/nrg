@@ -31,7 +31,8 @@ module.exports = function nrgLogger (options = {}) {
           return ctx.state.log
         },
         get extraItems () {
-          return [formatTimestamp(ctx.state.log.timestamp), `• ${ctx.req.id} •`]
+          const timestamp = ctx.state.log.timestamp || new Date()
+          return [formatTimestamp(timestamp), `• ${ctx.req.id} •`]
         }
       })
 
@@ -39,12 +40,15 @@ module.exports = function nrgLogger (options = {}) {
         ctx.logger.log(`${ctx.method} ${ctx.state.log.path} Request`)
       }
 
+      // Delete the initial (request log) timestamp so that subsequent logs can
+      // have timestamps at the point of their call.
+      delete ctx.state.log.timestamp
+
       await next()
 
       if (ctx.respond !== false) {
         let entry = `${ctx.method} ${ctx.state.log.path} ${ctx.status} Response`
 
-        ctx.state.log.timestamp = new Date()
         ctx.state.log.responseTime = timer.duration()
 
         if (!options.ndjson) {
