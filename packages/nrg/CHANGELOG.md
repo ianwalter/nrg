@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.15.1
+
+### Patch Changes
+
+- ef4bbc9: Merging account update into session.account
+
 ## 0.15.0
 
 ### Minor Changes
