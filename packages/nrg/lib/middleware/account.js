@@ -93,11 +93,13 @@ async function updateAccount (ctx, next) {
 
   // Update the database and session with the updated account data.
   if (Object.keys(data).length) { // FIXME: replace with @ianwalter/correct.
-    ctx.session.account = await ctx.cfg.accounts.models.Account
+    const updated = await ctx.cfg.accounts.models.Account
       .query()
       // Exclude any change to the email address since that will be handled by
       // the email verification workflow.
       .patchAndFetchById(ctx.session.account.id, data)
+
+    if (updated) ctx.session.account = { ...ctx.session.account, ...updated }
   }
 
   return next()
