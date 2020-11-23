@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.15.2
+
+### Patch Changes
+
+- 7b1afda: Update dependency pg to ^8.5.1
+- c47bf6d: Update dependency nanoid to ^3.1.18
+- a3d31c9: Update dependency grant to ^5.4.9
+
 ## 0.15.1
 
 ### Patch Changes
