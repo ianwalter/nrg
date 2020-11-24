@@ -109,7 +109,7 @@ importers:
       '@ianwalter/correct': 1.2.1
       '@ianwalter/dist': 6.0.0
       '@ianwalter/dot': 1.0.5
-      '@ianwalter/extract': 1.0.1
+      '@ianwalter/extract': 1.0.3
       '@ianwalter/nrg-csrf': 'link:../nrg-csrf'
       '@ianwalter/nrg-logger': 'link:../nrg-logger'
       '@ianwalter/nrg-mq': 'link:../nrg-mq'
@@ -155,7 +155,7 @@ importers:
       '@ianwalter/correct': ^1.2.1
       '@ianwalter/dist': ^6.0.0
       '@ianwalter/dot': ^1.0.5
-      '@ianwalter/extract': ^1.0.1
+      '@ianwalter/extract': ^1.0.3
       '@ianwalter/nrg-csrf': ^1.0.0
       '@ianwalter/nrg-logger': ^0.2.1
       '@ianwalter/nrg-mq': ^1.2.1
@@ -2709,12 +2709,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-VVgTX28GfuivTmD3whnAtTR7E+XX9aKoaJdBkuG0jiRK9r0qesTrvizfOF9vk2iQKSKM+3MWSB3A/w+VX7BsqQ==
-  /@ianwalter/extract/1.0.1:
+  /@ianwalter/extract/1.0.3:
     dependencies:
       '@ianwalter/dot': 1.0.5
     dev: false
     resolution:
-      integrity: sha512-QlhQTeFzmvab6soS9uivNNn7P/hgFDWqJOsjW8KzHw+YYQuBjd8uHPr3N8j6Ogk31cQ955MBCZ6dLYKlE3bbfw==
+      integrity: sha512-60EdctssrwaGePHlA2teasLSh2fwOenbmr4C0CVQXBOv3a0RWw0d+Ry4EXzxk9hdD+an5X7Hw36pGZNtmdYz/w==
   /@ianwalter/fs/1.1.0:
     dependencies:
       '@ianwalter/subpub': 2.0.0
