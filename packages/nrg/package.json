@@ -40,7 +40,7 @@
     "@ianwalter/correct": "^1.2.1",
     "@ianwalter/dist": "^6.0.0",
     "@ianwalter/dot": "^1.0.5",
-    "@ianwalter/extract": "^1.0.1",
+    "@ianwalter/extract": "^1.0.3",
     "@ianwalter/nrg-csrf": "^1.0.0",
     "@ianwalter/nrg-logger": "^0.2.1",
     "@ianwalter/nrg-mq": "^1.2.1",
