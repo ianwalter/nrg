@@ -1,5 +1,12 @@
 # @ianwalter/nrg
 
+## 0.15.3
+
+### Patch Changes
+
+- b883984: Update dependency @ianwalter/extract to ^1.0.3
+- cb539df: Update dependency nanoid to ^3.1.20
+
 ## 0.15.2
 
 ### Patch Changes
