@@ -241,12 +241,12 @@ importers:
       '@sentry/tracing': 5.27.1
     devDependencies:
       '@ianwalter/bff': 9.12.1
-      '@sentry/integrations': 5.27.1
+      '@sentry/integrations': 5.28.0
       sentry-testkit: 3.2.1
     specifiers:
       '@ianwalter/bff': ^9.12.1
       '@ianwalter/nrg': ^0.15.0
-      '@sentry/integrations': ^5.27.1
+      '@sentry/integrations': ^5.28.0
       '@sentry/node': ^5.27.1
       '@sentry/tracing': ^5.27.1
       sentry-testkit: ^3.2.1
@@ -3044,17 +3044,17 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-RBHo3T92s6s4Ian1pZcPlmNtFqB+HAP6xitU+ZNA48bYUK+R1vvqEcI8Xs83FyNaRGCgclp9erDFQYyAuxY4vw==
-  /@sentry/integrations/5.27.1:
+  /@sentry/integrations/5.28.0:
     dependencies:
-      '@sentry/types': 5.27.1
-      '@sentry/utils': 5.27.1
+      '@sentry/types': 5.28.0
+      '@sentry/utils': 5.28.0
       localforage: 1.8.1
       tslib: 1.14.1
     dev: true
     engines:
       node: '>=6'
     resolution:
-      integrity: sha512-7E3ZHQvT1YuUvv8PMk8PUjBhlYo87k2hzsuvgup1+CxO8DwxsNr0C06/x5D3e5Tk93K1LXTj5R/553a84wZESQ==
+      integrity: sha512-2WjCYHrItzrHYUoRUV8Hjt2DXEekiV7i/2RfxLhVVVU8382FKyKMTMdimKog3SAgOqPjJFpWqEQ3OWErZ4HMqA==
   /@sentry/minimal/5.27.1:
     dependencies:
       '@sentry/hub': 5.27.1
@@ -3094,18 +3094,35 @@ packages:
     resolution:
       integrity: sha512-GBmdR8Ky/nv4KOa6+DEnOSBkFOFhM+asR8Y/gw2qSUWCwzKuWHh9BEnDwxtSI8CMvgUwOIZ5wiiqJGc1unYfCw==
   /@sentry/types/5.27.1:
+    dev: false
     engines:
       node: '>=6'
     resolution:
       integrity: sha512-g1aX0V0fz5BTo0mjgSVY9XmPLGZ6p+8OEzq3ubKzDUf59VHl+Vt8viZ8VXw/vsNtfAjBHn7BzSuzJo7cXJJBtA==
+  /@sentry/types/5.28.0:
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-nNhoZEXdqM2xivxJBrLhxtJ2+s6FfKXUw5yBf0Jf/RBrBnH5fggPNImmyfpOoysl72igWcMWk4nnfyP5iDrriQ==
   /@sentry/utils/5.27.1:
     dependencies:
       '@sentry/types': 5.27.1
       tslib: 1.14.1
+    dev: false
     engines:
       node: '>=6'
     resolution:
       integrity: sha512-VIzK8utuvFO9EogZcKJPgmLnlJtYbaPQ0jCw7od9HRw1ckrSBc84sA0uuuY6pB6KSM+7k6EjJ5IdIBaCz5ep/A==
+  /@sentry/utils/5.28.0:
+    dependencies:
+      '@sentry/types': 5.28.0
+      tslib: 1.14.1
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-LW+ReVw9JG6g8Bvp2I1ThMDPATlisvkde+1WykxGqRhu2YIO+PvWhnoFhr9RD0ia3rYVlJkgkuTshMbPJ8HVwA==
   /@sindresorhus/is/0.14.0:
     dev: true
     engines:
