@@ -269,7 +269,7 @@ importers:
       mz-modules: 2.1.0
       pedding: 1.1.0
       should: 11.2.1
-      supertest: 4.0.2
+      supertest: 6.0.1
     specifiers:
       '@ianwalter/bff': ^9.12.1
       '@ianwalter/nrg': ^0.15.0
@@ -286,7 +286,7 @@ importers:
       parseurl: ^1.3.3
       pedding: ^1.1.0
       should: ^11.2.1
-      supertest: ^4.0.2
+      supertest: ^6.0.1
       uid-safe: ^2.1.5
   packages/nrg-test:
     dependencies:
@@ -7422,6 +7422,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
+  /fast-safe-stringify/2.0.7:
+    dev: true
+    resolution:
+      integrity: sha512-Utm6CdzT+6xsDk2m8S6uL8VHxNwI6Jub+e9NYTcAms28T84pTa25GJQV9j0CY0N1rM8hK4x6grpF2BQf+2qwVA==
   /fastq/1.8.0:
     dependencies:
       reusify: 1.0.4
@@ -7685,16 +7689,16 @@ packages:
       node: '>= 0.12'
     resolution:
       integrity: sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==
-  /form-data/2.5.1:
+  /form-data/3.0.0:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.27
     dev: true
     engines:
-      node: '>= 0.12'
+      node: '>= 6'
     resolution:
-      integrity: sha512-m21N3WOmEEURgk6B9GLOE4RuWOFf28Lhh9qGYeNlGq4VDXUlJy2th2slBNU8Gp8EzloYZOibZJ7t5ecIrFSjVA==
+      integrity: sha512-CKMFDglpbMi6PyN+brwB9Q/GOw0eAnsrEZDgcsH5Krhz5Od/haKHAX0NmQfha2zPPz0JpWzA7GJHGSnvCRLWsg==
   /formidable/1.2.2:
     dev: true
     resolution:
@@ -14354,32 +14358,33 @@ packages:
   /super-split/1.1.0:
     resolution:
       integrity: sha512-I4bA5mgcb6Fw5UJ+EkpzqXfiuvVGS/7MuND+oBxNFmxu3ugLNrdIatzBLfhFRMVMLxgSsRy+TjIktgkF9RFSNQ==
-  /superagent/3.8.3:
+  /superagent/6.1.0:
     dependencies:
       component-emitter: 1.3.0
       cookiejar: 2.1.2
-      debug: 3.2.6
-      extend: 3.0.2
-      form-data: 2.5.1
+      debug: 4.2.0
+      fast-safe-stringify: 2.0.7
+      form-data: 3.0.0
       formidable: 1.2.2
       methods: 1.1.2
-      mime: 1.6.0
+      mime: 2.4.6
       qs: 6.9.4
-      readable-stream: 2.3.7
+      readable-stream: 3.6.0
+      semver: 7.3.2
     dev: true
     engines:
-      node: '>= 4.0'
+      node: '>= 7.0.0'
     resolution:
-      integrity: sha512-GLQtLMCoEIK4eDv6OGtkOoSMt3D+oq0y3dsxMuYuDvaNUvuT8eFBuLmfR0iYYzHC1e8hpzC6ZsxbuP6DIalMFA==
-  /supertest/4.0.2:
+      integrity: sha512-OUDHEssirmplo3F+1HWKUrUjvnQuA+nZI6i/JJBdXb5eq9IyEQwPyPpqND+SSsxf6TygpBEkUjISVRN4/VOpeg==
+  /supertest/6.0.1:
     dependencies:
       methods: 1.1.2
-      superagent: 3.8.3
+      superagent: 6.1.0
     dev: true
     engines:
       node: '>=6.0.0'
     resolution:
-      integrity: sha512-1BAbvrOZsGA3YTCWqbmh14L0YEq0EGICX/nBnfkfVJn7SrxQV1I3pMYjSzG9y/7ZU2V9dWqyqk2POwxlb09duQ==
+      integrity: sha512-8yDNdm+bbAN/jeDdXsRipbq9qMpVF7wRsbwLgsANHqdjPsCoecmlTuqEcLQMGpmojFBhxayZ0ckXmLXYq7e+0g==
   /supports-color/2.0.0:
     engines:
       node: '>=0.8.0'
