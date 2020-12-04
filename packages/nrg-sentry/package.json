@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@ianwalter/nrg": "^0.15.0",
-    "@sentry/node": "^5.27.1",
+    "@sentry/node": "^5.28.0",
     "@sentry/tracing": "^5.27.1"
   },
   "devDependencies": {
