@@ -104,7 +104,7 @@ importers:
     dependencies:
       '@generates/cli': 0.0.7
       '@generates/logger': 0.0.8
-      '@generates/merger': 0.0.1
+      '@generates/merger': 0.1.1
       '@ianwalter/cloneable': 2.0.0
       '@ianwalter/correct': 1.2.1
       '@ianwalter/dist': 6.0.0
@@ -149,7 +149,7 @@ importers:
     specifiers:
       '@generates/cli': ^0.0.7
       '@generates/logger': ^0.0.8
-      '@generates/merger': ^0.0.1
+      '@generates/merger': ^0.1.1
       '@ianwalter/bff': ^9.12.3
       '@ianwalter/cloneable': ^2.0.0
       '@ianwalter/correct': ^1.2.1
@@ -2516,6 +2516,10 @@ packages:
   /@generates/merger/0.0.1:
     resolution:
       integrity: sha512-A0zgTrlKJcroOOxx7GOY+OmVvGYVusG0UlhJLC/q8OvpQzF5xHE/jwW7mfPt5anJwHaRgWcWwjfQAFtk3HtYRA==
+  /@generates/merger/0.1.1:
+    dev: false
+    resolution:
+      integrity: sha512-jlO57SAsyw3sI7fpgHLzx7CdpklW4hciHoILR0lylj0WlMBD1PpRfULeqfiWjUV5NxGuhrxQqZ4vrPteKEZKNg==
   /@hapi/address/4.1.0:
     dependencies:
       '@hapi/hoek': 9.0.4
