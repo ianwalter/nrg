@@ -38,6 +38,6 @@
     "amqplib": "^0.6.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.12.1"
+    "@ianwalter/bff": "^9.12.3"
   }
 }

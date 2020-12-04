@@ -40,7 +40,7 @@
     "csrf": "^3.1.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.12.1",
+    "@ianwalter/bff": "^9.12.3",
     "@ianwalter/nrg": "^0.15.0"
   }
 }
