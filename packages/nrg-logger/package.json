@@ -40,8 +40,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@generates/logger": "^0.0.8",
-    "@ianwalter/cloneable": "^2.0.0",
+    "@generates/logger": "^0.0.9",
     "@ianwalter/timer": "^2.0.2"
   },
   "devDependencies": {
