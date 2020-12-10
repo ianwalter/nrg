@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ianwalter/pnpm:v1.3.0
+      image: node:15.4
     timeout-minutes: 5
     env:
       DB_HOST: postgres
@@ -45,8 +45,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install
-        run: pnpm i -r
+        run: npm ci
       - name: Lint
-        run: pnpm lint
+        run: npm run lint
       - name: Test
-        run: pnpm -r test
+        run: npm test

@@ -29,6 +29,10 @@
   "bugs": {
     "url": "https://github.com/ianwalter/nrg/issues"
   },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/ianwalter"
+  },
   "homepage": "https://github.com/ianwalter/nrg/blob/main/packages/nrg-session#readme",
   "publishConfig": {
     "access": "public"
