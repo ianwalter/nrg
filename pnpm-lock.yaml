@@ -102,7 +102,7 @@ importers:
       vite-plugin-react: ^3.0.2
   packages/nrg:
     dependencies:
-      '@generates/cli': 0.0.7
+      '@generates/cli': 0.0.9
       '@generates/logger': 0.0.8
       '@generates/merger': 0.1.1
       '@ianwalter/cloneable': 2.0.0
@@ -147,7 +147,7 @@ importers:
     devDependencies:
       '@ianwalter/bff': 9.12.3
     specifiers:
-      '@generates/cli': ^0.0.7
+      '@generates/cli': ^0.0.9
       '@generates/logger': ^0.0.8
       '@generates/merger': ^0.1.1
       '@ianwalter/bff': ^9.12.3
@@ -2462,6 +2462,19 @@ packages:
       read-pkg-up: 7.0.1
     resolution:
       integrity: sha512-tL4jZ6n+x+/17gzj9zIgK3WHhQBkwRAMKx8zF5HOohYASaJ0TizjWp+KLd5Ep29NoNQzEFWrbZqcW8OAX6FQHw==
+  /@generates/cli/0.0.9:
+    dependencies:
+      '@generates/logger': 0.0.9
+      '@generates/merger': 0.1.1
+      '@ianwalter/dot': 1.0.5
+      camelcase: 6.0.0
+      common-tags: 1.8.0
+      decamelize: 4.0.0
+      getopts: 2.2.5
+      read-pkg-up: 7.0.1
+    dev: false
+    resolution:
+      integrity: sha512-xZdBwf/mD2azGsJfxIRN0Ln3cPx9AzTxgPK40mLhdedeMEduVXR9hvL/fnRCzj+Lk7ZhvB3wETWcoACjvsQugw==
   /@generates/logger/0.0.6:
     dependencies:
       '@generates/cli': 0.0.6
@@ -2513,6 +2526,24 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-ppgd01vaoFmlhogGMpNnR9FkMKp8F2J61qn89zbfylHOh0lecsRTyt8hGt4fyzX6H14AsRC2oHRse4HJp+Aw8Q==
+  /@generates/logger/0.0.9:
+    dependencies:
+      '@generates/cli': 0.0.9
+      '@generates/merger': 0.1.1
+      '@ianwalter/chromafi': 1.0.1
+      '@ianwalter/clone': 6.0.1
+      '@ianwalter/cloneable': 2.0.0
+      '@ianwalter/dot': 1.0.5
+      chalk: 4.1.0
+      has-ansi: 4.0.0
+      has-emoji: 1.1.0
+      marked: 1.2.0
+      marked-terminal: 4.1.0_marked@1.2.0
+      strip-ansi: 6.0.0
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-SzWqUUO2ugHSVFW0UoH1dovSCIsP8BHNx1iRqQ/ZnsUDh1t0logrVH9nqWFpR10ey629uIDPq0Ut/43G3P8tZQ==
   /@generates/merger/0.0.1:
     resolution:
       integrity: sha512-A0zgTrlKJcroOOxx7GOY+OmVvGYVusG0UlhJLC/q8OvpQzF5xHE/jwW7mfPt5anJwHaRgWcWwjfQAFtk3HtYRA==
