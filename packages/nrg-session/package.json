@@ -46,7 +46,6 @@
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.12.3",
-    "@ianwalter/nrg": "^0.15.0",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
     "koa": "^2.13.0",

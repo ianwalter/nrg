@@ -40,7 +40,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.15.0",
     "@sentry/node": "^5.27.1",
     "@sentry/tracing": "^5.27.1"
   },
