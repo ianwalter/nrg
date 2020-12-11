@@ -16,7 +16,7 @@ test('Message Queue', async t => {
   // Send a POST request to the server with a number and verify that the result
   // returned matches the result received above and that it's correct.
   const response = await app.test('/').post({ num: 3 })
-  t.print.info('Response', response.body)
+  t.logger.info('Response', response.body)
   t.expect(response.statusCode).toBe(200)
   t.expect(response.body.result).toEqual(result)
   t.expect(result).toBe(8)

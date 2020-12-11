@@ -32,13 +32,16 @@
   "bugs": {
     "url": "https://github.com/ianwalter/nrg/issues"
   },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/ianwalter"
+  },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@ianwalter/cloneable": "^2.0.0",
-    "@ianwalter/timer": "^2.0.2",
-    "@generates/logger": "^0.0.8"
+    "@generates/logger": "^0.0.9",
+    "@ianwalter/timer": "^2.0.2"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.12.3",
