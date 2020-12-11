@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.15.4
+
+### Patch Changes
+
+- a5f9e44: Update dependency @generates/cli to ^0.0.9
+- aaf0a01: Update dependency nodemailer to ^6.4.17
+- 6e7c5ce: Update dependency @generates/merger to ^0.1.1
+
 ## 0.15.3
 
 ### Patch Changes
