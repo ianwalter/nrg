@@ -13,7 +13,7 @@
     "build": "next build",
     "start": "next start",
     "pretest": "next build",
-    "test": "bff"
+    "test:next": "bff"
   },
   "dependencies": {
     "@ianwalter/nrg": "^0.15.0",
