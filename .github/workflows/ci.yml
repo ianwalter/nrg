@@ -50,3 +50,5 @@ jobs:
         run: npm run lint
       - name: Test
         run: npm test
+      - name: Test Next.js Example
+        run: npm run test:next
