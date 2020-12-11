@@ -13,7 +13,7 @@
     "test:mq": "npm test --prefix examples/mq",
     "test:ssr": "npm test --prefix examples/ssr",
     "test:static": "npm test --prefix examples/static",
-    "test:next": "npm run test:next --prefix examples/next",
+    "test:next": "npm run todo --prefix examples/next",
     "example:hello": "node examples/helloWorld.js",
     "example:routes": "node examples/routes.js",
     "example:uncaught": "node examples/uncaughtException.js",
