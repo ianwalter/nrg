@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: node:15.4
-    timeout-minutes: 5
+    timeout-minutes: 10
     env:
       DB_HOST: postgres
       DB_PORT: 5432
