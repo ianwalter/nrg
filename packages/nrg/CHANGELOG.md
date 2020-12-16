@@ -1,5 +1,15 @@
 # @ianwalter/nrg
 
+## 0.16.0
+
+### Minor Changes
+
+- ce0c1b1: Add #591: client logging
+
+### Patch Changes
+
+- fd5c73e: Update dependency knex to ^0.21.13
+
 ## 0.15.4
 
 ### Patch Changes
