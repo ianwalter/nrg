@@ -1,6 +1,6 @@
-const { test } = require('@ianwalter/bff')
-const { createApp } = require('@ianwalter/nrg')
-const testApp = require('.')
+import { test } from '@ianwalter/bff'
+import { createApp } from '@ianwalter/nrg'
+import testApp from './index.js'
 
 test('get', async t => {
   // Create the app instance.

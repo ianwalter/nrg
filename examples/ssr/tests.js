@@ -1,6 +1,6 @@
-const { test } = require('@ianwalter/bff')
-const app = require('.')
-const nrg = require('@ianwalter/nrg')
+import { test } from '@ianwalter/bff'
+import app from './index.js'
+import nrg from '@ianwalter/nrg'
 
 const result = { song: 'Wave' }
 const addData = (ctx, next) => {

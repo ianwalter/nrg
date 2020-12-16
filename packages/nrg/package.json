@@ -81,7 +81,7 @@
     "webpack": "^4.44.1"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^10.0.0"
+    "@ianwalter/bff": "^9.13.0"
   },
   "nrg": {
     "app": "examples/accounts"

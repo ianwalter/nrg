@@ -1,6 +1,6 @@
-const fs = require('fs')
-const path = require('path')
-const { createApp } = require('@ianwalter/nrg')
+import fs from 'fs'
+import path from 'path'
+import { createApp } from '@ianwalter/nrg'
 
 const app = createApp({
   oauth: {

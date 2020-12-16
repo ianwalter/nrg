@@ -1,5 +1,5 @@
-const path = require('path')
-const { createApp } = require('@ianwalter/nrg')
+import path from 'path'
+import { createApp } from '@ianwalter/nrg'
 
 const app = createApp({
   static: {

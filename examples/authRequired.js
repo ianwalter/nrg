@@ -1,4 +1,4 @@
-const { createApp, requireAuthorization } = require('../')
+import { createApp, requireAuthorization } from '../index.js'
 
 const app = createApp({ keys: ['sh00k1s'] })
 

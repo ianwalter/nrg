@@ -1,4 +1,4 @@
-const { createApp } = require('@ianwalter/nrg')
+import { createApp } from '@ianwalter/nrg'
 
 let num = 0
 const host = process.env.MQ_HOST || 'localhost'

@@ -12,7 +12,6 @@
     "test": "bff"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.16.0",
     "svelte": "^3.24.0"
   },
   "devDependencies": {

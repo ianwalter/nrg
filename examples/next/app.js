@@ -1,5 +1,5 @@
-const nrg = require('@ianwalter/nrg')
-const hello = require('./api/hello')
+import * as nrg from '@ianwalter/nrg'
+import hello from './api/hello.js'
 
 // Create the nrg app instance.
 const app = nrg.createApp({

@@ -1,4 +1,4 @@
-const { createApp, BadRequestError } = require('@ianwalter/nrg')
+import { createApp, BadRequestError } from '@ianwalter/nrg'
 
 const app = createApp()
 

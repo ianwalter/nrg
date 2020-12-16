@@ -12,9 +12,6 @@
     "pretest": "pnpx nrg migrate && pnpx nrg seed && pnpx nrg run deleteAllEmail",
     "test": "NODE_ENV=test bff"
   },
-  "dependencies": {
-    "@ianwalter/nrg": "^0.16.0"
-  },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0"
   }

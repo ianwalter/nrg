@@ -1,4 +1,4 @@
-const nrg = require('@ianwalter/nrg')
+import nrg from '@ianwalter/nrg'
 
 const app = nrg.createApp({
   name: 'Accounts Example',

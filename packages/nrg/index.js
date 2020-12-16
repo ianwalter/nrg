@@ -1,14 +1,14 @@
-const { Model } = require('objection')
+import { Model } from 'objection'
 
-const createApp = require('./lib/createApp')
+import createApp from './lib/createApp.js'
 
-const Base = require('./lib/models/Base')
-const Account = require('./lib/models/Account')
-const Token = require('./lib/models/Token')
-const Role = require('./lib/models/Role')
-const AccountRole = require('./lib/models/AccountRole')
+import Base from './lib/models/Base.js'
+import Account from './lib/models/Account.js'
+import Token from './lib/models/Token.js'
+import Role from './lib/models/Role.js'
+import AccountRole from './lib/models/AccountRole.js'
 
-const {
+import {
   GeneralError,
   HttpError,
   BadRequestError,
@@ -16,54 +16,54 @@ const {
   ForbiddenError,
   NotFoundError,
   ValidationError
-} = require('./lib/errors')
+} from './lib/errors.js'
 
-const {
+import {
   enrichAndLogError,
   addErrorToResponse,
   handleError
-} = require('./lib/middleware/error')
+} from './lib/middleware/error.js'
 
-const { addToResponse, addToSsr, redirect } = require('./lib/middleware/end')
+import { addToResponse, addToSsr, redirect } from './lib/middleware/end.js'
 
-const {
+import {
   serveStatic,
   serveWebpack,
   logClientMessage
-} = require('./lib/middleware/client')
+} from './lib/middleware/client.js'
 
-const { serveSsr } = require('./lib/middleware/ssr')
+import { serveSsr } from './lib/middleware/ssr.js'
 
-const {
+import {
   generateToken,
   insertToken,
   verifyToken
-} = require('./lib/middleware/token')
+} from './lib/middleware/token.js'
 
-const {
+import {
   validatePasswordStrength,
   hashPassword,
   comparePasswords
-} = require('./lib/middleware/password')
+} from './lib/middleware/password.js'
 
-const { requireAuthorization } = require('./lib/middleware/authorization')
+import { requireAuthorization } from './lib/middleware/authorization.js'
 
-const { validateEmail, sendEmail } = require('./lib/middleware/email')
+import { validateEmail, sendEmail } from './lib/middleware/email.js'
 
-const {
+import {
   validateRegistration,
   createAccount
-} = require('./lib/middleware/registration')
+} from './lib/middleware/registration.js'
 
-const {
+import {
   generateEmailVerificationEmail,
   startEmailVerification,
   validateEmailVerification,
   getEmailTokens,
   verifyEmail
-} = require('./lib/middleware/emailVerification')
+} from './lib/middleware/emailVerification.js'
 
-const {
+import {
   getAccount,
   reduceAccountForClient,
   validateAccountUpdate,
@@ -71,45 +71,45 @@ const {
   startEmailUpdate,
   updatePassword,
   updateAccount
-} = require('./lib/middleware/account')
+} from './lib/middleware/account.js'
 
-const {
+import {
   validateLogin,
   createUserSession,
   clearSession,
   getSession,
   resetSession,
   disableCsrf
-} = require('./lib/middleware/session')
+} from './lib/middleware/session.js'
 
-const {
+import {
   generatePasswordResetEmail
-} = require('./lib/middleware/forgotPassword')
+} from './lib/middleware/forgotPassword.js'
 
-const {
+import {
   validatePasswordReset,
   getPasswordTokens
-} = require('./lib/middleware/passwordReset')
+} from './lib/middleware/passwordReset.js'
 
-const { slowDown } = require('./lib/middleware/slowDown')
+import { slowDown } from './lib/middleware/slowDown.js'
 
-const { httpsRedirect } = require('./lib/middleware/httpsRedirect')
+import { httpsRedirect } from './lib/middleware/httpsRedirect.js'
 
-const { adaptNext } = require('./lib/middleware/next')
+import { adaptNext } from './lib/middleware/next.js'
 
-const swap = require('./lib/utilities/swap')
-const getRandomTimeout = require('./lib/utilities/getRandomTimeout')
-const getTestEmail = require('./lib/utilities/getTestEmail')
-const extractEmailToken = require('./lib/utilities/extractEmailToken')
-const getHostUrl = require('./lib/utilities/getHostUrl')
-const plugBefore = require('./lib/utilities/plugBefore')
-const plugAfter = require('./lib/utilities/plugAfter')
+import swap from './lib/utilities/swap.js'
+import getRandomTimeout from './lib/utilities/getRandomTimeout.js'
+import getTestEmail from './lib/utilities/getTestEmail.js'
+import extractEmailToken from './lib/utilities/extractEmailToken.js'
+import getHostUrl from './lib/utilities/getHostUrl.js'
+import plugBefore from './lib/utilities/plugBefore.js'
+import plugAfter from './lib/utilities/plugAfter.js'
 
-const serve = require('./lib/app/serve')
+import serve from './lib/app/serve.js'
 
-const config = require('./lib/config')
+import config from './lib/config.js'
 
-module.exports = {
+export default {
   /**
    * Workloads:
    */

@@ -39,18 +39,18 @@ const clientLogDefaults = {
 function handleLogClientMessage (ctx, next, options) {
   const log = ctx.logger.ns('nrg.client')
   const body = ctx.request.body || ctx.req.body || {}
-  const { level = 'info', ...message } = body[options.namespace]
+  const { level = 'info', statements } = body[options.namespace]
 
-  if (options.levels.includes(level) && message) {
-    const byteLength = Buffer.byteLength(Buffer.from(JSON.stringify(message)))
-    if (byteLength <= options.sizeLimit) {
-      log[level](`Client ${level}`, message)
+  if (options.levels.includes(level) && statements?.length) {
+    const size = Buffer.byteLength(Buffer.from(JSON.stringify(statements)))
+    if (size <= options.sizeLimit) {
+      log[level](`Client ${level}`, ...statements)
       ctx.state.status = 204
       return next()
     }
 
     const warning = 'Client message too large'
-    log.warn(warning, { sizeLimit: options.sizeLimit, byteLength })
+    log.warn(warning, { sizeLimit: options.sizeLimit, size })
   } else {
     log.warn('Invalid client message')
   }

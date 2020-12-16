@@ -1,8 +1,8 @@
-const { test } = require('@ianwalter/bff')
-const app = require('../app')
-const { accounts, password } = require('../seeds/01_accounts')
-const { tokens } = require('../seeds/02_tokens')
-const { Account, extractEmailToken } = require('@ianwalter/nrg')
+import { test } from '@ianwalter/bff'
+import app from '../app/index.js'
+import { accounts, password } from '../seeds/01_accounts.js'
+import { tokens } from '../seeds/02_tokens.js'
+import { Account, extractEmailToken } from '@ianwalter/nrg'
 
 const testUser = { ...accounts[1], password }
 const resetVerifyUser = accounts.find(a => a.firstName === 'Reset Verify')

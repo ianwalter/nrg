@@ -12,9 +12,6 @@
     "start": "node serve",
     "test": "echo FIXME: add test for oauth example"
   },
-  "dependencies": {
-    "@ianwalter/nrg": "^0.16.0"
-  },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0"
   }

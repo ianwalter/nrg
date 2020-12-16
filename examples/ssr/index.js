@@ -1,5 +1,5 @@
-const path = require('path')
-const { createApp, serveSsr } = require('@ianwalter/nrg')
+import path from 'path'
+import { createApp, serveSsr } from '@ianwalter/nrg'
 
 const app = createApp({
   log: { level: 'debug' },
