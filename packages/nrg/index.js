@@ -26,7 +26,11 @@ const {
 
 const { addToResponse, addToSsr, redirect } = require('./lib/middleware/end')
 
-const { serveStatic, serveWebpack } = require('./lib/middleware/client')
+const {
+  serveStatic,
+  serveWebpack,
+  logClientMessage
+} = require('./lib/middleware/client')
 
 const { serveSsr } = require('./lib/middleware/ssr')
 
@@ -273,6 +277,13 @@ module.exports = {
     startEmailUpdate,
     updateAccount,
     reduceAccountForClient,
+    addToResponse
+  ],
+
+  // Client Logging:
+  logClientMessage,
+  clientLogging: [
+    logClientMessage,
     addToResponse
   ],
 
