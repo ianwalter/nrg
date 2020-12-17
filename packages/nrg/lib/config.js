@@ -1,7 +1,6 @@
 import dotenv from 'dotenv'
 import path from 'path'
 import { createRequire } from 'module'
-import { promises as fs } from 'fs'
 import objection from 'objection'
 import readPkgUp from 'read-pkg-up'
 import {
@@ -267,7 +266,9 @@ export default function config (options = {}) {
         // getServerSideProps function with the nrg request context.
         async adaptNext (app, ctx) {
           if (cfg.next.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding Next.js adapter middleware')
+            if (ctx.logger) {
+              ctx.logger.debug('Adding Next.js adapter middleware')
+            }
             const { adaptNext } = await import('./middleware/next.js')
             app.use(adaptNext)
           }

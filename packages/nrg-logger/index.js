@@ -29,7 +29,7 @@ export function install (app, ctx, cfg) {
       cfg.log.logHealthRequests
     ctx.state.log = Object.assign(request, ctx.state.log)
 
-    ctx.logger = logger.create({
+    ctx.logger = app.logger.create({
       ...cfg.log,
       get extraJson () {
         return ctx.state.log
