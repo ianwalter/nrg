@@ -7,7 +7,8 @@
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
   },
-  "main": "index.js",
+  "type": "module",
+  "module": "index.js",
   "scripts": {
     "test": "bff",
     "example:hello": "node examples/helloWorld"

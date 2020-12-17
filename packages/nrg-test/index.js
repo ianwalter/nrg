@@ -3,8 +3,10 @@ import * as nrg from '@ianwalter/nrg'
 
 const requester = new Requester({ shouldThrow: false })
 
-module.exports = function nrgTest (app, cfg = {}) {
-  return function test (path, options) {
+export function install (app, ctx, cfg) {
+  ctx.logger.debug('TODO:')
+
+  app.test = function test (path, options) {
     // If options has a statusCode, treat it as a response to a previous request
     // and try to extract headers from it to be reused for current request to
     // make it more convenient when writing tests with successive test requests.

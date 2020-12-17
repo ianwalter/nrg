@@ -109,7 +109,7 @@ import serve from './lib/app/serve.js'
 
 import config from './lib/config.js'
 
-export default {
+export {
   /**
    * Workloads:
    */
@@ -150,143 +150,135 @@ export default {
 
   // Email:
   validateEmail,
-  sendEmail,
+  sendEmail
+}
 
-  // Email Verification:
+// Email Verification:
+export {
   disableCsrf,
   generateEmailVerificationEmail,
   validateEmailVerification,
   getEmailTokens,
   getAccount,
+  verifyEmail
+}
+export const emailVerification = [
+  disableCsrf,
+  validateEmailVerification,
+  getEmailTokens,
+  verifyToken,
   verifyEmail,
-  emailVerification: [
-    disableCsrf,
-    validateEmailVerification,
-    getEmailTokens,
-    verifyToken,
-    verifyEmail,
-    getAccount,
-    createUserSession,
-    reduceAccountForClient,
-    addToResponse
-  ],
-
-  // Resend Email Verification:
-  startEmailVerification,
-  resendEmailVerification: [
-    disableCsrf,
-    validateEmail,
-    getAccount,
-    ...startEmailVerification,
-    addToResponse
-  ],
-
-  // Registration:
-  validateRegistration,
-  createAccount,
-  registration: [
-    disableCsrf,
-    validateRegistration,
-    hashPassword,
-    createAccount,
-    ...startEmailVerification,
-    addToResponse
-  ],
-
-  // Get Session:
-  resetSession,
-  session: [
-    reduceAccountForClient,
-    getSession,
-    addToResponse
-  ],
-
-  // Account:
-  reduceAccountForClient,
-  account: [
-    requireAuthorization,
-    getAccount,
-    reduceAccountForClient,
-    addToResponse
-  ],
-
-  // Login:
-  validateLogin,
+  getAccount,
   createUserSession,
-  login: [
-    disableCsrf,
-    validateLogin,
-    getAccount,
-    comparePasswords,
-    clearSession,
-    createUserSession,
-    reduceAccountForClient,
-    addToResponse
-  ],
+  reduceAccountForClient,
+  addToResponse
+]
 
-  // Logout:
+// Resend Email Verification:
+export { startEmailVerification }
+export const resendEmailVerification = [
+  disableCsrf,
+  validateEmail,
+  getAccount,
+  ...startEmailVerification,
+  addToResponse
+]
+
+// Registration:
+export { validateRegistration, createAccount }
+export const registration = [
+  disableCsrf,
+  validateRegistration,
+  hashPassword,
+  createAccount,
+  ...startEmailVerification,
+  addToResponse
+]
+
+// Get Session:
+export { resetSession }
+export const session = [reduceAccountForClient, getSession, addToResponse]
+
+// Account:
+export { reduceAccountForClient }
+export const account = [
+  requireAuthorization,
+  getAccount,
+  reduceAccountForClient,
+  addToResponse
+]
+
+// Login:
+export { validateLogin, createUserSession }
+export const login = [
+  disableCsrf,
+  validateLogin,
+  getAccount,
+  comparePasswords,
   clearSession,
-  logout: [
-    clearSession,
-    addToResponse
-  ],
+  createUserSession,
+  reduceAccountForClient,
+  addToResponse
+]
 
-  // Forgot Password:
+// Logout:
+export { clearSession }
+export const logout = [clearSession, addToResponse]
+
+// Forgot Password:
+export { generatePasswordResetEmail }
+export const forgotPassword = [
+  disableCsrf,
+  validateEmail,
+  generateToken,
+  getAccount,
+  insertToken,
   generatePasswordResetEmail,
-  forgotPassword: [
-    disableCsrf,
-    validateEmail,
-    generateToken,
-    getAccount,
-    insertToken,
-    generatePasswordResetEmail,
-    sendEmail,
-    addToResponse
-  ],
+  sendEmail,
+  addToResponse
+]
 
-  // Password Reset:
+// Password Reset:
+export { validatePasswordReset, getPasswordTokens, updatePassword }
+export const passwordReset = [
+  disableCsrf,
   validatePasswordReset,
+  getAccount,
   getPasswordTokens,
+  verifyToken,
+  verifyEmail,
+  hashPassword,
   updatePassword,
-  passwordReset: [
-    disableCsrf,
-    validatePasswordReset,
-    getAccount,
-    getPasswordTokens,
-    verifyToken,
-    verifyEmail,
-    hashPassword,
-    updatePassword,
-    createUserSession,
-    reduceAccountForClient,
-    addToResponse
-  ],
+  createUserSession,
+  reduceAccountForClient,
+  addToResponse
+]
 
-  // Account Update:
+// Account Update:
+export {
   validatePasswordUpdate,
   validateAccountUpdate,
   startEmailUpdate,
+  updateAccount
+}
+export const accountUpdate = [
+  requireAuthorization,
+  validatePasswordUpdate,
+  validateAccountUpdate,
+  getAccount,
+  comparePasswords,
+  hashPassword,
+  startEmailUpdate,
   updateAccount,
-  accountUpdate: [
-    requireAuthorization,
-    validatePasswordUpdate,
-    validateAccountUpdate,
-    getAccount,
-    comparePasswords,
-    hashPassword,
-    startEmailUpdate,
-    updateAccount,
-    reduceAccountForClient,
-    addToResponse
-  ],
+  reduceAccountForClient,
+  addToResponse
+]
 
-  // Client Logging:
-  logClientMessage,
-  clientLogging: [
-    logClientMessage,
-    addToResponse
-  ],
+// Client Logging:
+export { logClientMessage }
+export const clientLogging = [logClientMessage, addToResponse]
 
+export {
   // Slow down / rate limiting:
   slowDown,
 
@@ -334,11 +326,12 @@ export default {
   /**
    * App methods:
    */
-  serve,
 
-  /**
-   * Default config:
-   */
-
-  defaults: config()
+  serve
 }
+
+/**
+ * Default config:
+ */
+
+export const defaults = config()

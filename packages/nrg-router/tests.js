@@ -1,4 +1,4 @@
-import { test } from '@ianwalter/bff')
+import { test } from '@ianwalter/bff'
 import { createApp } from '@ianwalter/nrg'
 import nrgRouter from './index.js'
 

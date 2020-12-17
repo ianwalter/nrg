@@ -11,6 +11,13 @@ isString.validate = function validateString (input) {
   return { isValid: typeof input === 'string' && input.length > 0 }
 }
 
+export function isBoolean (input) {
+  return resultIsValid(isBoolean.validate(input))
+}
+isBoolean.validate = function validateBoolean (input) {
+  return { isValid: typeof input === 'boolean' }
+}
+
 const defaultEmailOptions = { minDomainAtoms: 2 }
 export function isEmail (input, options) {
   return resultIsValid(isEmail.validate(input, options))

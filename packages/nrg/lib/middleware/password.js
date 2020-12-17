@@ -40,3 +40,8 @@ export async function comparePasswords (ctx, next) {
   }
   return next()
 }
+
+// TODO: FIXME:
+export async function validatePasswordStrength (ctx, next) {
+  next()
+}

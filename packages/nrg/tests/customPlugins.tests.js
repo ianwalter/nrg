@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff'
-import nrg from '../index.js'
+import * as nrg from '../index.js'
 
 test('Custom plugins', async t => {
   const defined = []

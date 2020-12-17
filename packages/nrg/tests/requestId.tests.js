@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff'
-import { nanoid } from  'nanoid'
+import { nanoid } from 'nanoid'
 import app from './fixtures/helloWorld.js'
 
 test('Request ID gets generated', async t => {

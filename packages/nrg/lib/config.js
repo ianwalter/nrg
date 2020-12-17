@@ -1,5 +1,8 @@
+import dotenv from 'dotenv'
 import path from 'path'
-import { knexSnakeCaseMappers } from 'objection'
+import { createRequire } from 'module'
+import { promises as fs } from 'fs'
+import objection from 'objection'
 import readPkgUp from 'read-pkg-up'
 import {
   SchemaValidator,
@@ -11,6 +14,11 @@ import {
   trim,
   lowercase
 } from '@ianwalter/nrg-validation'
+import getHostUrl from './utilities/getHostUrl.js'
+import Account from './models/Account.js'
+import Token from './models/Token.js'
+
+const require = createRequire(import.meta.url)
 
 // Get the end-user's package.json data so that it can be used to provide
 // defaults.
@@ -19,7 +27,7 @@ const { packageJson = {}, path: packagePath } = readPkgUp.sync({ cwd }) || {}
 const dir = path.dirname(packagePath)
 
 // Load environment variables from .env file.
-require('dotenv').config({ path: path.join(dir, '.env') })
+dotenv.config({ path: path.join(dir, '.env') })
 
 // Validator properties.
 const email = { isEmail, trim, lowercase }
@@ -67,7 +75,7 @@ export default function config (options = {}) {
     // [String] A URL based on the hostname and port properties above that the
     // application server will listen on.
     get hostUrl () {
-      return require('./utilities/getHostUrl')(this.hostname, this.port)
+      return getHostUrl(this.hostname, this.port)
     },
     // [String] The base, or root, URL of your application. Defaults to the
     // APP_BASE_URL environment variable or the hostUrl property above.
@@ -113,54 +121,52 @@ export default function config (options = {}) {
       const plugins = {
         // Adds a logger instance to the app and ctx. Enabled by default if the
         // log option Object is not falsy.
-        logger (app, ctx) {
+        async logger (app, ctx) {
           if (cfg.log) {
-            const nrgLogger = require('@ianwalter/nrg-logger')
-            const { logger, middleware } = nrgLogger(cfg.log)
-            logger.ns('nrg.plugins').debug('Adding nrg-logger')
-            app.logger = app.context.logger = logger
-            ctx.log = logger.ns('nrg.plugins')
-            ctx.logMiddleware = middleware
+            const { install } = await import('@ianwalter/nrg-logger')
+            install(app, ctx, cfg)
           }
         },
         // Middleware that logs and builds responses for errors thrown in
         // subsequent middleware. Enabled by default.
-        error (app, ctx) {
-          if (ctx.log) ctx.log.debug('Adding error middleware')
-          const { handleError } = require('./middleware/error')
+        async error (app, ctx) {
+          if (ctx.logger) ctx.logger.debug('Adding error middleware')
+          const { handleError } = await import('./middleware/error.js')
           app.use(handleError)
         },
         // Middleware for setting a unique identifier for each request using
         // nanoid so that request logs are easier to trace. Enabled by default.
-        requestId (app, ctx) {
-          if (ctx.log) ctx.log.debug('Adding requestId middleware')
-          const { setRequestId } = require('./middleware/requestId')
+        async requestId (app, ctx) {
+          if (ctx.logger) ctx.logger.debug('Adding requestId middleware')
+          const { setRequestId } = await import('./middleware/requestId.js')
           app.use(setRequestId)
         },
         // If enabled, add a redis instance to the app and server context.
-        redis (app, ctx) {
+        async redis (app, ctx) {
           if (cfg.redis.enabled) {
-            if (ctx.log) ctx.log.debug('Adding Redis')
-            const redisStore = require('koa-redis')
+            if (ctx.logger) ctx.logger.debug('Adding Redis')
+            const { default: redisStore } = await import('koa-redis')
             app.redis = app.context.redis = redisStore(cfg.redis.connection)
           }
         },
         // Middleware for enabling server-side user sessions using
         // @ianwalter/nrg-session. Enabled by default if keys used to generate
         // the session keys are passed as options.
-        session (app, ctx) {
+        async session (app, ctx) {
           if (cfg.keys?.length && !cfg.isCli) {
-            if (ctx.log) ctx.log.debug('Adding nrg-session middleware')
-            const nrgSession = require('@ianwalter/nrg-session')
+            if (ctx.logger) ctx.logger.debug('Adding nrg-session middleware')
+            const {
+              default: nrgSession
+            } = await import('@ianwalter/nrg-session')
             app.use(nrgSession({ store: app.redis, ...cfg.sessions }, app))
           }
         },
         // Middleware for logging request/responses. Enabled by default if
         // logMiddleware has been added to ctx.
         log (app, ctx) {
-          if (ctx.logMiddleware) {
-            if (ctx.log) ctx.log.debug('Adding log middleware')
-            app.use(ctx.logMiddleware)
+          if (ctx.loggerMiddleware) {
+            if (ctx.logger) ctx.logger.debug('Adding log middleware')
+            app.use(ctx.loggerMiddleware)
           }
         },
         // Add Cross-Site Request Forgery (CSRF) middleware that will allow
@@ -168,128 +174,144 @@ export default function config (options = {}) {
         // ctx.generateCsrfToken method. Also add CSRF protection middleware to
         // the ctx so the router plugin can use it to protect relevant
         // endpoints.
-        csrf (app, ctx) {
+        async csrf (app, ctx) {
           if (cfg.keys?.length && cfg.sessions.csrf && !cfg.isCli) {
-            require('@ianwalter/nrg-csrf').install(app, ctx)
+            const { install } = await import('@ianwalter/nrg-csrf')
+            install(app, ctx)
           }
         },
         // Middleware for redirecting requests using the http protocol to a
         // version of the URL that uses the https protocol when a request has
         // the X-Forwarded-Proto header. Enabled by default if application is in
         // production mode.
-        httpsRedirect (app, ctx) {
+        async httpsRedirect (app, ctx) {
           if (cfg.isProd && !cfg.isCli && !cfg.next.enabled) {
-            if (ctx.log) ctx.log.debug('Adding httpsRedirect middleware')
-            const { httpsRedirect } = require('./middleware/httpsRedirect')
+            if (ctx.logger) ctx.logger.debug('Adding httpsRedirect middleware')
+            const {
+              httpsRedirect
+            } = await import('./middleware/httpsRedirect.js')
             app.use(httpsRedirect)
           }
         },
         // Middleware for serving static files using koa-send. Not enabled by
         // default.
-        static (app, ctx) {
+        async static (app, ctx) {
           if (cfg.static.enabled && !cfg.webpack.enabled && !cfg.isCli) {
-            if (ctx.log) ctx.log.debug('Adding static middleware')
-            const { serveStatic } = require('./middleware/client')
+            if (ctx.logger) ctx.logger.debug('Adding static middleware')
+            const { serveStatic } = await import('./middleware/client.js')
             app.use(serveStatic)
           }
         },
         // Middleware for supporting Webpack compilation / Hot Module Reloading
         // (HMR) during development. Enabled through the webpack.enabled option.
-        webpack (app, ctx) {
+        async webpack (app, ctx) {
           const { enabled, ...rest } = cfg.webpack
           if (enabled && !cfg.isCli) {
-            if (ctx.log) ctx.log.debug('Adding Webpack middleware')
-            app.context.webpackMiddleware = require('koa-webpack')(rest)
-            const { serveWebpack } = require('./middleware/client')
+            if (ctx.logger) ctx.logger.debug('Adding Webpack middleware')
+            const { default: koaWebpack } = await import('koa-webpack')
+            app.context.webpackMiddleware = koaWebpack(rest)
+            const { serveWebpack } = await import('./middleware/client.js')
             app.use(serveWebpack)
           }
         },
         // Middleware for enabling app-wide IP-based rate limiting using
         // node-rate-limiter-flexible.
-        rateLimit (app, ctx) {
+        async rateLimit (app, ctx) {
           if (cfg.rateLimit.enabled) {
-            if (ctx.log) ctx.log.debug('Adding rateLimit middleware')
-            const { rateLimit } = require('./middleware/rateLimit')
+            if (ctx.logger) ctx.logger.debug('Adding rateLimit middleware')
+            const { rateLimit } = await import('./middleware/rateLimit.js')
             app.use(rateLimit(cfg.rateLimit, app))
           }
         },
         // Middleware for enabling OAuth authentication using simov/grant. Not
         // enabled by default.
         async oauth (app, ctx) {
-          const oauthProviders = await import('grant/config/oauth.json')
+          const oauthProviders = require('grant/config/oauth.json')
           if (Object.keys(cfg).some(key => oauthProviders[key])) {
-            if (ctx.log) ctx.log.debug('Adding OAuth middleware')
-            const grant = require('grant').koa()
-            app.use(grant(cfg.oauth))
+            if (ctx.logger) ctx.logger.debug('Adding OAuth middleware')
+            const { koa } = await import('grant')
+            app.use(koa(cfg.oauth))
           }
         },
         // Middleware for parsing request bodies into a format that's easier to
         // work with (e.g. JSON String to JS Object) using koa-bodyParser.
         // Enabled by default for 'json', 'form', and 'text'.
-        bodyParser (app, ctx) {
+        async bodyParser (app, ctx) {
           if (!cfg.next.enabled) {
-            if (app.logger) ctx.log.debug('Adding koa-bodyParser middleware')
-            const bodyParser = require('koa-bodyparser')
+            if (app.logger) ctx.logger.debug('Adding koa-bodyParser middleware')
+            const { default: bodyParser } = await import('koa-bodyparser')
             app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
           }
         },
         // Middleware for compressing response bodies using brotli or other
         // configured zlib-supported algorithms like gzip using koa-compress.
         // Enabled by default.
-        compress (app, ctx) {
+        async compress (app, ctx) {
           if (!cfg.isCli && !cfg.next.enabled) {
-            if (ctx.log) ctx.log.debug('Adding koa-compress middleware')
-            app.use(require('koa-compress')())
+            if (ctx.logger) ctx.logger.debug('Adding koa-compress middleware')
+            const { default: koaCompress } = await import('koa-compress')
+            app.use(koaCompress())
           }
         },
         // Middleware that prettifies JSON bodies making them easier to read.
         // Enabled by default if in development mode.
-        prettyJson (app, ctx) {
+        async prettyJson (app, ctx) {
           if (cfg.isDev) {
-            if (ctx.log) ctx.log.debug('Adding koa-json middleware')
-            const json = require('koa-json')
+            if (ctx.logger) ctx.logger.debug('Adding koa-json middleware')
+            const { default: json } = await import('koa-json')
             app.use(json({ pretty: true }))
           }
         },
         // If the Next.js integration is enabled, add the Next.js adapter
         // middleware so that you can execute some logic from a page's
         // getServerSideProps function with the nrg request context.
-        adaptNext (app, ctx) {
+        async adaptNext (app, ctx) {
           if (cfg.next.enabled) {
-            if (ctx.log) ctx.log.debug('Adding Next.js adapter middleware')
-            const { adaptNext } = require('./middleware/next')
+            if (ctx.logger) ctx.logger.debug('Adding Next.js adapter middleware')
+            const { adaptNext } = await import('./middleware/next.js')
             app.use(adaptNext)
           }
         },
         // Plugin for adding nrg-router which allows assigning middleware to
         // be executed when a request URL matches a given path.
-        router: require('@ianwalter/nrg-router'),
+        async router (app, ctx) {
+          const { install } = await import('@ianwalter/nrg-router')
+          install(app, ctx)
+        },
         // Add a knex database instance to the server context and tell Objection
         // to use that instance.
-        db (app, ctx) {
+        async db (app, ctx) {
           if (cfg.db.enabled) {
-            if (ctx.log) ctx.log.debug('Adding Objection.js')
-            const knex = require('knex')
-            const { Model } = require('objection')
+            if (ctx.logger) ctx.logger.debug('Adding Objection.js')
+            const { default: knex } = await import('knex')
             app.db = app.context.db = knex(cfg.db)
-            Model.knex(app.db)
+            objection.Model.knex(app.db)
+
+            if (cfg.accounts.enabled) {
+              const { default: bcrypt } = await import('bcrypt')
+              const salt = await bcrypt.genSalt(cfg.hash.rounds)
+              cfg.accounts.hashedDummyPassword = await bcrypt.hash(
+                cfg.accounts.dummyPassword,
+                salt
+              )
+            }
           }
         },
         // Set up the message queue client if enabled.
-        mq (app, ctx) {
+        async mq (app, ctx) {
           if (cfg.mq.enabled) {
-            if (ctx.log) ctx.log.debug('Adding nrg-mq')
-            const mq = require('@ianwalter/nrg-mq')
-            app.mq = app.context.mq = mq({ app, ...cfg.mq })
+            if (ctx.logger) ctx.logger.debug('Adding nrg-mq')
+            const { install } = await import('@ianwalter/nrg-mq')
+            app.mq = app.context.mq = install({ app, ...cfg.mq })
           }
         },
         // If email is enabled, set up instances of Mailgen to generate emails
         // and Nodemailer to send them.
-        email (app, ctx) {
+        async email (app, ctx) {
           if (cfg.email.enabled) {
-            if (ctx.log) ctx.log.debug('Adding Nodemailer and Mailgen')
-            const nodemailer = require('nodemailer')
-            const Mailgen = require('mailgen')
+            if (ctx.logger) ctx.logger.debug('Adding Nodemailer and Mailgen')
+            const { default: nodemailer } = await import('nodemailer')
+            const { default: Mailgen } = await import('mailgen')
             const { transport } = cfg.email
             app.context.nodemailer = nodemailer.createTransport(transport)
             app.context.mailgen = new Mailgen(cfg.email.mailgen)
@@ -299,31 +321,44 @@ export default function config (options = {}) {
         // has been configured with a router.
         healthEndpoint (app, ctx) {
           if (cfg.plugins.router && cfg.healthEndpoint) {
-            if (ctx.log) {
-              ctx.log.debug('Adding health endpoint:', cfg.healthEndpoint)
+            if (ctx.logger) {
+              ctx.logger.debug('Adding health endpoint:', cfg.healthEndpoint)
             }
             app.get(cfg.healthEndpoint, ctx => (ctx.status = 200))
           }
         },
         // Add a serve method to the app that makes it easy to start listening
         // for connections.
-        serve (app) {
-          if (!cfg.next.enabled) app.serve = require('./app/serve')
+        async serve (app) {
+          if (!cfg.next.enabled) {
+            const { default: serve } = await import('./app/serve.js')
+            app.serve = serve
+          }
         },
         // If not in production, add a utility to allow making test requests.
-        test (app) {
-          if (!cfg.isProd) app.test = require('@ianwalter/nrg-test')(app, cfg)
+        async test (app, ctx) {
+          if (!cfg.isProd) {
+            // TODO:
+            const { install } = await import('@ianwalter/nrg-test')
+            install(app, ctx, cfg)
+          }
         },
         // Add a utility that allows closing any connections opened when the app
         // was created.
-        close (app) {
-          app.close = require('./app/close')
+        async close (app, ctx) {
+          // TODO:
+          const { install } = await import('./app/close.js')
+          install(app, ctx)
         },
         // If the Next.js integration is enabled, add a "next" app method to
         // allow you to get the result of "nextAdapter" middleware and use it to
         // pass data to the page component.
-        next (app) {
-          if (cfg.next.enabled) app.next = require('./app/next')
+        async next (app, ctx) {
+          // TODO:
+          if (cfg.next.enabled) {
+            const { install } = await import('./app/next.js')
+            install(app, ctx)
+          }
         }
       }
 
@@ -425,7 +460,7 @@ export default function config (options = {}) {
         ...process.env.DB_USER ? { user: process.env.DB_USER } : {},
         ...process.env.DB_PASS ? { password: process.env.DB_PASS } : {}
       },
-      ...knexSnakeCaseMappers()
+      ...objection.knexSnakeCaseMappers()
     },
     mq: {
       get enabled () {
@@ -496,18 +531,7 @@ export default function config (options = {}) {
     accounts: {
       enabled: !!options.accounts,
       dummyPassword: 'ijFu54r6PyNdrN',
-      get hashedDummyPassword () {
-        if (this.enabled) {
-          const bcrypt = require('bcrypt')
-          const salt = bcrypt.genSaltSync(cfg.hash.rounds)
-          return bcrypt.hashSync(this.dummyPassword, salt)
-        }
-        return this.dummyPassword
-      },
-      models: {
-        Account: require('./models/Account'),
-        Token: require('./models/Token')
-      },
+      models: { Account, Token },
       passwordResetPath: '/reset-password'
     },
     validators: {

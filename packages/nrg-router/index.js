@@ -9,7 +9,7 @@ const methods = [
 const routers = {}
 const isNotDisableCsrf = middleware => middleware.name !== 'disableCsrf'
 
-export default function nrgRouter (app, ctx) {
+export function install (app, ctx) {
   const logger = app.logger?.ns('nrg.router') || { debug: () => {} }
 
   // Add a route to the route tree.

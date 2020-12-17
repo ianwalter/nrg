@@ -7,7 +7,8 @@
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
   },
-  "main": "index.js",
+  "type": "module",
+  "module": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --exit --require should --reporter spec test/*.test.js"
   },

@@ -1,6 +1,7 @@
 import SchemaValidator from './lib/SchemaValidator.js'
 import {
   isString,
+  isBoolean,
   isEmail,
   isPhone,
   isDate,
@@ -13,6 +14,7 @@ export {
   trim,
   lowercase,
   isString,
+  isBoolean,
   isEmail,
   isPhone,
   isDate,

@@ -1,15 +1,19 @@
-export default function close () {
-  // Close any open database connections.
-  if (this.db) this.db.destroy()
+export function install (app, ctx) {
+  ctx.logger.debug('TODO:')
 
-  // Close any open redis connections.
-  if (this.redis) this.redis.quit()
+  app.close = function close () {
+    // Close any open database connections.
+    if (this.db) this.db.destroy()
 
-  if (this.mq) {
-    // Silence channel ended error.
-    this.mq.channel.on('error', err => this.logger.ns('nrg.mq').debug(err))
+    // Close any open redis connections.
+    if (this.redis) this.redis.quit()
 
-    // Close message queue connection.
-    this.mq.connection.close()
+    if (this.mq) {
+      // Silence channel ended error.
+      this.mq.channel.on('error', err => this.logger.ns('nrg.mq').debug(err))
+
+      // Close message queue connection.
+      this.mq.connection.close()
+    }
   }
 }
