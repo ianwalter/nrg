@@ -1,5 +1,5 @@
-const { test } = require('@ianwalter/bff')
-const app = require('./fixtures/helloWorld')
+import { test } from '@ianwalter/bff'
+import app from './fixtures/helloWorld.js'
 
 test('Health check', async t => {
   const response = await app.test('/health').get()

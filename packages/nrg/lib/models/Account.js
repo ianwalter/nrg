@@ -1,16 +1,16 @@
-const { Model } = require('objection')
-const {
+import { Model } from 'objection'
+import {
   isString,
   isEmail,
   isStrongPassword,
   isOptional,
   trim,
   lowercase
-} = require('@ianwalter/correct')
-const { including } = require('@ianwalter/extract')
-const Base = require('./Base')
+} from '@ianwalter/nrg-validation'
+import { including } from '@ianwalter/extract'
+import Base from './Base.js'
 
-module.exports = class Account extends Base {
+export default class Account extends Base {
   static get tableName () {
     return 'accounts'
   }

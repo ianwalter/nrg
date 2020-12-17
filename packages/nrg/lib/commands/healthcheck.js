@@ -1,8 +1,8 @@
-const { requester } = require('@ianwalter/requester')
-const { oneLine } = require('common-tags')
-const createUrl = require('@ianwalter/url')
+import { requester } from '@ianwalter/requester'
+import { oneLine } from 'common-tags'
+import createUrl from '@ianwalter/url'
 
-module.exports = function healthcheck (app, config) {
+export default function healthcheck (app, config) {
   const { count = 3, timeout = 3000 } = config
   const { health, hostUrl } = app.context.cfg
   const { href } = createUrl(hostUrl, health.path)

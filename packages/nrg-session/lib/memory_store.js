@@ -1,4 +1,6 @@
-const debug = require('debug')('nrg-session:memory_store')
+import { createLogger } from '@generates/logger'
+
+const logger = createLogger({ level: 'info', namespace: 'nrg.session' })
 
 class MemoryStore {
   constructor () {
@@ -6,12 +8,12 @@ class MemoryStore {
   }
 
   get (sid) {
-    debug('get value %j with key %s', this.sessions[sid], sid)
+    logger.debug(`get value ${this.sessions[sid]} with key ${sid}`)
     return this.sessions[sid]
   }
 
   set (sid, val) {
-    debug('set value %j for key %s', val, sid)
+    logger.debug(`set value ${val} for key ${sid}`)
     this.sessions[sid] = val
   }
 

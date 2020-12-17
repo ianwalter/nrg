@@ -1,10 +1,10 @@
-const fs = require('fs')
-const requireFromString = require('require-from-string')
-const devalue = require('devalue')
-const cloneable = require('@ianwalter/cloneable')
-const createUrl = require('@ianwalter/url')
+import fs from 'fs'
+import requireFromString from 'require-from-string'
+import devalue from 'devalue'
+import cloneable from '@ianwalter/cloneable'
+import createUrl from '@ianwalter/url'
 
-async function serveSsr (ctx, next) {
+export async function serveSsr (ctx, next) {
   const { page, template, entry, renderer } = ctx.cfg.ssr
   if (ctx.cfg.isProd && !renderer) {
     // Create the page renderer that will be used by the middleware if it
@@ -79,5 +79,3 @@ async function serveSsr (ctx, next) {
       .replace('<!-- html-outlet -->', html)
   }
 }
-
-module.exports = { serveSsr }

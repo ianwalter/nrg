@@ -1,4 +1,4 @@
-const { EventEmitter } = require('events')
+import { EventEmitter } from 'events'
 const debug = require('debug')('nrg-session:store')
 const copy = require('copy-to')
 

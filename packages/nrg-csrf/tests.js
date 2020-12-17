@@ -1,6 +1,6 @@
-const { test } = require('@ianwalter/bff')
-const { createApp, disableCsrf } = require('@ianwalter/nrg')
-const nrgCsrf = require('.')
+import { test } from '@ianwalter/bff'
+import { createApp, disableCsrf } from '@ianwalter/nrg'
+import nrgCsrf from './index.js'
 
 function csrf (app, ctx) {
   nrgCsrf.install(app, ctx)

@@ -1,6 +1,6 @@
-const { merge } = require('@generates/merger')
-const Role = require('../models/Role')
-const { UnauthorizedError } = require('../errors')
+import { merge } from '@generates/merger'
+import Role from '../models/Role.js'
+import { UnauthorizedError } from '../errors.js'
 
 function handleAuthorization (ctx, next, options) {
   const logger = ctx.logger.ns('nrg.auth')
@@ -33,7 +33,7 @@ const authorizationDefaults = {
   redirect: false,
   match: Role.match
 }
-function requireAuthorization (ctx, next) {
+export function requireAuthorization (ctx, next) {
   let options = authorizationDefaults
   if (!next) {
     options = merge({}, options, ctx)
@@ -41,5 +41,3 @@ function requireAuthorization (ctx, next) {
   }
   return handleAuthorization(ctx, next, options)
 }
-
-module.exports = { requireAuthorization }

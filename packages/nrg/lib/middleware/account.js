@@ -1,13 +1,13 @@
-const compose = require('koa-compose')
-const { merge } = require('@generates/merger')
-const { excluding } = require('@ianwalter/extract')
-const { startEmailVerification } = require('./emailVerification')
-const { ValidationError } = require('../errors')
+import compose from 'koa-compose'
+import { merge } from '@generates/merger'
+import { excluding } from '@ianwalter/extract'
+import { startEmailVerification } from './emailVerification.js'
+import { ValidationError } from '../errors.js'
 
 /**
  *
  */
-async function getAccount (ctx, next) {
+export async function getAccount (ctx, next) {
   const email = ctx.session.account?.email || ctx.state.validation?.data?.email
   if (email) {
     const { Account } = ctx.cfg.accounts.models
@@ -24,7 +24,7 @@ async function getAccount (ctx, next) {
   return next()
 }
 
-function reduceAccountForClient (ctx, next) {
+export function reduceAccountForClient (ctx, next) {
   const entireAccount = ctx.state.account || ctx.session?.account
   if (entireAccount) {
     const { Account } = ctx.cfg.accounts.models
@@ -34,7 +34,7 @@ function reduceAccountForClient (ctx, next) {
   return next()
 }
 
-async function validatePasswordUpdate (ctx, next) {
+export async function validatePasswordUpdate (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   if (body.newPassword) {
     ctx.logger
@@ -50,7 +50,7 @@ async function validatePasswordUpdate (ctx, next) {
   return next()
 }
 
-async function validateAccountUpdate (ctx, next) {
+export async function validateAccountUpdate (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   ctx.logger.ns('nrg.accounts').debug('account.validateAccountUpdate', { body })
   const validation = await ctx.cfg.validators.accountUpdate.validate(body)
@@ -61,7 +61,7 @@ async function validateAccountUpdate (ctx, next) {
   throw new ValidationError(validation)
 }
 
-function startEmailUpdate (ctx, next) {
+export function startEmailUpdate (ctx, next) {
   const email = ctx.state.validation?.data?.email
 
   // Record that the user is trying to change their email (for downstream)
@@ -74,7 +74,7 @@ function startEmailUpdate (ctx, next) {
   return next()
 }
 
-async function updatePassword (ctx, next) {
+export async function updatePassword (ctx, next) {
   // Update the account with the new password.
   const password = ctx.state.hashedPassword
   await ctx.state.account.$set({ password }).$query().patch()
@@ -82,7 +82,7 @@ async function updatePassword (ctx, next) {
   return next()
 }
 
-async function updateAccount (ctx, next) {
+export async function updateAccount (ctx, next) {
   // Collect the user data into a single Object.
   const password = ctx.state.hashedPassword
   const payload = ctx.state.validation?.data
@@ -103,14 +103,4 @@ async function updateAccount (ctx, next) {
   }
 
   return next()
-}
-
-module.exports = {
-  getAccount,
-  reduceAccountForClient,
-  validatePasswordUpdate,
-  validateAccountUpdate,
-  startEmailUpdate,
-  updatePassword,
-  updateAccount
 }

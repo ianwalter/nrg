@@ -1,9 +1,9 @@
-const { test } = require('@ianwalter/bff')
-const Sentry = require('@sentry/node')
-const Integrations = require('@sentry/integrations')
-const sentryTestkit = require('sentry-testkit')
-const { createApp } = require('@ianwalter/nrg')
-const nrgSentry = require('.')
+import { test } from '@ianwalter/bff'
+import Sentry from '@sentry/node'
+import Integrations from '@sentry/integrations'
+import sentryTestkit from 'sentry-testkit'
+import { createApp } from '@ianwalter/nrg'
+import nrgSentry from './index.js'
 
 test('Error', async t => {
   const { testkit, sentryTransport } = sentryTestkit()

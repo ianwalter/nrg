@@ -1,6 +1,6 @@
-const createRateLimiter = require('../utilities/createRateLimiter')
+import createRateLimiter from '../utilities/createRateLimiter.js'
 
-function rateLimit (cfg = {}, app) {
+export function rateLimit (cfg = {}, app) {
   let rateLimiter = app ? createRateLimiter(cfg, app) : cfg
   return async (ctx, next) => {
     try {
@@ -16,5 +16,3 @@ function rateLimit (cfg = {}, app) {
     }
   }
 }
-
-module.exports = { rateLimit }

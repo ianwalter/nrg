@@ -1,6 +1,6 @@
-const { requester } = require('@ianwalter/requester')
+import { requester } from '@ianwalter/requester'
 
-module.exports = async function getTestEmail (byEmail, config = {}) {
+export default async function getTestEmail (byEmail, config = {}) {
   const {
     host = process.env.MAILDEV_HOST || 'localhost',
     port = process.env.MAILDEV_PORT || 80

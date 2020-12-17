@@ -1,4 +1,4 @@
-const { createApp } = require('@ianwalter/nrg')
+import { createApp } from '@ianwalter/nrg'
 
 // Create the application instance.
 const app = createApp()

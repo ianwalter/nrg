@@ -1,5 +1,5 @@
-const app = require('./base')
+import app from './base.js'
 
 app.use(ctx => (ctx.body = 'Hello World!'))
 
-module.exports = app
+export default app

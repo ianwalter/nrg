@@ -1,6 +1,6 @@
-const { test } = require('@ianwalter/bff')
-const { createApp } = require('@ianwalter/nrg')
-const nrgRouter = require('.')
+import { test } from '@ianwalter/bff')
+import { createApp } from '@ianwalter/nrg'
+import nrgRouter from './index.js'
 
 // Create the app (without ther version of nrg-router packaged with nrg).
 const app = createApp({ log: false, plugins: { router: nrgRouter } })

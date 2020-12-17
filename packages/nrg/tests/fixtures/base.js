@@ -1,5 +1,3 @@
-const { createApp } = require('../..')
+import { createApp } from '../../index.js'
 
-const app = createApp({ log: false })
-
-module.exports = app
+export default createApp({ log: false })

@@ -1,8 +1,8 @@
-const { createApp } = require('@ianwalter/nrg')
-const http = require('http')
-const uid = require('uid-safe').sync
-const session = require('../..')
-const Store = require('./store')
+import { createApp } from '@ianwalter/nrg'
+import http from 'http'
+import uid from 'uid-safe'
+import session from '../../index.js'
+import Store from './store.js'
 
 const app = createApp({ name: 'koa-session-test' })
 
@@ -38,7 +38,7 @@ app.use(session({
   },
   store: store,
   genSid: function (len) {
-    return uid(len) + this.request.query.test_sid_append
+    return uid.sync(len) + this.request.query.test_sid_append
   },
   beforeSave: function (ctx, session) {
     session.path = ctx.path
@@ -57,7 +57,7 @@ app.use(session({
     path: '/session'
   },
   genSid: function (len) {
-    return uid(len) + this.request.query.test_sid_append
+    return uid.sync(len) + this.request.query.test_sid_append
   }
 }))
 

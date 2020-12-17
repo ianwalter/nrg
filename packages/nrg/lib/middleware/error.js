@@ -1,4 +1,4 @@
-function enrichAndLogError (err, ctx) {
+export function enrichAndLogError (err, ctx) {
   // Determine error HTTP status code and log level.
   err.status = err.status || 500
   err.logLevel = err.logLevel || (err.status >= 500 ? 'error' : 'warn')
@@ -7,12 +7,12 @@ function enrichAndLogError (err, ctx) {
   ctx.logger[err.logLevel](err)
 }
 
-function addErrorToResponse (err, ctx) {
+export function addErrorToResponse (err, ctx) {
   ctx.status = err.status
   if (err.body) ctx.body = err.body
 }
 
-async function handleError (ctx, next) {
+export async function handleError (ctx, next) {
   try {
     await next()
   } catch (err) {
@@ -20,5 +20,3 @@ async function handleError (ctx, next) {
     addErrorToResponse(err, ctx)
   }
 }
-
-module.exports = { enrichAndLogError, addErrorToResponse, handleError }

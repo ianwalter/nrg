@@ -1,14 +1,14 @@
-const { merge } = require('@generates/merger')
-const { ValidationError } = require('../errors')
-const Account = require('../models/Account')
-const { excluding } = require('@ianwalter/extract')
+import { merge } from '@generates/merger'
+import { ValidationError } from '../errors.js'
+import Account from '../models/Account.js'
+import { excluding } from '@ianwalter/extract'
 
 /**
  * Validate that the request body for registration requests matches the expected
  * schema and extract the data to the context so it can be used in later
  * middleware.
  */
-async function validateRegistration (ctx, next) {
+export async function validateRegistration (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   ctx.logger
     .ns('nrg.accounts')
@@ -21,7 +21,7 @@ async function validateRegistration (ctx, next) {
   throw new ValidationError(validation)
 }
 
-async function createAccount (ctx, next) {
+export async function createAccount (ctx, next) {
   const logger = ctx.logger.ns('nrg.accounts')
   const password = ctx.state.hashedPassword
   const data = merge({}, ctx.state.validation.data, { password })
@@ -74,7 +74,7 @@ async function createAccount (ctx, next) {
   return next()
 }
 
-function generateEmailVerificationEmail (ctx, next) {
+export function generateEmailVerificationEmail (ctx, next) {
   ctx.email = {
     to: ctx.account.email,
     subject: `${ctx.cfg.name} Verification Email`,
@@ -84,10 +84,4 @@ function generateEmailVerificationEmail (ctx, next) {
     })
   }
   next()
-}
-
-module.exports = {
-  validateRegistration,
-  createAccount,
-  generateEmailVerificationEmail
 }

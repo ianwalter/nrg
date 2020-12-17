@@ -1,7 +1,7 @@
-const path = require('path')
-const { knexSnakeCaseMappers } = require('objection')
-const readPkgUp = require('read-pkg-up')
-const {
+import path from 'path'
+import { knexSnakeCaseMappers } from 'objection'
+import readPkgUp from 'read-pkg-up'
+import {
   SchemaValidator,
   isEmail,
   isStrongPassword,
@@ -10,8 +10,7 @@ const {
   isBoolean,
   trim,
   lowercase
-} = require('@ianwalter/correct')
-const oauthProviders = require('grant/config/oauth.json')
+} from '@ianwalter/nrg-validation'
 
 // Get the end-user's package.json data so that it can be used to provide
 // defaults.
@@ -30,7 +29,7 @@ const password = { isStrongPassword }
 const byBefore = ([_, v]) => v.$pos === 'before'
 const byAfter = ([_, v]) => v.$pos === 'after'
 
-module.exports = function config (options = {}) {
+export default function config (options = {}) {
   const cfg = {
     // The project root directory.
     dir,
@@ -216,8 +215,9 @@ module.exports = function config (options = {}) {
         },
         // Middleware for enabling OAuth authentication using simov/grant. Not
         // enabled by default.
-        oauth (app, ctx) {
-          if (cfg.oauth.enabled) {
+        async oauth (app, ctx) {
+          const oauthProviders = await import('grant/config/oauth.json')
+          if (Object.keys(cfg).some(key => oauthProviders[key])) {
             if (ctx.log) ctx.log.debug('Adding OAuth middleware')
             const grant = require('grant').koa()
             app.use(grant(cfg.oauth))
@@ -393,9 +393,6 @@ module.exports = function config (options = {}) {
       }
     },
     oauth: {
-      get enabled () {
-        return Object.keys(this).some(key => oauthProviders[key])
-      },
       defaults: {
         get origin () {
           return cfg.baseUrl

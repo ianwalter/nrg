@@ -1,5 +1,5 @@
-const { test } = require('@ianwalter/bff')
-const { createApp } = require('..')
+import { test } from '@ianwalter/bff'
+import { createApp } from '../index.js'
 
 test('Rate limit', async t => {
   const app = createApp({

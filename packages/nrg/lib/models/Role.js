@@ -1,6 +1,6 @@
-const Base = require('./Base')
+import Base from './Base.js'
 
-module.exports = class Role extends Base {
+export default class Role extends Base {
   static get tableName () {
     return 'roles'
   }

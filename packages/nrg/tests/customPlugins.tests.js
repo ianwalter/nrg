@@ -1,5 +1,5 @@
-const { test } = require('@ianwalter/bff')
-const nrg = require('../')
+import { test } from '@ianwalter/bff'
+import nrg from '../index.js'
 
 test('Custom plugins', async t => {
   const defined = []

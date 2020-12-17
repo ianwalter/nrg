@@ -1,5 +1,5 @@
-const amqp = require('amqp-connection-manager')
-const { createLogger } = require('@generates/logger')
+import amqp from 'amqp-connection-manager'
+import { createLogger } from '@generates/logger'
 
 const ns = 'nrg.mq'
 const level = 'info'

@@ -1,11 +1,11 @@
-const { merge } = require('@generates/merger')
-const Koa = require('koa')
-const config = require('./config')
+import { merge } from '@generates/merger'
+import Koa from 'koa'
+import config from './config.js'
 
 // If running in a CLI context, parse the JSON string to get the CLI options.
 const nrgCli = process.env.NRG_CLI && JSON.parse(process.env.NRG_CLI)
 
-module.exports = function createApp (options = {}) {
+export default function createApp (options = {}) {
   // Combine defaults, CLI-supplied options, and user-supplied options.
   const cfg = merge(config(options), options, nrgCli)
 

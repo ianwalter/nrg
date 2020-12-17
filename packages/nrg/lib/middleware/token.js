@@ -1,9 +1,9 @@
-const uid = require('uid-safe')
-const bcrypt = require('bcrypt')
-const addDays = require('date-fns/addDays')
-const { merge } = require('@generates/merger')
-const { BadRequestError } = require('../errors')
-const { excluding } = require('@ianwalter/extract')
+import uid from 'uid-safe'
+import bcrypt from 'bcrypt'
+import { addDays } from 'date-fns'
+import { merge } from '@generates/merger'
+import { excluding } from '@ianwalter/extract'
+import { BadRequestError } from '../errors.js'
 
 async function handleGenerateToken (ctx, next, options) {
   ctx.state.token = await uid(options.bytes || ctx.cfg.hash.bytes)
@@ -16,7 +16,7 @@ async function handleGenerateToken (ctx, next, options) {
   return next()
 }
 
-async function generateToken (ctx, next) {
+export async function generateToken (ctx, next) {
   if (!next) {
     const options = ctx
     return (ctx, next) => handleGenerateToken(ctx, next, options)
@@ -98,7 +98,7 @@ const insertTokenDefaults = { type: 'password' }
 /**
  * Insert the hashed version of the generated token into the database.
  */
-function insertToken (ctx, next) {
+export function insertToken (ctx, next) {
   let options = insertTokenDefaults
   if (!next) {
     options = merge({}, options, ctx)
@@ -107,7 +107,7 @@ function insertToken (ctx, next) {
   return handleInsertToken(ctx, next, options)
 }
 
-async function verifyToken (ctx, next) {
+export async function verifyToken (ctx, next) {
   let [token] = ctx.state.account?.tokens || []
 
   // If a matching token wasn't found, create a dummy token that can be used
@@ -148,5 +148,3 @@ async function verifyToken (ctx, next) {
   // account exists in the system.
   throw new BadRequestError('Invalid token')
 }
-
-module.exports = { generateToken, insertToken, verifyToken }

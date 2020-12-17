@@ -1,7 +1,7 @@
-const send = require('koa-send')
-const { merge } = require('@generates/merger')
+import send from 'koa-send'
+import { merge } from '@generates/merger'
 
-async function serveStatic (ctx, next) {
+export async function serveStatic (ctx, next) {
   const { prefix, fallback, ...options } = ctx.cfg.static
   let result
   if (!prefix || ctx.path.startsWith(prefix)) {
@@ -19,7 +19,7 @@ async function serveStatic (ctx, next) {
   return result || next()
 }
 
-async function serveWebpack (ctx, next) {
+export async function serveWebpack (ctx, next) {
   const middleware = await ctx.webpackMiddleware
   ctx.webpack = middleware.devMiddleware
   return middleware(ctx, next)
@@ -36,7 +36,7 @@ const clientLogDefaults = {
   ]
 }
 
-function handleLogClientMessage (ctx, next, options) {
+export function handleLogClientMessage (ctx, next, options) {
   const log = ctx.logger.ns('nrg.client')
   const body = ctx.request.body || ctx.req.body || {}
   const { level = 'info', statements } = body[options.namespace]
@@ -60,7 +60,7 @@ function handleLogClientMessage (ctx, next, options) {
   return next()
 }
 
-function logClientMessage (ctx, next) {
+export function logClientMessage (ctx, next) {
   let options = clientLogDefaults
   if (!next) {
     options = merge({}, options, ctx)
@@ -68,5 +68,3 @@ function logClientMessage (ctx, next) {
   }
   return handleLogClientMessage(ctx, next, options)
 }
-
-module.exports = { serveStatic, serveWebpack, logClientMessage }

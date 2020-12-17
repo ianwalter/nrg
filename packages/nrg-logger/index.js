@@ -1,5 +1,5 @@
-const { createLogger, chalk } = require('@generates/logger')
-const createTimer = require('@ianwalter/timer')
+import { createLogger, chalk } from '@generates/logger'
+import createTimer from '@ianwalter/timer'
 
 function formatTimestamp (date) {
   const [second, meridiem] = date.toLocaleTimeString().split(' ')

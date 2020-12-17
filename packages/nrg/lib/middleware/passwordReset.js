@@ -1,6 +1,6 @@
-const { ValidationError } = require('../errors')
+import { ValidationError } from '../errors.js'
 
-async function validatePasswordReset (ctx, next) {
+export async function validatePasswordReset (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   const validation = await ctx.cfg.validators.passwordReset.validate(body)
   ctx.logger
@@ -13,7 +13,7 @@ async function validatePasswordReset (ctx, next) {
   throw new ValidationError(validation)
 }
 
-async function getPasswordTokens (ctx, next) {
+export async function getPasswordTokens (ctx, next) {
   if (ctx.state.account) {
     const logger = ctx.logger.ns('nrg.accounts.password')
     logger.info('getPasswordTokens')
@@ -24,9 +24,4 @@ async function getPasswordTokens (ctx, next) {
   }
 
   return next()
-}
-
-module.exports = {
-  validatePasswordReset,
-  getPasswordTokens
 }

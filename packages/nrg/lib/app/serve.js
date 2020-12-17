@@ -1,7 +1,7 @@
-const http = require('http')
-const getHostUrl = require('../utilities/getHostUrl')
+import http from 'http'
+import getHostUrl from '../utilities/getHostUrl.js'
 
-module.exports = function serve (port, hostname, callback) {
+export default function serve (port, hostname, callback) {
   // Create the server instance by specifying the app's callback as the handler.
   const server = http.createServer(callback || this.callback())
 

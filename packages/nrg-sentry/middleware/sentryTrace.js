@@ -1,11 +1,11 @@
-const Sentry = require('@sentry/node')
-const {
+import Sentry from '@sentry/node'
+import {
   extractTraceparentData,
   stripUrlQueryAndFragment
-} = require('@sentry/tracing')
+} from '@sentry/tracing'
 
 // Adapted from: https://docs.sentry.io/platforms/node/guides/koa/
-module.exports = async function sentryTrace (ctx, next) {
+export default async function sentryTrace (ctx, next) {
   const reqMethod = (ctx.method || '').toUpperCase()
   const reqUrl = ctx.url && stripUrlQueryAndFragment(ctx.url)
 

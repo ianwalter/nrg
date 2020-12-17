@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-const path = require('path')
-const cli = require('@generates/cli')
-const { createLogger } = require('@generates/logger')
-const cloneable = require('@ianwalter/cloneable')
-const { excluding } = require('@ianwalter/extract')
-const healthcheck = require('./lib/commands/healthcheck')
-const { copyMigrations } = require('./lib/commands/migrations')
-const newId = require('./lib/commands/newId')
-const dot = require('@ianwalter/dot')
+import path from 'path'
+import cli from '@generates/cli'
+import { createLogger } from '@generates/logger'
+import cloneable from '@ianwalter/cloneable'
+import { excluding } from '@ianwalter/extract'
+import healthcheck from './lib/commands/healthcheck.js'
+import { copyMigrations } from './lib/commands/migrations.js'
+import newId from './lib/commands/newId.js'
+import dot from '@ianwalter/dot'
 
 const { _: commands, packageJson, ...config } = cli({
   name: 'nrg',

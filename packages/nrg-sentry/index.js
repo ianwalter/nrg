@@ -1,4 +1,4 @@
-const nrg = require('@ianwalter/nrg')
+import nrg from '@ianwalter/nrg'
 
 const defaults = { tracing: true }
 
@@ -7,7 +7,7 @@ function sentryTrace (app, ctx) {
   app.use(require('./middleware/sentryTrace'))
 }
 
-module.exports = function nrgSentry (options = {}) {
+export default function nrgSentry (options = {}) {
   options = Object.assign({}, defaults, options)
 
   return {

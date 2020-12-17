@@ -1,7 +1,7 @@
-const { Model } = require('objection')
-const { nanoid } = require('nanoid')
+import { Model } from 'objection'
+import { nanoid } from 'nanoid'
 
-module.exports = class Base extends Model {
+export default class Base extends Model {
   constructor (data) {
     super()
     Object.assign(this, data)

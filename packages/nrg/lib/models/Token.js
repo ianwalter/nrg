@@ -1,8 +1,8 @@
-const isFuture = require('date-fns/isFuture')
-const { Model } = require('objection')
-const Base = require('./Base')
+import { isFuture } from 'date-fns'
+import { Model } from 'objection'
+import Base from './Base.js'
 
-module.exports = class Token extends Base {
+export default class Token extends Base {
   static get tableName () {
     return 'tokens'
   }

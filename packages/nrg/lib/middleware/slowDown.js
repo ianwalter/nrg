@@ -1,7 +1,7 @@
-const { merge } = require('@generates/merger')
-const getRandomTimeout = require('../utilities/getRandomTimeout')
+import { merge } from '@generates/merger'
+import getRandomTimeout from '../utilities/getRandomTimeout.js'
 
-function handleSlowDown (ctx, next, options) {
+export function handleSlowDown (ctx, next, options) {
   return new Promise(resolve => {
     let timeout = options.timeout
     if (typeof options.timeout === 'function') timeout = options.timeout(ctx)
@@ -12,7 +12,7 @@ function handleSlowDown (ctx, next, options) {
 
 const slowDownDefaults = { timeout: () => getRandomTimeout() }
 
-function slowDown (ctx, next) {
+export function slowDown (ctx, next) {
   let options = slowDownDefaults
   if (!next) {
     options = merge({}, options, ctx)
@@ -20,5 +20,3 @@ function slowDown (ctx, next) {
   }
   return handleSlowDown(ctx, next, options)
 }
-
-module.exports = { getRandomTimeout, slowDown }

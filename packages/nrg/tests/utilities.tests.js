@@ -1,5 +1,5 @@
-const { test } = require('@ianwalter/bff')
-const { account, swap } = require('..')
+import { test } from '@ianwalter/bff'
+import { account, swap } from '../index.js'
 
 test('Swapping out middleware', t => {
   const getAccount = () => 'Here you go!'

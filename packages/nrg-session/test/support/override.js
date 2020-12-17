@@ -1,7 +1,7 @@
-const Koa = require('koa')
-const http = require('http')
-const session = require('../..')
-const Store = require('./store')
+import Koa from 'koa'
+import http from 'http'
+import session from '../../index.js'
+import Store from './store.js'
 
 const app = new Koa()
 

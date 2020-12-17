@@ -1,8 +1,8 @@
-const { merge } = require('@generates/merger')
-const createUrl = require('@ianwalter/url')
-const { ValidationError } = require('../errors')
-const { generateToken, insertToken } = require('./token')
-const { sendEmail } = require('./email')
+import { merge } from '@generates/merger'
+import createUrl from '@ianwalter/url'
+import { ValidationError } from '../errors.js'
+import { generateToken, insertToken } from './token.js'
+import { sendEmail } from './email.js'
 
 function handleEmailVerificationEmail (ctx, next, options) {
   const url = createUrl(ctx.cfg.baseUrl, options.path)
@@ -25,7 +25,7 @@ function handleEmailVerificationEmail (ctx, next, options) {
 
 const emailVerificationEmailDefaults = { path: '/verify-email' }
 
-function generateEmailVerificationEmail (ctx, next) {
+export function generateEmailVerificationEmail (ctx, next) {
   let options = emailVerificationEmailDefaults
   if (!next) {
     options = merge({}, options, ctx)
@@ -34,14 +34,14 @@ function generateEmailVerificationEmail (ctx, next) {
   return handleEmailVerificationEmail(ctx, next, options)
 }
 
-const startEmailVerification = [
+export const startEmailVerification = [
   generateToken,
   insertToken({ type: 'email' }),
   generateEmailVerificationEmail,
   sendEmail
 ]
 
-async function validateEmailVerification (ctx, next) {
+export async function validateEmailVerification (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   const validation = await ctx.cfg.validators.emailVerification.validate(body)
   ctx.logger
@@ -54,7 +54,7 @@ async function validateEmailVerification (ctx, next) {
   throw new ValidationError(validation)
 }
 
-async function getEmailTokens (ctx, next) {
+export async function getEmailTokens (ctx, next) {
   const { Account } = ctx.cfg.accounts.models
   const logger = ctx.logger.ns('nrg.accounts.email')
   logger.info('getEmailTokens')
@@ -73,7 +73,7 @@ async function getEmailTokens (ctx, next) {
   return next()
 }
 
-async function verifyEmail (ctx, next) {
+export async function verifyEmail (ctx, next) {
   const logger = ctx.logger.ns('nrg.accounts.email')
   const data = { email: ctx.state.validation.data.email, emailVerified: true }
   logger.info('verifyEmail', { email: data.email })
@@ -95,12 +95,4 @@ async function verifyEmail (ctx, next) {
   delete ctx.session.unverifiedAccount
 
   return next()
-}
-
-module.exports = {
-  generateEmailVerificationEmail,
-  startEmailVerification,
-  validateEmailVerification,
-  getEmailTokens,
-  verifyEmail
 }

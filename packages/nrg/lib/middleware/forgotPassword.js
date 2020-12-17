@@ -1,5 +1,5 @@
-const { merge } = require('@generates/merger')
-const createUrl = require('@ianwalter/url')
+import { merge } from '@generates/merger'
+import createUrl from '@ianwalter/url'
 
 function handlePasswordResetEmail (ctx, next, options = {}) {
   const { passwordReset } = ctx.cfg.email.templates
@@ -22,9 +22,7 @@ function handlePasswordResetEmail (ctx, next, options = {}) {
   return next()
 }
 
-function generatePasswordResetEmail (optOrCtx, next) {
+export function generatePasswordResetEmail (optOrCtx, next) {
   if (!next) return (ctx, next) => handlePasswordResetEmail(ctx, next, optOrCtx)
   return handlePasswordResetEmail(optOrCtx, next)
 }
-
-module.exports = { generatePasswordResetEmail }

@@ -1,9 +1,9 @@
-const path = require('path')
-const { promises: fs } = require('fs')
+import path from 'path'
+import { promises as fs } from 'fs'
 
 const migrationsSource = path.join(__dirname, '..', '..', 'migrations')
 
-async function copyMigrations ({ commands }, app) {
+export async function copyMigrations ({ commands }, app) {
   // Determine the path for the resulting migrations directory.
   const destination = app.context.cfg.db.migrations ||
     commands[2] ||
@@ -21,5 +21,3 @@ async function copyMigrations ({ commands }, app) {
     path.join(destination, migration)
   )))
 }
-
-module.exports = { copyMigrations }

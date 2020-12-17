@@ -1,7 +1,7 @@
-const bcrypt = require('bcrypt')
-const { BadRequestError } = require('../errors')
+import bcrypt from 'bcrypt'
+import { BadRequestError } from '../errors.js'
 
-async function hashPassword (ctx, next) {
+export async function hashPassword (ctx, next) {
   // Hash the user's password using bcrypt.
   const data = ctx.state.passwordValidation?.data || ctx.state.validation?.data
   const password = data?.newPassword || data?.password
@@ -15,7 +15,7 @@ async function hashPassword (ctx, next) {
   return next()
 }
 
-async function comparePasswords (ctx, next) {
+export async function comparePasswords (ctx, next) {
   const payload = ctx.state.validation?.data
   if (payload?.password) {
     // Determine the password to compare against.
@@ -39,9 +39,4 @@ async function comparePasswords (ctx, next) {
     }
   }
   return next()
-}
-
-module.exports = {
-  hashPassword,
-  comparePasswords
 }

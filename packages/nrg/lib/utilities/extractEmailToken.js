@@ -1,7 +1,7 @@
-const clone = require('@ianwalter/clone')
-const cheerio = require('cheerio')
-const replaceAll = require('replace-string')
-const getTestEmail = require('./getTestEmail')
+import clone from '@ianwalter/clone'
+import cheerio from 'cheerio'
+import replaceAll from 'replace-string'
+import getTestEmail from './getTestEmail.js'
 
 async function extractEmailToken (byEmail, selector = '.button') {
   const email = clone(await getTestEmail(byEmail))
@@ -17,4 +17,4 @@ async function extractEmailToken (byEmail, selector = '.button') {
   return { email, token }
 }
 
-module.exports = extractEmailToken
+export default extractEmailToken

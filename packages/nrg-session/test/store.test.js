@@ -1,8 +1,8 @@
-const deferApp = require('./support/defer')
-const commonApp = require('./support/server')
-const request = require('supertest')
-const mm = require('mm')
-const { oneLine } = require('common-tags')
+import deferApp from './support/defer.js'
+import commonApp from './support/server.js'
+import request from 'supertest'
+import mm from 'mm'
+import { oneLine } from 'common-tags'
 
 describe('test/store.test.js', () => {
   afterEach(mm.restore)

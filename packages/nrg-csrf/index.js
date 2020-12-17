@@ -1,4 +1,4 @@
-const Tokens = require('csrf')
+import Tokens from 'csrf'
 
 const ignoredMethods = ['GET', 'HEAD', 'OPTIONS']
 const tokens = new Tokens()
@@ -55,7 +55,7 @@ function csrfVerification (ctx, next) {
   throw new InvalidCsrfError(token)
 }
 
-module.exports = {
+export default {
   InvalidCsrfError,
   csrfGeneration,
   csrfVerification,

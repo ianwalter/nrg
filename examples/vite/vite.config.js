@@ -1,5 +1,5 @@
-const nrgPlugin = require('./plugin')
-const reactPlugin = require('vite-plugin-react')
+import nrgPlugin from './plugin.js'
+import reactPlugin from 'vite-plugin-react'
 
 const config = {
   jsx: 'react',

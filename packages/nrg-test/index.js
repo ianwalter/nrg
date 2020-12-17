@@ -1,4 +1,5 @@
-const { Requester } = require('@ianwalter/requester')
+import { Requester } from '@ianwalter/requester'
+import * as nrg from '@ianwalter/nrg'
 
 const requester = new Requester({ shouldThrow: false })
 
@@ -36,13 +37,11 @@ module.exports = function nrgTest (app, cfg = {}) {
         return this.requestWithCsrf('delete', { ...options, body })
       },
       async request (method, options) {
-        const nrg = require('@ianwalter/nrg')
-
         let server
         if (app.serve) {
           server = await app.serve(0)
         } else if (app.next) {
-          const next = require('next')
+          const { default: next } = await import('next')
           const nextApp = next({ dev: app.isDev })
           await nextApp.prepare()
           server = await nrg.serve(0, 'localhost', nextApp.getRequestHandler())

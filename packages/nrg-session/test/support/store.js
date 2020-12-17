@@ -1,6 +1,6 @@
-const EventEmitter = require('events').EventEmitter
+import { EventEmitter } from 'events'
 
-class Store extends EventEmitter {
+export default class Store extends EventEmitter {
   constructor (...args) {
     super(...args)
     this.sessions = {}
@@ -8,13 +8,11 @@ class Store extends EventEmitter {
 
   get (sid) {
     const session = this.sessions[sid]
-    if (!session) {
-      return null
-    }
+    if (!session) return null
+
     const r = {}
-    for (const key in session) {
-      r[key] = session[key]
-    }
+    for (const key in session) r[key] = session[key]
+
     return r
   }
 
@@ -26,5 +24,3 @@ class Store extends EventEmitter {
     delete this.sessions[sid]
   }
 }
-
-module.exports = Store

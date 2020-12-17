@@ -1,7 +1,7 @@
-const { merge } = require('@generates/merger')
-const dot = require('@ianwalter/dot')
+import { merge } from '@generates/merger'
+import dot from '@ianwalter/dot'
 
-function addToResponse (ctx, next) {
+export function addToResponse (ctx, next) {
   if (!next) {
     const namespace = ctx
     return ctx => {
@@ -19,7 +19,7 @@ function addToResponse (ctx, next) {
   }
 }
 
-function addToSsr (ctx, next) {
+export function addToSsr (ctx, next) {
   if (!next) {
     const namespace = ctx
     return (ctx, next) => {
@@ -34,7 +34,7 @@ function addToSsr (ctx, next) {
 
 const redirectDefaults = { to: '/login' }
 
-function redirect (ctx, next) {
+export function redirect (ctx, next) {
   let options = redirectDefaults
   if (!next) {
     options = merge({}, options, ctx)
@@ -42,5 +42,3 @@ function redirect (ctx, next) {
   }
   return ctx.redirect(options.to)
 }
-
-module.exports = { addToResponse, addToSsr, redirect }

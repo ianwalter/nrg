@@ -1,10 +1,10 @@
-const { ValidationError, BadRequestError } = require('../errors')
+import { ValidationError, BadRequestError } from '../errors.js'
 
 /**
  * Validate that the request body for login requests matches the expected schema
  * and extract the data to the context so it can be used in later middleware.
  */
-async function validateLogin (ctx, next) {
+export async function validateLogin (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   const validation = await ctx.cfg.validators.login.validate(body)
   const logger = ctx.logger.ns('nrg.accounts.session')
@@ -16,7 +16,7 @@ async function validateLogin (ctx, next) {
   throw new ValidationError(validation)
 }
 
-async function createUserSession (ctx, next) {
+export async function createUserSession (ctx, next) {
   const logger = ctx.logger.ns('nrg.accounts.session')
   const { account } = ctx.state
   logger.debug('session.createUserSession', { account })
@@ -58,7 +58,7 @@ async function createUserSession (ctx, next) {
   throw new BadRequestError('Incorrect email or password')
 }
 
-async function clearSession (ctx, next) {
+export async function clearSession (ctx, next) {
   const logger = ctx.logger.ns('nrg.accounts.session')
 
   // Regenerate the session if this is a logout endpoint (no account on
@@ -73,26 +73,17 @@ async function clearSession (ctx, next) {
   return next()
 }
 
-async function getSession (ctx, next) {
+export async function getSession (ctx, next) {
   const csrfToken = (ctx.generateCsrfToken && ctx.generateCsrfToken()) || null
   ctx.state.body = { csrfToken, account: ctx.state.body }
   return next()
 }
 
-function resetSession (ctx, next) {
+export function resetSession (ctx, next) {
   ctx.session.resetTime = new Date()
   return next()
 }
 
-function disableCsrf (ctx, next) {
+export function disableCsrf (ctx, next) {
   return next()
-}
-
-module.exports = {
-  validateLogin,
-  createUserSession,
-  clearSession,
-  getSession,
-  resetSession,
-  disableCsrf
 }

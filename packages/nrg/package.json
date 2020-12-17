@@ -10,7 +10,8 @@
   "bin": {
     "nrg": "cli.js"
   },
-  "main": "index.js",
+  "type": "module",
+  "module": "index.js",
   "scripts": {
     "test": "FORCE_COLOR=3 NODE_ENV=test bff"
   },
@@ -41,7 +42,6 @@
     "@generates/logger": "^0.0.9",
     "@generates/merger": "^0.1.1",
     "@ianwalter/cloneable": "^2.0.0",
-    "@ianwalter/correct": "^1.2.1",
     "@ianwalter/dist": "^6.0.0",
     "@ianwalter/dot": "^1.0.5",
     "@ianwalter/extract": "^1.0.3",
@@ -51,6 +51,7 @@
     "@ianwalter/nrg-router": "^1.1.1",
     "@ianwalter/nrg-session": "^7.0.2",
     "@ianwalter/nrg-test": "^1.2.2",
+    "@ianwalter/nrg-validation": "^1.2.1",
     "@ianwalter/requester": "^2.4.3",
     "@ianwalter/url": "^2.0.0",
     "bcrypt": "5.0.0",

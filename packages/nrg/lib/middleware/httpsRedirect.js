@@ -1,6 +1,6 @@
-const createUrl = require('@ianwalter/url')
+import createUrl from '@ianwalter/url'
 
-function httpsRedirect (ctx, next) {
+export function httpsRedirect (ctx, next) {
   const protocol = ctx.get('x-forwarded-proto')
   if (protocol && protocol.toLowerCase() === 'http') {
     ctx.logger
@@ -12,5 +12,3 @@ function httpsRedirect (ctx, next) {
   }
   return next()
 }
-
-module.exports = { httpsRedirect }

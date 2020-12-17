@@ -1,7 +1,7 @@
-const Sentry = require('@sentry/node')
-const nrg = require('@ianwalter/nrg')
+import Sentry from '@sentry/node'
+import nrg from '@ianwalter/nrg'
 
-module.exports = async function error (ctx, next) {
+export default async function error (ctx, next) {
   try {
     await next()
   } catch (err) {

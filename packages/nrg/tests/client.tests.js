@@ -1,5 +1,5 @@
-const { test } = require('@ianwalter/bff')
-const { createApp, clientLogging } = require('..')
+import { test } from '@ianwalter/bff'
+import { createApp, clientLogging } from '../index.js'
 
 test('Client Logging', async t => {
   const app = createApp({ log: { level: 'warn' } })

@@ -1,4 +1,4 @@
-module.exports = function close () {
+export default function close () {
   // Close any open database connections.
   if (this.db) this.db.destroy()
 

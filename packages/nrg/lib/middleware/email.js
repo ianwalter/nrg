@@ -1,6 +1,6 @@
-const { ValidationError } = require('../errors')
+import { ValidationError } from '../errors.js'
 
-async function validateEmail (ctx, next) {
+export async function validateEmail (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   const validation = await ctx.cfg.validators.email.validate(body)
   ctx.logger.ns('nrg.accounts.email').debug('email.validateEmail', validation)
@@ -34,12 +34,10 @@ function handleSendEmail (ctx, next, options) {
   return next()
 }
 
-function sendEmail (ctx, next) {
+export function sendEmail (ctx, next) {
   if (!next) {
     const options = ctx
     return (ctx, next) => handleSendEmail(ctx, next, options)
   }
   return handleSendEmail(ctx, next, {})
 }
-
-module.exports = { validateEmail, sendEmail }

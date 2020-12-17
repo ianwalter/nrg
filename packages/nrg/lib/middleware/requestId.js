@@ -1,6 +1,6 @@
-const { nanoid } = require('nanoid')
+import { nanoid } from 'nanoid'
 
-function setRequestId (ctx, next) {
+export function setRequestId (ctx, next) {
   // Extract the request ID from the X-Request-ID header or generate one using
   // nanoid.
   let requestId = ctx.request.get('X-Request-ID')
@@ -19,5 +19,3 @@ function setRequestId (ctx, next) {
 
   return next()
 }
-
-module.exports = { setRequestId }

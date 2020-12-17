@@ -1,6 +1,6 @@
-const { test } = require('@ianwalter/bff')
-const { requester } = require('@ianwalter/requester')
-const { createApp } = require('..')
+import { test } from '@ianwalter/bff'
+import { requester } from '@ianwalter/requester'
+import { createApp } from '../index.js'
 
 const app = createApp()
 
