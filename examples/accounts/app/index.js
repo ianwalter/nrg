@@ -1,6 +1,6 @@
-import nrg from '@ianwalter/nrg'
+import * as nrg from '@ianwalter/nrg'
 
-const app = nrg.createApp({
+const app = await nrg.createApp({
   name: 'Accounts Example',
   port: 9999,
   keys: ['terra', 'incognita'],
@@ -70,4 +70,4 @@ app.get('/hi', nrg.requireAuthorization({ roles: ['admin', 'owner'] }), ctx => {
 // Endpoint to test the disableCsrf middleware.
 app.delete('/session', nrg.disableCsrf, ...nrg.logout)
 
-module.exports = app
+export default app

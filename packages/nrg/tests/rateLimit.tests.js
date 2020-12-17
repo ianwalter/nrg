@@ -2,7 +2,7 @@ import { test } from '@ianwalter/bff'
 import { createApp } from '../index.js'
 
 test('Rate limit', async t => {
-  const app = createApp({
+  const app = await createApp({
     rateLimit: {
       points: 1, // Allow 1 request...
       duration: 10 // every 10 seconds.

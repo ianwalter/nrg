@@ -4,14 +4,14 @@ import * as nrg from '../index.js'
 test('Custom plugins', async t => {
   const defined = []
   function plugBeforeAssertion (app, ctx) {
-    ctx.log.debug('Adding plugBeforeAssertion')
+    ctx.logger.debug('Adding plugBeforeAssertion')
     defined.push(!!app.logger, !!app.close)
   }
   function plugAfterAssertion (app, ctx) {
-    ctx.log.debug('Adding plugAfterAssertion')
+    ctx.logger.debug('Adding plugAfterAssertion')
     defined.push(!!app.logger, !!app.close)
   }
-  const app = nrg.createApp({
+  const app = await nrg.createApp({
     log: { level: 'debug' },
     plugins: {
       ...nrg.plugBefore('close', { plugBeforeAssertion }),

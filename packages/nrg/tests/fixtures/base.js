@@ -1,3 +1,3 @@
 import { createApp } from '../../index.js'
 
-export default createApp({ log: false })
+export default await createApp({ log: false })

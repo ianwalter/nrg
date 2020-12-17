@@ -1,6 +1,8 @@
 import path from 'path'
 import { promises as fs } from 'fs'
+import { fileURLToPath } from 'url'
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const migrationsSource = path.join(__dirname, '..', '..', 'migrations')
 
 export async function copyMigrations ({ commands }, app) {

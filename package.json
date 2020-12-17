@@ -68,7 +68,14 @@
     "root": true,
     "extends": [
       "@ianwalter"
-    ]
+    ],
+    "env": {
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
+    }
   },
   "eslintIgnore": [
     "dist",

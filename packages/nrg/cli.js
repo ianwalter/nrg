@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 
 import path from 'path'
+import { createRequire } from 'module'
 import cli from '@generates/cli'
 import { createLogger } from '@generates/logger'
 import cloneable from '@ianwalter/cloneable'
 import { excluding } from '@ianwalter/extract'
+import dot from '@ianwalter/dot'
 import healthcheck from './lib/commands/healthcheck.js'
 import { copyMigrations } from './lib/commands/migrations.js'
 import newId from './lib/commands/newId.js'
-import dot from '@ianwalter/dot'
 
+const require = createRequire(import.meta.url)
 const { _: commands, packageJson, ...config } = cli({
   name: 'nrg',
   usage: 'nrg [options] [command]',
@@ -34,21 +36,7 @@ const logger = createLogger({ namespace: 'nrg.cli' })
 process.env.NRG_CLI = JSON.stringify({ ...config, isCli: true })
 
 async function run () {
-  const appPath = path.resolve(config.app)
-  let app
-  try {
-    if (appPath.includes('.mjs') || packageJson.type === 'module') {
-      const dist = require('@ianwalter/dist')
-      const requireFromString = require('require-from-string')
-      const { cjs } = await dist({ input: appPath, cjs: true })
-      app = requireFromString(cjs[1], appPath)
-    } else {
-      app = require(appPath)
-    }
-  } catch (err) {
-    logger.fatal(err)
-    process.exit(1)
-  }
+  const { default: app } = await import(require.resolve(path.resolve(config.app)))
 
   if (config.help) {
     logger.info(config.helpText)

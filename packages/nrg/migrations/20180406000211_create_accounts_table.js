@@ -1,4 +1,4 @@
-exports.up = knex => knex.schema.createTable('accounts', t => {
+export const up = knex => knex.schema.createTable('accounts', t => {
   t.string('id').primary()
   t.string('firstName').notNullable()
   t.string('lastName').notNullable()
@@ -9,4 +9,4 @@ exports.up = knex => knex.schema.createTable('accounts', t => {
   t.timestamps(true, true)
 })
 
-exports.down = knex => knex.schema.dropTable('accounts')
+export const down = knex => knex.schema.dropTable('accounts')

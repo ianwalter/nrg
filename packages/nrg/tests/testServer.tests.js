@@ -2,7 +2,7 @@ import { test } from '@ianwalter/bff'
 import { requester } from '@ianwalter/requester'
 import { createApp } from '../index.js'
 
-const app = createApp()
+const app = await createApp()
 
 test('Test Server 1', async t => {
   const server = await app.serve()
