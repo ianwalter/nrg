@@ -79,7 +79,12 @@
   },
   "eslintIgnore": [
     "dist",
-    "packages/nrg-session/test"
+    "packages/nrg-session/test",
+    "examples/accounts/app/index.js",
+    "examples/ssr/index.js",
+    "examples/ssr/index.js",
+    "packages/nrg/tests/fixtures/base.js",
+    "packages/nrg/tests/testServer.tests.js"
   ],
   "renovate": {
     "extends": [
