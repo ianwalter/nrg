@@ -1,6 +1,7 @@
 import { isFuture } from 'date-fns'
 import { Model } from 'objection'
 import Base from './Base.js'
+import Account from './Account.js'
 
 export default class Token extends Base {
   static get tableName () {
@@ -15,7 +16,7 @@ export default class Token extends Base {
     return {
       account: {
         relation: Model.BelongsToOneRelation,
-        modelClass: require('./Account'),
+        modelClass: Account,
         join: { from: 'tokens.accountId', to: 'accounts.id' }
       }
     }

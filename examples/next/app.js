@@ -2,7 +2,7 @@ import { createApp } from '@ianwalter/nrg'
 import hello from './api/hello.js'
 
 // Create the nrg app instance.
-const app = await createApp({
+export const app = await createApp({
   log: { level: 'info' },
   next: { enabled: true }
 })
@@ -16,5 +16,3 @@ app.use((ctx, next) => {
 
 // An example of an API route.
 app.get('/api/hello', hello)
-
-export default app

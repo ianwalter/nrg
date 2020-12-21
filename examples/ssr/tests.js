@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff'
-import app from './index.js'
+import { app } from './index.js'
 import { addToSSr } from '@ianwalter/nrg'
 
 const result = { song: 'Wave' }

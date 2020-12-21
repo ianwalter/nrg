@@ -1,6 +1,6 @@
 import { test } from '@ianwalter/bff'
-import app from '../app/index.js'
-import { accounts, password } from '../seeds/01_accounts.js'
+import { app } from '../app/index.js'
+import { accounts, password } from '../seeds/01_accounts.mjs'
 
 const generalUser = accounts.find(a => a.firstName === 'General')
 

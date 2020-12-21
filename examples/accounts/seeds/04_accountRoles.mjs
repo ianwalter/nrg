@@ -1,5 +1,5 @@
-const { accounts } = require('./01_accounts')
-const { roles } = require('./03_roles')
+import { accounts } from './01_accounts.mjs'
+import { roles } from './03_roles.mjs'
 
 const ownerUser = accounts.find(a => a.firstName === 'Owner')
 const ownerRole = roles.find(r => r.name === 'owner')
@@ -18,10 +18,9 @@ const accountRoles = [
   }
 ]
 
-module.exports = {
-  accountRoles,
-  seed: async knex => {
-    await knex.raw('TRUNCATE TABLE account_roles CASCADE')
-    return knex('account_roles').insert(accountRoles)
-  }
+async function seed (knex) {
+  await knex.raw('TRUNCATE TABLE account_roles CASCADE')
+  return knex('account_roles').insert(accountRoles)
 }
+
+export { accountRoles, seed }

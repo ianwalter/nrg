@@ -1,5 +1,5 @@
 export function install (app, ctx) {
-  if (ctx.logger) ctx.logger.debug('TODO:')
+  if (ctx.logger) ctx.logger.debug('Adding close method')
 
   app.close = function close () {
     // Close any open database connections.

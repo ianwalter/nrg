@@ -27,7 +27,7 @@
     "example:ssr": "node examples/ssr/serve",
     "example:mq": "node examples/mq/serve",
     "example:accounts": "node examples/accounts/serve",
-    "example:next": "node examples/next/serve",
+    "example:next": "npm --prefix examples/next run dev",
     "example:oauth": "node examples/oauth/serve",
     "example:vite": "node examples/vite/serve",
     "build:example:ssr": "NODE_ENV=production webpack examples/ssr",

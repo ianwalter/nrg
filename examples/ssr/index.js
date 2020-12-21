@@ -1,7 +1,7 @@
 import path from 'path'
 import { createApp, serveSsr } from '@ianwalter/nrg'
 
-const app = await createApp({
+export const app = await createApp({
   log: { level: 'debug' },
   static: {
     root: path.join(__dirname, 'dist')
@@ -12,10 +12,3 @@ const app = await createApp({
 })
 
 app.use(serveSsr)
-
-// Export the app if required, otherwise start the server.
-if (require.main) {
-  app.serve()
-} else {
-  export default app
-}

@@ -4,7 +4,7 @@ import { serve } from '@ianwalter/nrg'
 const requester = new Requester({ shouldThrow: false })
 
 export function install (app, ctx, cfg) {
-  if (ctx.logger) ctx.logger.debug('TODO:')
+  if (ctx.logger) ctx.logger.debug('Adding test method')
 
   app.test = function test (path, options) {
     // If options has a statusCode, treat it as a response to a previous request

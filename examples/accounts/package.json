@@ -10,10 +10,10 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "pretest": "pnpx nrg migrate && pnpx nrg seed && pnpx nrg run deleteAllEmail",
+    "pretest": "yarn nrg migrate && yarn nrg seed && yarn nrg run deleteAllEmail",
     "test": "NODE_ENV=test bff"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.10.0"
+    "@ianwalter/bff": "^10.0.0"
   }
 }

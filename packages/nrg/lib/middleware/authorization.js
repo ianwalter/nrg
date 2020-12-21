@@ -25,7 +25,7 @@ function handleAuthorization (ctx, next, options) {
 }
 
 /**
- * TODO: update comment.
+ * FIXME: update comment.
  * Continue to the next middleware if the requesting session has authenticated,
  * otherwise return a 401 Unauthorized response.
  */

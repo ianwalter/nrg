@@ -36,7 +36,7 @@ const logger = createLogger({ namespace: 'nrg.cli' })
 process.env.NRG_CLI = JSON.stringify({ ...config, isCli: true })
 
 async function run () {
-  const { default: app } = await import(require.resolve(path.resolve(config.app)))
+  const { app } = await import(require.resolve(path.resolve(config.app)))
 
   if (config.help) {
     logger.info(config.helpText)
@@ -64,12 +64,13 @@ async function run () {
     }
   } else if (commands[0] === 'seed') {
     // Run seeds.
-    await app.db.seed.run()
+    await app.db.seed.run({ loadExtensions: ['.mjs'] })
   } else if (commands[0] === 'run') {
     if (commands[1]) {
       try {
-        const script = require(path.resolve(`scripts/${commands[1]}`))
-        await script(app)
+        const script = require.resolve(path.resolve(`scripts/${commands[1]}`))
+        const { run } = await import(script)
+        await run(app)
       } catch (err) {
         logger.error(err)
         process.exit(1)

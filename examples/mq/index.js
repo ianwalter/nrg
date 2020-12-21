@@ -3,7 +3,7 @@ import { createApp } from '@ianwalter/nrg'
 let num = 0
 const host = process.env.MQ_HOST || 'localhost'
 const port = process.env.MQ_PORT || 25672
-const app = await createApp({
+export const app = await createApp({
   mq: {
     urls: [
       `amqp://nrg:gottaLottaEnemies@${host}:${port}`
@@ -36,5 +36,3 @@ app.use(async ctx => {
   ctx.logger.info('Message sent!', msg)
   ctx.body = msg
 })
-
-export default app

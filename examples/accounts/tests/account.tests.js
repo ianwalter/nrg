@@ -1,8 +1,8 @@
 import { test } from '@ianwalter/bff'
 import { excluding } from '@ianwalter/extract'
 import { Account, getTestEmail, extractEmailToken } from '@ianwalter/nrg'
-import app from '../app/index.js'
-import { accounts, password } from '../seeds/01_accounts.js'
+import { app } from '../app/index.js'
+import { accounts, password } from '../seeds/01_accounts.mjs'
 
 const generalUser = accounts.find(a => a.firstName === 'General')
 const updateUser = accounts.find(a => a.firstName === 'Account Update')

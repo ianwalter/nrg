@@ -1,7 +1,7 @@
 import { test } from '@ianwalter/bff'
 import { Account, getTestEmail, extractEmailToken } from '@ianwalter/nrg'
-import app from '../app/index.js'
-import { accounts } from '../seeds/01_accounts.js'
+import { app } from '../app/index.js'
+import { accounts } from '../seeds/01_accounts.mjs'
 
 const firstName = 'Bilbo'
 const lastName = 'Baggins'

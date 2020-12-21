@@ -1,7 +1,7 @@
 import path from 'path'
 import { promises as fs } from 'fs'
 import { test } from '@ianwalter/bff'
-import app from './index.js'
+import { app } from './index.js'
 
 const gifPath = 'dist/static/img/boomer.gif'
 

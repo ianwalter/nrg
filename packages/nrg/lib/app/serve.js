@@ -1,13 +1,14 @@
 import http from 'http'
 import getHostUrl from '../utilities/getHostUrl.js'
 
-export default function serve (port, hostname, callback) {
-  // Create the server instance by specifying the app's callback as the handler.
+export function serve (port, hostname, callback) {
+  // Create the server instance by specifying the app's callback as the
+  // handler.
   const server = http.createServer(callback || this.callback())
 
-  // Prefer the port and hostname passed as arguments to those configured in the
-  // app even if the port is 0 (which means use a random unused port) so that
-  // they can be overridden when serving (e.g. in a test).
+  // Prefer the port and hostname passed as arguments to those configured in
+  // the app even if the port is 0 (which means use a random unused port) so
+  // that they can be overridden when serving (e.g. in a test).
   const portToUse = port !== undefined ? port : (this.context.cfg.port || 0)
   const hostnameToUse = hostname || this.context.cfg.hostname
 
@@ -21,7 +22,8 @@ export default function serve (port, hostname, callback) {
       // Set the server URL (the local URL which can be different from the
       // base URL) so that whatever is starting the server (e.g. tests) can
       // easily know what URL to use.
-      server.url = getHostUrl(hostnameToUse, portToUse || server.address().port)
+      port = portToUse || server.address().port
+      server.url = getHostUrl(hostnameToUse, port)
 
       if (this.logger) {
         this.logger
@@ -54,4 +56,9 @@ export default function serve (port, hostname, callback) {
       resolve(server)
     })
   })
+}
+
+export function install (app, ctx) {
+  if (ctx.logger) ctx.logger.debug('Adding serve method')
+  app.serve = serve
 }

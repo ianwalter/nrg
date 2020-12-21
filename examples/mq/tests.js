@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff'
-import app from './index.js'
+import { app } from './index.js'
 
 test('Message Queue', async t => {
   // Wait for the "add" queue to be ready and publish a number to it.

@@ -105,7 +105,7 @@ import getHostUrl from './lib/utilities/getHostUrl.js'
 import plugBefore from './lib/utilities/plugBefore.js'
 import plugAfter from './lib/utilities/plugAfter.js'
 
-import serve from './lib/app/serve.js'
+import { serve } from './lib/app/serve.js'
 
 import config from './lib/config.js'
 

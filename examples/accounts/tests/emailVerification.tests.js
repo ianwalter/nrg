@@ -1,8 +1,8 @@
 import { test } from '@ianwalter/bff'
 import { Account, getTestEmail, extractEmailToken } from '@ianwalter/nrg'
-import app from '../app/index.js'
-import { accounts } from '../seeds/01_accounts.js'
-import { tokens } from '../seeds/02_tokens.js'
+import { app } from '../app/index.js'
+import { accounts } from '../seeds/01_accounts.mjs'
+import { tokens } from '../seeds/02_tokens.mjs'
 
 const willVerifyUser = accounts.find(a => a.firstName === 'Will Verify')
 const previousEmailUser = accounts.find(a => a.firstName === 'Previous Email')

@@ -343,7 +343,7 @@ export default function nrgSession (options = {}) {
   async function deferSession (ctx, next) {
     ctx.sessionStore = store
 
-    // TODO:
+    // FIXME:
     // Accessing ctx.session when it's defined is causing problems
     // because it has side effect. So, here we use a flag to determine
     // that session property is already defined.

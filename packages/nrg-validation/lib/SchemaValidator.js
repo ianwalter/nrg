@@ -85,7 +85,7 @@ export default class SchemaValidator {
       } else if (data[key] !== undefined) {
         for (const validator of field.validators) {
           try {
-            // TODO: Maybe allow multiple validations for a key or at least
+            // FIXME: Maybe allow multiple validations for a key or at least
             // add a way to merge them?
             validations[key] = await validator.validate(data[key])
           } catch (err) {

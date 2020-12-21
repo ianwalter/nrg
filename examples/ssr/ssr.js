@@ -1,4 +1,4 @@
-import App from './App'
+import App from './App.js'
 
 export default pageTemplate => ctx => {
   // Render the application using Svelte's SSR API and receive the <head> HTML,

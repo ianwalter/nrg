@@ -9,6 +9,8 @@ import {
 } from '@ianwalter/nrg-validation'
 import { including } from '@ianwalter/extract'
 import Base from './Base.js'
+import Token from './Token.js'
+import Role from './Role.js'
 
 export default class Account extends Base {
   static get tableName () {
@@ -44,12 +46,12 @@ export default class Account extends Base {
     return {
       tokens: {
         relation: Model.HasManyRelation,
-        modelClass: require('./Token'),
+        modelClass: Token,
         join: { from: 'accounts.id', to: 'tokens.accountId' }
       },
       roles: {
         relation: Model.ManyToManyRelation,
-        modelClass: require('./Role'),
+        modelClass: Role,
         join: {
           from: 'accounts.id',
           through: {

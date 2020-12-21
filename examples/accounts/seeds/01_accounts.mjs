@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+import bcrypt from 'bcrypt'
 
 const password = 'iJustC4n7!gnore'
 const salt = bcrypt.genSaltSync(12)
@@ -156,11 +156,9 @@ const accounts = [
   }
 ]
 
-module.exports = {
-  password,
-  accounts,
-  seed: async knex => {
-    await knex.raw('TRUNCATE TABLE accounts CASCADE')
-    await knex('accounts').insert(accounts)
-  }
+async function seed (knex) {
+  await knex.raw('TRUNCATE TABLE accounts CASCADE')
+  await knex('accounts').insert(accounts)
 }
+
+export { password, accounts, seed }

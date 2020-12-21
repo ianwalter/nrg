@@ -330,16 +330,15 @@ export default function config (options = {}) {
         },
         // Add a serve method to the app that makes it easy to start listening
         // for connections.
-        async serve (app) {
+        async serve (app, ctx) {
           if (!cfg.next.enabled) {
-            const { default: serve } = await import('./app/serve.js')
-            app.serve = serve
+            const { install } = await import('./app/serve.js')
+            install(app, ctx)
           }
         },
         // If not in production, add a utility to allow making test requests.
         async test (app, ctx) {
           if (!cfg.isProd) {
-            // TODO:
             const { install } = await import('@ianwalter/nrg-test')
             install(app, ctx, cfg)
           }
@@ -347,7 +346,6 @@ export default function config (options = {}) {
         // Add a utility that allows closing any connections opened when the app
         // was created.
         async close (app, ctx) {
-          // TODO:
           const { install } = await import('./app/close.js')
           install(app, ctx)
         },
@@ -355,7 +353,6 @@ export default function config (options = {}) {
         // allow you to get the result of "nextAdapter" middleware and use it to
         // pass data to the page component.
         async next (app, ctx) {
-          // TODO:
           if (cfg.next.enabled) {
             const { install } = await import('./app/next.js')
             install(app, ctx)

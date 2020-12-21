@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff'
-import app from './fixtures/helloWorld.js'
+import { app } from './fixtures/helloWorld.js'
 
 test('Health check', async t => {
   const response = await app.test('/health').get()

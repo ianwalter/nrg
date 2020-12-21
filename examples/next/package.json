@@ -9,6 +9,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
+    "lint": "eslint .",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -27,7 +28,7 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@ianwalter/eslint-config-react/preact"
+      "@ianwalter/react"
     ],
     "rules": {
       "react/react-in-jsx-scope": 0
