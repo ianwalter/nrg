@@ -1,6 +1,6 @@
 import mount from 'koa-mount'
 import app from './app/index.js'
 
-module.exports = {
+export default {
   configureServer: server => server.app.use(mount(app))
 }

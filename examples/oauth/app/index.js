@@ -24,4 +24,4 @@ app.get('/hello', ctx => {
   ctx.body = `Hello ${ctx.session.grant.response.profile.name}!`
 })
 
-module.exports = app
+export default app

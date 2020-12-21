@@ -3,6 +3,7 @@
   "name": "ssr-example",
   "version": "1.0.15",
   "description": "",
+  "type": "module",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"

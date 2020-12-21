@@ -17,4 +17,4 @@ app.use((ctx, next) => {
 // An example of an API route.
 app.get('/api/hello', hello)
 
-module.exports = app
+export default app

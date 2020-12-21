@@ -4,4 +4,4 @@ const app = await createApp()
 
 app.use(ctx => (ctx.body = 'Hello World!'))
 
-app.serve()
+export default app

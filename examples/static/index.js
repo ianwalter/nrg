@@ -11,9 +11,4 @@ const app = await createApp({
   }
 })
 
-// Export the app if required, otherwise start the server.
-if (module.parent) {
-  module.exports = app
-} else {
-  app.serve()
-}
+export default app

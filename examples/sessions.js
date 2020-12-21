@@ -11,4 +11,4 @@ app.use((ctx, next) => {
   }
 })
 
-app.serve()
+export default app

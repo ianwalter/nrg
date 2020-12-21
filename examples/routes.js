@@ -4,4 +4,4 @@ const app = await createApp()
 
 app.get('/test/:id', ctx => (ctx.body = `TEST ${ctx.params.id}!`))
 
-app.serve()
+export default app

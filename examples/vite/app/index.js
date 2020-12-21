@@ -10,4 +10,4 @@ const app = await createApp({
   }
 })
 
-module.exports = app
+export default app
