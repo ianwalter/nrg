@@ -6,7 +6,7 @@
 ### Implementation
 
 ```js
-const {
+import {
   SchemaValidator,
   isEmail,
   isString,
@@ -15,7 +15,7 @@ const {
   isOptional,
   Validation,
   ValidationError
-} = require('correct')
+} from '@ianwalter/nrg-validation'
 
 // Custom validator example:
 const msg = 'Occupation must contain software.'

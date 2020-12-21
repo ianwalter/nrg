@@ -1,8 +1,8 @@
-import * as nrg from '@ianwalter/nrg'
+import { createApp } from '@ianwalter/nrg'
 import hello from './api/hello.js'
 
 // Create the nrg app instance.
-const app = nrg.createApp({
+const app = await createApp({
   log: { level: 'info' },
   next: { enabled: true }
 })

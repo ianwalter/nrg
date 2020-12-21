@@ -27,7 +27,7 @@ export default async function createApp (options = {}) {
 
   // If configured, set up handlers for any uncaught exceptions and unhandled
   // Promise rejections that happen within the current process.
-  if (cfg.log?.unhandled) {
+  if (cfg.log?.unhandled && app.logger) {
     // FIXME: use synchronous logger instances for this.
     process.on('unhandledRejection', err => app.logger.error(err))
     process.on('uncaughtException', err => app.logger.error(err))

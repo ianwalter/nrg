@@ -1,7 +1,7 @@
 import { createApp } from '@ianwalter/nrg'
 
 // Create the application instance.
-const app = createApp()
+const app = await createApp()
 
 // Add some endpoints.
 app.get('/hello', ctx => (ctx.body = 'Hello World!'))

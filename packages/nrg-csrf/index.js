@@ -55,13 +55,10 @@ function csrfVerification (ctx, next) {
   throw new InvalidCsrfError(token)
 }
 
-export default {
-  InvalidCsrfError,
-  csrfGeneration,
-  csrfVerification,
-  install (app, ctx) {
-    if (ctx.log) ctx.log.debug('Adding nrg-csrf middleware')
-    app.use(csrfGeneration)
-    ctx.csrfVerification = csrfVerification
-  }
+function install (app, ctx) {
+  if (ctx.logger) ctx.logger.debug('Adding nrg-csrf middleware')
+  app.use(csrfGeneration)
+  ctx.csrfVerification = csrfVerification
 }
+
+export { InvalidCsrfError, csrfGeneration, csrfVerification, install }

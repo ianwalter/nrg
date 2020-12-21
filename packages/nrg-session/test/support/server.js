@@ -4,7 +4,7 @@ import uid from 'uid-safe'
 import session from '../../index.js'
 import Store from './store.js'
 
-const app = createApp({ name: 'koa-session-test' })
+const app = await createApp({ name: 'nrg-session-test' })
 
 app.keys = ['keys', 'keykeys']
 app.outputErrors = true

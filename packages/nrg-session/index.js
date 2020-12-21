@@ -1,11 +1,14 @@
-const debug = require('debug')('nrg-session:session')
-const MemoryStore = require('./lib/memory_store')
-const crc32 = require('crc').crc32
-const parse = require('parseurl')
-const Store = require('./lib/store')
-const copy = require('copy-to')
-const uid = require('uid-safe')
-const { stripIndent } = require('common-tags')
+import { createLogger } from '@generates/logger'
+import crc from 'crc'
+import parse from 'parseurl'
+import copy from 'copy-to'
+import uid from 'uid-safe'
+import { stripIndent } from 'common-tags'
+import MemoryStore from './lib/memoryStore.js'
+import Store from './lib/store.js'
+
+const { crc32 } = crc
+const logger = createLogger({ level: 'info', namespace: 'nrg.session' })
 
 // Warning message for `MemoryStore` usage in production.
 const warning = stripIndent`
@@ -27,7 +30,7 @@ const defaultCookie = {
  *   - [`key`] cookie name, defaulting to `koa.sid`
  *   - [`store`] session store instance, default to MemoryStore
  *   - [`ttl`] store ttl in `ms`, default to oneday
- *   - [`prefix`] session prefix for store, defaulting to `koa:sess:`
+ *   - [`prefix`] session prefix for store, defaulting to `nrg:sess:`
  *   - [`cookie`] session cookie settings, defaulting to
  *     {path: '/', httpOnly: true, maxAge: null, overwrite: true, signed: true}
  *   - [`defer`] defer get session,
@@ -43,7 +46,7 @@ const defaultCookie = {
  *     session id throw requests.
  */
 
-module.exports = function (options = {}) {
+export default function nrgSession (options = {}) {
   const key = options.key || 'koa.sid'
   const client = options.store || new MemoryStore()
   const errorHandler = options.errorHandler || defaultErrorHanlder
@@ -87,7 +90,7 @@ module.exports = function (options = {}) {
     waitStore = new Promise((resolve, reject) => {
       setTimeout(() => {
         if (storeStatus === 'pending') storeStatus = 'unavailable'
-        reject(new Error('session store is unavailable'))
+        reject(new Error('Session store is unavailable'))
       }, reconnectTimeout)
       store.once('connect', resolve)
     })
@@ -125,9 +128,7 @@ module.exports = function (options = {}) {
 
     // You can alter the cookie options in nexts
     session.cookie = {}
-    for (const prop in cookie) {
-      session.cookie[prop] = cookie[prop]
-    }
+    for (const prop in cookie) session.cookie[prop] = cookie[prop]
     compatMaxage(session.cookie)
     return session
   }
@@ -138,11 +139,9 @@ module.exports = function (options = {}) {
   function matchPath (ctx) {
     const pathname = parse(ctx).pathname
     const cookiePath = cookie.path || '/'
-    if (cookiePath === '/') {
-      return true
-    }
+    if (cookiePath === '/') return true
     if (pathname.indexOf(cookiePath) !== 0) {
-      debug('cookie path not match')
+      logger.debug('Cookie path not match')
       return false
     }
     return true
@@ -157,42 +156,35 @@ module.exports = function (options = {}) {
   async function getSession (ctx) {
     if (!matchPath(ctx)) return
     if (storeStatus === 'pending') {
-      debug('store is disconnect and pending')
+      logger.debug('Store is disconnected and pending')
       await waitStore
     } else if (storeStatus === 'unavailable') {
-      debug('store is unavailable')
-      throw new Error('session store is unavailable')
+      logger.debug('Store is unavailable')
+      throw new Error('Session store is unavailable')
     }
 
-    if (!ctx.sessionId) {
-      ctx.sessionId = sessionIdStore.get.call(ctx)
-    }
+    if (!ctx.sessionId) ctx.sessionId = sessionIdStore.get.call(ctx)
 
     let session
     let isNew = false
     if (!ctx.sessionId) {
-      debug('session id not exist, generate a new one')
+      logger.debug('Session ID does not exist')
       session = generateSession()
       ctx.sessionId = genSid.call(ctx, 24)
       isNew = true
     } else {
       try {
         session = await store.get(ctx.sessionId)
-        debug('get session %j with key %s', session, ctx.sessionId)
+        logger.debug(`Get session ${session} with key ${ctx.sessionId}`)
       } catch (err) {
-        if (err.code === 'ENOENT') {
-          debug('get session error, code = ENOENT')
-        } else {
-          debug('get session error: ', err && err.message)
-          errorHandler(err, 'get', ctx)
-        }
+        logger.debug('Get session error: ', err)
+        if (err.code !== 'ENOENT') errorHandler(err, 'get', ctx)
       }
     }
 
     // Make sure the session is still valid
-    if (!session ||
-      !valid(ctx, session)) {
-      debug('session is empty or invalid')
+    if (!session || !valid(ctx, session)) {
+      logger.debug('Session is empty or invalid')
       session = generateSession()
       ctx.sessionId = genSid.call(ctx, 24)
       sessionIdStore.reset.call(ctx)
@@ -217,37 +209,38 @@ module.exports = function (options = {}) {
   async function refreshSession (ctx, session, originalHash, isNew) {
     // Reject any session changes, and do not update session expiry
     if (ctx._sessionSave === false) {
-      return debug('session save disabled')
+      return logger.debug('Session save disabled')
     }
 
     // Delete session
     if (!session) {
       if (!isNew) {
-        debug('session set to null, destroy session: %s', ctx.sessionId)
+        logger.debug(`Session set to null, destroy session: ${ctx.sessionId}`)
         sessionIdStore.reset.call(ctx)
         return store.destroy(ctx.sessionId)
       }
-      return debug('a new session and set to null, ignore destroy')
+      return logger.debug('A new session and set to null, ignore destroy')
     }
 
     // Force saving non-empty session
     if (ctx._sessionSave === true) {
-      debug('session save forced')
+      logger.debug('Session save forced')
       return saveNow(ctx, ctx.sessionId, session)
     }
 
     const newHash = hash(session)
+
     // If new session and not modified, just ignore
     if (!options.allowEmpty && isNew && newHash === EMPTY_SESSION_HASH) {
-      return debug('new session and do not modified')
+      return logger.debug('New session, not modified')
     }
 
     // Rolling session will always reset cookie and session
     if (!options.rolling && newHash === originalHash) {
-      return debug('session not modified')
+      return logger.debug('Session not modified')
     }
 
-    debug('session modified')
+    logger.debug('Session modified')
 
     await saveNow(ctx, ctx.sessionId, session)
   }
@@ -262,9 +255,9 @@ module.exports = function (options = {}) {
     try {
       await store.set(id, session)
       sessionIdStore.set.call(ctx, id, session)
-      debug('saved')
+      logger.debug('Session saved')
     } catch (err) {
-      debug('set session error: ', err && err.message)
+      logger.debug('Set session error', err)
       errorHandler(err, 'set', ctx)
     }
   }
@@ -279,13 +272,9 @@ module.exports = function (options = {}) {
    */
   async function session (ctx, next) {
     ctx.sessionStore = store
-    if (ctx.session || ctx._session) {
-      return next()
-    }
+    if (ctx.session || ctx._session) return next()
     const result = await getSession(ctx)
-    if (!result) {
-      return next()
-    }
+    if (!result) return next()
 
     addCommonAPI(ctx)
 
@@ -303,17 +292,15 @@ module.exports = function (options = {}) {
 
     ctx.saveSession = async function saveSession () {
       const result = await getSession(ctx)
-      if (!result) {
-        return next()
-      }
+      if (!result) return next()
       return refreshSession(ctx, ctx.session, result.originalHash, result.isNew)
     }
 
     ctx.regenerateSession = async function regenerateSession () {
-      debug('regenerating session')
+      logger.debug('Regenerating session')
       if (!result.isNew) {
         // Destroy the old session
-        debug('destroying previous session')
+        logger.debug('Destroying previous session')
         await store.destroy(ctx.sessionId)
       }
 
@@ -321,7 +308,7 @@ module.exports = function (options = {}) {
       ctx.sessionId = genSid.call(ctx, 24)
       sessionIdStore.reset.call(ctx)
 
-      debug('created new session: %s', ctx.sessionId)
+      logger.debug('Created new session:', ctx.sessionId)
       result.isNew = true
     }
 
@@ -330,7 +317,7 @@ module.exports = function (options = {}) {
     try {
       await next()
     } catch (err) {
-      debug('next logic error: %s', err && err.message)
+      logger.debug('Next logic error', err)
       firstError = err
     }
 
@@ -338,7 +325,7 @@ module.exports = function (options = {}) {
     try {
       await refreshSession(ctx, ctx.session, result.originalHash, result.isNew)
     } catch (err) {
-      debug('refresh session error: %s', err && err.message)
+      logger.debug('Refresh session error', err)
       if (firstError) ctx.app.emit('error', err, ctx)
       firstError = firstError || err
     }
@@ -360,26 +347,20 @@ module.exports = function (options = {}) {
     // Accessing ctx.session when it's defined is causing problems
     // because it has side effect. So, here we use a flag to determine
     // that session property is already defined.
-    if (ctx.__isSessionDefined) {
-      return next()
-    }
+    if (ctx.__isSessionDefined) return next()
     let isNew = false
     let originalHash = null
     let touchSession = false
     let getter = false
 
     // If path not match
-    if (!matchPath(ctx)) {
-      return next()
-    }
+    if (!matchPath(ctx)) return next()
 
     addCommonAPI(ctx)
 
     Object.defineProperty(ctx, 'session', {
       async get () {
-        if (touchSession) {
-          return this._session
-        }
+        if (touchSession) return this._session
         touchSession = true
         getter = true
 
@@ -408,27 +389,25 @@ module.exports = function (options = {}) {
       await ctx.session
 
       const result = await getSession(ctx)
-      if (!result) {
-        return next()
-      }
+      if (!result) return next()
       return refreshSession(ctx, ctx.session, result.originalHash, result.isNew)
     }
 
     ctx.regenerateSession = async function regenerateSession () {
-      debug('regenerating session')
+      logger.debug('Regenerating session')
       // Make sure that the session has been loaded
       await ctx.session
 
       if (!isNew) {
         // Destroy the old session
-        debug('destroying previous session')
+        logger.debug('Destroying previous session')
         await store.destroy(ctx.sessionId)
       }
 
       ctx._session = generateSession()
       ctx.sessionId = genSid.call(ctx, 24)
       sessionIdStore.reset.call(ctx)
-      debug('created new session: %s', ctx.sessionId)
+      logger.debug('Created new session:', ctx.sessionId)
       isNew = true
       return ctx._session
     }
@@ -437,9 +416,7 @@ module.exports = function (options = {}) {
 
     if (touchSession) {
       // If only this.session=, need try to decode and get the sessionID
-      if (!getter) {
-        ctx.sessionId = sessionIdStore.get.call(ctx)
-      }
+      if (!getter) ctx.sessionId = sessionIdStore.get.call(ctx)
 
       await refreshSession(ctx, ctx._session, originalHash, isNew)
     }
@@ -463,7 +440,7 @@ function compatMaxage (opts) {
   }
 }
 
-module.exports.MemoryStore = MemoryStore
+export { MemoryStore }
 
 function defaultErrorHanlder (err, type) {
   err.name = 'koa-generic-session ' + type + ' error'

@@ -16,7 +16,7 @@ test('Error', async t => {
     ]
   })
 
-  const app = createApp({ plugins: { ...nrgSentry() } })
+  const app = await createApp({ plugins: { ...nrgSentry() } })
   app.get('/', () => { throw new Error('Bow to the cow') })
 
   const res = await app.test('/').get()
@@ -40,7 +40,7 @@ test('Warning', async t => {
     tracesSampleRate: 1.0
   })
 
-  const app = createApp({ plugins: { ...nrgSentry() } })
+  const app = await createApp({ plugins: { ...nrgSentry() } })
   app.get('/', () => {
     const err = new Error('Woop! Woop! Thats the sound of the police')
     err.status = 400

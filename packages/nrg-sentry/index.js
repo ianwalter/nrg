@@ -1,10 +1,12 @@
-import nrg from '@ianwalter/nrg'
+import { plugAfter } from '@ianwalter/nrg'
+import sentryTrace from './middleware/sentryTrace.js'
+import errorMiddleware from './middleware/error.js'
 
 const defaults = { tracing: true }
 
-function sentryTrace (app, ctx) {
-  ctx.log.debug('Adding nrg-sentry sentryTrace middleware')
-  app.use(require('./middleware/sentryTrace'))
+function sentryTracePlugin (app, ctx) {
+  ctx.logger.debug('Adding nrg-sentry sentryTrace middleware')
+  app.use(sentryTrace)
 }
 
 export default function nrgSentry (options = {}) {
@@ -12,9 +14,9 @@ export default function nrgSentry (options = {}) {
 
   return {
     error (app, ctx) {
-      ctx.log.debug('Adding nrg-sentry error middleware')
-      app.use(require('./middleware/error'))
+      ctx.logger.debug('Adding nrg-sentry error middleware')
+      app.use(errorMiddleware)
     },
-    ...options.tracing ? nrg.plugAfter('error', { sentryTrace }) : {}
+    ...options.tracing ? plugAfter('error', { sentryTracePlugin }) : {}
   }
 }

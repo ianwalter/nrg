@@ -1,6 +1,6 @@
 import { createApp } from '@ianwalter/nrg'
 
-const app = createApp({ keys: ['cba321'] })
+const app = await createApp({ keys: ['cba321'] })
 
 app.use((ctx, next) => {
   if (ctx.path.indexOf('favicon') === -1) {

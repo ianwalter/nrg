@@ -32,12 +32,12 @@ const validInput = {
   phone: '555-555-5555'
 }
 
-test('valid registration', async ({ expect }) => {
+test('valid registration', async t => {
   const validation = await registrationValidator.validate(validInput)
-  expect(validation.isValid).toBe(true)
+  t.expect(validation.isValid).toBe(true)
 })
 
-test('invalid registration', async ({ expect }) => {
+test('invalid registration', async t => {
   const input = {
     email: 'hahaha',
     name: '',
@@ -46,28 +46,28 @@ test('invalid registration', async ({ expect }) => {
     phone: '777'
   }
   const validation = await registrationValidator.validate(input)
-  expect(validation.isValid).toBe(false)
-  expect(validation).toMatchSnapshot({
+  t.expect(validation.isValid).toBe(false)
+  t.expect(validation).toMatchSnapshot({
     validations: {
       password: {
-        result: expect.any(Object)
+        result: t.expect.any(Object)
       }
     }
   })
 })
 
-test('validaion data', async ({ expect }) => {
+test('validaion data', async t => {
   const input = {
     ...validInput,
     artist: 'Peach Pit',
     song: 'Feelin Low'
   }
   const validation = await registrationValidator.validate(input)
-  expect(validation.data).toEqual({ ...validInput, email })
+  t.expect(validation.data).toEqual({ ...validInput, email })
 })
 
-test('without optional data', async ({ expect }) => {
+test('without optional data', async t => {
   const { phone, ...required } = validInput
   const validation = await registrationValidator.validate(required)
-  expect(validation.isValid).toBe(true)
+  t.expect(validation.isValid).toBe(true)
 })

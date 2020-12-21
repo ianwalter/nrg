@@ -2,18 +2,18 @@ import { createLogger } from '@generates/logger'
 
 const logger = createLogger({ level: 'info', namespace: 'nrg.session' })
 
-class MemoryStore {
+export default class MemoryStore {
   constructor () {
     this.sessions = {}
   }
 
   get (sid) {
-    logger.debug(`get value ${this.sessions[sid]} with key ${sid}`)
+    logger.debug(`Get value ${this.sessions[sid]} with key ${sid}`)
     return this.sessions[sid]
   }
 
   set (sid, val) {
-    logger.debug(`set value ${val} for key ${sid}`)
+    logger.debug(`Set value ${val} for key ${sid}`)
     this.sessions[sid] = val
   }
 
@@ -21,5 +21,3 @@ class MemoryStore {
     delete this.sessions[sid]
   }
 }
-
-module.exports = MemoryStore

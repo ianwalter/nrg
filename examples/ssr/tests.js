@@ -1,6 +1,6 @@
 import { test } from '@ianwalter/bff'
 import app from './index.js'
-import nrg from '@ianwalter/nrg'
+import { addToSSr } from '@ianwalter/nrg'
 
 const result = { song: 'Wave' }
 const addData = (ctx, next) => {
@@ -12,13 +12,13 @@ const end = ctx => (ctx.status = 200)
 if (!process.env.GITHUB_ACTION) { // FIXME: why did I do this again?
   test('addToSsr', async t => {
     const assertion = ctx => t.expect(ctx.state.ssr.song).toBe(result.song)
-    app.get('/', addData, nrg.addToSsr, assertion, end)
+    app.get('/', addData, addToSsr, assertion, end)
     await app.test('/').get()
   })
 
   test('addToSsr with namespace', async ({ expect }) => {
     const assertion = c => expect(c.state.ssr.next.ok.song).toBe(result.song)
-    app.get('/namespace', addData, nrg.addToSsr('next.ok'), assertion, end)
+    app.get('/namespace', addData, addToSsr('next.ok'), assertion, end)
     await app.test('/namespace').get()
   })
 }

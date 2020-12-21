@@ -1,12 +1,12 @@
 import { EventEmitter } from 'events'
-const debug = require('debug')('nrg-session:store')
-const copy = require('copy-to')
+import { createLogger } from '@generates/logger'
+import copy from 'copy-to'
 
-const defaultOptions = {
-  prefix: 'koa:sess:'
-}
+const defaultOptions = { prefix: 'nrg:sess:' }
 
-class Store extends EventEmitter {
+const logger = createLogger({ level: 'info', namespace: 'nrg.session' })
+
+export default class Store extends EventEmitter {
   constructor (client, options) {
     super()
     this.client = client
@@ -22,17 +22,17 @@ class Store extends EventEmitter {
 
   async get (sid) {
     sid = this.options.prefix + sid
-    debug('GET %s', sid)
+    logger.debug(`GET ${sid}`)
     const data = await this.client.get(sid)
     if (!data) {
-      debug('GET empty')
+      logger.debug('GET empty')
       return null
     }
     if (data && data.cookie && typeof data.cookie.expires === 'string') {
       // Make sure data.cookie.expires is a Date
       data.cookie.expires = new Date(data.cookie.expires)
     }
-    debug('GOT %j', data)
+    logger.debug(`GOT ${sid}`, data)
     return data
   }
 
@@ -40,9 +40,7 @@ class Store extends EventEmitter {
     let ttl = this.options.ttl
     if (!ttl) {
       const maxAge = sess.cookie && sess.cookie.maxAge
-      if (typeof maxAge === 'number') {
-        ttl = maxAge
-      }
+      if (typeof maxAge === 'number') ttl = maxAge
 
       // If has cookie.expires, ignore cookie.maxAge
       if (sess.cookie && sess.cookie.expires) {
@@ -51,17 +49,15 @@ class Store extends EventEmitter {
     }
 
     sid = this.options.prefix + sid
-    debug('SET key: %s, value: %s, ttl: %d', sid, sess, ttl)
+    logger.debug(`SET ${sid}`, { sess, ttl })
     await this.client.set(sid, sess, ttl)
-    debug('SET complete')
+    logger.debug(`SET ${sid} complete`)
   }
 
   async destroy (sid) {
     sid = this.options.prefix + sid
-    debug('DEL %s', sid)
+    logger.debug(`DEL ${sid}`)
     await this.client.destroy(sid)
-    debug('DEL %s complete', sid)
+    logger.debug(`DEL ${sid} complete`)
   }
 }
-
-module.exports = Store

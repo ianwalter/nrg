@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { createApp } from '@ianwalter/nrg'
 
-const app = createApp({
+const app = await createApp({
   oauth: {
     github: {
       client_id: process.env.GITHUB_CLIENT_ID,
@@ -20,7 +20,7 @@ app.get('/', ctx => {
 })
 
 app.get('/hello', ctx => {
-  ctx.log.debug('Hello', ctx.session)
+  ctx.logger.debug('Hello', ctx.session)
   ctx.body = `Hello ${ctx.session.grant.response.profile.name}!`
 })
 

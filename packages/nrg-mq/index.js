@@ -4,7 +4,7 @@ import { createLogger } from '@generates/logger'
 const ns = 'nrg.mq'
 const level = 'info'
 
-module.exports = function mq ({ app, ...config }) {
+export default function mq ({ app, ...config }) {
   const logger = app?.logger?.ns(ns) || createLogger({ level, namespace: ns })
 
   // Publish the message to the queue or exchange.

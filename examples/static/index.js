@@ -1,7 +1,7 @@
 import path from 'path'
 import { createApp } from '@ianwalter/nrg'
 
-const app = createApp({
+const app = await createApp({
   static: {
     enabled: true, // Only necessary since NODE_ENV is not production.
     root: path.join(__dirname, 'dist'),

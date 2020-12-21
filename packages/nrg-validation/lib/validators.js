@@ -1,4 +1,8 @@
 import isPhone from 'is-phone'
+import ie from 'isemail'
+import { parseISO, isValid } from 'date-fns'
+import zxcvbn from 'zxcvbn'
+import { merge } from '@generates/merger'
 
 export function resultIsValid (result) {
   return result.isValid
@@ -23,16 +27,15 @@ export function isEmail (input, options) {
   return resultIsValid(isEmail.validate(input, options))
 }
 isEmail.validate = function validateEmail (input, options) {
-  const { validate } = require('isemail')
-  const merge = require('@ianwalter/merge')
-  return { isValid: validate(input, merge({}, defaultEmailOptions, options)) }
+  return {
+    isValid: ie.validate(input, merge({}, defaultEmailOptions, options))
+  }
 }
 
 export function isDate (input) {
   return resultIsValid(isDate.validate(input))
 }
 isDate.validate = function validateDate (input) {
-  const { parseISO, isValid } = require('date-fns')
   return {
     isValid: isValid(typeof input === 'string' ? parseISO(input) : input)
   }
@@ -42,7 +45,6 @@ export function isStrongPassword (password, inputs) {
   return resultIsValid(isStrongPassword.validate(password, inputs))
 }
 isStrongPassword.validate = function validateStrongPassword (password, inputs) {
-  const zxcvbn = require('zxcvbn')
   const result = zxcvbn(password, inputs)
   return {
     isValid: result.score > 2,

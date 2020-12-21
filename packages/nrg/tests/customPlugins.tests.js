@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff'
-import * as nrg from '../index.js'
+import { createApp, plugBefore, plugAfter } from '../index.js'
 
 test('Custom plugins', async t => {
   const defined = []
@@ -11,11 +11,11 @@ test('Custom plugins', async t => {
     ctx.logger.debug('Adding plugAfterAssertion')
     defined.push(!!app.logger, !!app.close)
   }
-  const app = await nrg.createApp({
+  const app = await createApp({
     log: { level: 'debug' },
     plugins: {
-      ...nrg.plugBefore('close', { plugBeforeAssertion }),
-      ...nrg.plugAfter('close', { plugAfterAssertion })
+      ...plugBefore('close', { plugBeforeAssertion }),
+      ...plugAfter('close', { plugAfterAssertion })
     }
   })
   await app.test('/').get()

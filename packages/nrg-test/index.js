@@ -1,5 +1,5 @@
 import { Requester } from '@ianwalter/requester'
-import * as nrg from '@ianwalter/nrg'
+import { serve } from '@ianwalter/nrg'
 
 const requester = new Requester({ shouldThrow: false })
 
@@ -46,9 +46,9 @@ export function install (app, ctx, cfg) {
           const { default: next } = await import('next')
           const nextApp = next({ dev: app.isDev })
           await nextApp.prepare()
-          server = await nrg.serve(0, 'localhost', nextApp.getRequestHandler())
+          server = await serve(0, 'localhost', nextApp.getRequestHandler())
         } else {
-          server = await nrg.serve(0, 'localhost', app.callback())
+          server = await serve(0, 'localhost', app.callback())
         }
 
         const response = await requester[method](server.url + path, options)

@@ -1,6 +1,6 @@
 import { createApp } from '@ianwalter/nrg'
 
-const app = createApp()
+const app = await createApp()
 
 app.logger.info('Hello!', { data: 123 })
 
