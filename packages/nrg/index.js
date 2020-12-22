@@ -32,8 +32,6 @@ import {
   logClientMessage
 } from './lib/middleware/client.js'
 
-import { serveSsr } from './lib/middleware/ssr.js'
-
 import {
   generateToken,
   insertToken,
@@ -128,7 +126,6 @@ export {
   // Serving:
   serveStatic,
   serveWebpack,
-  serveSsr,
 
   // Result:
   addToResponse,

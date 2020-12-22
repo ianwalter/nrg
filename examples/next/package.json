@@ -22,7 +22,7 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.10.0",
+    "@ianwalter/bff": "^10.0.0",
     "@ianwalter/eslint-config-react": "^3.2.0"
   },
   "eslintConfig": {

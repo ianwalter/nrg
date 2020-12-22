@@ -10,7 +10,8 @@
   "type": "module",
   "scripts": {
     "lint": "eslit",
-    "test": "ultra --raw -r --filter 'packages/*' --filter 'examples/*' test",
+    "test": "ultra -r --filter 'packages/*' --filter 'examples/*' test",
+    "test:ci": "ultra --raw -r --filter 'packages/*' --filter 'examples/*' test",
     "test:mq": "npm test --prefix examples/mq",
     "test:ssr": "npm test --prefix examples/ssr",
     "test:static": "npm test --prefix examples/static",

@@ -8,10 +8,11 @@
     "url": "https://ianwalter.dev"
   },
   "license": "UNLICENSED",
+  "type": "module",
   "scripts": {
     "test": "bff"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.10.0"
+    "@ianwalter/bff": "^10.0.0"
   }
 }

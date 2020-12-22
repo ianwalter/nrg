@@ -38,8 +38,6 @@
 
 ✅ &nbsp; Optional [Webpack][webpackUrl] integration
 
-✅ &nbsp; Optional Server-Side Rendering (SSR) support
-
 ✅ &nbsp; Optional message queue pub/sub using [AMQP][amqpUrl] /
           [RabbitMQ][rabbitmqUrl]
 

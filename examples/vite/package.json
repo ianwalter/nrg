@@ -18,7 +18,7 @@
     "@pika/react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.10.0",
+    "@ianwalter/bff": "^10.0.0",
     "koa-mount": "^4.0.0",
     "vite": "^1.0.0-rc.3",
     "vite-plugin-react": "^3.0.2"

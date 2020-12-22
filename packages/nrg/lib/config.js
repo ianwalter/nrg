@@ -303,7 +303,7 @@ export default function config (options = {}) {
           if (cfg.mq.enabled) {
             if (ctx.logger) ctx.logger.debug('Adding nrg-mq')
             const { install } = await import('@ianwalter/nrg-mq')
-            app.mq = app.context.mq = install({ app, ...cfg.mq })
+            install(app, ctx, cfg)
           }
         },
         // If email is enabled, set up instances of Mailgen to generate emails
