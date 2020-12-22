@@ -9,7 +9,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslit",
     "test": "ultra --raw -r --filter 'packages/*' --filter 'examples/*' test",
     "test:mq": "npm test --prefix examples/mq",
     "test:ssr": "npm test --prefix examples/ssr",
@@ -59,7 +59,8 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.12.0",
-    "@ianwalter/eslint-config": "^6.1.0",
+    "@ianwalter/eslint-config": "^6.2.0",
+    "@ianwalter/eslit": "^1.0.1",
     "@ianwalter/renovate-config": "^1.4.2",
     "@ianwalter/vuepress-theme-brooks": "^1.2.0",
     "npm-run-all": "^4.1.5",
@@ -73,14 +74,7 @@
     "root": true,
     "extends": [
       "@ianwalter"
-    ],
-    "env": {
-      "node": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 2021,
-      "sourceType": "module"
-    }
+    ]
   },
   "eslintIgnore": [
     "dist",
