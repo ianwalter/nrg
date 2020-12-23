@@ -10,7 +10,8 @@
   "type": "module",
   "module": "index.js",
   "scripts": {
-    "todo": "NODE_ENV=test mocha --exit --require should --reporter spec test/*.test.js"
+    "test": "bff",
+    "todo": "NODE_ENV=test mocha --exit --require should --reporter spec tests/*.test.js"
   },
   "keywords": [
     "koa",

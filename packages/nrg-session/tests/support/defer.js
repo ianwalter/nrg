@@ -1,14 +1,24 @@
-import Koa from 'koa'
-import http from 'http'
+import { createApp } from '@ianwalter/nrg'
 import session from '../../index.js'
 import Store from './store.js'
 
-const app = new Koa()
+const store = new Store()
+export const app = await createApp({
+  name: 'nrg session test',
+  keys: ['keys', 'keykeys'],
+  sessions: {
+    key: 'koss:test_sid',
+    cookie: {
+      maxAge: 86400,
+      path: '/session'
+    },
+    defer: true,
+    store: store,
+    reconnectTimeout: 100
+  }
+})
 
-app.name = 'koa-session-test'
-app.outputErrors = true
-app.keys = ['keys', 'keykeys']
-app.proxy = true // to support `X-Forwarded-*` header
+app.proxy = true // To support `X-Forwarded-*` header.
 
 app.use(async (ctx, next) => {
   try {
@@ -19,19 +29,7 @@ app.use(async (ctx, next) => {
   }
 })
 
-var store = new Store()
-app.use(session({
-  key: 'koss:test_sid',
-  cookie: {
-    maxAge: 86400,
-    path: '/session'
-  },
-  defer: true,
-  store: store,
-  reconnectTimeout: 100
-}))
-
-// will ignore repeat session
+// Will ignore repeat session.
 app.use(session({
   key: 'koss:test_sid',
   cookie: {
@@ -120,7 +118,3 @@ async function regenerate (ctx) {
   ctx.body = ctx.sessionId
   return session
 }
-
-// app.listen(7001)
-var server = module.exports = http.createServer(app.callback())
-server.store = store
