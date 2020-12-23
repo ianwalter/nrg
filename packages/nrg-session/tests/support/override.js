@@ -3,7 +3,7 @@ import Store from './store.js'
 
 const store = new Store()
 export const app = await createApp({
-  name: 'nrg session test',
+  name: 'nrg override session test',
   keys: ['keys', 'keykeys'],
   log: { level: 'error' },
   sessions: {

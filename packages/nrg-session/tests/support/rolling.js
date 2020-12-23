@@ -1,28 +1,25 @@
-import Koa from 'koa'
-import http from 'http'
-import session from '../../index.js'
+import { createApp } from '@ianwalter/nrg'
 import Store from './store.js'
 
-const app = new Koa()
+const store = new Store()
+export const app = await createApp({
+  name: 'nrg rolling session test',
+  keys: ['keys', 'keykeys'],
+  log: { level: 'error' },
+  sessions: {
+    key: 'koss:test_sid',
+    prefix: 'koss:test',
+    ttl: 1000,
+    cookie: {
+      maxAge: 86400,
+      path: '/session'
+    },
+    store,
+    rolling: true
+  }
+})
 
-app.name = 'koa-session-test'
-app.outputErrors = true
-app.keys = ['keys', 'keykeys']
-app.proxy = true // to support `X-Forwarded-*` header
-
-var store = new Store()
-
-app.use(session({
-  key: 'koss:test_sid',
-  prefix: 'koss:test',
-  ttl: 1000,
-  cookie: {
-    maxAge: 86400,
-    path: '/session'
-  },
-  store: store,
-  rolling: true
-}))
+app.proxy = true // To support `X-Forwarded-*` header.
 
 app.use(function controllers (ctx) {
   switch (ctx.request.path) {
@@ -51,5 +48,3 @@ function remove (ctx) {
 function nothing (ctx) {
   ctx.body = 'do not touch session'
 }
-
-module.exports = http.createServer(app.callback())
