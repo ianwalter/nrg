@@ -14,13 +14,13 @@ async function getCookie () {
 
 test('Defer • GET /session/get', async t => {
   const response = await app.test('/session/get').get()
-  t.expect(response.body).toMatch(/1/)
+  t.expect(response.body).toBe('1')
 })
 
 test('Defer • GET /session/get existing session', async t => {
   const headers = { cookie: await getCookie() }
   const response = await app.test('/session/get', { headers }).get()
-  t.expect(response.body).toMatch(/2/)
+  t.expect(response.body).toBe('2')
 })
 
 test('Defer • GET /session/httponly', async t => {
@@ -33,7 +33,7 @@ test('Defer • GET /session/httponly', async t => {
   t.expect(headers.cookie.indexOf('expires=')).toBeGreaterThan(0)
 
   response = await app.test('/session/get', { headers }).get()
-  t.expect(response.body).toMatch(/3/)
+  t.expect(response.body).toBe('2')
 })
 
 test('Defer • GET /session/httponly existing session', async t => {
@@ -49,7 +49,7 @@ test('Defer • GET /session/httponly existing session', async t => {
 test('Defer • GET /session/nothing', async t => {
   const headers = { cookie: await getCookie() }
   const response = await app.test('/session/nothing', { headers }).get()
-  t.expect(response.body).toMatch(/2/)
+  t.expect(response.body).toBe('1')
 })
 
 test('Defer • GET /session/notuse', async t => {
@@ -67,24 +67,24 @@ test('Defer • GET /wrongpath', async t => {
 test('Defer • GET /session/get mock cookie', async t => {
   const headers = { cookie: mockCookie }
   let response = await app.test('/session/get', { headers }).get()
-  t.expect(response.body).toMatch(/1/)
+  t.expect(response.body).toBe('1')
 
   response = await app.test('/session/get', { headers }).get()
-  t.expect(response.body).toMatch(/1/)
+  t.expect(response.body).toBe('1')
 })
 
 test('Defer • GET /session/remove', async t => {
   const response = await app.test('/session/remove').get()
-  t.expect(response.body).toMatch(/0/)
+  t.expect(response.body).toBe(0)
 })
 
 test('Defer • GET /session/remove existing session', async t => {
   const headers = { cookie: await getCookie() }
   let response = await app.test('/session/remove', { headers }).get()
-  t.expect(response.body).toMatch(/0/)
+  t.expect(response.body).toBe(0)
 
   response = await app.test('/session/get', { headers }).get()
-  t.expect(response.body).toMatch(/1/)
+  t.expect(response.body).toBe('1')
 })
 
 test('Defer • GET /', async t => {
@@ -102,30 +102,16 @@ test('Defer • GET /session/rewrite', async t => {
   t.expect(response.body).toEqual({ foo: 'bar' })
 })
 
-// describe('test/defer.test.js', () => {
-//   describe('use', () => {
-//     let cookie
+test('Defer • Regenerate existing session', async t => {
+  const headers = { cookie: await getCookie() }
 
-//     it('should regenerate existing sessions', async () => {
-//       const agent = request.agent(app)
-//       const res1 = await agent
-//         .get('/session/get')
-//         .expect(/.+/)
+  await app.test('/session/regenerate', { headers }).get()
 
-//       const firstId = res1.body
+  const response = await app.test('/session/get', { headers }).get()
+  t.expect(response.body).toBe('1')
+})
 
-//       const res2 = await agent
-//         .get('/session/regenerate')
-//         .expect(/.+/)
-
-//       const secondId = res2.body
-//       secondId.should.not.equal(firstId)
-//     })
-
-//     it('should regenerate new sessions', () => {
-//       return request(app)
-//         .get('/session/regenerateWithData')
-//         .expect({ /* foo: undefined, */ hasSession: true })
-//     })
-//   })
-// })
+test('Defer • Regenerate new session', async t => {
+  const response = await app.test('/session/regenerateWithData').get()
+  t.expect(response.body).toEqual({ hasSession: true })
+})

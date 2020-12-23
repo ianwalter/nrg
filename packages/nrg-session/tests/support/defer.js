@@ -6,6 +6,7 @@ const store = new Store()
 export const app = await createApp({
   name: 'nrg session test',
   keys: ['keys', 'keykeys'],
+  log: { level: 'error' },
   sessions: {
     key: 'koss:test_sid',
     cookie: {
