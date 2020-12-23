@@ -1,10 +1,14 @@
-const Session = require('..')
-const app = require('./support/server')
-const request = require('supertest')
+import { test } from '@ianwalter/bff'
+import { oneLine, stripIndent } from 'common-tags'
+import { app } from './support/server.js'
+
 const mm = require('mm')
-const should = require('should')
 const { EventEmitter } = require('events')
-const { oneLine, stripIndent } = require('common-tags')
+
+test('Session • GET /session/get', async t => {
+  const response = await app.test('/session/get').get()
+  t.expect(response.body).toBe('1')
+})
 
 describe('test/koa-session.test.js', () => {
   describe('init', () => {

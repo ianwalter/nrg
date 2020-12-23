@@ -1,10 +1,34 @@
-import { createApp } from '@ianwalter/nrg'
-import http from 'http'
 import uid from 'uid-safe'
+import { createApp } from '@ianwalter/nrg'
 import session from '../../index.js'
 import Store from './store.js'
 
-const app = await createApp({ name: 'nrg-session-test' })
+const store = new Store()
+export const app = await createApp({
+  name: 'nrg session test',
+  keys: ['keys', 'keykeys'],
+  log: { level: 'error' },
+  sessions: {
+    key: 'koss:test_sid',
+    prefix: 'koss:test',
+    ttl: 1000,
+    cookie: {
+      maxAge: 86400,
+      path: '/session'
+    },
+    store: store,
+    genSid (len) {
+      return uid.sync(len) + this.request.query.test_sid_append
+    },
+    beforeSave (ctx, session) {
+      session.path = ctx.path
+    },
+    valid (ctx, session) {
+      return ctx.query.valid !== 'false'
+    },
+    reconnectTimeout: 100
+  }
+})
 
 app.keys = ['keys', 'keykeys']
 app.outputErrors = true
@@ -29,24 +53,7 @@ app.use((ctx, next) => {
 })
 
 app.use(session({
-  key: 'koss:test_sid',
-  prefix: 'koss:test',
-  ttl: 1000,
-  cookie: {
-    maxAge: 86400,
-    path: '/session'
-  },
-  store: store,
-  genSid: function (len) {
-    return uid.sync(len) + this.request.query.test_sid_append
-  },
-  beforeSave: function (ctx, session) {
-    session.path = ctx.path
-  },
-  valid: function (ctx, session) {
-    return ctx.query.valid !== 'false'
-  },
-  reconnectTimeout: 100
+
 }))
 
 // will ignore repeat session
