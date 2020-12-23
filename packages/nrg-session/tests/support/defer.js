@@ -14,7 +14,7 @@ export const app = await createApp({
       path: '/session'
     },
     defer: true,
-    store: store,
+    store,
     reconnectTimeout: 100
   }
 })
