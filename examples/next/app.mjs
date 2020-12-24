@@ -1,8 +1,8 @@
 import { createApp } from '@ianwalter/nrg'
-import hello from './api/hello.js'
+import hello from './api/hello.mjs'
 
 // Create the nrg app instance.
-export const app = await createApp({
+export const app = createApp({
   log: { level: 'info' },
   next: { enabled: true }
 })
@@ -14,5 +14,7 @@ app.use((ctx, next) => {
   return next()
 })
 
-// An example of an API route.
-app.get('/api/hello', hello)
+app.ready().then(() => {
+  // An example of an API route.
+  app.get('/api/hello', hello)
+})

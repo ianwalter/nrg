@@ -50,11 +50,16 @@ export default function createApp (options = {}) {
   }
 
   //
-  app.ready = function ready () {
-    return Promise.all(promises)
-  }
+  app.ready = async function ready () {
+    for (const promise of promises) await promise()
 
-  console.log('mem', process.memoryUsage())
+    // setInterval(
+    //   () => app.logger.log('Memory', process.memoryUsage()),
+    //   1000
+    // )
+
+    return app
+  }
 
   // Return the app instance.
   return app

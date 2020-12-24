@@ -1,6 +1,5 @@
 import dotenv from 'dotenv'
 import path from 'path'
-import { createRequire } from 'module'
 import objection from 'objection'
 import readPkgUp from 'read-pkg-up'
 import {
@@ -13,11 +12,10 @@ import {
   trim,
   lowercase
 } from '@ianwalter/nrg-validation'
+import oauthProviders from 'grant/config/oauth.json'
 import getHostUrl from './utilities/getHostUrl.js'
 import Account from './models/Account.js'
 import Token from './models/Token.js'
-
-const require = createRequire(import.meta.url)
 
 // Get the end-user's package.json data so that it can be used to provide
 // defaults.
@@ -250,7 +248,6 @@ export default function config (options = {}) {
         // Middleware for enabling OAuth authentication using simov/grant. Not
         // enabled by default.
         oauth (app, ctx) {
-          const oauthProviders = require('grant/config/oauth.json')
           if (Object.keys(cfg).some(key => oauthProviders[key])) {
             return async () => {
               if (ctx.logger) ctx.logger.debug('Adding OAuth middleware')

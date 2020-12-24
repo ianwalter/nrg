@@ -7,23 +7,28 @@
     "url": "https://ianwalter.dev"
   },
   "license": "UNLICENSED",
-  "type": "module",
   "scripts": {
     "lint": "eslint .",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "pretest": "next build",
-    "todo": "bff"
+    "test": "bff"
   },
   "dependencies": {
-    "next": "^10.0.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "next": "^10.0.4",
+    "next-transpile-modules": "^6.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sharp": "^0.26.2",
+    "webpack": "^5.11.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^10.0.0",
     "@ianwalter/eslint-config-react": "^3.2.0"
+  },
+  "resolutions": {
+    "webpack": "^5.11.0"
   },
   "eslintConfig": {
     "root": true,
