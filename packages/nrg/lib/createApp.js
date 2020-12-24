@@ -5,7 +5,7 @@ import config from './config.js'
 // If running in a CLI context, parse the JSON string to get the CLI options.
 const nrgCli = process.env.NRG_CLI && JSON.parse(process.env.NRG_CLI)
 
-export default async function createApp (options = {}) {
+export default function createApp (options = {}) {
   // Combine defaults, CLI-supplied options, and user-supplied options.
   const cfg = merge(config(options), options, nrgCli)
 
@@ -41,9 +41,20 @@ export default async function createApp (options = {}) {
 
   // Iterate over all of the configured plugins and integrate them with the app.
   const ctx = {}
+  const promises = []
   for (const plugin of Object.values(cfg.plugins)) {
-    if (plugin) await plugin(app, ctx)
+    if (plugin) {
+      const promise = plugin(app, ctx)
+      if (promise) promises.push(promise)
+    }
   }
+
+  //
+  app.ready = function ready () {
+    return Promise.all(promises)
+  }
+
+  console.log('mem', process.memoryUsage())
 
   // Return the app instance.
   return app

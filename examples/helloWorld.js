@@ -1,5 +1,5 @@
 import { createApp } from '@ianwalter/nrg'
 
-export const app = await createApp()
+export const app = createApp()
 
 app.use(ctx => (ctx.body = 'Hello World!'))
