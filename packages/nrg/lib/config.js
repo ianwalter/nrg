@@ -458,7 +458,10 @@ export default function config (options = {}) {
         ...process.env.DB_USER ? { user: process.env.DB_USER } : {},
         ...process.env.DB_PASS ? { password: process.env.DB_PASS } : {}
       },
-      ...objection.knexSnakeCaseMappers()
+      ...objection.knexSnakeCaseMappers(),
+      migrations: {
+        loadExtensions: ['.mjs']
+      }
     },
     mq: {
       get enabled () {

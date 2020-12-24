@@ -49,7 +49,7 @@ async function run () {
     }
   } else if (commands[0] === 'migrate') {
     // Run migrations.
-    await app.db.migrate.latest()
+    await app.db.migrate.latest({ extension: 'mjs' })
   } else if (commands[0] === 'new') {
     if (commands[1] === 'seed') {
       // Make a new seed.
