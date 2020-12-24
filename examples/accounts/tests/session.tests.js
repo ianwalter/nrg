@@ -9,7 +9,7 @@ test('Session • Expiration', async t => {
   t.expect(response.statusCode).toBe(201)
 
   // Sleep for 5 seconds so that the session expires.
-  await t.asleep(5000)
+  await t.asleep(6000)
 
   response = await app.test('/account', response).get()
   t.expect(response.statusCode).toBe(401)
