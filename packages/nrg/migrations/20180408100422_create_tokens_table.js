@@ -1,4 +1,4 @@
-exports.up = knex => knex.schema.createTable('tokens', t => {
+export const up = knex => knex.schema.createTable('tokens', t => {
   t.string('id').primary()
   t.string('value').unique().notNullable()
   t.string('accountId').notNullable().index()
@@ -16,4 +16,4 @@ exports.up = knex => knex.schema.createTable('tokens', t => {
     .onDelete('CASCADE')
 })
 
-exports.down = knex => knex.schema.dropTable('tokens')
+export const down = knex => knex.schema.dropTable('tokens')
