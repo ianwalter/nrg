@@ -1,3 +1,3 @@
 import { createApp } from '../../index.js'
 
-export default await createApp({ log: false })
+export const app = await createApp({ log: false })
