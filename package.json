@@ -9,7 +9,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "lint": "eslint .",
-    "test": "ultra --raw -r --filter 'packages/*' --filter 'examples/*' test",
+    "test": "ultra --raw -r test",
     "test:mq": "npm test --prefix examples/mq",
     "test:ssr": "npm test --prefix examples/ssr",
     "test:static": "npm test --prefix examples/static",
