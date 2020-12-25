@@ -1,8 +1,8 @@
-const { test } = require('@ianwalter/bff')
-const { createApp } = require('..')
+import { test } from '@ianwalter/bff'
+import nrg from '../index.js'
 
 test('Rate limit', async t => {
-  const app = createApp({
+  const app = await nrg.createApp({
     rateLimit: {
       points: 1, // Allow 1 request...
       duration: 10 // every 10 seconds.

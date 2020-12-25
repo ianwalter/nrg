@@ -1,8 +1,8 @@
-const { test } = require('@ianwalter/bff')
-const { requester } = require('@ianwalter/requester')
-const { createApp } = require('..')
+import { test } from '@ianwalter/bff'
+import { requester } from '@ianwalter/requester'
+import nrg from '../index.js'
 
-const app = createApp()
+const app = nrg.createApp()
 
 test('Test Server 1', async t => {
   const server = await app.serve()
