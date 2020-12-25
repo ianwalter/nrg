@@ -1,5 +1,5 @@
-const { promises: fs } = require('fs')
-const { test } = require('@ianwalter/bff')
+import { promises as fs } from 'fs'
+import { test } from '@ianwalter/bff'
 
 const outputs = [
   '💁',

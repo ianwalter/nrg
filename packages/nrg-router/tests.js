@@ -1,9 +1,8 @@
-const { test } = require('@ianwalter/bff')
-const { createApp } = require('@ianwalter/nrg')
-const nrgRouter = require('.')
+import { test } from '@ianwalter/bff'
+import { createApp } from '@ianwalter/nrg'
 
-// Create the app (without ther version of nrg-router packaged with nrg).
-const app = createApp({ log: false, plugins: { router: nrgRouter } })
+// Create the app.
+const app = createApp({ log: false })
 
 test('missing route', async t => {
   app.get('/thing', t.fail)

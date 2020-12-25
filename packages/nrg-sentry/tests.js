@@ -1,9 +1,9 @@
-const { test } = require('@ianwalter/bff')
-const Sentry = require('@sentry/node')
-const Integrations = require('@sentry/integrations')
-const sentryTestkit = require('sentry-testkit')
-const { createApp } = require('@ianwalter/nrg')
-const nrgSentry = require('.')
+import { test } from '@ianwalter/bff'
+import Sentry from '@sentry/node'
+import Integrations from '@sentry/integrations'
+import sentryTestkit from 'sentry-testkit'
+import { createApp } from '@ianwalter/nrg'
+import nrgSentry from './index.js'
 
 test('Error', async t => {
   const { testkit, sentryTransport } = sentryTestkit()
@@ -16,7 +16,7 @@ test('Error', async t => {
     ]
   })
 
-  const app = createApp({ plugins: { ...nrgSentry() } })
+  const app = await createApp({ plugins: { ...nrgSentry() } })
   app.get('/', () => { throw new Error('Bow to the cow') })
 
   const res = await app.test('/').get()
@@ -40,7 +40,7 @@ test('Warning', async t => {
     tracesSampleRate: 1.0
   })
 
-  const app = createApp({ plugins: { ...nrgSentry() } })
+  const app = await createApp({ plugins: { ...nrgSentry() } })
   app.get('/', () => {
     const err = new Error('Woop! Woop! Thats the sound of the police')
     err.status = 400
