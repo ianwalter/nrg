@@ -1,8 +1,8 @@
 import { test } from '@ianwalter/bff'
-import { createApp } from '@ianwalter/nrg'
+import nrg from '@ianwalter/nrg'
 
 // Create the app.
-const app = createApp({ log: false })
+const app = nrg.createApp({ log: false })
 
 test('missing route', async t => {
   app.get('/thing', t.fail)

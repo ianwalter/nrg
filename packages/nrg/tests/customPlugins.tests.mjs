@@ -11,7 +11,7 @@ test('Custom plugins', async t => {
     ctx.logger.debug('Adding plugAfterAssertion')
     defined.push(!!app.logger, !!app.close)
   }
-  const app = await nrg.createApp({
+  const app = nrg.createApp({
     log: { level: 'debug' },
     plugins: {
       ...nrg.plugBefore('close', { plugBeforeAssertion }),

@@ -5,7 +5,7 @@ const keys = ['keepItPushin']
 
 test('Ignored method', async t => {
   const message = 'One chance to move you'
-  const app = await nrg.createApp({ keys })
+  const app = nrg.createApp({ keys })
   app.get('/', ctx => (ctx.body = { message }))
   const response = await app.test('/').get()
   t.expect(response.statusCode).toBe(200)
@@ -13,7 +13,7 @@ test('Ignored method', async t => {
 })
 
 test('POST failure', async t => {
-  const app = await nrg.createApp({ keys })
+  const app = nrg.createApp({ keys })
   app.post('/', ctx => (ctx.status = 204))
   const response = await app.test('/').post()
   t.expect(response.statusCode).toBe(403)
@@ -21,14 +21,14 @@ test('POST failure', async t => {
 })
 
 test('POST with CSRF disabled', async t => {
-  const app = await nrg.createApp({ keys })
+  const app = nrg.createApp({ keys })
   app.post('/', nrg.disableCsrf, ctx => (ctx.status = 204))
   const response = await app.test('/').post()
   t.expect(response.statusCode).toBe(204)
 })
 
 test('POST with a valid CSRF header', async t => {
-  const app = await nrg.createApp({ keys, test: { csrfPath: '/' } })
+  const app = nrg.createApp({ keys, test: { csrfPath: '/' } })
   app.get('/', ctx => (ctx.body = { csrfToken: ctx.generateCsrfToken() }))
   app.post('/', ctx => (ctx.status = 204))
 

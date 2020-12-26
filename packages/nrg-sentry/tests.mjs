@@ -2,7 +2,7 @@ import { test } from '@ianwalter/bff'
 import Sentry from '@sentry/node'
 import Integrations from '@sentry/integrations'
 import sentryTestkit from 'sentry-testkit'
-import { createApp } from '@ianwalter/nrg'
+import nrg from '@ianwalter/nrg'
 import nrgSentry from './index.js'
 
 test('Error', async t => {
@@ -16,7 +16,7 @@ test('Error', async t => {
     ]
   })
 
-  const app = await createApp({ plugins: { ...nrgSentry() } })
+  const app = nrg.createApp({ plugins: { ...nrgSentry() } })
   app.get('/', () => { throw new Error('Bow to the cow') })
 
   const res = await app.test('/').get()
@@ -40,7 +40,7 @@ test('Warning', async t => {
     tracesSampleRate: 1.0
   })
 
-  const app = await createApp({ plugins: { ...nrgSentry() } })
+  const app = nrg.createApp({ plugins: { ...nrgSentry() } })
   app.get('/', () => {
     const err = new Error('Woop! Woop! Thats the sound of the police')
     err.status = 400

@@ -2,7 +2,7 @@ import { test } from '@ianwalter/bff'
 import nrg from '../index.js'
 
 test('Client Logging', async t => {
-  const app = await nrg.createApp({ log: { level: 'warn' } })
+  const app = nrg.createApp({ log: { level: 'warn' } })
   app.post('/log', ...nrg.clientLogging)
 
   let message = {
