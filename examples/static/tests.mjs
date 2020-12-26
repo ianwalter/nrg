@@ -1,7 +1,7 @@
-const path = require('path')
-const { promises: fs } = require('fs')
-const { test } = require('@ianwalter/bff')
-const app = require('.')
+import path from 'path'
+import { promises as fs } from 'fs'
+import { test } from '@ianwalter/bff'
+import app from './index.js'
 
 const gifPath = 'dist/static/img/boomer.gif'
 

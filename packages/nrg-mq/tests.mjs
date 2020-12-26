@@ -1,5 +1,5 @@
-const { test } = require('@ianwalter/bff')
-const nrgMq = require('.')
+import { test } from '@ianwalter/bff'
+import nrgMq from './index.js'
 
 const host = process.env.MQ_HOST || 'localhost'
 const port = process.env.MQ_PORT || 5673
