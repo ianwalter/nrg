@@ -4,7 +4,7 @@ import testApp from './index.js'
 
 test('get', async t => {
   // Create the app instance.
-  const app = nrg.createApp({ port: 80 }) // Port specified to test port override.
+  const app = nrg.createApp({ port: 80 }) // Test port override.
   const msg = 'Hooray!'
   app.use(ctx => (ctx.body = msg))
 

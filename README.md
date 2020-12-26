@@ -36,10 +36,6 @@
 
 ✅ &nbsp; Optional [Next.js][nextUrl] integration
 
-✅ &nbsp; Optional [Webpack][webpackUrl] integration
-
-✅ &nbsp; Optional Server-Side Rendering (SSR) support
-
 ✅ &nbsp; Optional message queue pub/sub using [AMQP][amqpUrl] /
           [RabbitMQ][rabbitmqUrl]
 
@@ -73,7 +69,6 @@ Created by [Ian Walter](https://ianwalter.dev)
 [grantUrl]: https://github.com/simov/grant
 [rlfUrl]: https://github.com/animir/node-rate-limiter-flexible
 [nextUrl]: https://nextjs.org
-[webpackUrl]: https://webpack.js.org/
 [amqpUrl]: https://github.com/squaremo/amqp.node
 [rabbitmqUrl]: https://www.rabbitmq.com/
 [sentryUrl]: https://sentry.io

@@ -40,10 +40,6 @@ footer: Hippocratic License | Copyright © 2020-present Ian Walter
 
 ✅ &nbsp; Optional static file serving
 
-✅ &nbsp; Optional [Webpack][webpackUrl] integration
-
-✅ &nbsp; Optional Server-Side Rendering (SSR) support
-
 ✅ &nbsp; Optional message queue pub/sub using [AMQP][amqpUrl] /
           [RabbitMQ][rabbitmqUrl]
 
@@ -60,7 +56,6 @@ footer: Hippocratic License | Copyright © 2020-present Ian Walter
 [postgresUrl]: https://www.postgresql.org/
 [knexUrl]: https://knexjs.org/
 [objectionUrl]: https://vincit.github.io/objection.js/
-[webpackUrl]: https://webpack.js.org/
 [amqpUrl]: https://github.com/squaremo/amqp.node
 [rabbitmqUrl]: https://www.rabbitmq.com/
 [licenseUrl]: https://github.com/ianwalter/nrg/blob/main/LICENSE

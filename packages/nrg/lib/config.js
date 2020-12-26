@@ -188,21 +188,10 @@ module.exports = function config (options = {}) {
         // Middleware for serving static files using koa-send. Not enabled by
         // default.
         static (app, ctx) {
-          if (cfg.static.enabled && !cfg.webpack.enabled && !cfg.isCli) {
+          if (cfg.static.enabled && !cfg.isCli) {
             if (ctx.log) ctx.log.debug('Adding static middleware')
             const { serveStatic } = require('./middleware/client')
             app.use(serveStatic)
-          }
-        },
-        // Middleware for supporting Webpack compilation / Hot Module Reloading
-        // (HMR) during development. Enabled through the webpack.enabled option.
-        webpack (app, ctx) {
-          const { enabled, ...rest } = cfg.webpack
-          if (enabled && !cfg.isCli) {
-            if (ctx.log) ctx.log.debug('Adding Webpack middleware')
-            app.context.webpackMiddleware = require('koa-webpack')(rest)
-            const { serveWebpack } = require('./middleware/client')
-            app.use(serveWebpack)
           }
         },
         // Middleware for enabling app-wide IP-based rate limiting using
@@ -358,22 +347,6 @@ module.exports = function config (options = {}) {
       prefix: '/static',
       fallback (ctx) {
         ctx.status = 404
-      }
-    },
-    webpack: {
-      get enabled () {
-        return !!(!cfg.isProd && options.webpack?.configPath)
-      },
-      get devMiddleware () {
-        return { serverSideRender: true, publicPath: cfg.static.prefix }
-      }
-    },
-    ssr: {
-      get entry () {
-        return path.join(cfg.static.root || '', 'ssr.js')
-      },
-      get template () {
-        return path.join(cfg.static.root || '', 'pageTemplate.html')
       }
     },
     keys: process.env.APP_KEYS?.split(','),
