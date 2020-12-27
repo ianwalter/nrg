@@ -11204,9 +11204,9 @@ range-parser@^1.2.1, range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-rate-limiter-flexible@^2.1.10:
+rate-limiter-flexible@^2.1.15:
   version "2.1.15"
-  resolved "https://registry.yarnpkg.com/rate-limiter-flexible/-/rate-limiter-flexible-2.1.15.tgz"
+  resolved "https://registry.yarnpkg.com/rate-limiter-flexible/-/rate-limiter-flexible-2.1.15.tgz#fcad5735be9b8fefd84dd9198951666dace23ac8"
   integrity sha512-vIU5X20id7objPJ4lQh05Pd9C4qZ4i/K2xY07kHJ0suzsOjBGv43VozrbqRRCJ5TpmRXcGP/yNlwgehzL80wvQ==
 
 raw-body@2.4.0:
