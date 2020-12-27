@@ -22,7 +22,7 @@
     "example:prod": "NODE_ENV=production node examples/helloWorld.js | iprint",
     "example:sessions": "node examples/sessions.js",
     "example:auth": "node examples/authRequired.js",
-    "example:static": "node examples/static",
+    "example:static": "node serve ./examples/static",
     "example:mq": "node serve ./examples/mq",
     "example:accounts": "node examples/accounts/serve",
     "docs:dev": "vuepress dev docs",
