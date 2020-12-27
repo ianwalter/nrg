@@ -19,12 +19,6 @@ async function serveStatic (ctx, next) {
   return result || next()
 }
 
-async function serveWebpack (ctx, next) {
-  const middleware = await ctx.webpackMiddleware
-  ctx.webpack = middleware.devMiddleware
-  return middleware(ctx, next)
-}
-
 const clientLogDefaults = {
   namespace: 'message',
   sizeLimit: 8192,
@@ -69,4 +63,4 @@ function logClientMessage (ctx, next) {
   return handleLogClientMessage(ctx, next, options)
 }
 
-module.exports = { serveStatic, serveWebpack, logClientMessage }
+module.exports = { serveStatic, logClientMessage }

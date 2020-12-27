@@ -8,9 +8,6 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
-  "scripts": {
-    "test": "bff"
-  },
   "files": [
     "index.js"
   ],
@@ -40,8 +37,5 @@
   "dependencies": {
     "amqp-connection-manager": "^3.2.0",
     "amqplib": "^0.6.0"
-  },
-  "devDependencies": {
-    "@ianwalter/bff": "^10.0.0"
   }
 }

@@ -4,13 +4,15 @@ const { createLogger } = require('@generates/logger')
 const ns = 'nrg.mq'
 const level = 'info'
 
-module.exports = function mq ({ app, ...config }) {
+function install (app, ctx, cfg) {
+  if (ctx.logger) ctx.logger.debug('Adding mq')
+
   const logger = app?.logger?.ns(ns) || createLogger({ level, namespace: ns })
 
   // Publish the message to the queue or exchange.
   function pub ({ exchange = '', queue }, content, options) {
     logger.debug('Publish', { queue, content, options })
-    return channelWrapper.publish(
+    return channel.publish(
       exchange,
       queue, // Or "routing key".
       content,
@@ -23,8 +25,8 @@ module.exports = function mq ({ app, ...config }) {
   function sub (fn) {
     return rawMessage => {
       const ctx = { ...app?.context }
-      ctx.ack = () => channelWrapper.ack(rawMessage)
-      ctx.nack = () => channelWrapper.nack(rawMessage)
+      ctx.ack = () => channel.ack(rawMessage)
+      ctx.nack = () => channel.nack(rawMessage)
       try {
         const message = { ...rawMessage }
         message.content = JSON.parse(rawMessage.content.toString())
@@ -37,8 +39,8 @@ module.exports = function mq ({ app, ...config }) {
   }
 
   // Connect to and set up the message queue / subscriptions.
-  const connection = amqp.connect(config.urls, config.options)
-  const channelWrapper = connection.createChannel({
+  const connection = amqp.connect(cfg.mq.urls, cfg.mq.options)
+  const channel = connection.createChannel({
     json: true,
     async setup (channel) {
       await Promise.all(Object.values(queues).map(async queue => {
@@ -66,14 +68,17 @@ module.exports = function mq ({ app, ...config }) {
     acc[queue.name] = {
       ...queue,
       pub: (content, options) => pub({ queue: queue.name }, content, options),
-      ready: new Promise(resolve => channelWrapper.once('connect', () => {
+      ready: new Promise(resolve => channel.once('connect', () => {
         logger.debug('Queue ready', queue.name)
         resolve()
       }))
     }
     return acc
   }
-  const queues = config.queues.reduce(toQueueMap, {})
+  const queues = cfg.mq.queues.reduce(toQueueMap, {})
 
-  return { connection, channel: channelWrapper, pub, sub, ...queues }
+  //
+  app.mq = app.context.mq = { connection, channel, pub, sub, ...queues }
 }
+
+module.exports = { install }

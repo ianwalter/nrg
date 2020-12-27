@@ -1,7 +1,7 @@
 const path = require('path')
 const { createApp } = require('@ianwalter/nrg')
 
-const app = createApp({
+module.exports = createApp({
   static: {
     enabled: true, // Only necessary since NODE_ENV is not production.
     root: path.join(__dirname, 'dist'),
@@ -10,10 +10,3 @@ const app = createApp({
     }
   }
 })
-
-// Export the app if required, otherwise start the server.
-if (module.parent) {
-  module.exports = app
-} else {
-  app.serve()
-}

@@ -19,19 +19,6 @@ function addToResponse (ctx, next) {
   }
 }
 
-function addToSsr (ctx, next) {
-  if (!next) {
-    const namespace = ctx
-    return (ctx, next) => {
-      ctx.state.ssr = ctx.state.ssr || {}
-      dot.set(ctx.state.ssr, namespace, ctx.state.body)
-      return next()
-    }
-  }
-  ctx.state.ssr = ctx.state.body
-  return next()
-}
-
 const redirectDefaults = { to: '/login' }
 
 function redirect (ctx, next) {
@@ -43,4 +30,4 @@ function redirect (ctx, next) {
   return ctx.redirect(options.to)
 }
 
-module.exports = { addToResponse, addToSsr, redirect }
+module.exports = { addToResponse, redirect }

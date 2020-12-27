@@ -69,16 +69,7 @@ createApp({
   },
   static: {
     enabled: !!options.static,
-    options: {},
-    webpack: {
-      enabled: false,
-      options: {
-        devMiddleware: {
-          serverSideRender: true,
-          publicPath: '/static'
-        }
-      }
-    }
+    options: {}
   },
   redis: {
     enabled: !!options.accounts || !!options.redis,

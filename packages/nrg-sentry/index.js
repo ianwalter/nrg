@@ -3,7 +3,7 @@ const nrg = require('@ianwalter/nrg')
 const defaults = { tracing: true }
 
 function sentryTrace (app, ctx) {
-  ctx.log.debug('Adding nrg-sentry sentryTrace middleware')
+  ctx.logger.debug('Adding nrg-sentry sentryTrace middleware')
   app.use(require('./middleware/sentryTrace'))
 }
 
@@ -12,7 +12,7 @@ module.exports = function nrgSentry (options = {}) {
 
   return {
     error (app, ctx) {
-      ctx.log.debug('Adding nrg-sentry error middleware')
+      ctx.logger.debug('Adding nrg-sentry error middleware')
       app.use(require('./middleware/error'))
     },
     ...options.tracing ? nrg.plugAfter('error', { sentryTrace }) : {}

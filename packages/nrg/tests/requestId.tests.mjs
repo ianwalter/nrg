@@ -1,6 +1,6 @@
-const { test } = require('@ianwalter/bff')
-const { nanoid } = require('nanoid')
-const app = require('./fixtures/helloWorld')
+import { test } from '@ianwalter/bff'
+import { nanoid } from 'nanoid'
+import app from './fixtures/helloWorld.js'
 
 test('Request ID gets generated', async t => {
   const response = await app.test('/').get()

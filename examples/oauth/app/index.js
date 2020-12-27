@@ -20,7 +20,7 @@ app.get('/', ctx => {
 })
 
 app.get('/hello', ctx => {
-  ctx.log.debug('Hello', ctx.session)
+  ctx.logger.debug('Hello', ctx.session)
   ctx.body = `Hello ${ctx.session.grant.response.profile.name}!`
 })
 

@@ -37,9 +37,4 @@ app.use(async ctx => {
   ctx.body = msg
 })
 
-// Export the app if required, otherwise start the server.
-if (module.parent) {
-  module.exports = app
-} else {
-  app.serve()
-}
+module.exports = app

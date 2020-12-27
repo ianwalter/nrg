@@ -1,10 +1,10 @@
-const { test } = require('@ianwalter/bff')
-const { createApp } = require('@ianwalter/nrg')
-const testApp = require('.')
+import { test } from '@ianwalter/bff'
+import * as nrg from '@ianwalter/nrg'
+import testApp from './index.js'
 
 test('get', async t => {
   // Create the app instance.
-  const app = createApp({ port: 80 }) // Port specified to test port override.
+  const app = nrg.createApp({ port: 80 }) // Test port override.
   const msg = 'Hooray!'
   app.use(ctx => (ctx.body = msg))
 
@@ -16,7 +16,7 @@ test('get', async t => {
 
 test('post', async t => {
   // Create the app instance.
-  const app = createApp()
+  const app = nrg.createApp()
   const payload = 'Hip!'
   const msg = 'Hooray!'
   app.post('/', ctx => (ctx.body = `${ctx.request.body.payload} ${msg}`))

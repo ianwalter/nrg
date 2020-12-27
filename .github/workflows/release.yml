@@ -17,7 +17,7 @@ jobs:
           # generate changelogs with the correct commits.
           fetch-depth: 0
       - name: Install
-        run: npm ci
+        run: yarn
       - name: Changesets
         uses: changesets/action@b3300fad33b6ab794313da28d27424c0e2f78991
         env:

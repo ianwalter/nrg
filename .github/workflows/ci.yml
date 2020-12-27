@@ -45,8 +45,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install
-        run: npm ci
+        run: yarn
       - name: Lint
-        run: npm run lint
+        run: yarn lint
       - name: Test
-        run: npm test
+        run: yarn test:ci
