@@ -35,7 +35,6 @@ const {
 } = require('./lib/middleware/token')
 
 const {
-  validatePasswordStrength,
   hashPassword,
   comparePasswords
 } = require('./lib/middleware/password')
@@ -132,7 +131,6 @@ module.exports = {
   verifyToken,
 
   // Password:
-  validatePasswordStrength,
   hashPassword,
   comparePasswords,
 
