@@ -10,7 +10,6 @@
   "main": "index.js",
   "scripts": {
     "example": "node example",
-    "pretest": "node example > output.txt",
     "test": "bff"
   },
   "files": [
@@ -44,6 +43,7 @@
     "@ianwalter/timer": "^2.0.2"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^10.0.0"
+    "@ianwalter/bff": "^10.0.0",
+    "execa": "^1.0.0"
   }
 }
