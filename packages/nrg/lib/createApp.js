@@ -41,7 +41,9 @@ module.exports = function createApp (options = {}) {
 
   // Iterate over all of the configured plugins and integrate them with the app.
   const ctx = {}
-  for (const plugin of Object.values(cfg.plugins)) if (plugin) plugin(app, ctx)
+  for (const plugin of Object.values(cfg.plugins)) {
+    if (plugin) plugin(app, ctx, cfg)
+  }
 
   // Return the app instance.
   return app
