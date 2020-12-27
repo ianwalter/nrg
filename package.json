@@ -23,7 +23,7 @@
     "example:sessions": "node examples/sessions.js",
     "example:auth": "node examples/authRequired.js",
     "example:static": "node examples/static",
-    "example:mq": "node examples/mq",
+    "example:mq": "node serve ./examples/mq",
     "example:accounts": "node examples/accounts/serve",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
