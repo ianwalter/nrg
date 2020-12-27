@@ -1,0 +1,48 @@
+{
+  "name": "@ianwalter/nrg-validation",
+  "version": "1.2.1",
+  "description": "Pragmatic validation for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "bff"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianwalter/correct.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ianwalter/correct/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/ianwalter"
+  },
+  "homepage": "https://github.com/ianwalter/correct#readme",
+  "dependencies": {
+    "@generates/merger": "^0.1.1",
+    "date-fns": "^2.16.1",
+    "decamelize": "^4.0.0",
+    "is-phone": "^2.0.0",
+    "isemail": "^3.2.0",
+    "zxcvbn": "^4.4.2"
+  },
+  "devDependencies": {
+    "@ianwalter/bff": "^10.0.0"
+  },
+  "keywords": [
+    "schema",
+    "validation"
+  ],
+  "files": [
+    "lib",
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "Ian Walter",
+    "url": "https://ianwalter.dev"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}
