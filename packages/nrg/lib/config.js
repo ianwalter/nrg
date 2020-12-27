@@ -120,28 +120,28 @@ module.exports = function config (options = {}) {
             const { logger, middleware } = nrgLogger(cfg.log)
             logger.ns('nrg.plugins').debug('Adding nrg-logger')
             app.logger = app.context.logger = logger
-            ctx.log = logger.ns('nrg.plugins')
+            ctx.logger = logger.ns('nrg.plugins')
             ctx.logMiddleware = middleware
           }
         },
         // Middleware that logs and builds responses for errors thrown in
         // subsequent middleware. Enabled by default.
         error (app, ctx) {
-          if (ctx.log) ctx.log.debug('Adding error middleware')
+          if (ctx.log) ctx.logger.debug('Adding error middleware')
           const { handleError } = require('./middleware/error')
           app.use(handleError)
         },
         // Middleware for setting a unique identifier for each request using
         // nanoid so that request logs are easier to trace. Enabled by default.
         requestId (app, ctx) {
-          if (ctx.log) ctx.log.debug('Adding requestId middleware')
+          if (ctx.log) ctx.logger.debug('Adding requestId middleware')
           const { setRequestId } = require('./middleware/requestId')
           app.use(setRequestId)
         },
         // If enabled, add a redis instance to the app and server context.
         redis (app, ctx) {
           if (cfg.redis.enabled) {
-            if (ctx.log) ctx.log.debug('Adding Redis')
+            if (ctx.log) ctx.logger.debug('Adding Redis')
             const redisStore = require('koa-redis')
             app.redis = app.context.redis = redisStore(cfg.redis.connection)
           }
@@ -151,7 +151,7 @@ module.exports = function config (options = {}) {
         // the session keys are passed as options.
         session (app, ctx) {
           if (cfg.keys?.length && !cfg.isCli) {
-            if (ctx.log) ctx.log.debug('Adding nrg-session middleware')
+            if (ctx.log) ctx.logger.debug('Adding nrg-session middleware')
             const nrgSession = require('@ianwalter/nrg-session')
             app.use(nrgSession({ store: app.redis, ...cfg.sessions }, app))
           }
@@ -160,7 +160,7 @@ module.exports = function config (options = {}) {
         // logMiddleware has been added to ctx.
         log (app, ctx) {
           if (ctx.logMiddleware) {
-            if (ctx.log) ctx.log.debug('Adding log middleware')
+            if (ctx.log) ctx.logger.debug('Adding log middleware')
             app.use(ctx.logMiddleware)
           }
         },
@@ -180,7 +180,7 @@ module.exports = function config (options = {}) {
         // production mode.
         httpsRedirect (app, ctx) {
           if (cfg.isProd && !cfg.isCli && !cfg.next.enabled) {
-            if (ctx.log) ctx.log.debug('Adding httpsRedirect middleware')
+            if (ctx.logger) ctx.logger.debug('Adding httpsRedirect middleware')
             const { httpsRedirect } = require('./middleware/httpsRedirect')
             app.use(httpsRedirect)
           }
@@ -189,7 +189,7 @@ module.exports = function config (options = {}) {
         // default.
         static (app, ctx) {
           if (cfg.static.enabled && !cfg.isCli) {
-            if (ctx.log) ctx.log.debug('Adding static middleware')
+            if (ctx.logger) ctx.logger.debug('Adding static middleware')
             const { serveStatic } = require('./middleware/client')
             app.use(serveStatic)
           }
@@ -198,7 +198,7 @@ module.exports = function config (options = {}) {
         // node-rate-limiter-flexible.
         rateLimit (app, ctx) {
           if (cfg.rateLimit.enabled) {
-            if (ctx.log) ctx.log.debug('Adding rateLimit middleware')
+            if (ctx.logger) ctx.logger.debug('Adding rateLimit middleware')
             const { rateLimit } = require('./middleware/rateLimit')
             app.use(rateLimit(cfg.rateLimit, app))
           }
@@ -207,7 +207,7 @@ module.exports = function config (options = {}) {
         // enabled by default.
         oauth (app, ctx) {
           if (cfg.oauth.enabled) {
-            if (ctx.log) ctx.log.debug('Adding OAuth middleware')
+            if (ctx.logger) ctx.logger.debug('Adding OAuth middleware')
             const grant = require('grant').koa()
             app.use(grant(cfg.oauth))
           }
@@ -217,7 +217,7 @@ module.exports = function config (options = {}) {
         // Enabled by default for 'json', 'form', and 'text'.
         bodyParser (app, ctx) {
           if (!cfg.next.enabled) {
-            if (app.logger) ctx.log.debug('Adding koa-bodyParser middleware')
+            if (app.logger) ctx.logger.debug('Adding koa-bodyParser middleware')
             const bodyParser = require('koa-bodyparser')
             app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
           }
@@ -227,7 +227,7 @@ module.exports = function config (options = {}) {
         // Enabled by default.
         compress (app, ctx) {
           if (!cfg.isCli && !cfg.next.enabled) {
-            if (ctx.log) ctx.log.debug('Adding koa-compress middleware')
+            if (ctx.log) ctx.logger.debug('Adding koa-compress middleware')
             app.use(require('koa-compress')())
           }
         },
@@ -235,7 +235,7 @@ module.exports = function config (options = {}) {
         // Enabled by default if in development mode.
         prettyJson (app, ctx) {
           if (cfg.isDev) {
-            if (ctx.log) ctx.log.debug('Adding koa-json middleware')
+            if (ctx.log) ctx.logger.debug('Adding koa-json middleware')
             const json = require('koa-json')
             app.use(json({ pretty: true }))
           }
@@ -245,7 +245,9 @@ module.exports = function config (options = {}) {
         // getServerSideProps function with the nrg request context.
         adaptNext (app, ctx) {
           if (cfg.next.enabled) {
-            if (ctx.log) ctx.log.debug('Adding Next.js adapter middleware')
+            if (ctx.logger) {
+              ctx.logger.debug('Adding Next.js adapter middleware')
+            }
             const { adaptNext } = require('./middleware/next')
             app.use(adaptNext)
           }
@@ -257,7 +259,7 @@ module.exports = function config (options = {}) {
         // to use that instance.
         db (app, ctx) {
           if (cfg.db.enabled) {
-            if (ctx.log) ctx.log.debug('Adding Objection.js')
+            if (ctx.logger) ctx.logger.debug('Adding Objection.js')
             const knex = require('knex')
             const { Model } = require('objection')
             app.db = app.context.db = knex(cfg.db)
@@ -267,7 +269,7 @@ module.exports = function config (options = {}) {
         // Set up the message queue client if enabled.
         mq (app, ctx) {
           if (cfg.mq.enabled) {
-            if (ctx.log) ctx.log.debug('Adding nrg-mq')
+            if (ctx.logger) ctx.logger.debug('Adding nrg-mq')
             const mq = require('@ianwalter/nrg-mq')
             app.mq = app.context.mq = mq({ app, ...cfg.mq })
           }
@@ -276,7 +278,7 @@ module.exports = function config (options = {}) {
         // and Nodemailer to send them.
         email (app, ctx) {
           if (cfg.email.enabled) {
-            if (ctx.log) ctx.log.debug('Adding Nodemailer and Mailgen')
+            if (ctx.logger) ctx.logger.debug('Adding Nodemailer and Mailgen')
             const nodemailer = require('nodemailer')
             const Mailgen = require('mailgen')
             const { transport } = cfg.email
@@ -288,8 +290,8 @@ module.exports = function config (options = {}) {
         // has been configured with a router.
         healthEndpoint (app, ctx) {
           if (cfg.plugins.router && cfg.healthEndpoint) {
-            if (ctx.log) {
-              ctx.log.debug('Adding health endpoint:', cfg.healthEndpoint)
+            if (ctx.logger) {
+              ctx.logger.debug('Adding health endpoint:', cfg.healthEndpoint)
             }
             app.get(cfg.healthEndpoint, ctx => (ctx.status = 200))
           }
