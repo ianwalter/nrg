@@ -13,7 +13,7 @@
     "test:ci": "ultra --raw -r test",
     "test:mq": "npm test --prefix examples/mq",
     "test:static": "npm test --prefix examples/static",
-    "test:next": "npm run todo --prefix examples/next",
+    "test:next": "npm test --prefix examples/next",
     "example:hello": "node examples/helloWorld.js",
     "example:routes": "node examples/routes.js",
     "example:uncaught": "node examples/uncaughtException.js",

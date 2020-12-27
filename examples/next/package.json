@@ -12,11 +12,11 @@
     "build": "next build",
     "start": "next start",
     "pretest": "next build",
-    "todo": "bff"
+    "test": "bff"
   },
   "dependencies": {
     "@ianwalter/nrg": "^0.16.0",
-    "next": "^10.0.3",
+    "next": "^10.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
