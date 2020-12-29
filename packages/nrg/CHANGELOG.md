@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.16.1
+
+### Patch Changes
+
+- f1b3893: Update dependency @generates/merger to ^0.1.2
+- 75a04e6: Update dependency knex to ^0.21.15
+- ab1ddff: Update dependency rate-limiter-flexible to ^2.1.15
+
 ## 0.16.0
 
 ### Minor Changes
