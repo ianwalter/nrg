@@ -39,7 +39,7 @@
   "dependencies": {
     "@generates/cli": "^0.0.9",
     "@generates/logger": "^0.0.9",
-    "@generates/merger": "^0.1.1",
+    "@generates/merger": "^0.1.2",
     "@ianwalter/cloneable": "^2.0.0",
     "@ianwalter/correct": "^1.2.1",
     "@ianwalter/dist": "^6.0.0",
