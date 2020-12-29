@@ -40,6 +40,6 @@
     "@ianwalter/requester": "^2.4.3"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^10.0.0"
+    "@ianwalter/bff": "^10.0.1"
   }
 }
