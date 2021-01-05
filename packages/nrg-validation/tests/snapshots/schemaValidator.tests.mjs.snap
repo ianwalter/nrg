@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`invalid registration 1`] = `
+Object {
+  "data": Object {
+    "email": "hahaha",
+    "name": "",
+    "occupation": "CEO",
+    "password": "qwerty",
+    "phone": "777",
+  },
+  "feedback": Object {
+    "email": Array [
+      "A valid email is required.",
+    ],
+    "name": Array [
+      "A valid name is required.",
+    ],
+    "occupation": Array [
+      "Occupation must contain software.",
+    ],
+    "password": Array [
+      "This is a top-10 common password",
+      "Add another word or two. Uncommon words are better.",
+    ],
+  },
+  "isValid": false,
+  "validations": Object {
+    "email": Object {
+      "isValid": false,
+    },
+    "name": Object {
+      "isValid": false,
+    },
+    "occupation": Object {
+      "isValid": false,
+      "message": "Occupation must contain software.",
+    },
+    "password": Object {
+      "feedback": Array [
+        "Add another word or two. Uncommon words are better.",
+      ],
+      "isValid": false,
+      "message": "This is a top-10 common password",
+      "result": Any<Object>,
+    },
+  },
+}
+`;
