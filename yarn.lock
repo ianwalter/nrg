@@ -2653,7 +2653,7 @@ ajv-keywords@^3.1.0, ajv-keywords@^3.4.1, ajv-keywords@^3.5.2:
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.5.2.tgz"
   integrity sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==
 
-ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.0, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5:
+ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5, ajv@^6.12.6:
   version "6.12.6"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz"
   integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
@@ -9867,12 +9867,12 @@ object.values@^1.1.0, object.values@^1.1.1:
     es-abstract "^1.18.0-next.1"
     has "^1.0.3"
 
-objection@^2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/objection/-/objection-2.2.3.tgz"
-  integrity sha512-uNya9GuHlNeix7H0URthVE3+CmAlXmxkU69LAcRnncLjujJ8l1YX8JCB2GVSErTYS3Oc2xneF1ZWaR/MS8r63g==
+objection@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/objection/-/objection-2.2.4.tgz#47e6a41f7a1b6bb750a66b638885a07e8f414b6e"
+  integrity sha512-yY/Pf6gLWVnTrkhYMZ4qjuk4ztJ8NHizfC1S/cp89oSevd9hDS2GqCYKQMHJRnY+Wu+qFtqMMFgWV3qRQrX0iA==
   dependencies:
-    ajv "^6.12.0"
+    ajv "^6.12.6"
     db-errors "^0.2.3"
 
 obuf@^1.0.0, obuf@^1.1.2:
