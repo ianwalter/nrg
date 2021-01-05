@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/ianwalter/correct#readme",
   "dependencies": {
-    "@generates/merger": "^0.1.1",
+    "@generates/merger": "^0.1.2",
     "date-fns": "^2.16.1",
     "decamelize": "^4.0.0",
     "is-phone": "^2.0.0",
