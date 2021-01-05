@@ -8,16 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ianwalter/correct.git"
+    "url": "git+https://github.com/ianwalter/nrg.git",
+    "directory": "packages/nrg-validation"
   },
   "bugs": {
-    "url": "https://github.com/ianwalter/correct/issues"
+    "url": "https://github.com/ianwalter/nrg/issues"
   },
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/ianwalter"
   },
-  "homepage": "https://github.com/ianwalter/correct#readme",
+  "homepage": "https://github.com/ianwalter/nrg/blob/main/packages/nrg-validation#readme",
   "dependencies": {
     "@generates/merger": "^0.1.2",
     "date-fns": "^2.16.1",

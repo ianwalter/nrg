@@ -10,7 +10,7 @@ const {
   isBoolean,
   trim,
   lowercase
-} = require('@ianwalter/correct')
+} = require('@ianwalter/nrg-validation')
 const oauthProviders = require('grant/config/oauth.json')
 
 // Get the end-user's package.json data so that it can be used to provide

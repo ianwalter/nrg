@@ -6,7 +6,7 @@ const {
   isOptional,
   trim,
   lowercase
-} = require('@ianwalter/correct')
+} = require('@ianwalter/nrg-validation')
 const { including } = require('@ianwalter/extract')
 const Base = require('./Base')
 

@@ -1,5 +1,6 @@
 import { test } from '@ianwalter/bff'
 import execa from 'execa'
+import stripAnsi from 'strip-ansi'
 
 const outputs = [
   '💁',
@@ -18,5 +19,5 @@ const outputs = [
 test('example', async t => {
   const { stdout } = await execa('node', ['example'])
   t.logger.info('Output:', `\n\n${stdout}\n\n`)
-  for (const output of outputs) t.expect(stdout).toContain(output)
+  for (const output of outputs) t.expect(stripAnsi(stdout)).toContain(output)
 })

@@ -14,6 +14,7 @@
     "test:mq": "npm test --prefix examples/mq",
     "test:static": "npm test --prefix examples/static",
     "test:next": "npm test --prefix examples/next",
+    "test:logger": "npm test --prefix packages/nrg-logger",
     "example:hello": "node examples/helloWorld.js",
     "example:routes": "node examples/routes.js",
     "example:uncaught": "node examples/uncaughtException.js",

@@ -118,4 +118,4 @@ Hippocratic License - See [LICENSE][licenseUrl]
 
 Created by [Ian Walter](https://ianwalter.dev)
 
-[licenseUrl]: https://github.com/ianwalter/correct/blob/main/LICENSE
+[licenseUrl]: https://github.com/ianwalter/nrg/blob/main/packages/nrg-validation/LICENSE
