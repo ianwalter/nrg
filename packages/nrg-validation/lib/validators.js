@@ -4,18 +4,18 @@ const { parseISO, isValid } = require('date-fns')
 const zxcvbn = require('zxcvbn')
 const { merge } = require('@generates/merger')
 
-export function resultIsValid (result) {
+function resultIsValid (result) {
   return result.isValid
 }
 
-export function isString (input) {
+function isString (input) {
   return resultIsValid(isString.validate(input))
 }
 isString.validate = function validateString (input) {
   return { isValid: typeof input === 'string' && input.length > 0 }
 }
 
-export function isBoolean (input) {
+function isBoolean (input) {
   return resultIsValid(isBoolean.validate(input))
 }
 isBoolean.validate = function validateBoolean (input) {
@@ -23,7 +23,7 @@ isBoolean.validate = function validateBoolean (input) {
 }
 
 const defaultEmailOptions = { minDomainAtoms: 2 }
-export function isEmail (input, options) {
+function isEmail (input, options) {
   return resultIsValid(isEmail.validate(input, options))
 }
 isEmail.validate = function validateEmail (input, options) {
@@ -32,7 +32,7 @@ isEmail.validate = function validateEmail (input, options) {
   }
 }
 
-export function isDate (input) {
+function isDate (input) {
   return resultIsValid(isDate.validate(input))
 }
 isDate.validate = function validateDate (input) {
@@ -41,7 +41,7 @@ isDate.validate = function validateDate (input) {
   }
 }
 
-export function isStrongPassword (password, inputs) {
+function isStrongPassword (password, inputs) {
   return resultIsValid(isStrongPassword.validate(password, inputs))
 }
 isStrongPassword.validate = function validateStrongPassword (password, inputs) {
@@ -54,4 +54,12 @@ isStrongPassword.validate = function validateStrongPassword (password, inputs) {
   }
 }
 
-export { isPhone }
+module.exports = {
+  isPhone,
+  resultIsValid,
+  isString,
+  isBoolean,
+  isEmail,
+  isDate,
+  isStrongPassword
+}
