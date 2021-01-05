@@ -1,5 +1,15 @@
 # @ianwalter/nrg
 
+## 0.17.0
+
+### Minor Changes
+
+- 4dccb92: Switching from correct to nrg-validation
+
+### Patch Changes
+
+- 7c4a713: Update dependency objection to ^2.2.4
+
 ## 0.16.1
 
 ### Patch Changes
