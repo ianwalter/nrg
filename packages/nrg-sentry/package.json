@@ -40,7 +40,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@sentry/node": "^5.27.1",
+    "@sentry/node": "^5.28.0",
     "@sentry/tracing": "^5.28.0"
   },
   "devDependencies": {
