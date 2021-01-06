@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.17.1
+
+### Patch Changes
+
+- 57bd919: Fixing next middleware for custom server and client logging middleware
+
 ## 0.17.0
 
 ### Minor Changes
