@@ -33,9 +33,9 @@ const clientLogDefaults = {
 function handleLogClientMessage (ctx, next, options) {
   const log = ctx.logger.ns('nrg.client')
   const body = ctx.request.body || ctx.req.body || {}
-  const { level = 'info', ...message } = body[options.namespace]
+  const { level = 'info', ...message } = body[options.namespace] || {}
 
-  if (options.levels.includes(level) && message) {
+  if (options.levels.includes(level) && Object.keys(message).length !== 0) {
     const byteLength = Buffer.byteLength(Buffer.from(JSON.stringify(message)))
     if (byteLength <= options.sizeLimit) {
       log[level](`Client ${level}`, message)

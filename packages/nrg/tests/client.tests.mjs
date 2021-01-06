@@ -19,4 +19,7 @@ test('Client Logging', async t => {
   message = { level: 'high', statements: ['SPAM SPAM SPAM'] }
   response = await app.test('/log').post({ message })
   t.expect(response.statusCode).toBe(400)
+
+  response = await app.test('/log').post(null)
+  t.expect(response.statusCode).toBe(400)
 })

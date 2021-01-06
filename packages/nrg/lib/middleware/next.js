@@ -1,8 +1,8 @@
 async function adaptNext (ctx, next) {
   await next()
-  if (ctx.req.next) {
+  if (ctx.req.getServerSideProps) {
     ctx.respond = false
-    ctx.res.next = await ctx.req.next(ctx)
+    ctx.res.serverSideProps = await ctx.req.getServerSideProps(ctx)
   }
 }
 

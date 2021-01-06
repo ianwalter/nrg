@@ -25,7 +25,7 @@ function redirect (ctx, next) {
   let options = redirectDefaults
   if (!next) {
     options = merge({}, options, ctx)
-    return (ctx, next) => ctx.redirect(options.to)
+    return ctx => ctx.redirect(options.to)
   }
   return ctx.redirect(options.to)
 }
