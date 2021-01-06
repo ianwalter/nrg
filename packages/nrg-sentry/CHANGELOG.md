@@ -1,5 +1,13 @@
 # @ianwalter/nrg-sentry
 
+## 1.1.0
+
+### Minor Changes
+
+- ff0d86f: Updating @sentry/tracing to 5.28.0
+- d384105: Updating @sentry/node to 5.28.0
+- 7ee7afa: Upgrading sentry packages to 5.29.2
+
 ## 1.0.2
 
 ### Patch Changes
