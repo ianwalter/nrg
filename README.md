@@ -1,8 +1,9 @@
 # @ianwalter/nrg
 > A batteries-included Node.js web framework
 
+<br>
 
-# [![npm page][npmImage]][npmUrl] [![CI][ciImage]][ciUrl]
+[![npm page][npmImage]][npmUrl] [![CI][ciImage]][ciUrl]
 
 ## Resources
 
