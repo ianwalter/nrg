@@ -40,8 +40,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@sentry/node": "^5.28.0",
-    "@sentry/tracing": "^5.28.0"
+    "@sentry/node": "^5.29.2",
+    "@sentry/tracing": "^5.29.2"
   },
   "devDependencies": {
     "@ianwalter/bff": "^10.0.1",
