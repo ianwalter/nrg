@@ -40,12 +40,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@sentry/node": "^5.27.1",
-    "@sentry/tracing": "^5.27.1"
+    "@sentry/node": "^5.29.2",
+    "@sentry/tracing": "^5.29.2"
   },
   "devDependencies": {
     "@ianwalter/bff": "^10.0.1",
-    "@sentry/integrations": "^5.27.1",
+    "@sentry/integrations": "^5.29.2",
     "sentry-testkit": "^3.2.1"
   }
 }

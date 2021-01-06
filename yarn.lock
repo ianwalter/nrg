@@ -1744,9 +1744,9 @@
     "@sentry/utils" "5.29.2"
     tslib "^1.9.3"
 
-"@sentry/integrations@^5.27.1":
+"@sentry/integrations@^5.29.2":
   version "5.29.2"
-  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-5.29.2.tgz"
+  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-5.29.2.tgz#bd00dfd81f8a9448a5ccf87a3eb7d12035088ad9"
   integrity sha512-bH50B0xubbHrJFq8xZRxOc5BgXe1PXKfC0OqQkhhSd+Bu2WDLCHcn0CEzV+8thZTYkipAoFAFJNdEWcsM2Wcew==
   dependencies:
     "@sentry/types" "5.29.2"
@@ -1763,9 +1763,9 @@
     "@sentry/types" "5.29.2"
     tslib "^1.9.3"
 
-"@sentry/node@^5.27.1":
+"@sentry/node@^5.29.2":
   version "5.29.2"
-  resolved "https://registry.yarnpkg.com/@sentry/node/-/node-5.29.2.tgz"
+  resolved "https://registry.yarnpkg.com/@sentry/node/-/node-5.29.2.tgz#f0f0b4b2be63c9ddd702729fab998cead271dff1"
   integrity sha512-98m1ZejmJgA+eiz6jEFyYYfp6kJZQnx6d6KrJDMxGfss4YTmmJY57bE4xStnjjk7WINDGzlCiHuk+wJFMBjuoA==
   dependencies:
     "@sentry/core" "5.29.2"
@@ -1778,7 +1778,7 @@
     lru_map "^0.3.3"
     tslib "^1.9.3"
 
-"@sentry/tracing@5.29.2", "@sentry/tracing@^5.27.1":
+"@sentry/tracing@5.29.2", "@sentry/tracing@^5.29.2":
   version "5.29.2"
   resolved "https://registry.yarnpkg.com/@sentry/tracing/-/tracing-5.29.2.tgz"
   integrity sha512-iumYbVRpvoU3BUuIooxibydeaOOjl5ysc+mzsqhRs2NGW/C3uKAsFXdvyNfqt3bxtRQwJEhwJByLP2u3pLThpw==
