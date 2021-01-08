@@ -9867,10 +9867,10 @@ object.values@^1.1.0, object.values@^1.1.1:
     es-abstract "^1.18.0-next.1"
     has "^1.0.3"
 
-objection@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/objection/-/objection-2.2.4.tgz#47e6a41f7a1b6bb750a66b638885a07e8f414b6e"
-  integrity sha512-yY/Pf6gLWVnTrkhYMZ4qjuk4ztJ8NHizfC1S/cp89oSevd9hDS2GqCYKQMHJRnY+Wu+qFtqMMFgWV3qRQrX0iA==
+objection@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/objection/-/objection-2.2.5.tgz#ecbe46ea118b94fff5853aa9b225b88fb2527cb8"
+  integrity sha512-17VDi2txhQAn2/G0JnNy2C6WfM2Zo03/8tyvoNMg7n/qv3uf+hetFuLjg5FxD0ZxeB69kuX/k7l2UsGboPdnFA==
   dependencies:
     ajv "^6.12.6"
     db-errors "^0.2.3"
