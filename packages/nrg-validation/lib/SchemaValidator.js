@@ -22,7 +22,8 @@ module.exports = class SchemaValidator {
         validators: Object.values(options).filter(hasValidate),
         modifiers: Object.values(options).filter(hasModify),
         message: options.message,
-        isOptional: options.isOptional
+        isOptional: options.isOptional,
+        ignoreEmpty: options.ignoreEmpty
       }
     }
   }
@@ -75,12 +76,17 @@ module.exports = class SchemaValidator {
 
     let failureCount = 0
     for (const [key, field] of Object.entries(this.fields)) {
+      const isUndefined = data[key] === undefined
+      const isEmpty = isUndefined || data[key] === '' || data[key] === null
+
+      if (field.ignoreEmpty && isEmpty) continue
+
       // Add the input to the data map so that the subset of data can be used
       // later.
       data[key] = pipe(...field.modifiers)(input[key])
 
       // Perform the validation.
-      if (data[key] === undefined && !field.isOptional) {
+      if (isUndefined && !field.isOptional) {
         validations[key] = { isValid: false, undefined: true }
       } else if (data[key] !== undefined) {
         for (const validator of field.validators) {

@@ -7,7 +7,8 @@ import {
   isOptional,
   lowercase,
   trim,
-  SchemaValidator
+  SchemaValidator,
+  ignoreEmpty
 } from '../index.js'
 
 const containsSoftware = {
@@ -21,7 +22,8 @@ const registrationValidator = new SchemaValidator({
   name: { isString },
   password: { isStrongPassword, message: 'Your password must be stronger.' },
   occupation: { containsSoftware },
-  phone: { isPhone, isOptional, name: 'telephone number' }
+  phone: { isPhone, isOptional, name: 'telephone number' },
+  nickname: { isString, ignoreEmpty }
 })
 const email = 'yo@fastmail.com'
 const validInput = {
@@ -69,5 +71,11 @@ test('validaion data', async t => {
 test('without optional data', async t => {
   const { phone, ...required } = validInput
   const validation = await registrationValidator.validate(required)
+  t.expect(validation.isValid).toBe(true)
+})
+
+test('ignoreEmpty', async t => {
+  const input = { ...validInput, nickname: '' }
+  const validation = await registrationValidator.validate(input)
   t.expect(validation.isValid).toBe(true)
 })

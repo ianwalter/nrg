@@ -19,5 +19,6 @@ module.exports = {
   isPhone,
   isDate,
   isStrongPassword,
-  isOptional: true
+  isOptional: true,
+  ignoreEmpty: true
 }
