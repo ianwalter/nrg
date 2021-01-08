@@ -1,5 +1,11 @@
 # @ianwalter/nrg-validation
 
+## 1.3.0
+
+### Minor Changes
+
+- f66d0b4: Adding ignoreEmpty option
+
 ## 1.2.1
 
 ### Patch Changes

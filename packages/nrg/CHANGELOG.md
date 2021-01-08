@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.17.2
+
+### Patch Changes
+
+- a96bc8d: Update dependency objection to ^2.2.5
+- Updated dependencies [f66d0b4]
+  - @ianwalter/nrg-validation@1.3.0
+
 ## 0.17.1
 
 ### Patch Changes
