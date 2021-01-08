@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ianwalter/nrg/blob/main/packages/nrg-validation#readme",
   "dependencies": {
+    "@generates/logger": "^0.0.9",
     "@generates/merger": "^0.1.2",
     "date-fns": "^2.16.1",
     "decamelize": "^4.0.0",

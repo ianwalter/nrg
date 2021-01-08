@@ -1,4 +1,7 @@
 const decamelize = require('decamelize')
+const { createLogger } = require('@generates/logger')
+
+const logger = createLogger({ level: 'info', namespace: 'nrg.validation' })
 
 const defaults = { failFast: 0 }
 const hasValidate = option => option && typeof option.validate !== 'undefined'
@@ -11,33 +14,31 @@ module.exports = class SchemaValidator {
 
     // Merge the given options with the defaults.
     this.options = Object.assign({}, defaults, options)
-    this.logger = this.options.logger
+
+    logger.debug('Schema', schema)
 
     // Convert the fields in the schema definition to objects that can be used
     // to validate data.
-    if (this.logger) this.logger.debug('Schema', schema)
     for (const [field, options] of Object.entries(schema)) {
       this.fields[field] = {
+        ...options,
         name: options.name || decamelize(field, ' '),
         validators: Object.values(options).filter(hasValidate),
-        modifiers: Object.values(options).filter(hasModify),
-        message: options.message,
-        isOptional: options.isOptional,
-        ignoreEmpty: options.ignoreEmpty
+        modifiers: Object.values(options).filter(hasModify)
       }
     }
+
+    logger.debug('Fields', this.fields)
   }
 
   handleFailure (feedback, key, field, validation = {}) {
     // Log validation failure.
-    if (this.logger) {
-      if (validation.undefined) {
-        this.logger.debug(`Required field ${key} undefined`)
-      } else if (validation.err) {
-        this.logger.warn('Error during validation', validation.err)
-      } else {
-        this.logger.debug('Validation failure', validation)
-      }
+    if (validation.undefined) {
+      logger.debug(`Required field ${key} undefined`)
+    } else if (validation.err) {
+      logger.warn('Error during validation', validation.err)
+    } else {
+      logger.debug('Validation failure', validation)
     }
 
     // Determine validation failure message and add it to feedback.
@@ -76,8 +77,8 @@ module.exports = class SchemaValidator {
 
     let failureCount = 0
     for (const [key, field] of Object.entries(this.fields)) {
-      const isUndefined = data[key] === undefined
-      const isEmpty = isUndefined || data[key] === '' || data[key] === null
+      const isUndefined = input[key] === undefined
+      const isEmpty = isUndefined || input[key] === '' || input[key] === null
 
       if (field.ignoreEmpty && isEmpty) continue
 
@@ -88,7 +89,7 @@ module.exports = class SchemaValidator {
       // Perform the validation.
       if (isUndefined && !field.isOptional) {
         validations[key] = { isValid: false, undefined: true }
-      } else if (data[key] !== undefined) {
+      } else if (input[key] !== undefined) {
         for (const validator of field.validators) {
           try {
             // FIXME: Maybe allow multiple validations for a key or at least
@@ -97,9 +98,7 @@ module.exports = class SchemaValidator {
           } catch (err) {
             validations[key] = { isValid: false, err }
           }
-          if (!validations[key].isValid) {
-            break
-          }
+          if (!validations[key].isValid) break
         }
       }
 
@@ -107,9 +106,7 @@ module.exports = class SchemaValidator {
       if (validations[key] && !validations[key].isValid) {
         failureCount++
         this.handleFailure(feedback, key, field, validations[key])
-        if (failFast && failFast === failureCount) {
-          break
-        }
+        if (failFast && failFast === failureCount) break
       }
     }
 
