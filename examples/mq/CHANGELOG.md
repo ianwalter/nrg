@@ -1,5 +1,16 @@
 # mq-example
 
+## 1.1.8
+
+### Patch Changes
+
+- Updated dependencies [b75deea]
+- Updated dependencies [9a2437d]
+- Updated dependencies [6ab64fd]
+- Updated dependencies [0f0c90c]
+- Updated dependencies [43476ae]
+  - @ianwalter/nrg@0.18.0
+
 ## 1.1.7
 
 ### Patch Changes
