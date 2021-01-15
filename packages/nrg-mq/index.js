@@ -77,7 +77,7 @@ function install (app, ctx, cfg) {
   }
   const queues = cfg.mq.queues.reduce(toQueueMap, {})
 
-  //
+  // Add the mq instance to the app and ctx.
   app.mq = app.context.mq = { connection, channel, pub, sub, ...queues }
 }
 
