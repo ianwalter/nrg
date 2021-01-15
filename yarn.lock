@@ -1141,6 +1141,20 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@generates/cli@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@generates/cli/-/cli-0.0.10.tgz#5619dc958b3b8432101a6bc4e050b1ceee5be1ab"
+  integrity sha512-MO0UPi6uMT96VckR5s65cpnvQRGMT/52qOGest4Ot0ry+In2H2+ox2RQRiNWK8lSPHUf5n327qRlLrsbz1GllQ==
+  dependencies:
+    "@generates/dotter" "^2.0.0"
+    "@generates/logger" "^0.1.0"
+    "@generates/merger" "^0.1.0"
+    camelcase "^6.0.0"
+    common-tags "^1.8.0"
+    decamelize "^4.0.0"
+    getopts "^2.2.5"
+    read-pkg-up "^7.0.1"
+
 "@generates/cli@^0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@generates/cli/-/cli-0.0.9.tgz"
@@ -1155,6 +1169,11 @@
     getopts "^2.2.5"
     read-pkg-up "^7.0.1"
 
+"@generates/dotter@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@generates/dotter/-/dotter-2.0.0.tgz#680523dbe6782ad8b924082258898378472106e5"
+  integrity sha512-QI5gmvS1ZOeZ8msYdctT7VARrHWGGG3PuFYGVqhzkeBkalnaqCAtqOxaGFiEab5f7VzEOZt6d41pmM3fbQmaIQ==
+
 "@generates/logger@^0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@generates/logger/-/logger-0.0.9.tgz#cab6713557bb576ced56c8668b26e92624c82812"
@@ -1166,6 +1185,24 @@
     "@ianwalter/clone" "^6.0.1"
     "@ianwalter/cloneable" "^2.0.0"
     "@ianwalter/dot" "^1.0.4"
+    chalk "^4.1.0"
+    has-ansi "^4.0.0"
+    has-emoji "^1.1.0"
+    marked "^1.1.1"
+    marked-terminal "^4.1.0"
+    strip-ansi "^6.0.0"
+
+"@generates/logger@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@generates/logger/-/logger-0.1.0.tgz#dba9f28a82146a6a73d40af07bd2fc249d64f155"
+  integrity sha512-ltA/KJgMRt5qf7gBT+Z8V0Dzuc83mdyQJwjhn3eWxeG6SMNF8Fqrx8yzvQ13AmHWy7wF7/m7CLz8oNsND/M8Mw==
+  dependencies:
+    "@generates/cli" "^0.0.10"
+    "@generates/dotter" "^2.0.0"
+    "@generates/merger" "^0.1.0"
+    "@ianwalter/chromafi" "^1.0.1"
+    "@ianwalter/clone" "^6.0.1"
+    "@ianwalter/cloneable" "^2.0.0"
     chalk "^4.1.0"
     has-ansi "^4.0.0"
     has-emoji "^1.1.0"
