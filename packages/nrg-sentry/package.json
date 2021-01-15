@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@sentry/node": "^5.29.2",
-    "@sentry/tracing": "^5.29.2"
+    "@sentry/tracing": "^5.30.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^10.0.1",
