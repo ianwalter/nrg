@@ -140,7 +140,7 @@ module.exports = function config (options = {}) {
         },
         // If enabled, add a redis instance to the app and server context.
         redis (app, ctx) {
-          if (cfg.redis.enabled) {
+          if (cfg.redis?.enabled) {
             if (ctx.log) ctx.logger.debug('Adding Redis')
             const redisStore = require('koa-redis')
             app.redis = app.context.redis = redisStore(cfg.redis.connection)
@@ -381,7 +381,7 @@ module.exports = function config (options = {}) {
     redis: {
       get enabled () {
         return typeof this.connection === 'string' ||
-          !!Object.values(this.connection).length
+          !!Object.keys(this.connection).length
       },
       connection: {
         ...process.env.REDIS_URL ? { url: process.env.REDIS_URL } : {},
@@ -393,7 +393,7 @@ module.exports = function config (options = {}) {
     db: {
       get enabled () {
         return typeof this.connection === 'string' ||
-          !!(Object.values(this.connection).length || options.db)
+          !!(Object.keys(this.connection).length || options.db)
       },
       client: 'pg',
       connection: process.env.DB_URL || {
