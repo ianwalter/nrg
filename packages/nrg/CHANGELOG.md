@@ -1,5 +1,24 @@
 # @ianwalter/nrg
 
+## 0.18.0
+
+### Minor Changes
+
+- 6ab64fd: Update dependency @generates/logger to ^0.1.0
+
+### Patch Changes
+
+- b75deea: Update dependency @generates/merger to ^0.1.3
+- 9a2437d: Cleaning up config and adding logger to nrg-mq deps
+- 0f0c90c: Update dependency objection to ^2.2.7
+- 43476ae: Update dependency @generates/cli to ^0.0.10
+- Updated dependencies [b75deea]
+- Updated dependencies [9a2437d]
+- Updated dependencies [6ab64fd]
+  - @ianwalter/nrg-validation@1.4.0
+  - @ianwalter/nrg-mq@1.2.2
+  - @ianwalter/nrg-logger@0.3.0
+
 ## 0.17.2
 
 ### Patch Changes

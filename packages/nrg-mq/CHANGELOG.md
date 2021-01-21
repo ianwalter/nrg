@@ -1,5 +1,11 @@
 # @ianwalter/nrg-mq
 
+## 1.2.2
+
+### Patch Changes
+
+- 9a2437d: Cleaning up config and adding logger to nrg-mq deps
+
 ## 1.2.0
 
 ### Minor Changes

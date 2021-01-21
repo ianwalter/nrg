@@ -1,5 +1,11 @@
 # @ianwalter/nrg-sentry
 
+## 1.2.0
+
+### Minor Changes
+
+- 015d204: Update Sentry to ^5.30.0
+
 ## 1.1.0
 
 ### Minor Changes
