@@ -1,5 +1,11 @@
 # @ianwalter/nrg-validation
 
+## 1.5.0
+
+### Minor Changes
+
+- 69d0d80: Passing input to validation
+
 ## 1.4.0
 
 ### Minor Changes
