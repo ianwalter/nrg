@@ -1215,11 +1215,6 @@
   resolved "https://registry.yarnpkg.com/@generates/merger/-/merger-0.1.1.tgz"
   integrity sha512-jlO57SAsyw3sI7fpgHLzx7CdpklW4hciHoILR0lylj0WlMBD1PpRfULeqfiWjUV5NxGuhrxQqZ4vrPteKEZKNg==
 
-"@generates/merger@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@generates/merger/-/merger-0.1.2.tgz#a90ccdae4b4ce56131d9c28eb17241fe00db77d5"
-  integrity sha512-t1Mi5mtIwCbcKxqZ5v+7Ds570gwTfo5vAXr0Q3naaMxfnCc6CychGHh/GyF6nK3qYIxh9BJhThVTiCfN+ukMuQ==
-
 "@generates/merger@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@generates/merger/-/merger-0.1.3.tgz#6808e51767b45bf75a8354f739d645826de85677"
@@ -1270,13 +1265,13 @@
     tiny-glob "^0.2.8"
     workerpool "^6.0.3"
 
-"@ianwalter/bff@^10.0.1":
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-10.0.1.tgz#d631e3e2f182ef1e9b94d18221a7d1a48574d7db"
-  integrity sha512-XYwJSBgaFyIzqx9o7gf1s/LcEL/iUhIWwwPqAAjFbPrBf/N86c6kFksZWE6KlTxGrxNgWpu4bJPD7x0lztx8oQ==
+"@ianwalter/bff@^10.0.2":
+  version "10.0.2"
+  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-10.0.2.tgz#8fa380102e0d7224e103abcdfbdf0bc0bbba2e6c"
+  integrity sha512-LuJDta90/ilDf4cNrsFkRzyVt5sqVxNKhwSPl+6PzSfBBZPHzHEoXmVE6CQjUoZQOcvfiox7a0e65uU0TsWBBw==
   dependencies:
-    "@generates/logger" "^0.0.9"
-    "@generates/merger" "^0.1.2"
+    "@generates/logger" "^0.1.0"
+    "@generates/merger" "^0.1.3"
     "@ianwalter/cli" "^4.1.0"
     "@ianwalter/clone" "^6.0.1"
     "@ianwalter/cloneable" "^2.0.0"
@@ -1293,7 +1288,7 @@
     junit-report-builder "^2.0.0"
     p-series "^2.1.0"
     tiny-glob "^0.2.8"
-    workerpool "^6.0.3"
+    workerpool "^6.0.4"
 
 "@ianwalter/bff@^9.10.0":
   version "9.13.0"
@@ -14322,6 +14317,11 @@ workerpool@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-6.0.3.tgz"
   integrity sha512-meU8ZzO+ipcx/njxtKUcbu2K95085q5WYDo8fR6PMW3hCY4driteIsNsEowYV7dzOtvq0HotUKsReJkK8gKXgg==
+
+workerpool@^6.0.4:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-6.0.4.tgz#f83ecf101b35c034cb20ed38cedd619dde9d722c"
+  integrity sha512-sAc9w9oAJQ2680gDArGinjw0Ygj2K3KF1ZCRfslBKUCzc9Gycwlj9ZIAbizPRBftcXxhXgoGMVPxJE0VMNnWbw==
 
 wrap-ansi@^5.1.0:
   version "5.1.0"
