@@ -89,12 +89,12 @@ module.exports = class SchemaValidator {
       // Perform the validation.
       if (isUndefined && !field.isOptional) {
         validations[key] = { isValid: false, undefined: true }
-      } else if (input[key] !== undefined) {
+      } else if (!isUndefined) {
         for (const validator of field.validators) {
           try {
             // FIXME: Maybe allow multiple validations for a key or at least
             // add a way to merge them?
-            validations[key] = await validator.validate(data[key])
+            validations[key] = await validator.validate(data[key], input)
           } catch (err) {
             validations[key] = { isValid: false, err }
           }
