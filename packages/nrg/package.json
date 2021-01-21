@@ -79,7 +79,7 @@
     "require-from-string": "^2.0.2"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^10.0.1"
+    "@ianwalter/bff": "^10.0.2"
   },
   "nrg": {
     "app": "examples/accounts"

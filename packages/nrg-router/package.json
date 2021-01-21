@@ -42,6 +42,6 @@
     "@ianwalter/router": "^3.3.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^10.0.1"
+    "@ianwalter/bff": "^10.0.2"
   }
 }
