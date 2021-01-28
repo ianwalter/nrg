@@ -45,7 +45,7 @@
     "uid-safe": "^2.1.5"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^10.0.2",
+    "@ianwalter/bff": "^10.0.4",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
     "koa": "^2.13.1",

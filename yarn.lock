@@ -1306,10 +1306,10 @@
     tiny-glob "^0.2.8"
     workerpool "^6.0.3"
 
-"@ianwalter/bff@^10.0.2":
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-10.0.2.tgz#8fa380102e0d7224e103abcdfbdf0bc0bbba2e6c"
-  integrity sha512-LuJDta90/ilDf4cNrsFkRzyVt5sqVxNKhwSPl+6PzSfBBZPHzHEoXmVE6CQjUoZQOcvfiox7a0e65uU0TsWBBw==
+"@ianwalter/bff@^10.0.4":
+  version "10.0.4"
+  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-10.0.4.tgz#21f7fd9f1dae9cd746da9dd7aefc10fc35720593"
+  integrity sha512-qkO1/nGSBXE3S4DxMz4zzv86PPQh+nyGGDgSIT16s8xMEexCuz6gc/wEzh+DBJNV0Of8NwP5lW/7SuDOqw0mBw==
   dependencies:
     "@generates/logger" "^0.1.0"
     "@generates/merger" "^0.1.3"
@@ -1325,10 +1325,10 @@
     common-tags "^1.8.0"
     esm-to-cjs "^1.2.0"
     expect "^26.6.2"
+    glob "^7.1.6"
     jest-snapshot "^26.6.2"
     junit-report-builder "^2.0.0"
     p-series "^2.1.0"
-    tiny-glob "^0.2.8"
     workerpool "^6.0.4"
 
 "@ianwalter/bff@^9.10.0":
