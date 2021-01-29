@@ -1,5 +1,11 @@
 # @ianwalter/nrg-validation
 
+## 2.0.0
+
+### Major Changes
+
+- 2089049: Fixing phone validation and changing schemavalidator validate api to pass additional args
+
 ## 1.5.0
 
 ### Minor Changes
