@@ -1,5 +1,12 @@
 # @ianwalter/nrg
 
+## 0.18.1
+
+### Patch Changes
+
+- Updated dependencies [2089049]
+  - @ianwalter/nrg-validation@2.0.0
+
 ## 0.18.0
 
 ### Minor Changes
