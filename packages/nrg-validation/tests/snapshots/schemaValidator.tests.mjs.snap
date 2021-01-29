@@ -23,6 +23,9 @@ Object {
       "This is a top-10 common password",
       "Add another word or two. Uncommon words are better.",
     ],
+    "phone": Array [
+      "A valid telephone number is required.",
+    ],
   },
   "isValid": false,
   "validations": Object {
@@ -43,6 +46,15 @@ Object {
       "isValid": false,
       "message": "This is a top-10 common password",
       "result": Any<Object>,
+    },
+    "phone": Object {
+      "isValid": false,
+      "result": PhoneNumber {
+        "country": "US",
+        "countryCallingCode": "1",
+        "nationalNumber": "777",
+        "number": "+1777",
+      },
     },
   },
 }

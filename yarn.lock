@@ -7747,13 +7747,6 @@ is-path-inside@^3.0.1:
   resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-3.0.2.tgz"
   integrity sha512-/2UGPSgmtqwo1ktx8NDHjuPwZWmHhO+gj0f93EkhLB5RgW9RZevWYYlIkS6zePc6U2WpOdQYIwHe9YC4DWEBVg==
 
-is-phone@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/is-phone/-/is-phone-2.0.0.tgz"
-  integrity sha1-yfgNYaSBl/mhnbDk8IzcIr4K0uo=
-  dependencies:
-    phone-regex "^2.0.0"
-
 is-plain-obj@^1.0.0, is-plain-obj@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-1.1.0.tgz"
@@ -8529,6 +8522,11 @@ levn@^0.4.1:
   dependencies:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
+
+libphonenumber-js@^1.9.9:
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.9.tgz#e097f00f834f92fe44abd8377b4118c6c6358e40"
+  integrity sha512-RhtAvacOkq4wc+RrswYE9MteJQy/1yd4lgLJTdL+HdYYRLZbERFv4ZRj/Nt+/gIB2xVSgW0MLNqb32hx042W+g==
 
 lie@3.1.1:
   version "3.1.1"
@@ -10516,11 +10514,6 @@ pgpass@1.x:
   integrity sha512-YmuA56alyBq7M59vxVBfPJrGSozru8QAdoNlWuW3cz8l+UX3cWge0vTvjKhsSHSJpo3Bom8/Mm6hf0TR5GY0+w==
   dependencies:
     split2 "^3.1.1"
-
-phone-regex@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/phone-regex/-/phone-regex-2.1.0.tgz"
-  integrity sha512-9lXTghLpr/jU6Dx9JIacAUt3Hl7qVucW8+Iqwx99dvFSO9imlB2xvY6IyT6Sw554QTtHMnhvPUygGaN5k0pv9Q==
 
 picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1, picomatch@^2.2.2:
   version "2.2.2"

@@ -31,11 +31,12 @@ const validInput = {
   name: 'Georgy Zhukov',
   password: '23-01=dwko;qwe2',
   occupation: 'Software General',
-  phone: '555-555-5555'
+  phone: '6177779501'
 }
+const args = { phone: ['US'] }
 
 test('valid registration', async t => {
-  const validation = await registrationValidator.validate(validInput)
+  const validation = await registrationValidator.validate(validInput, args)
   t.expect(validation.isValid).toBe(true)
 })
 
@@ -47,7 +48,7 @@ test('invalid registration', async t => {
     occupation: 'CEO',
     phone: '777'
   }
-  const validation = await registrationValidator.validate(input)
+  const validation = await registrationValidator.validate(input, args)
   t.expect(validation.isValid).toBe(false)
   t.expect(validation).toMatchSnapshot({
     validations: {
@@ -64,18 +65,18 @@ test('validaion data', async t => {
     artist: 'Peach Pit',
     song: 'Feelin Low'
   }
-  const validation = await registrationValidator.validate(input)
+  const validation = await registrationValidator.validate(input, args)
   t.expect(validation.data).toEqual({ ...validInput, email })
 })
 
 test('without optional data', async t => {
   const { phone, ...required } = validInput
-  const validation = await registrationValidator.validate(required)
+  const validation = await registrationValidator.validate(required, args)
   t.expect(validation.isValid).toBe(true)
 })
 
 test('ignoreEmpty', async t => {
   const input = { ...validInput, nickname: '' }
-  const validation = await registrationValidator.validate(input)
+  const validation = await registrationValidator.validate(input, args)
   t.expect(validation.isValid).toBe(true)
 })

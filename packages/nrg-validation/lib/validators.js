@@ -1,4 +1,4 @@
-const isPhone = require('is-phone')
+const parsePhoneNumber = require('libphonenumber-js')
 const ie = require('isemail')
 const { parseISO, isValid } = require('date-fns')
 const zxcvbn = require('zxcvbn')
@@ -52,6 +52,16 @@ isStrongPassword.validate = function validateStrongPassword (password, inputs) {
     feedback: result.feedback.suggestions,
     result
   }
+}
+
+function isPhone (input, county) {
+  return resultIsValid(isPhone.validate(input, county))
+}
+isPhone.validate = function validatePhone (input, country) {
+  const result = parsePhoneNumber(input, country)
+  const isValid = !!result?.isValid()
+  if (result) delete result.metadata
+  return { isValid, result }
 }
 
 module.exports = {

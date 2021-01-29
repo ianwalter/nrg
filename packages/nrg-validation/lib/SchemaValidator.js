@@ -69,7 +69,7 @@ module.exports = class SchemaValidator {
     }
   }
 
-  async validate (input) {
+  async validate (input, args = {}) {
     const { failFast } = this.options
     const validations = {}
     const feedback = {}
@@ -94,7 +94,8 @@ module.exports = class SchemaValidator {
           try {
             // FIXME: Maybe allow multiple validations for a key or at least
             // add a way to merge them?
-            validations[key] = await validator.validate(data[key], input)
+            const rest = args[key] || []
+            validations[key] = await validator.validate(data[key], ...rest)
           } catch (err) {
             validations[key] = { isValid: false, err }
           }
