@@ -69,7 +69,7 @@ const {
 const {
   validateLogin,
   createUserSession,
-  clearSession,
+  regenerateSession,
   getSession,
   resetSession,
   disableCsrf
@@ -207,16 +207,16 @@ module.exports = {
     validateLogin,
     getAccount,
     comparePasswords,
-    clearSession,
+    regenerateSession,
     createUserSession,
     reduceAccountForClient,
     addToResponse
   ],
 
   // Logout:
-  clearSession,
+  regenerateSession,
   logout: [
-    clearSession,
+    regenerateSession,
     addToResponse
   ],
 
