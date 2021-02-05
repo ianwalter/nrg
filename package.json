@@ -52,7 +52,7 @@
     "url": "https://github.com/ianwalter/nrg/issues"
   },
   "devDependencies": {
-    "@changesets/cli": "2.13.1",
+    "@changesets/cli": "2.14.1",
     "@ianwalter/eslint-config": "^6.2.0",
     "@ianwalter/eslit": "^1.0.1",
     "@ianwalter/renovate-config": "^1.4.3",
