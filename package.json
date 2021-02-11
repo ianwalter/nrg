@@ -78,5 +78,8 @@
     "extends": [
       "@ianwalter"
     ]
+  },
+  "dependencies": {
+    "@changesets/changelog-github": "^0.2.8"
   }
 }
