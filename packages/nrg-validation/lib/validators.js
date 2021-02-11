@@ -22,6 +22,34 @@ isBoolean.validate = function validateBoolean (input) {
   return { isValid: typeof input === 'boolean' }
 }
 
+function isInteger (input) {
+  return resultIsValid(isInteger.validate(input))
+}
+isInteger.validate = function validateInteger (input) {
+  return { isValid: Number.isInteger(input) }
+}
+
+function isArray (input) {
+  if (typeof input === 'function') {
+    const validator = input
+    const isArrayOf = input => resultIsValid(isArrayOf.validate(input))
+    isArrayOf.validate = function validateArrayOf (input) {
+      const validation = { results: [] }
+      validation.isValid = isArray(input) && input.every(item => {
+        const result = validator.validate(item)
+        validation.results.push(result)
+        return result.isValid
+      })
+      return validation
+    }
+    return isArrayOf
+  }
+  return resultIsValid(isArray.validate(input))
+}
+isArray.validate = function validateArray (input) {
+  return { isValid: Array.isArray(input) && input.length > 0 }
+}
+
 const defaultEmailOptions = { minDomainAtoms: 2 }
 function isEmail (input, options) {
   return resultIsValid(isEmail.validate(input, options))
@@ -54,8 +82,8 @@ isStrongPassword.validate = function validateStrongPassword (password, inputs) {
   }
 }
 
-function isPhone (input, county) {
-  return resultIsValid(isPhone.validate(input, county))
+function isPhone (input, country) {
+  return resultIsValid(isPhone.validate(input, country))
 }
 isPhone.validate = function validatePhone (input, country) {
   const result = parsePhoneNumber(input, country)
@@ -65,10 +93,12 @@ isPhone.validate = function validatePhone (input, country) {
 }
 
 module.exports = {
-  isPhone,
   resultIsValid,
   isString,
   isBoolean,
+  isInteger,
+  isArray,
+  isPhone,
   isEmail,
   isDate,
   isStrongPassword

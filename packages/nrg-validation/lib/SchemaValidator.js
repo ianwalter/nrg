@@ -4,8 +4,6 @@ const { createLogger } = require('@generates/logger')
 const logger = createLogger({ level: 'info', namespace: 'nrg.validation' })
 
 const defaults = { failFast: 0 }
-const hasValidate = option => option && typeof option.validate !== 'undefined'
-const hasModify = option => option && typeof option.modify !== 'undefined'
 const pipe = (...fns) => val => fns.reduce((acc, fn) => fn(acc), val)
 
 module.exports = class SchemaValidator {
@@ -15,7 +13,7 @@ module.exports = class SchemaValidator {
     // Merge the given options with the defaults.
     this.options = Object.assign({}, defaults, options)
 
-    logger.debug('Schema', schema)
+    logger.debug('SchemaValidator Schema', schema)
 
     // Convert the fields in the schema definition to objects that can be used
     // to validate data.
@@ -23,12 +21,15 @@ module.exports = class SchemaValidator {
       this.fields[field] = {
         ...options,
         name: options.name || decamelize(field, ' '),
-        validators: Object.values(options).filter(hasValidate),
-        modifiers: Object.values(options).filter(hasModify)
+        validators: Object.values(options).filter(o => o.validate),
+        modifiers: Object.values(options).filter(o => o.modfiy)
       }
+
+      // Intended for nested SchemaValidators.
+      if (options.validate) this.fields[field].validators.push(options)
     }
 
-    logger.debug('Fields', this.fields)
+    logger.debug('SchemaValidator Fields', this.fields)
   }
 
   handleFailure (feedback, key, field, validation = {}) {
@@ -91,6 +92,7 @@ module.exports = class SchemaValidator {
         validations[key] = { isValid: false, undefined: true }
       } else if (!isUndefined) {
         for (const validator of field.validators) {
+          console.log('FIELD', field.name, validator)
           try {
             // FIXME: Maybe allow multiple validations for a key or at least
             // add a way to merge them?
