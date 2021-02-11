@@ -37,7 +37,7 @@ function isArray (input) {
       const validation = { results: [] }
       validation.isValid = isArray(input) && input.every(item => {
         const result = validator.validate(item)
-        validation.results.push(result)
+        validation.results.push({ input: item, ...result })
         return result.isValid
       })
       return validation
