@@ -22,7 +22,7 @@ module.exports = class SchemaValidator {
         ...options,
         name: options.name || decamelize(field, ' '),
         validators: Object.values(options).filter(o => o.validate),
-        modifiers: Object.values(options).filter(o => o.modfiy)
+        modifiers: Object.values(options).filter(o => o.modify)
       }
 
       // Intended for nested SchemaValidators.
@@ -92,7 +92,6 @@ module.exports = class SchemaValidator {
         validations[key] = { isValid: false, undefined: true }
       } else if (!isUndefined) {
         for (const validator of field.validators) {
-          console.log('FIELD', field.name, validator)
           try {
             // FIXME: Maybe allow multiple validations for a key or at least
             // add a way to merge them?

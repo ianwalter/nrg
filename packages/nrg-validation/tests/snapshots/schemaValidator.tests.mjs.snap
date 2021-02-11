@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`invalid registration 1`] = `
+exports[`Invalid registration 1`] = `
 Object {
   "data": Object {
     "email": "hahaha",
