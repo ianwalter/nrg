@@ -18,11 +18,12 @@ module.exports = class SchemaValidator {
     // Convert the fields in the schema definition to objects that can be used
     // to validate data.
     for (const [field, options] of Object.entries(schema)) {
+      const defaultName = decamelize(field, ' ')
       this.fields[field] = {
         ...options,
-        name: options.name || decamelize(field, ' '),
-        validators: Object.values(options).filter(o => o.validate),
-        modifiers: Object.values(options).filter(o => o.modify)
+        name: options.name && !options.validate ? options.name : defaultName,
+        validators: Object.values(options).filter(o => o?.validate),
+        modifiers: Object.values(options).filter(o => o?.modify)
       }
 
       // Intended for nested SchemaValidators.

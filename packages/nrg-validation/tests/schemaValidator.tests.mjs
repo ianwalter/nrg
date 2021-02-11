@@ -22,11 +22,11 @@ const containsSoftware = {
 }
 const registrationValidator = new SchemaValidator({
   email: { isEmail, lowercase, trim },
-  name: { isString },
+  name: isString,
   password: { isStrongPassword, message: 'Your password must be stronger.' },
   occupation: { containsSoftware },
   phone: { isPhone, isOptional, name: 'telephone number' },
-  nickname: { isString, ignoreEmpty }
+  organizationName: { isString, ignoreEmpty }
 })
 const email = 'yo@fastmail.com'
 const validInput = {
@@ -79,7 +79,7 @@ test('Without optional data', async t => {
 })
 
 test('Field with ignoreEmpty', async t => {
-  const input = { ...validInput, nickname: '' }
+  const input = { ...validInput, organizationName: '' }
   const validation = await registrationValidator.validate(input, args)
   t.expect(validation.isValid).toBe(true)
 })
