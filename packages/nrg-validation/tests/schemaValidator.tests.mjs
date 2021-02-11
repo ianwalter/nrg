@@ -34,7 +34,8 @@ const validInput = {
   name: 'Georgy Zhukov',
   password: '23-01=dwko;qwe2',
   occupation: 'Software General',
-  phone: '6177779501'
+  phone: '6177779501',
+  organizationName: 'Acme'
 }
 const args = { phone: ['US'] }
 
@@ -49,7 +50,8 @@ test('Invalid registration', async t => {
     name: '',
     password: 'qwerty',
     occupation: 'CEO',
-    phone: '777'
+    phone: '777',
+    organizationName: false
   }
   const validation = await registrationValidator.validate(input, args)
   t.expect(validation.isValid).toBe(false)

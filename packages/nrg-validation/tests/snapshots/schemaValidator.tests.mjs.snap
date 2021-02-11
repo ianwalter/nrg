@@ -6,6 +6,7 @@ Object {
     "email": "hahaha",
     "name": "",
     "occupation": "CEO",
+    "organizationName": false,
     "password": "qwerty",
     "phone": "777",
   },
@@ -18,6 +19,9 @@ Object {
     ],
     "occupation": Array [
       "Occupation must contain software.",
+    ],
+    "organizationName": Array [
+      "A valid organization name is required.",
     ],
     "password": Array [
       "This is a top-10 common password",
@@ -38,6 +42,9 @@ Object {
     "occupation": Object {
       "isValid": false,
       "message": "Occupation must contain software.",
+    },
+    "organizationName": Object {
+      "isValid": false,
     },
     "password": Object {
       "feedback": Array [
