@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/nrg-test",
   "description": "A test request plugin for the nrg framework",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"

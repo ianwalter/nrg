@@ -1,5 +1,22 @@
 # @ianwalter/nrg
 
+## 0.18.2
+
+### Patch Changes
+
+- 7e8c7f9: Update dependency objection to ^2.2.14
+- fc8a695: Update dependency @ianwalter/requester to ^2.5.0
+- bb35bbb: Update dependency date-fns to ^2.17.0
+- d988825: Update dependency knex to ^0.21.17
+- Updated dependencies [c431216]
+- Updated dependencies [8bb3a79]
+- Updated dependencies [fc8a695]
+- Updated dependencies [bb35bbb]
+- Updated dependencies [2b83bd1]
+  - @ianwalter/nrg-validation@2.1.0
+  - @ianwalter/nrg-test@1.2.3
+  - @ianwalter/nrg-mq@1.2.3
+
 ## 0.18.1
 
 ### Patch Changes
