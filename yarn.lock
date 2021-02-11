@@ -9962,10 +9962,10 @@ object.values@^1.1.0, object.values@^1.1.1:
     es-abstract "^1.18.0-next.1"
     has "^1.0.3"
 
-objection@^2.2.7:
-  version "2.2.7"
-  resolved "https://registry.yarnpkg.com/objection/-/objection-2.2.7.tgz#0e3773d8dfeca4b22fa0d0d5019c599e8b078972"
-  integrity sha512-B/joqs+HFi/v3LzQxuO9JBca+0JkOXt/qfLs9kNCNbOX6pbvsAflaNxB2p7tpe9JI6gUm81qJ8Khje/70CcXfw==
+objection@^2.2.14:
+  version "2.2.14"
+  resolved "https://registry.yarnpkg.com/objection/-/objection-2.2.14.tgz#e9cb5abb5f9ddb1153538b23e7cc2246d109bca8"
+  integrity sha512-5FP/1JoJMmyi8ezoH3oQyiayUGEQS33G+UPiFMe0Epj7KCFhpaApSJJlbKxPZG3GsegCiCigZsnSkgtJFFzwWw==
   dependencies:
     ajv "^6.12.6"
     db-errors "^0.2.3"
