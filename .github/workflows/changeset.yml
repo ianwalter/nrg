@@ -5,8 +5,6 @@ on:
 jobs:
   changeset:
     runs-on: ubuntu-latest
-    container:
-      image: node:15.4-buster
     timeout-minutes: 5
     steps:
       - name: Checkout
