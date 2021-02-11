@@ -2,6 +2,8 @@ const SchemaValidator = require('./lib/SchemaValidator.js')
 const {
   isString,
   isBoolean,
+  isInteger,
+  isArray,
   isEmail,
   isPhone,
   isDate,
@@ -15,6 +17,8 @@ module.exports = {
   lowercase,
   isString,
   isBoolean,
+  isInteger,
+  isArray,
   isEmail,
   isPhone,
   isDate,

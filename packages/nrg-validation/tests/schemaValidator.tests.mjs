@@ -1,6 +1,9 @@
 import { test } from '@ianwalter/bff'
 import {
   isString,
+  isBoolean,
+  isInteger,
+  isArray,
   isEmail,
   isPhone,
   isStrongPassword,
@@ -19,11 +22,11 @@ const containsSoftware = {
 }
 const registrationValidator = new SchemaValidator({
   email: { isEmail, lowercase, trim },
-  name: { isString },
+  name: isString,
   password: { isStrongPassword, message: 'Your password must be stronger.' },
   occupation: { containsSoftware },
   phone: { isPhone, isOptional, name: 'telephone number' },
-  nickname: { isString, ignoreEmpty }
+  organizationName: { isString, ignoreEmpty }
 })
 const email = 'yo@fastmail.com'
 const validInput = {
@@ -31,22 +34,24 @@ const validInput = {
   name: 'Georgy Zhukov',
   password: '23-01=dwko;qwe2',
   occupation: 'Software General',
-  phone: '6177779501'
+  phone: '6177779501',
+  organizationName: 'Acme'
 }
 const args = { phone: ['US'] }
 
-test('valid registration', async t => {
+test('Valid registration', async t => {
   const validation = await registrationValidator.validate(validInput, args)
   t.expect(validation.isValid).toBe(true)
 })
 
-test('invalid registration', async t => {
+test('Invalid registration', async t => {
   const input = {
     email: 'hahaha',
     name: '',
     password: 'qwerty',
     occupation: 'CEO',
-    phone: '777'
+    phone: '777',
+    organizationName: false
   }
   const validation = await registrationValidator.validate(input, args)
   t.expect(validation.isValid).toBe(false)
@@ -59,7 +64,7 @@ test('invalid registration', async t => {
   })
 })
 
-test('validaion data', async t => {
+test('With validation data', async t => {
   const input = {
     ...validInput,
     artist: 'Peach Pit',
@@ -69,14 +74,47 @@ test('validaion data', async t => {
   t.expect(validation.data).toEqual({ ...validInput, email })
 })
 
-test('without optional data', async t => {
+test('Without optional data', async t => {
   const { phone, ...required } = validInput
   const validation = await registrationValidator.validate(required, args)
   t.expect(validation.isValid).toBe(true)
 })
 
-test('ignoreEmpty', async t => {
-  const input = { ...validInput, nickname: '' }
+test('Field with ignoreEmpty', async t => {
+  const input = { ...validInput, organizationName: '' }
   const validation = await registrationValidator.validate(input, args)
   t.expect(validation.isValid).toBe(true)
+})
+
+test('Nested SchemaValidator', async t => {
+  const orderValidator = new SchemaValidator({
+    userId: { isInteger },
+    consent: { isBoolean },
+    cart: new SchemaValidator({
+      currency: { isString },
+      products: { isArray: isArray(isString) }
+    })
+  })
+  const validTop = { userId: 123, consent: true }
+  const validCart = { currency: 'USD', products: ['widget', 'gizmo'] }
+
+  // Test validating valid input.
+  let validation = await orderValidator.validate({
+    ...validTop,
+    cart: validCart,
+    coupon: 'FREE'
+  })
+  t.expect(validation.isValid).toBe(true)
+  t.expect(validation.data.coupon).toBe(undefined)
+
+  // Test validating invalid top-level input.
+  validation = await orderValidator.validate({ userId: 123, cart: validCart })
+  t.expect(validation.isValid).toBe(false)
+  t.expect(validation.validations.userId.isValid).toBe(true)
+  t.expect(validation.validations.consent.isValid).toBe(false)
+
+  // Test validating invalid nested input.
+  const invalidCart = { currency: 'GBP', products: ['widget', { qty: 1 }] }
+  validation = await orderValidator.validate({ ...validTop, cart: invalidCart })
+  t.expect(validation.isValid).toBe(false)
 })

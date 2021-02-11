@@ -1,23 +1,57 @@
 import { test } from '@ianwalter/bff'
 import {
   isString,
+  isBoolean,
+  isInteger,
+  isArray,
   isEmail,
   isPhone,
   isDate,
   isStrongPassword
 } from '../index.js'
 
-test('isString', ({ expect }) => {
-  expect(isString('Parker')).toBe(true)
-  expect(isString(2018)).toBe(false)
-  expect(isString({})).toBe(false)
-  expect(isString([])).toBe(false)
+test('isString', t => {
+  t.expect(isString('Parker')).toBe(true)
+  t.expect(isString(2018)).toBe(false)
+  t.expect(isString({})).toBe(false)
+  t.expect(isString([])).toBe(false)
 })
 
-test('isEmail', ({ expect }) => {
-  expect(isEmail('guy@example.com')).toBe(true)
-  expect(isEmail('guy@')).toBe(false)
-  expect(isEmail('guy@example')).toBe(false)
+test('isBoolean', t => {
+  t.expect(isBoolean(true)).toBe(true)
+  t.expect(isBoolean('true')).toBe(false)
+  t.expect(isBoolean(null)).toBe(false)
+  t.expect(isBoolean(undefined)).toBe(false)
+  t.expect(isBoolean('')).toBe(false)
+  t.expect(isBoolean(0)).toBe(false)
+  t.expect(isBoolean(1)).toBe(false)
+})
+
+test('isInteger', t => {
+  t.expect(isInteger(303)).toBe(true)
+  t.expect(isInteger(NaN)).toBe(false)
+  t.expect(isInteger('NaN')).toBe(false)
+  t.expect(isInteger('303')).toBe(false)
+  t.expect(isInteger(1230450982532076)).toBe(true)
+})
+
+test('isArray', t => {
+  t.expect(isArray([])).toBe(false)
+  t.expect(isArray(['one'])).toBe(true)
+  t.expect(isArray([1, 2])).toBe(true)
+  t.expect(isArray([null])).toBe(true)
+  t.expect(isArray([undefined, false])).toBe(true)
+  t.expect(isArray(new Array(0))).toBe(false)
+  t.expect(isArray('[1,2]')).toBe(false)
+  t.expect(isArray(new Set([]))).toBe(false)
+  t.expect(isArray(isInteger)([1, 2])).toBe(true)
+  t.expect(isArray(isInteger)([1, '2'])).toBe(false)
+})
+
+test('isEmail', t => {
+  t.expect(isEmail('guy@example.com')).toBe(true)
+  t.expect(isEmail('guy@')).toBe(false)
+  t.expect(isEmail('guy@example')).toBe(false)
 })
 
 test('isPhone', t => {
@@ -31,13 +65,13 @@ test('isPhone', t => {
   t.expect(isPhone('10711123456', 'GB')).toBe(false)
 })
 
-test('isDate', ({ expect }) => {
-  expect(isDate('2019-10-21T03:13:20.796Z')).toBe(true)
-  expect(isDate('209')).toBe(false)
-  expect(isDate(new Date())).toBe(true)
+test('isDate', t => {
+  t.expect(isDate('2019-10-21T03:13:20.796Z')).toBe(true)
+  t.expect(isDate('209')).toBe(false)
+  t.expect(isDate(new Date())).toBe(true)
 })
 
-test('isStrongPassword', ({ expect }) => {
-  expect(isStrongPassword('fj2wfnfw93ivznjiojweQWPMNV')).toBe(true)
-  expect(isStrongPassword('qwerty')).toBe(false)
+test('isStrongPassword', t => {
+  t.expect(isStrongPassword('fj2wfnfw93ivznjiojweQWPMNV')).toBe(true)
+  t.expect(isStrongPassword('qwerty')).toBe(false)
 })
