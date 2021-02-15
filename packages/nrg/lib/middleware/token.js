@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const addDays = require('date-fns/addDays')
 const { merge } = require('@generates/merger')
 const { BadRequestError } = require('../errors')
-const { excluding } = require('@ianwalter/extract')
+const { excluding } = require('@generates/extractor')
 
 async function handleGenerateToken (ctx, next, options) {
   ctx.state.token = await uid(options.bytes || ctx.cfg.hash.bytes)

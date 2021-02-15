@@ -1,5 +1,5 @@
 const { test } = require('@ianwalter/bff')
-const { excluding } = require('@ianwalter/extract')
+const { excluding } = require('@generates/extractor')
 const { Account, getTestEmail, extractEmailToken } = require('@ianwalter/nrg')
 const app = require('../app')
 const { accounts, password } = require('../seeds/01_accounts')

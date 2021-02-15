@@ -7,7 +7,7 @@ const {
   trim,
   lowercase
 } = require('@ianwalter/nrg-validation')
-const { including } = require('@ianwalter/extract')
+const { including } = require('@generates/extractor')
 const Base = require('./Base')
 
 module.exports = class Account extends Base {

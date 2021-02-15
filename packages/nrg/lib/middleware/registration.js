@@ -1,7 +1,7 @@
 const { merge } = require('@generates/merger')
 const { ValidationError } = require('../errors')
 const Account = require('../models/Account')
-const { excluding } = require('@ianwalter/extract')
+const { excluding } = require('@generates/extractor')
 
 /**
  * Validate that the request body for registration requests matches the expected

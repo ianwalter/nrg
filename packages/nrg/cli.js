@@ -4,11 +4,11 @@ const path = require('path')
 const cli = require('@generates/cli')
 const { createLogger } = require('@generates/logger')
 const cloneable = require('@ianwalter/cloneable')
-const { excluding } = require('@ianwalter/extract')
+const { excluding } = require('@generates/extractor')
 const healthcheck = require('./lib/commands/healthcheck')
 const { copyMigrations } = require('./lib/commands/migrations')
 const newId = require('./lib/commands/newId')
-const dot = require('@ianwalter/dot')
+const { get } = require('@generates/dotter')
 
 const { _: commands, packageJson, ...config } = cli({
   name: 'nrg',
@@ -38,9 +38,10 @@ async function run () {
   let app
   try {
     if (appPath.includes('.mjs') || packageJson.type === 'module') {
-      const dist = require('@ianwalter/dist')
+      const modulize = require('@generates/modulizer')
       const requireFromString = require('require-from-string')
-      const { cjs } = await dist({ input: appPath, cjs: true })
+      const cwd = path.dirname(appPath)
+      const { cjs } = await modulize({ input: appPath, cjs: true, cwd })
       app = requireFromString(cjs[1], appPath)
     } else {
       app = require(appPath)
@@ -97,7 +98,7 @@ async function run () {
     if (commands[1] === 'config') {
       let cfg = excluding(app.context.cfg, 'helpText')
       if (!config.all) cfg = cloneable(cfg)
-      logger.info('Application config:', dot.get(cfg, commands[2]))
+      logger.info('Application config:', get(cfg, commands[2]))
     } else {
       logger.fatal('Print what? Available: config')
       process.exit(1)
