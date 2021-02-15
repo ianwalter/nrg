@@ -1,5 +1,11 @@
 # @ianwalter/nrg-test
 
+## 1.2.3
+
+### Patch Changes
+
+- fc8a695: Update dependency @ianwalter/requester to ^2.5.0
+
 ## 1.2.2
 
 ### Patch Changes

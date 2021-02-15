@@ -1,5 +1,16 @@
 # @ianwalter/nrg-validation
 
+## 2.1.0
+
+### Minor Changes
+
+- c431216: Adding isInteger, isArray, and support for nested SchemaValidators
+
+### Patch Changes
+
+- 8bb3a79: Update dependency libphonenumber-js to ^1.9.10
+- bb35bbb: Update dependency date-fns to ^2.17.0
+
 ## 2.0.0
 
 ### Major Changes
