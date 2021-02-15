@@ -40,7 +40,8 @@ async function run () {
     if (appPath.includes('.mjs') || packageJson.type === 'module') {
       const modulize = require('@generates/modulizer')
       const requireFromString = require('require-from-string')
-      const { cjs } = await modulize({ input: appPath, cjs: true })
+      const cwd = path.dirname(appPath)
+      const { cjs } = await modulize({ input: appPath, cjs: true, cwd })
       app = requireFromString(cjs[1], appPath)
     } else {
       app = require(appPath)
