@@ -114,7 +114,8 @@ test('Nested SchemaValidator', async t => {
   t.expect(validation.validations.consent.isValid).toBe(false)
 
   // Test validating invalid nested input.
-  const invalidCart = { currency: 'GBP', products: ['widget', { qty: 1 }] }
+  const invalidCart = { currency: 'USD', products: ['wiz', { q: 1 }], total: 0 }
   validation = await orderValidator.validate({ ...validTop, cart: invalidCart })
   t.expect(validation.isValid).toBe(false)
+  t.expect(validation.data.cart.total).toBe(undefined)
 })
