@@ -1,6 +1,7 @@
 module.exports = function close () {
   // Close any open database connections.
-  if (this.db) this.db.destroy()
+  const dbCallback = () => this.logger?.debug('Database connection destroyed')
+  if (this.db) this.db.destroy(dbCallback)
 
   // Close any open redis connections.
   if (this.redis) this.redis.quit()
