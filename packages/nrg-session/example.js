@@ -6,11 +6,11 @@ app.keys = ['some secret hurr']
 
 app.use(session(app))
 
-app.use(async function (ctx, next) {
+app.use(async function (ctx) {
   if (this.path === '/favicon.ico') return
   let n = this.session.views || 0
   this.session.views = ++n
-  this.body = n + ' views'
+  ctx.body = n + ' views'
 })
 
 app.listen(3000)

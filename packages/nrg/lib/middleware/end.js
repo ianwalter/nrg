@@ -1,12 +1,12 @@
 const { merge } = require('@generates/merger')
-const dot = require('@ianwalter/dot')
+const { get } = require('@generates/dotter')
 
 function addToResponse (ctx, next) {
   if (!next) {
     const namespace = ctx
     return ctx => {
       if (ctx.state.status) ctx.status = ctx.state.status
-      ctx.body = dot.get(ctx.state, namespace)
+      ctx.body = get(ctx.state, namespace)
     }
   }
   if (ctx.state.status) ctx.status = ctx.state.status

@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 const addDays = require('date-fns/addDays')
 const subDays = require('date-fns/subDays')
-const { excluding } = require('@ianwalter/extract')
+const { excluding } = require('@generates/extractor')
 const { accounts } = require('./01_accounts')
 
 const salt = bcrypt.genSaltSync(12)

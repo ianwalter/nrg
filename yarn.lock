@@ -511,6 +511,13 @@
   resolved "https://registry.yarnpkg.com/@generates/dotter/-/dotter-2.0.0.tgz#680523dbe6782ad8b924082258898378472106e5"
   integrity sha512-QI5gmvS1ZOeZ8msYdctT7VARrHWGGG3PuFYGVqhzkeBkalnaqCAtqOxaGFiEab5f7VzEOZt6d41pmM3fbQmaIQ==
 
+"@generates/extractor@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@generates/extractor/-/extractor-1.1.2.tgz#d5db3c127b2c7f05ae923a943274ba8849d6625f"
+  integrity sha512-O4/yWEv7OmajP3S2yAtPNSnC8PQllct8i+UYVZ4UM6Kj+4t0hjnJ5ecl4If9H4s7Nq+hK3HLZ3jPNvfq3pdaYQ==
+  dependencies:
+    "@generates/dotter" "^2.0.0"
+
 "@generates/logger@^0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@generates/logger/-/logger-0.0.9.tgz#cab6713557bb576ced56c8668b26e92624c82812"
@@ -551,6 +558,27 @@
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@generates/merger/-/merger-0.1.3.tgz#6808e51767b45bf75a8354f739d645826de85677"
   integrity sha512-x4KKHexiP4hIfoGZumc3RSac1t9d/aGErxbG9NASHcx59mljW2uyKDt4qP3igi9hszIHV5mjb4TbAYUNFoWg3w==
+
+"@generates/modulizer@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-6.0.1.tgz#fa601f04f59fd55fe044936feacf4ed1d227d88e"
+  integrity sha512-GnccjISmMtP964tUNi1WO00hMfguIF3MA4jqpPwatMCdPC4Rd/TZumZewFXf22imn8Az6BT5N3mC5k2vZCcDyQ==
+  dependencies:
+    "@babel/core" "^7.8.6"
+    "@generates/cli" "^0.0.10"
+    "@generates/logger" "^0.1.0"
+    "@ianwalter/npm-short-name" "^1.0.0"
+    "@ianwalter/rollup-plugin-hashbang" "^1.3.0"
+    "@rollup/plugin-json" "^4.1.0"
+    builtin-modules "^3.1.0"
+    p-settle "^4.0.0"
+    read-pkg-up "^6.0.0"
+    require-from-string "^2.0.2"
+    rollup "^2.0.0"
+    rollup-plugin-babel "^4.3.3"
+    rollup-plugin-commonjs "^10.1.0"
+    rollup-plugin-node-resolve "^5.2.0"
+    rollup-plugin-terser "^7.0.0"
 
 "@hapi/accept@5.0.1":
   version "5.0.1"
@@ -7247,7 +7275,7 @@ p-limit@^1.1.0:
   dependencies:
     p-try "^1.0.0"
 
-p-limit@^2.2.0:
+p-limit@^2.2.0, p-limit@^2.2.2:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"
   integrity sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==
@@ -7290,7 +7318,7 @@ p-reduce@^2.1.0:
   resolved "https://registry.yarnpkg.com/p-reduce/-/p-reduce-2.1.0.tgz#09408da49507c6c274faa31f28df334bc712b64a"
   integrity sha512-2USApvnsutq8uoxZBGbbWM0JIYLiEMJ9RlaN7fAzVNb9OZN0SHjjTTfIcb667XynS5Y1VhwDJVDa72TnPzAYWw==
 
-p-reflect@^2.0.0:
+p-reflect@^2.0.0, p-reflect@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/p-reflect/-/p-reflect-2.1.0.tgz#5d67c7b3c577c4e780b9451fc9129675bd99fe67"
   integrity sha512-paHV8NUz8zDHu5lhr/ngGWQiW067DK/+IbJ+RfZ4k+s8y4EKyYCz8pGYWjxCg35eHztpJAt+NUgvN4L+GCbPlg==
@@ -7310,6 +7338,14 @@ p-settle@^3.1.0:
   dependencies:
     p-limit "^2.2.0"
     p-reflect "^2.0.0"
+
+p-settle@^4.0.0:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/p-settle/-/p-settle-4.1.1.tgz#37fbceb2b02c9efc28658fc8d36949922266035f"
+  integrity sha512-6THGh13mt3gypcNMm0ADqVNCcYa3BK6DWsuJWFCuEKP1rpY+OKGp7gaZwVmLspmic01+fsg/fN57MfvDzZ/PuQ==
+  dependencies:
+    p-limit "^2.2.2"
+    p-reflect "^2.1.0"
 
 p-try@^1.0.0:
   version "1.0.0"
@@ -8482,7 +8518,7 @@ rollup-plugin-terser@^5.2.0:
     serialize-javascript "^4.0.0"
     terser "^4.6.2"
 
-rollup-plugin-terser@^7.0.2:
+rollup-plugin-terser@^7.0.0, rollup-plugin-terser@^7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/rollup-plugin-terser/-/rollup-plugin-terser-7.0.2.tgz#e8fbba4869981b2dc35ae7e8a502d5c6c04d324d"
   integrity sha512-w3iIaU4OxcF52UUXiZNsNeuXIMDvFrr+ZXK6bFZ0Q60qyVfq4uLptoS4bbq3paG3x216eQllFZX7zt6TIImguQ==
@@ -8522,7 +8558,7 @@ rollup@^1.21.4:
     "@types/node" "*"
     acorn "^7.1.0"
 
-rollup@^2.32.1:
+rollup@^2.0.0, rollup@^2.32.1:
   version "2.39.0"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.39.0.tgz#be4f98c9e421793a8fec82c854fb567c35e22ab6"
   integrity sha512-+WR3bttcq7zE+BntH09UxaW3bQo3vItuYeLsyk4dL2tuwbeSKJuvwiawyhEnvRdRgrII0Uzk00FpctHO/zB1kw==
