@@ -27,7 +27,12 @@ module.exports = class SchemaValidator {
       }
 
       // Intended for nested SchemaValidators.
-      if (options.validate) this.fields[field].validators.push(options)
+      if (options.validate) {
+        this.fields[field].validators.push(options)
+        if (options.constructor?.name === 'SchemaValidator') {
+          this.fields[field].isSchemaValidator = true
+        }
+      }
     }
 
     logger.debug('SchemaValidator Fields', this.fields)
@@ -98,6 +103,7 @@ module.exports = class SchemaValidator {
             // add a way to merge them?
             const rest = args[key] || []
             validations[key] = await validator.validate(data[key], ...rest)
+            if (field.isSchemaValidator) data[key] = validations[key].data
           } catch (err) {
             validations[key] = { isValid: false, err }
           }
