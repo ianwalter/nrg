@@ -13,8 +13,6 @@ module.exports = class SchemaValidator {
     // Merge the given options with the defaults.
     this.options = Object.assign({}, defaults, options)
 
-    logger.debug('SchemaValidator Schema', schema)
-
     // Convert the fields in the schema definition to objects that can be used
     // to validate data.
     for (const [field, options] of Object.entries(schema)) {
@@ -34,8 +32,6 @@ module.exports = class SchemaValidator {
         }
       }
     }
-
-    logger.debug('SchemaValidator Fields', this.fields)
   }
 
   handleFailure (feedback, key, field, validation = {}) {

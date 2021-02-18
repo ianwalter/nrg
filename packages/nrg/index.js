@@ -90,6 +90,8 @@ const { httpsRedirect } = require('./lib/middleware/httpsRedirect')
 
 const { adaptNext } = require('./lib/middleware/next')
 
+const { relay } = require('./lib/middleware/relay')
+
 const swap = require('./lib/utilities/swap')
 const getRandomTimeout = require('./lib/utilities/getRandomTimeout')
 const getTestEmail = require('./lib/utilities/getTestEmail')
@@ -284,6 +286,9 @@ module.exports = {
 
   // Adapt Next.js middleware to be executed with the nrg request context.
   adaptNext,
+
+  //
+  relay,
 
   /**
    * Error classes:

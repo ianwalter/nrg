@@ -84,6 +84,7 @@ module.exports = function config (options = {}) {
       get level () {
         return cfg.isDev ? 'debug' : (cfg.isTest ? 'error' : 'info')
       },
+      namespace: 'nrg.app',
       get ndjson () {
         return cfg.isProd
       },
@@ -288,11 +289,8 @@ module.exports = function config (options = {}) {
         },
         // Plugin for adding a simple health check endpoint if the application
         // has been configured with a router.
-        healthEndpoint (app, ctx) {
+        healthEndpoint (app) {
           if (cfg.plugins.router && cfg.healthEndpoint) {
-            if (ctx.logger) {
-              ctx.logger.debug('Adding health endpoint:', cfg.healthEndpoint)
-            }
             app.get(cfg.healthEndpoint, ctx => (ctx.status = 200))
           }
         },

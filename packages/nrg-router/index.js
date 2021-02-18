@@ -6,10 +6,10 @@ const methods = [
   'PUT',
   'DELETE'
 ]
-const routers = {}
 const isNotDisableCsrf = middleware => middleware.name !== 'disableCsrf'
 
 module.exports = function nrgRouter (app, ctx) {
+  const routers = {}
   const logger = app.logger?.ns('nrg.router') || { debug: () => {} }
 
   // Add a route to the route tree.
