@@ -16,7 +16,6 @@ async function handleError (ctx, next) {
   try {
     await next()
   } catch (err) {
-    console.log('ERRROR', err)
     enrichAndLogError(err, ctx)
     addErrorToResponse(err, ctx)
   }

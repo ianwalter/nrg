@@ -287,7 +287,7 @@ module.exports = {
   // Adapt Next.js middleware to be executed with the nrg request context.
   adaptNext,
 
-  //
+  // Relay requests to other servers.
   relay,
 
   /**

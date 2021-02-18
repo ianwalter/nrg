@@ -16,7 +16,7 @@ test('Relay • GET', async t => {
   t.expect(response.body).toContain('Ian Walter')
 })
 
-test.only('Relay • POST', async t => {
+test('Relay • POST', async t => {
   const appA = nrg.createApp({ name: 'A', log: { level: 'info' } })
   const appB = nrg.createApp({ name: 'B' })
   const serverA = await appA.serve()
@@ -24,6 +24,7 @@ test.only('Relay • POST', async t => {
   // Add the POST endpoint to app A.
   appA.post('/', async ctx => {
     ctx.logger.info('App A', ctx.request.body)
+    ctx.status = 201
     ctx.body = ctx.request.body
   })
 
@@ -36,7 +37,7 @@ test.only('Relay • POST', async t => {
   // Make the request and verify the response is correct.
   const name = 'toots'
   const response = await appB.test('/').post({ name })
-  t.expect(response.statusCode).toBe(200)
+  t.expect(response.statusCode).toBe(201)
   t.expect(response.body?.name).toBe(name)
 
   await serverA.destroy()

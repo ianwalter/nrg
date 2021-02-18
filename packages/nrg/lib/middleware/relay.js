@@ -12,7 +12,8 @@ function relay (config) {
       const url = new URL(ctx.url, config.baseUrl).toString()
       const options = { headers: ctx.headers, body: ctx.request.body }
 
-      // Delete the host header since it describes the relay server.
+      // Delete the host header since it's for the relay server not the ending
+      // server.
       delete options.headers.host
 
       // Convert the body to a JSON string, etc.
@@ -20,18 +21,32 @@ function relay (config) {
 
       logger.debug('Relay request', { config, method, url, options })
 
+      // Add the response and whether the response was successful to the relay
+      // state so it can be used by downstream middleware.
       ctx.state.relay.response = await requester[method](url, options)
       ctx.state.relay.ok = true
+
+      // Add the response properties to the root state so they can be used in
+      // the response.
       ctx.state.status = ctx.state.relay.response.statusCode
       ctx.state.body = ctx.state.relay.response.body
     } catch (err) {
-      logger.warn(err)
+      // Add the err to the relay state so that it can be used by downstream
+      // middleware.
       ctx.state.relay.err = err
+
       if (err.response) {
-        ctx.state.status = err.response.status
-        ctx.state.body = err.response.body
+        // Reduce err.response to the basics and log the error.
+        const { statusCode, headers, body } = err.response
+        err.response = { statusCode, headers, body }
+        logger.warn(err)
+
+        // Add the response properties to the root state so they can be used in
+        // the response.
+        ctx.state.status = statusCode
+        ctx.state.body = body
       } else {
-        return next(err)
+        throw err
       }
     }
 
