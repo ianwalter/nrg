@@ -1,5 +1,15 @@
 # @ianwalter/nrg-sentry
 
+## 1.2.1
+
+### Patch Changes
+
+- bbe8808: Fix nrg-sentry deps to include nrg
+- Updated dependencies [157b94b]
+- Updated dependencies [e505614]
+- Updated dependencies [50d5911]
+  - @ianwalter/nrg@0.19.0
+
 ## 1.2.0
 
 ### Minor Changes

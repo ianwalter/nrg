@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/nrg-sentry",
   "description": "Sentry integration for the nrg web framework",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "SEE LICENSE IN LICENSE",
   "author": {
     "name": "Ian Walter",
@@ -40,7 +40,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.18.2",
+    "@ianwalter/nrg": "^0.19.0",
     "@sentry/node": "^5.30.0",
     "@sentry/tracing": "^5.30.0"
   },

@@ -1,5 +1,24 @@
 # @ianwalter/nrg
 
+## 0.19.0
+
+### Minor Changes
+
+- 157b94b: Adding relay middleware
+
+### Patch Changes
+
+- e505614: Update utility dependencies
+- 50d5911: Update dependency @generates/logger to ^0.1.1
+- Updated dependencies [157b94b]
+- Updated dependencies [157b94b]
+- Updated dependencies [7adf205]
+- Updated dependencies [50d5911]
+  - @ianwalter/nrg-validation@2.1.1
+  - @ianwalter/nrg-router@1.1.2
+  - @ianwalter/nrg-logger@0.3.1
+  - @ianwalter/nrg-mq@1.2.4
+
 ## 0.18.2
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @ianwalter/nrg-validation
 
+## 2.1.1
+
+### Patch Changes
+
+- 157b94b: Removing debug statements
+- 7adf205: Fixing nrg-validation nested data issue
+- 50d5911: Update dependency @generates/logger to ^0.1.1
+
 ## 2.1.0
 
 ### Minor Changes
