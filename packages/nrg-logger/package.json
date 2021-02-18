@@ -39,7 +39,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@generates/logger": "^0.1.0",
+    "@generates/logger": "^0.1.1",
     "@ianwalter/timer": "^2.0.2"
   },
   "devDependencies": {
