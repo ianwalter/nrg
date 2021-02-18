@@ -1,5 +1,11 @@
 # @ianwalter/nrg-mq
 
+## 1.2.4
+
+### Patch Changes
+
+- 50d5911: Update dependency @generates/logger to ^0.1.1
+
 ## 1.2.3
 
 ### Patch Changes

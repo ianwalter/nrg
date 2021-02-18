@@ -1,5 +1,11 @@
 # @ianwalter/nrg-router
 
+## 1.1.2
+
+### Patch Changes
+
+- 157b94b: Fixing issue where routers map was global
+
 ## 1.1.1
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/nrg-router",
   "description": "A tree-based router for the nrg web framework",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "SEE LICENSE IN LICENSE",
   "author": {
     "name": "Ian Walter",

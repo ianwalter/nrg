@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.3.1
+
+### Patch Changes
+
+- 50d5911: Update dependency @generates/logger to ^0.1.1
+
 ## 0.3.0
 
 ### Minor Changes
