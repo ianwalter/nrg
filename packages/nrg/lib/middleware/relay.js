@@ -10,7 +10,8 @@ function relay (config) {
     try {
       const method = ctx.method.toLowerCase()
       const url = new URL(ctx.url, config.baseUrl).toString()
-      const options = { headers: ctx.headers, body: ctx.request.body }
+      const body = ctx.request.body || ctx.req.body || {}
+      const options = { headers: ctx.headers, body }
 
       // Delete the host header since it's for the relay server not the ending
       // server.
