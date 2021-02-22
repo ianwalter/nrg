@@ -506,6 +506,20 @@
     getopts "^2.2.5"
     read-pkg-up "^7.0.1"
 
+"@generates/cli@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@generates/cli/-/cli-1.0.1.tgz#94a11ffb2449a362ab8f74dfe05ba8ef064dd248"
+  integrity sha512-wd9tAyvFKe21q5V+g/G1NvZEnRbPxVTU2bcd5RU0AhGk4h34DD6j31iSLAHTP7kpn5OCiGJW/UnWBvHUNx9SMQ==
+  dependencies:
+    "@generates/dotter" "^2.0.0"
+    "@generates/logger" "^0.1.2"
+    "@generates/merger" "^0.1.3"
+    camelcase "^6.0.0"
+    common-tags "^1.8.0"
+    decamelize "^4.0.0"
+    getopts "^2.2.5"
+    read-pkg-up "^7.0.1"
+
 "@generates/dotter@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@generates/dotter/-/dotter-2.0.0.tgz#680523dbe6782ad8b924082258898378472106e5"
@@ -572,19 +586,37 @@
     marked-terminal "^4.1.0"
     strip-ansi "^6.0.0"
 
+"@generates/logger@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@generates/logger/-/logger-0.1.2.tgz#fcf9d9ee60323a092ce51c3bb0baff4f5d6e5e09"
+  integrity sha512-tTQdLa5luH79IWaDx3pZGe5+qGjflQPewDm11dIGXXFw+MLt99Nz8tUlgQa71KLtOY51wcR2XmuVpXCNWjErsQ==
+  dependencies:
+    "@generates/cli" "^1.0.0"
+    "@generates/dotter" "^2.0.0"
+    "@generates/merger" "^0.1.0"
+    "@ianwalter/chromafi" "^1.0.1"
+    "@ianwalter/clone" "^6.0.1"
+    "@ianwalter/cloneable" "^2.0.0"
+    chalk "^4.1.0"
+    has-ansi "^4.0.0"
+    has-emoji "^1.1.0"
+    marked "^2.0.0"
+    marked-terminal "^4.1.0"
+    strip-ansi "^6.0.0"
+
 "@generates/merger@^0.1.0", "@generates/merger@^0.1.1", "@generates/merger@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@generates/merger/-/merger-0.1.3.tgz#6808e51767b45bf75a8354f739d645826de85677"
   integrity sha512-x4KKHexiP4hIfoGZumc3RSac1t9d/aGErxbG9NASHcx59mljW2uyKDt4qP3igi9hszIHV5mjb4TbAYUNFoWg3w==
 
-"@generates/modulizer@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-7.0.0.tgz#646af6254b5c5eebac1720a975bcf8619de68b3e"
-  integrity sha512-Tq3IZhAd9FxxXRc7nNPjvoacDwRnUPGA2lDtXusCr1QDfOjVNTWvoywWIv3uh+gllxSvB5Q6bPMKx1LOOZ2wUA==
+"@generates/modulizer@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-7.0.1.tgz#46693097a8610141b7d8b39839650d55a3e4050c"
+  integrity sha512-K1mkbc6G97tHOij1G1TX93JM1p8VfdO6NLnc/pzc2QKn516dEpYBClLaAPbuunN4512LH6Bu4BieV/4hkCrEHw==
   dependencies:
     "@babel/core" "^7.8.6"
-    "@generates/cli" "^0.0.10"
-    "@generates/logger" "^0.1.1"
+    "@generates/cli" "^1.0.0"
+    "@generates/logger" "^0.1.2"
     "@ianwalter/npm-short-name" "^1.0.0"
     "@ianwalter/rollup-plugin-hashbang" "^1.3.0"
     "@rollup/plugin-babel" "^5.3.0"
