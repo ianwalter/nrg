@@ -568,24 +568,6 @@
     marked-terminal "^4.1.0"
     strip-ansi "^6.0.0"
 
-"@generates/logger@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@generates/logger/-/logger-0.1.1.tgz#3348ed03bef8382a9515e8e605443a101596f2eb"
-  integrity sha512-JsI7DEzilu/VzMPgn5P5/po1GmhLC9X29kLiv+TFzS2aycPHYIqK7CeUZAcV7aJysAvYSF6JtYXO6fpaBkaXkg==
-  dependencies:
-    "@generates/cli" "^0.0.10"
-    "@generates/dotter" "^2.0.0"
-    "@generates/merger" "^0.1.0"
-    "@ianwalter/chromafi" "^1.0.1"
-    "@ianwalter/clone" "^6.0.1"
-    "@ianwalter/cloneable" "^2.0.0"
-    chalk "^4.1.0"
-    has-ansi "^4.0.0"
-    has-emoji "^1.1.0"
-    marked "^2.0.0"
-    marked-terminal "^4.1.0"
-    strip-ansi "^6.0.0"
-
 "@generates/logger@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@generates/logger/-/logger-0.1.2.tgz#fcf9d9ee60323a092ce51c3bb0baff4f5d6e5e09"
