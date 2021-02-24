@@ -1,5 +1,19 @@
 # @ianwalter/nrg
 
+## 0.19.1
+
+### Patch Changes
+
+- a869815: Update dependency @generates/logger to ^0.1.2
+- 614a0ee: Update dependency @generates/modulizer to ^7.0.1
+- 3b1157c: Update dependency knex to ^0.21.18
+- 056f82c: Fixing relay body logic
+- Updated dependencies [a869815]
+- Updated dependencies [176249c]
+  - @ianwalter/nrg-logger@0.3.2
+  - @ianwalter/nrg-mq@1.2.5
+  - @ianwalter/nrg-validation@2.1.2
+
 ## 0.19.0
 
 ### Minor Changes

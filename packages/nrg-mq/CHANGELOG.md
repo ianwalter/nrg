@@ -1,5 +1,12 @@
 # @ianwalter/nrg-mq
 
+## 1.2.5
+
+### Patch Changes
+
+- a869815: Update dependency @generates/logger to ^0.1.2
+- 176249c: Update dependency amqplib to ^0.7.0
+
 ## 1.2.4
 
 ### Patch Changes
