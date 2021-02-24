@@ -1,16 +1,18 @@
 const { requester } = require('@ianwalter/requester')
+const { merge } = require('@generates/merger')
 
 function relay (config) {
   return async (ctx, next) => {
     const logger = ctx.logger.ns('nrg.relay')
 
-    // Create the relay state object.
-    ctx.state.relay = { ok: false }
+    // Setup the relay state object.
+    const defaultState = { ok: false, body: ctx.request.body || ctx.req.body }
+    ctx.state.relay = merge(defaultState, ctx.state.relay)
 
     try {
       const method = ctx.method.toLowerCase()
       const url = new URL(ctx.url, config.baseUrl).toString()
-      const options = { headers: ctx.headers, body: ctx.request.body }
+      const options = { headers: ctx.headers, body: ctx.state.relay.body }
 
       // Delete the host header since it's for the relay server not the ending
       // server.
