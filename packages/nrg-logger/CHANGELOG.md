@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.3.2
+
+### Patch Changes
+
+- a869815: Update dependency @generates/logger to ^0.1.2
+
 ## 0.3.1
 
 ### Patch Changes
