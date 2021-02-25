@@ -44,8 +44,8 @@ test('isArray', t => {
   t.expect(isArray(new Array(0))).toBe(false)
   t.expect(isArray('[1,2]')).toBe(false)
   t.expect(isArray(new Set([]))).toBe(false)
-  t.expect(isArray(isInteger)([1, 2])).toBe(true)
-  t.expect(isArray(isInteger)([1, '2'])).toBe(false)
+  t.expect(isArray(isInteger).givenArray([1, 2])).toBe(true)
+  t.expect(isArray(isInteger).givenArray([1, '2'])).toBe(false)
 })
 
 test('isEmail', t => {

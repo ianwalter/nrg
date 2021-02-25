@@ -10,6 +10,7 @@ Object {
     "password": "qwerty",
     "phone": "777",
   },
+  "failureCount": 6,
   "feedback": Object {
     "email": Array [
       "A valid email is required.",
@@ -31,12 +32,27 @@ Object {
       "A valid telephone number is required.",
     ],
   },
+  "input": Object {
+    "email": "hahaha",
+    "name": "",
+    "occupation": "CEO",
+    "organizationName": false,
+    "password": "qwerty",
+    "phone": "777",
+  },
   "isValid": false,
+  "options": Object {
+    "failFast": 0,
+  },
+  "state": Object {
+    "phone": "US",
+  },
   "validations": Object {
     "email": Object {
       "isValid": false,
     },
     "name": Object {
+      "isEmpty": true,
       "isValid": false,
     },
     "occupation": Object {

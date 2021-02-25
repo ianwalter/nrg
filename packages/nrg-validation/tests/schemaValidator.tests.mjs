@@ -7,11 +7,10 @@ import {
   isEmail,
   isPhone,
   isStrongPassword,
-  isOptional,
+  canBeEmpty,
   lowercase,
   trim,
-  SchemaValidator,
-  ignoreEmpty
+  SchemaValidator
 } from '../index.js'
 
 const containsSoftware = {
@@ -25,8 +24,8 @@ const registrationValidator = new SchemaValidator({
   name: isString,
   password: { isStrongPassword, message: 'Your password must be stronger.' },
   occupation: { containsSoftware },
-  phone: { isPhone, isOptional, name: 'telephone number' },
-  organizationName: { isString, ignoreEmpty }
+  phone: { isPhone, canBeEmpty, name: 'telephone number' },
+  organizationName: { isString, canBeEmpty }
 })
 const email = 'yo@fastmail.com'
 const validInput = {
@@ -37,7 +36,7 @@ const validInput = {
   phone: '6177779501',
   organizationName: 'Acme'
 }
-const args = { phone: ['US'] }
+const args = { phone: 'US' }
 
 test('Valid registration', async t => {
   const validation = await registrationValidator.validate(validInput, args)
@@ -80,7 +79,7 @@ test('Without optional data', async t => {
   t.expect(validation.isValid).toBe(true)
 })
 
-test('Field with ignoreEmpty', async t => {
+test('Field with canBeEmpty', async t => {
   const input = { ...validInput, organizationName: '' }
   const validation = await registrationValidator.validate(input, args)
   t.expect(validation.isValid).toBe(true)
@@ -92,7 +91,7 @@ test('Nested SchemaValidator', async t => {
     consent: { isBoolean },
     cart: new SchemaValidator({
       currency: { isString },
-      products: { isArray: isArray(isString) }
+      products: { ...isArray(isString) }
     })
   })
   const validTop = { userId: 123, consent: true }
@@ -118,4 +117,25 @@ test('Nested SchemaValidator', async t => {
   validation = await orderValidator.validate({ ...validTop, cart: invalidCart })
   t.expect(validation.isValid).toBe(false)
   t.expect(validation.data.cart.total).toBe(undefined)
+})
+
+test('Validator ctx', async t => {
+  const message = 'Layout not included in layouts'
+  const layoutValidator = {
+    validate (input, state, ctx) {
+      if (ctx.input.layouts.includes(input)) return { isValid: true }
+      return { isValid: false, message }
+    }
+  }
+  const validator = new SchemaValidator({
+    layouts: { ...isArray(isInteger) },
+    layout: { layoutValidator }
+  })
+
+  let validation = await validator.validate({ layouts: [1, 2], layout: 1 })
+  t.expect(validation.isValid).toBe(true)
+
+  validation = await validator.validate({ layouts: [1, 2], layout: 3 })
+  t.expect(validation.isValid).toBe(false)
+  t.expect(validation.feedback.layout[0]).toBe(message)
 })

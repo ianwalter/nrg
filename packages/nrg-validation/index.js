@@ -7,7 +7,9 @@ const {
   isEmail,
   isPhone,
   isDate,
-  isStrongPassword
+  isStrongPassword,
+  isObject,
+  isEmpty
 } = require('./lib/validators.js')
 const { trim, lowercase } = require('./lib/modifiers.js')
 
@@ -23,6 +25,7 @@ module.exports = {
   isPhone,
   isDate,
   isStrongPassword,
-  isOptional: true,
-  ignoreEmpty: true
+  isObject,
+  isEmpty,
+  canBeEmpty: isEmpty
 }
