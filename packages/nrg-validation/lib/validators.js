@@ -32,7 +32,7 @@ isInteger.validate = function validateInteger (input) {
 function isArray (input) {
   if (typeof input === 'function') {
     const validator = input
-    const given = input => resultIsValid(given.validate(input))
+    const givenArray = input => resultIsValid(givenArray.validate(input))
     given.validate = function validateArrayOf (input) {
       const validation = { results: [] }
       validation.isValid = isArray(input) && input.every(item => {
@@ -42,7 +42,7 @@ function isArray (input) {
       })
       return validation
     }
-    return { given }
+    return { givenArray }
   }
   return resultIsValid(isArray.validate(input))
 }
