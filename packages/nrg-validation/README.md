@@ -12,7 +12,7 @@ import {
   isString,
   isStrongPassword,
   isPhone,
-  isOptional,
+  canBeEmpty,
   Validation,
   ValidationError
 } from '@ianwalter/nrg-validation'
@@ -29,7 +29,7 @@ const registrationValidator = new SchemaValidator({
   name: { isString },
   password: { isStrongPassword, message: 'Your password must be stronger.' },
   occupation: { mustContainSoftware },
-  phone: { isPhone, isOptional, name: 'telephone number' }
+  phone: { isPhone, canBeEmpty, name: 'telephone number' }
 })
 
 try {

@@ -3,7 +3,7 @@ const {
   isString,
   isEmail,
   isStrongPassword,
-  isOptional,
+  canBeEmpty,
   trim,
   lowercase
 } = require('@ianwalter/nrg-validation')
@@ -33,10 +33,10 @@ module.exports = class Account extends Base {
 
   static get updateSchema () {
     return {
-      firstName: { isString, isOptional, trim },
-      lastName: { isString, isOptional, trim },
-      email: { isEmail, isOptional, trim, lowercase },
-      password: { isStrongPassword, isOptional }
+      firstName: { isString, canBeEmpty, trim },
+      lastName: { isString, canBeEmpty, trim },
+      email: { isEmail, canBeEmpty, trim, lowercase },
+      password: { isStrongPassword, canBeEmpty }
     }
   }
 

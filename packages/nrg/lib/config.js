@@ -6,7 +6,7 @@ const {
   isEmail,
   isStrongPassword,
   isString,
-  isOptional,
+  canBeEmpty,
   isBoolean,
   trim,
   lowercase
@@ -489,7 +489,7 @@ module.exports = function config (options = {}) {
     validators: {
       get login () {
         const s = cfg.accounts.models.Account.loginSchema
-        if (cfg.sessions.rememberMe) s.rememberMe = { isBoolean, isOptional }
+        if (cfg.sessions.rememberMe) s.rememberMe = { isBoolean, canBeEmpty }
         return new SchemaValidator(s)
       },
       get registration () {
@@ -503,7 +503,7 @@ module.exports = function config (options = {}) {
         email,
         token,
         password,
-        passwordConfirmation: { isString, isOptional }
+        passwordConfirmation: { isString, canBeEmpty }
       }),
       passwordUpdate: new SchemaValidator({ password, newPassword: password }),
       get accountUpdate () {

@@ -1,10 +1,13 @@
 const decamelize = require('decamelize')
 const { createLogger } = require('@generates/logger')
+const { isEmpty } = require('./validators')
 
 const logger = createLogger({ level: 'info', namespace: 'nrg.validation' })
 
 const defaults = { failFast: 0 }
 const pipe = (...fns) => val => fns.reduce((acc, fn) => fn(acc), val)
+const toValidators = (acc, [key, option]) =>
+  option?.validate && key !== 'canBeEmpty' ? acc.concat([option]) : acc
 
 module.exports = class SchemaValidator {
   constructor (schema, options) {
@@ -20,7 +23,7 @@ module.exports = class SchemaValidator {
       this.fields[field] = {
         ...options,
         name: options.name && !options.validate ? options.name : defaultName,
-        validators: Object.values(options).filter(o => o?.validate),
+        validators: Object.entries(options).reduce(toValidators, []),
         modifiers: Object.values(options).filter(o => o?.modify)
       }
 
@@ -34,87 +37,104 @@ module.exports = class SchemaValidator {
     }
   }
 
-  handleFailure (feedback, key, field, validation = {}) {
+  handleFailure (ctx, key, field) {
     // Log validation failure.
-    if (validation.undefined) {
-      logger.debug(`Required field ${key} undefined`)
-    } else if (validation.err) {
-      logger.warn('Error during validation', validation.err)
+    if (ctx.validations[key].isEmpty) {
+      logger.debug(`Required field ${key} is empty`)
+    } else if (ctx.validations[key].err) {
+      logger.warn('Error during validation', ctx.validations[key].err)
     } else {
-      logger.debug('Validation failure', validation)
+      logger.debug('Validation failure', ctx.validations[key])
     }
 
     // Determine validation failure message and add it to feedback.
-    let message = validation.message
+    let message = ctx.validations[key].message
     if (!message && field.message) {
       if (typeof field.message === 'function') {
-        message = field.message({ key, field, validation })
+        message = field.message(ctx, key, field)
       } else {
         message = field.message
       }
     } else if (!message) {
       message = `A valid ${field.name} is required.`
     }
-    if (feedback[key]) {
-      feedback[key].push(message)
+    if (ctx.feedback[key]) {
+      ctx.feedback[key].push(message)
     } else {
-      feedback[key] = [message]
+      ctx.feedback[key] = [message]
     }
 
     // Add any other feedback within the validation object to feedback for the
     // field.
-    if (validation.feedback) {
-      if (Array.isArray(validation.feedback)) {
-        feedback[key] = feedback[key].concat(validation.feedback)
+    const { feedback } = ctx.validations[key]
+    if (feedback) {
+      if (Array.isArray(feedback)) {
+        ctx.feedback[key] = ctx.feedback[key].concat(feedback)
       } else {
-        feedback[key].push(validation.feedback)
+        ctx.feedback[key].push(feedback)
       }
     }
   }
 
-  async validate (input, args = {}) {
-    const { failFast } = this.options
-    const validations = {}
-    const feedback = {}
-    const data = {}
+  async validate (input, state) {
+    const ctx = {
+      options: this.options,
+      validations: {},
+      feedback: {},
+      data: {},
+      input,
+      state,
+      failureCount: 0,
+      get isValid () {
+        return !this.failureCount
+      }
+    }
 
-    let failureCount = 0
     for (const [key, field] of Object.entries(this.fields)) {
-      const isUndefined = input[key] === undefined
-      const isEmpty = isUndefined || input[key] === '' || input[key] === null
-
-      if (field.ignoreEmpty && isEmpty) continue
+      const { canBeEmpty } = field
 
       // Add the input to the data map so that the subset of data can be used
       // later.
-      data[key] = pipe(...field.modifiers)(input[key])
+      ctx.data[key] = pipe(...field.modifiers)(input[key])
 
-      // Perform the validation.
-      if (isUndefined && !field.isOptional) {
-        validations[key] = { isValid: false, undefined: true }
-      } else if (!isUndefined) {
+      const vInput = ctx.data[key]
+      const vState = state && state[key]
+      if (canBeEmpty) {
+        // If the field can be empty, skip other validations if the canBeEmpty
+        // validation is valid.
+        ctx.validations[key] = await canBeEmpty.validate(vInput, vState, ctx)
+        if (ctx.validations[key].isValid) continue
+      }
+
+      if (!canBeEmpty && isEmpty(vInput)) {
+        // If the field can't be empty and is empty, mark it as invalid and skip
+        // validations.
+        ctx.validations[key] = { isValid: false, isEmpty: true }
+      } else {
+        // Perform the validation(s).
         for (const validator of field.validators) {
           try {
-            // FIXME: Maybe allow multiple validations for a key or at least
-            // add a way to merge them?
-            const rest = args[key] || []
-            validations[key] = await validator.validate(data[key], ...rest)
-            if (field.isSchemaValidator) data[key] = validations[key].data
+            ctx.validations[key] = await validator.validate(vInput, vState, ctx)
+            if (field.isSchemaValidator) {
+              ctx.data[key] = ctx.validations[key].data
+            }
           } catch (err) {
-            validations[key] = { isValid: false, err }
+            ctx.validations[key] = { isValid: false, err }
           }
-          if (!validations[key].isValid) break
+          if (!ctx.validations[key].isValid) break
         }
       }
 
       // Perform validation failure steps if the validation fails.
-      if (validations[key] && !validations[key].isValid) {
-        failureCount++
-        this.handleFailure(feedback, key, field, validations[key])
-        if (failFast && failFast === failureCount) break
+      if (ctx.validations[key] && ctx.validations[key].isValid === false) {
+        ctx.failureCount++
+        this.handleFailure(ctx, key, field)
+        if (ctx.options.failFast && ctx.options.failFast === ctx.failureCount) {
+          break
+        }
       }
     }
 
-    return { isValid: !failureCount, validations, feedback, data }
+    return ctx
   }
 }

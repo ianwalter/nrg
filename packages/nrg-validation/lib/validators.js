@@ -32,8 +32,8 @@ isInteger.validate = function validateInteger (input) {
 function isArray (input) {
   if (typeof input === 'function') {
     const validator = input
-    const isArrayOf = input => resultIsValid(isArrayOf.validate(input))
-    isArrayOf.validate = function validateArrayOf (input) {
+    const given = input => resultIsValid(given.validate(input))
+    given.validate = function validateArrayOf (input) {
       const validation = { results: [] }
       validation.isValid = isArray(input) && input.every(item => {
         const result = validator.validate(item)
@@ -42,7 +42,7 @@ function isArray (input) {
       })
       return validation
     }
-    return isArrayOf
+    return { given }
   }
   return resultIsValid(isArray.validate(input))
 }
@@ -92,6 +92,26 @@ isPhone.validate = function validatePhone (input, country) {
   return { isValid, result }
 }
 
+function isObject (input) {
+  return resultIsValid(isObject.validate(input))
+}
+isObject.validate = function validateObject (i) {
+  return { isValid: Object.prototype.toString.call(i) === '[object Object]' }
+}
+
+function isEmpty (input) {
+  return resultIsValid(isEmpty.validate(input))
+}
+isEmpty.validate = function validateEmpty (input) {
+  return {
+    isValid: input === undefined ||
+      input === null ||
+      input === '' ||
+      (Array.isArray(input) && input.length === 0) ||
+      (isObject(input) && Object.keys(input) === 0)
+  }
+}
+
 module.exports = {
   resultIsValid,
   isString,
@@ -101,5 +121,7 @@ module.exports = {
   isPhone,
   isEmail,
   isDate,
-  isStrongPassword
+  isStrongPassword,
+  isObject,
+  isEmpty
 }
