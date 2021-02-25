@@ -831,6 +831,19 @@
   dependencies:
     camelcase "^5.0.0"
 
+"@ianwalter/nrg-validation@2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@ianwalter/nrg-validation/-/nrg-validation-2.1.2.tgz#bfba3174e8079af907bb008b2b585512902bda69"
+  integrity sha512-QfqmoSWAjOt44tafPvDus9XslHf/978EPowi+OCRX4nIhTLFtig5OCQ68swk04ajgQ17Ys5iakYFCKF76XMxUg==
+  dependencies:
+    "@generates/logger" "^0.1.2"
+    "@generates/merger" "^0.1.3"
+    date-fns "^2.17.0"
+    decamelize "^4.0.0"
+    isemail "^3.2.0"
+    libphonenumber-js "^1.9.10"
+    zxcvbn "^4.4.2"
+
 "@ianwalter/print@^5.0.0", "@ianwalter/print@^5.3.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-5.3.0.tgz#f5a73bbe387075d0ac5fb654943c81c181082d84"
