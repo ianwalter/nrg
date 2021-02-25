@@ -33,7 +33,7 @@ function isArray (input) {
   if (typeof input === 'function') {
     const validator = input
     const givenArray = input => resultIsValid(givenArray.validate(input))
-    given.validate = function validateArrayOf (input) {
+    givenArray.validate = function validateArrayOf (input) {
       const validation = { results: [] }
       validation.isValid = isArray(input) && input.every(item => {
         const result = validator.validate(item)
