@@ -1,5 +1,11 @@
 # @ianwalter/nrg-validation
 
+## 3.0.0
+
+### Major Changes
+
+- 2326aa1: Improve validator args and replace isOptional/ignoreEmpty with canBeEmpty
+
 ## 2.1.2
 
 ### Patch Changes
