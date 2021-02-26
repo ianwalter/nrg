@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.19.3
+
+### Patch Changes
+
+- 13e2f81: Fixing header logic in relay middleware
+
 ## 0.19.2
 
 ### Patch Changes
