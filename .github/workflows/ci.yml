@@ -24,7 +24,7 @@ jobs:
       DEBUG: nrg.rateLimit
     services:
       postgres:
-        image: postgres:12.3
+        image: postgres:12.6
         env:
           POSTGRES_DB: nrg
           POSTGRES_USER: nrg
