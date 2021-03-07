@@ -4703,14 +4703,14 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.5, graceful-fs@^4.1.6, graceful-fs@^4.2.0, 
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
   integrity sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
 
-grant@^5.4.9:
-  version "5.4.9"
-  resolved "https://registry.yarnpkg.com/grant/-/grant-5.4.9.tgz#49a4ca8f5a8433888473e768ba5724019175d54f"
-  integrity sha512-DG7H7Fpm+xr54sndR9zlMp3S9WoijiSrIPMzLWiVKR7RBE3e9ahQ+daCTnaCeXmVFaMo/557M45+7HvpAeDS9g==
+grant@^5.4.10:
+  version "5.4.10"
+  resolved "https://registry.yarnpkg.com/grant/-/grant-5.4.10.tgz#eefbd983c84845e22c9f1b1aa1e0de573b6550f4"
+  integrity sha512-NS9XRTxPV1NI9XjXLklw3E9lCTsGl4P9IQFRLF5RqoGyX3f48+Inn2i3NpvIMtfhCvYd7juA/EKDwZgvnZh9fg==
   dependencies:
-    qs "^6.9.4"
+    qs "^6.9.6"
     request-compose "^2.1.0"
-    request-oauth "^1.0.0"
+    request-oauth "^1.0.1"
   optionalDependencies:
     cookie "^0.4.1"
     cookie-signature "^1.1.0"
@@ -8391,7 +8391,7 @@ request-compose@^2.1.0:
   resolved "https://registry.yarnpkg.com/request-compose/-/request-compose-2.1.0.tgz#2064e886a7745a6af425609aa116ebfeffc1792d"
   integrity sha512-mIWvU9HA2whb/fHcqeQ0LQXAImCGISqUPyjuFF2rALhym2Fu4ebZGv7wxFA78rsJO/fn2OeEaK54TSjwSwRAFw==
 
-request-oauth@^1.0.0:
+request-oauth@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/request-oauth/-/request-oauth-1.0.1.tgz#dedb0c4a37234d9e93f377ddb0aaab425f31239e"
   integrity sha512-85THTg1RgOYtqQw42JON6AqvHLptlj1biw265Tsq4fD4cPdUvhDB2Qh9NTv17yCD322ROuO9aOmpc4GyayGVBA==
