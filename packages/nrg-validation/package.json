@@ -25,7 +25,7 @@
     "date-fns": "^2.19.0",
     "decamelize": "^4.0.0",
     "isemail": "^3.2.0",
-    "libphonenumber-js": "^1.9.10",
+    "libphonenumber-js": "^1.9.14",
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
