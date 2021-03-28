@@ -5994,10 +5994,10 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
-libphonenumber-js@^1.9.14:
-  version "1.9.14"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.14.tgz#c5fd28c4c4e5139fa3459e113c1f5015a52aeb42"
-  integrity sha512-lQEHej1NQwKwmn89ixSfvj+m7Gm6AsafuxU1BMsS22VUizQPnamVslA2d5wsHHaaXOExAvlcYjUF1C7ieTzoCg==
+libphonenumber-js@^1.9.10:
+  version "1.9.11"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.11.tgz#d7e0f3d967d0376d9c5624e3be007c70d0d6146a"
+  integrity sha512-ussVs6j3k0NEU4PNwWmVNGgmZQ88YrqzAw80ztmBfEhIQr55FpjFzPoDk5sWIfOmPuY1jmCKrxWCIemkBKqSPw==
 
 lie@3.1.1:
   version "3.1.1"
@@ -6879,10 +6879,10 @@ node-releases@^1.1.69:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.70.tgz#66e0ed0273aa65666d7fe78febe7634875426a08"
   integrity sha512-Slf2s69+2/uAD79pVVQo8uSiC34+g8GWY8UH2Qtqv34ZfhYrxpYpfzs9Js9d6O0mbDmALuxaTlplnBTnSELcrw==
 
-nodemailer@^6.4.17:
-  version "6.4.18"
-  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.4.18.tgz#2788c85792844fc17befda019031609017f4b9a1"
-  integrity sha512-ht9cXxQ+lTC+t00vkSIpKHIyM4aXIsQ1tcbQCn5IOnxYHi81W2XOaU66EQBFFpbtzLEBTC94gmkbD4mGZQzVpA==
+nodemailer@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.5.0.tgz#d12c28d8d48778918e25f1999d97910231b175d9"
+  integrity sha512-Tm4RPrrIZbnqDKAvX+/4M+zovEReiKlEXWDzG4iwtpL9X34MJY+D5LnQPH/+eghe8DLlAVshHAJZAZWBGhkguw==
 
 noop-logger@^0.1.1:
   version "0.1.1"
