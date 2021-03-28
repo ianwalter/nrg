@@ -1,6 +1,6 @@
 {
   "name": "@ianwalter/nrg-mq",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "A message queue plugin for the nrg web framework",
   "author": {
     "name": "Ian Walter",
