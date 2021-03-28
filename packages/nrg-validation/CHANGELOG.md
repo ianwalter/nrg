@@ -1,5 +1,12 @@
 # @ianwalter/nrg-validation
 
+## 3.0.1
+
+### Patch Changes
+
+- a5c5ccb: Update dependency date-fns to ^2.19.0
+- 8778497: Update dependency libphonenumber-js to ^1.9.14
+
 ## 3.0.0
 
 ### Major Changes

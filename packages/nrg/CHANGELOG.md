@@ -1,5 +1,24 @@
 # @ianwalter/nrg
 
+## 0.20.0
+
+### Minor Changes
+
+- fbe506a: Updating CLI
+- b0a4a83: Update dependency knex to ^0.95.4
+
+### Patch Changes
+
+- 10f1901: Update dependency nodemailer to ^6.5.0
+- a5c5ccb: Update dependency date-fns to ^2.19.0
+- de472cd: Fixing redis disconnect
+- c3d12bc: Update dependency nanoid to ^3.1.22
+- Updated dependencies [a5c5ccb]
+- Updated dependencies [d8be891]
+- Updated dependencies [8778497]
+  - @ianwalter/nrg-validation@3.0.1
+  - @ianwalter/nrg-mq@1.2.6
+
 ## 0.19.3
 
 ### Patch Changes
