@@ -53,7 +53,7 @@
     "@ianwalter/nrg-validation": "3.0.0",
     "@ianwalter/requester": "^2.5.0",
     "@ianwalter/url": "^2.0.0",
-    "bcrypt": "5.0.0",
+    "bcrypt": "5.0.1",
     "cheerio": "^1.0.0-rc.5",
     "date-fns": "^2.19.0",
     "devalue": "^2.0.1",
