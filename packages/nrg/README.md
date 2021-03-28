@@ -9,7 +9,7 @@
 ## Installation
 
 ```console
-pnpm add @ianwalter/nrg
+yarn add @ianwalter/nrg
 ```
 
 ## License

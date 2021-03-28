@@ -10,7 +10,7 @@ FIXME
 ## Installation
 
 ```console
-pnpm add @ianwalter/nrg-router
+yarn add @ianwalter/nrg-router
 ```
 
 ## Related

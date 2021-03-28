@@ -1,12 +1,15 @@
 const path = require('path')
 const { promises: fs } = require('fs')
+const getApp = require('../utilities/getApp.js')
 
 const migrationsSource = path.join(__dirname, '..', '..', 'migrations')
 
-async function copyMigrations ({ commands }, app) {
+module.exports = async function copyMigrations (input) {
+  const app = await getApp(input)
+
   // Determine the path for the resulting migrations directory.
   const destination = app.context.cfg.db.migrations ||
-    commands[2] ||
+    (input.args.length && input.args[0]) ||
     path.resolve('migrations')
 
   // Create the migrations directory if it doesn't exist.
@@ -20,6 +23,7 @@ async function copyMigrations ({ commands }, app) {
     path.join(migrationsSource, migration),
     path.join(destination, migration)
   )))
-}
 
-module.exports = { copyMigrations }
+  // Close any connections opened when the app was created.
+  if (app.close) app.close()
+}
