@@ -9,7 +9,7 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "pretest": "pnpx nrg migrate && pnpx nrg seed && pnpx nrg run deleteAllEmail",
+    "pretest": "yarn nrg migrate && yarn nrg seed && yarn nrg run deleteAllEmail",
     "test": "NODE_ENV=test bff"
   },
   "dependencies": {
