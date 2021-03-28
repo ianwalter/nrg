@@ -4,7 +4,7 @@ module.exports = function close () {
   if (this.db) this.db.destroy(dbCallback)
 
   // Close any open redis connections.
-  if (this.redis) this.redis.quit()
+  if (this.redis) this.redis.client.disconnect()
 
   if (this.mq) {
     // Silence channel ended error.
