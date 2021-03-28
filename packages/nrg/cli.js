@@ -22,40 +22,64 @@ const input = cli({
   usage: 'nrg [commands] [options]',
   packageJson: true,
   commands: {
-    copy: {
+    cp: {
+      aliases: ['copy'],
+      description: 'Copy files to your project',
       commands: {
         migrations: {
+          usage: 'nrg cp migrations',
           run: copyMigrations
         }
       }
     },
     new: {
-      id: {
-        run: newId
-      },
-      migration: {
-        run: newMigration
-      },
-      seed: {
-        run: newSeed
+      description: 'Generate files in your project',
+      commands: {
+        id: {
+          usage: 'nrg new id',
+          description: 'Generate a new, unique ID and print it to the console',
+          run: newId
+        },
+        migration: {
+          usage: 'nrg new migration',
+          description: 'Generate a new database migration file',
+          run: newMigration
+        },
+        seed: {
+          usage: 'nrg new seed',
+          description: 'Generate a new database seed file',
+          run: newSeed
+        }
       }
     },
     migrate: {
+      usage: 'nrg migrate',
+      description: 'Run all database migrations',
       run: migrate
     },
     seed: {
+      description: 'Seed the database with data',
       run: seed
     },
     run: {
+      usage: 'nrg run [script]',
+      description: 'Run a custom script',
       run
     },
     health: {
       aliases: ['healthcheck'],
+      description: 'Perform a health check on your application',
       run: healthcheck
     },
     print: {
+      description: 'Print something to the console',
       commands: {
         config: {
+          usage: 'nrg print config [path]',
+          description: `
+            Print the application config (or a part of it at the given pat) to
+            the console
+          `,
           run: printConfig
         }
       }
