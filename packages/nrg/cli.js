@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const path = require('path')
 const cli = require('@generates/cli')
 const { createLogger } = require('@generates/logger')
 const healthcheck = require('./lib/commands/healthcheck')
