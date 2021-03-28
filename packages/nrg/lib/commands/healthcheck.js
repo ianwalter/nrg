@@ -1,12 +1,17 @@
 const { requester } = require('@ianwalter/requester')
 const { oneLine } = require('common-tags')
 const createUrl = require('@ianwalter/url')
+const { createLogger } = require('@generates/logger')
+const getApp = require('../utilities/getApp.js')
 
-module.exports = function healthcheck (app, config) {
-  const { count = 3, timeout = 3000 } = config
+const logger = createLogger({ level: 'info', namespace: 'nrg.cli' })
+
+module.exports = async function healthcheck (input) {
+  const app = await getApp(input)
+  const { count = 3, timeout = 3000 } = input
   const { health, hostUrl } = app.context.cfg
   const { href } = createUrl(hostUrl, health.path)
-  app.logger.info(`Running health check against ${href}`)
+  logger.info(`Running health check against ${href}`)
 
   return new Promise(resolve => {
     let interval = null

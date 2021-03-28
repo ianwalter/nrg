@@ -3,8 +3,6 @@
 const path = require('path')
 const cli = require('@generates/cli')
 const { createLogger } = require('@generates/logger')
-const cloneable = require('@ianwalter/cloneable')
-const { excluding } = require('@generates/extractor')
 const healthcheck = require('./lib/commands/healthcheck')
 const copyMigrations = require('./lib/commands/copyMigrations')
 const migrate = require('./lib/commands/migrate')
@@ -13,7 +11,7 @@ const newMigration = require('./lib/commands/newMigration')
 const newSeed = require('./lib/commands/newSeed')
 const seed = require('./lib/commands/seed')
 const run = require('./lib/commands/run')
-const { get } = require('@generates/dotter')
+const printConfig = require('./lib/commands/printConfig')
 
 const logger = createLogger({ level: 'info', namespace: 'nrg.cli' })
 
@@ -50,29 +48,29 @@ const input = cli({
     run: {
       run
     },
-    healthcheck: {
+    health: {
+      aliases: ['healthcheck'],
       run: healthcheck
+    },
+    print: {
+      commands: {
+        config: {
+          run: printConfig
+        }
+      }
     }
   },
   options: {
     app: {
       alias: 'a',
       description: 'A file where your nrg app is created and exported.',
-      default: path.resolve('app')
+      default: 'app'
     },
     log: {
       default: { level: 'info' }
     }
   }
 })
-
-//   } else if (commands[0] === 'healthcheck') {
-//     await healthcheck(app, config)
-//   } else if (commands[0] === 'print') {
-//     if (commands[1] === 'config') {
-//       let cfg = excluding(app.context.cfg, 'helpText')
-//       if (!config.all) cfg = cloneable(cfg)
-//       logger.info('Application config:', get(cfg, commands[2]))
 
 if (input?.helpText) {
   process.stdout.write('\n')
