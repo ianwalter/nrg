@@ -18,7 +18,7 @@ logger.debug('Running nrg CLI...')
 
 const input = cli({
   name: 'nrg',
-  description: 'TODO',
+  description: 'A batteries-included Node.js web framework',
   usage: 'nrg [commands] [options]',
   packageJson: true,
   commands: {
@@ -41,12 +41,12 @@ const input = cli({
           run: newId
         },
         migration: {
-          usage: 'nrg new migration',
+          usage: 'nrg new migration [name]',
           description: 'Generate a new database migration file',
           run: newMigration
         },
         seed: {
-          usage: 'nrg new seed',
+          usage: 'nrg new seed [name]',
           description: 'Generate a new database seed file',
           run: newSeed
         }
