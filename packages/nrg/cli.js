@@ -6,14 +6,54 @@ const { createLogger } = require('@generates/logger')
 const cloneable = require('@ianwalter/cloneable')
 const { excluding } = require('@generates/extractor')
 const healthcheck = require('./lib/commands/healthcheck')
-const { copyMigrations } = require('./lib/commands/migrations')
+const copyMigrations = require('./lib/commands/copyMigrations')
+const migrate = require('./lib/commands/migrate')
 const newId = require('./lib/commands/newId')
+const newMigration = require('./lib/commands/newMigration')
+const newSeed = require('./lib/commands/newSeed')
+const seed = require('./lib/commands/seed')
+const run = require('./lib/commands/run')
 const { get } = require('@generates/dotter')
 
-const { _: commands, packageJson, ...config } = cli({
+const logger = createLogger({ level: 'info', namespace: 'nrg.cli' })
+
+const input = cli({
   name: 'nrg',
-  usage: 'nrg [options] [command]',
-  help: true,
+  description: 'TODO',
+  usage: 'nrg [commands] [options]',
+  packageJson: true,
+  commands: {
+    copy: {
+      commands: {
+        migrations: {
+          run: copyMigrations
+        }
+      }
+    },
+    new: {
+      id: {
+        run: newId
+      },
+      migration: {
+        run: newMigration
+      },
+      seed: {
+        run: newSeed
+      }
+    },
+    migrate: {
+      run: migrate
+    },
+    seed: {
+      run: seed
+    },
+    run: {
+      run
+    },
+    healthcheck: {
+      run: healthcheck
+    }
+  },
   options: {
     app: {
       alias: 'a',
@@ -26,94 +66,32 @@ const { _: commands, packageJson, ...config } = cli({
   }
 })
 
-const logger = createLogger({ namespace: 'nrg.cli' })
+//   } else if (commands[0] === 'healthcheck') {
+//     await healthcheck(app, config)
+//   } else if (commands[0] === 'print') {
+//     if (commands[1] === 'config') {
+//       let cfg = excluding(app.context.cfg, 'helpText')
+//       if (!config.all) cfg = cloneable(cfg)
+//       logger.info('Application config:', get(cfg, commands[2]))
 
-// Add the CLI onfig to the NRG_CLI environment variable so that nrg knows that
-// it's running in a CLI context and it can merge the options with the
-// app-supplied and default options.
-process.env.NRG_CLI = JSON.stringify({ ...config, isCli: true })
+if (input?.helpText) {
+  process.stdout.write('\n')
 
-async function run () {
-  const appPath = path.resolve(config.app)
-  let app
-  try {
-    if (appPath.includes('.mjs') || packageJson.type === 'module') {
-      const modulize = require('@generates/modulizer')
-      const requireFromString = require('require-from-string')
-      const cwd = path.dirname(appPath)
-      const { cjs } = await modulize({ input: appPath, cjs: true, cwd })
-      app = requireFromString(cjs[1], appPath)
-    } else {
-      app = require(appPath)
-    }
-  } catch (err) {
-    logger.fatal(err)
-    process.exit(1)
+  const [command] = input.args || []
+  if (command) {
+    logger.error(`Command "${command}" not found`)
+    process.stdout.write('\n')
   }
 
-  if (config.help) {
-    logger.info(config.helpText)
-  } else if (commands[0] === 'copy') {
-    if (commands[1] === 'migrations') {
-      await copyMigrations({ commands }, app)
-    } else {
-      app.logger.fatal('Copy what? Available: migrations')
-      process.exit(1)
-    }
-  } else if (commands[0] === 'migrate') {
-    // Run migrations.
-    await app.db.migrate.latest()
-  } else if (commands[0] === 'new') {
-    if (commands[1] === 'seed') {
-      // Make a new seed.
-      app.db.seed.make(commands[2])
-    } else if (commands[1] === 'id') {
-      newId({ logger })
-    } else if (commands[1] === 'migration') {
-      app.db.migrate.make(commands[2])
-    } else {
-      logger.fatal('New what? Available: secret, migration, seed')
-      process.exit(1)
-    }
-  } else if (commands[0] === 'seed') {
-    // Run seeds.
-    await app.db.seed.run()
-  } else if (commands[0] === 'run') {
-    if (commands[1]) {
-      try {
-        const script = require(path.resolve(`scripts/${commands[1]}`))
-        await script(app)
-      } catch (err) {
-        logger.error(err)
-        process.exit(1)
-      }
-    } else {
-      // FIXME: add available scripts.
-      logger.fatal('Run what?')
-      process.exit(1)
-    }
-  } else if (commands[0] === 'healthcheck') {
-    await healthcheck(app, config)
-  } else if (commands[0] === 'print') {
-    if (commands[1] === 'config') {
-      let cfg = excluding(app.context.cfg, 'helpText')
-      if (!config.all) cfg = cloneable(cfg)
-      logger.info('Application config:', get(cfg, commands[2]))
-    } else {
-      logger.fatal('Print what? Available: config')
-      process.exit(1)
-    }
-  } else {
-    logger.error('Unknown command:', commands[0], '\n\n')
-    logger.info(config.helpText)
-  }
+  logger.info(input.helpText)
+  process.stdout.write('\n')
 
-  // Close any connections opened when the app was created.
-  if (app.close) app.close()
+  if (command) process.exit(1)
 }
 
-run().catch(err => {
-  logger.write('\n')
-  logger.fatal(err)
-  process.exit(1)
-})
+if (input?.catch) {
+  input.catch(err => {
+    logger.fatal(err)
+    process.exit(1)
+  })
+}
