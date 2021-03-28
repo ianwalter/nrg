@@ -14,6 +14,8 @@ const printConfig = require('./lib/commands/printConfig')
 
 const logger = createLogger({ level: 'info', namespace: 'nrg.cli' })
 
+logger.debug('Running nrg CLI...')
+
 const input = cli({
   name: 'nrg',
   description: 'TODO',
@@ -70,6 +72,8 @@ const input = cli({
     }
   }
 })
+
+logger.debug('input', input)
 
 if (input?.helpText) {
   process.stdout.write('\n')

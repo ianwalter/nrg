@@ -14,7 +14,10 @@ module.exports = async function printConfig (input) {
 
   let cfg = excluding(app.context.cfg, 'helpText')
   if (!input.all) cfg = cloneable(cfg)
-  logger.info('Application config:', get(cfg, path))
+  process.stdout.write('\n')
+  logger.info('Application config:')
+  logger.log(get(cfg, path))
+  process.stdout.write('\n')
 
   // Close any connections opened when the app was created.
   if (app.close) app.close()
