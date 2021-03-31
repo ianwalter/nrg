@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.20.1
+
+### Patch Changes
+
+- b34da33: Fixing id column ref in Base model
+
 ## 0.20.0
 
 ### Minor Changes
