@@ -7,10 +7,6 @@ module.exports = class Token extends Base {
     return 'tokens'
   }
 
-  static get idColumn () {
-    return 'value'
-  }
-
   static get relationMappings () {
     return {
       account: {
