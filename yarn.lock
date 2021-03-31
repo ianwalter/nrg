@@ -671,6 +671,31 @@
     p-series "^2.1.0"
     workerpool "^6.1.0"
 
+"@ianwalter/bff@^10.0.6":
+  version "10.0.6"
+  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-10.0.6.tgz#4120253364bc9f3e9c9b40801ebc52c63eeaa4b2"
+  integrity sha512-TWOPjvCiCKxju4IR5K6maYaCm/2RRxknuWVxfJ+Gy4fUCPS8bWBy6psgrPEFqxaKLbRwH0rK0YaSvbA2ZTmB3g==
+  dependencies:
+    "@generates/logger" "^0.1.2"
+    "@generates/merger" "^0.1.3"
+    "@ianwalter/cli" "^4.1.0"
+    "@ianwalter/clone" "^6.0.1"
+    "@ianwalter/cloneable" "^2.0.0"
+    "@ianwalter/sleep" "^0.0.1"
+    "@ianwalter/subpub" "^3.0.0"
+    "@ianwalter/timer" "^2.0.2"
+    array-shuffle "^2.0.0"
+    callsites "^3.1.0"
+    camaro "^6.1.0"
+    common-tags "^1.8.0"
+    esm-to-cjs "^1.2.0"
+    expect "^26.6.2"
+    glob "^7.1.6"
+    jest-snapshot "^26.6.2"
+    junit-report-builder "^3.0.0"
+    p-series "^2.1.0"
+    workerpool "^6.1.0"
+
 "@ianwalter/bff@^9.10.0":
   version "9.13.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-9.13.0.tgz#93c82e5021619e76d7aa3586c9f06a6c25e735fb"
@@ -5778,6 +5803,16 @@ junit-report-builder@^2.0.0:
     make-dir "^1.3.0"
     xmlbuilder "^10.0.0"
 
+junit-report-builder@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/junit-report-builder/-/junit-report-builder-3.0.0.tgz#829680cfb20d99ce70e26cbb426162afe199fedc"
+  integrity sha512-aW7DnfLddUb51T+V08bJyecexaLomy5ID/0FXvhwsRXs9E0abvDaDT024U99J2agU3dt4q0ppzfKxSwrIIgXWg==
+  dependencies:
+    date-format "0.0.2"
+    lodash "^4.17.15"
+    make-dir "^1.3.0"
+    xmlbuilder "^15.1.1"
+
 jwa@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/jwa/-/jwa-2.0.0.tgz#a7e9c3f29dae94027ebcaf49975c9345593410fc"
@@ -10107,6 +10142,11 @@ xmlbuilder@^10.0.0:
   version "10.1.1"
   resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-10.1.1.tgz#8cae6688cc9b38d850b7c8d3c0a4161dcaf475b0"
   integrity sha512-OyzrcFLL/nb6fMGHbiRDuPup9ljBycsdCypwuyg5AAHvyWzGfChJpCXMG88AGTIMFhGZ9RccFN1e6lhg3hkwKg==
+
+xmlbuilder@^15.1.1:
+  version "15.1.1"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-15.1.1.tgz#9dcdce49eea66d8d10b42cae94a79c3c8d0c2ec5"
+  integrity sha512-yMqGBqtXyeN1e3TGYvgNgDVZ3j84W4cwkOXQswghol6APgZWaff9lnbvN7MHYJOiXsvGPXtjTYJEiC9J2wv9Eg==
 
 xregexp@^4.2.4:
   version "4.4.1"
