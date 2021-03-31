@@ -13,8 +13,8 @@ module.exports = class Base extends Model {
     this.updatedAt = timestamp
 
     // If no primary key value was specified, generate one using nanoid.
-    const idCol = this.constructor.idColumn
-    if (idCol && !this[idCol]) this[idCol] = nanoid()
+    const idCol = this.getIdColumn()
+    if (!this[idCol]) this[idCol] = nanoid()
   }
 
   $beforeUpdate () {
