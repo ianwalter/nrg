@@ -671,10 +671,10 @@
     p-series "^2.1.0"
     workerpool "^6.1.0"
 
-"@ianwalter/bff@^10.0.6":
-  version "10.0.6"
-  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-10.0.6.tgz#4120253364bc9f3e9c9b40801ebc52c63eeaa4b2"
-  integrity sha512-TWOPjvCiCKxju4IR5K6maYaCm/2RRxknuWVxfJ+Gy4fUCPS8bWBy6psgrPEFqxaKLbRwH0rK0YaSvbA2ZTmB3g==
+"@ianwalter/bff@^10.0.7":
+  version "10.0.7"
+  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-10.0.7.tgz#a827b024b474bd9e0741f86691ca7d4a3eca6dc1"
+  integrity sha512-3JaUbz6tbMilAjfoW/FMMIM9nDFf4dJPjqOOAhEWOJMWC+WZkGOZouuM4j99mqAp/nOR25NJ4vQSQdbDlyzBGg==
   dependencies:
     "@generates/logger" "^0.1.2"
     "@generates/merger" "^0.1.3"
@@ -694,7 +694,7 @@
     jest-snapshot "^26.6.2"
     junit-report-builder "^3.0.0"
     p-series "^2.1.0"
-    workerpool "^6.1.0"
+    workerpool "^6.1.3"
 
 "@ianwalter/bff@^9.10.0":
   version "9.13.0"
@@ -10109,6 +10109,11 @@ workerpool@6.1.0, workerpool@^6.0.3, workerpool@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-6.1.0.tgz#a8e038b4c94569596852de7a8ea4228eefdeb37b"
   integrity sha512-toV7q9rWNYha963Pl/qyeZ6wG+3nnsyvolaNUS8+R5Wtw6qJPTxIlOP1ZSvcGhEJw+l3HMMmtiNo9Gl61G4GVg==
+
+workerpool@^6.1.3:
+  version "6.1.3"
+  resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-6.1.3.tgz#98c8994726ac2f24a345e2f60de012b4b32f7472"
+  integrity sha512-pNkty5/VYTfFnyPyyXMQVXa9/xepKNSi4JZ9z2Z2wSlF5BcRA1E7rSh2/oG52r0EIHLHxNP93zOd3EXRZNzT3Q==
 
 wrap-ansi@^6.2.0:
   version "6.2.0"
