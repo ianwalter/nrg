@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.20.2
+
+### Patch Changes
+
+- b433195: Update dependency ioredis to ^4.25.0
+
 ## 0.20.1
 
 ### Patch Changes
