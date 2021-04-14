@@ -1,6 +1,4 @@
 ---
-"nrg": patch
-"@ianwalter/nrg-sentry": patch
 "@ianwalter/nrg": patch
 ---
 
