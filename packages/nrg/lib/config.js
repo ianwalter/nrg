@@ -128,21 +128,21 @@ module.exports = function config (options = {}) {
         // Middleware that logs and builds responses for errors thrown in
         // subsequent middleware. Enabled by default.
         error (app, ctx) {
-          if (ctx.log) ctx.logger.debug('Adding error middleware')
+          if (ctx.logger) ctx.logger.debug('Adding error middleware')
           const { handleError } = require('./middleware/error')
           app.use(handleError)
         },
         // Middleware for setting a unique identifier for each request using
         // nanoid so that request logs are easier to trace. Enabled by default.
         requestId (app, ctx) {
-          if (ctx.log) ctx.logger.debug('Adding requestId middleware')
+          if (ctx.logger) ctx.logger.debug('Adding request ID middleware')
           const { setRequestId } = require('./middleware/requestId')
           app.use(setRequestId)
         },
         // If enabled, add a redis instance to the app and server context.
         redis (app, ctx) {
           if (cfg.redis?.enabled) {
-            if (ctx.log) ctx.logger.debug('Adding Redis')
+            if (ctx.logger) ctx.logger.debug('Adding Redis')
             const redisStore = require('koa-redis')
             app.redis = app.context.redis = redisStore(cfg.redis.connection)
           }
@@ -152,7 +152,7 @@ module.exports = function config (options = {}) {
         // the session keys are passed as options.
         session (app, ctx) {
           if (cfg.keys?.length && !cfg.isCli) {
-            if (ctx.log) ctx.logger.debug('Adding nrg-session middleware')
+            if (ctx.logger) ctx.logger.debug('Adding nrg-session middleware')
             const nrgSession = require('@ianwalter/nrg-session')
             app.use(nrgSession({ store: app.redis, ...cfg.sessions }, app))
           }
@@ -161,7 +161,7 @@ module.exports = function config (options = {}) {
         // logMiddleware has been added to ctx.
         log (app, ctx) {
           if (ctx.logMiddleware) {
-            if (ctx.log) ctx.logger.debug('Adding log middleware')
+            if (ctx.logger) ctx.logger.debug('Adding log middleware')
             app.use(ctx.logMiddleware)
           }
         },
@@ -181,7 +181,7 @@ module.exports = function config (options = {}) {
         // production mode.
         httpsRedirect (app, ctx) {
           if (cfg.isProd && !cfg.isCli && !cfg.next.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding httpsRedirect middleware')
+            if (ctx.logger) ctx.logger.debug('Adding https redirect middleware')
             const { httpsRedirect } = require('./middleware/httpsRedirect')
             app.use(httpsRedirect)
           }
@@ -199,7 +199,7 @@ module.exports = function config (options = {}) {
         // node-rate-limiter-flexible.
         rateLimit (app, ctx) {
           if (cfg.rateLimit.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding rateLimit middleware')
+            if (ctx.logger) ctx.logger.debug('Adding rate limit middleware')
             const { rateLimit } = require('./middleware/rateLimit')
             app.use(rateLimit(cfg.rateLimit, app))
           }
@@ -218,7 +218,7 @@ module.exports = function config (options = {}) {
         // Enabled by default for 'json', 'form', and 'text'.
         bodyParser (app, ctx) {
           if (!cfg.next.enabled) {
-            if (app.logger) ctx.logger.debug('Adding koa-bodyParser middleware')
+            if (app.logger) ctx.logger.debug('Adding body parser middleware')
             const bodyParser = require('koa-bodyparser')
             app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
           }
@@ -228,7 +228,7 @@ module.exports = function config (options = {}) {
         // Enabled by default.
         compress (app, ctx) {
           if (!cfg.isCli && !cfg.next.enabled) {
-            if (ctx.log) ctx.logger.debug('Adding koa-compress middleware')
+            if (ctx.logger) ctx.logger.debug('Adding compression middleware')
             app.use(require('koa-compress')())
           }
         },
@@ -236,7 +236,9 @@ module.exports = function config (options = {}) {
         // Enabled by default if in development mode.
         prettyJson (app, ctx) {
           if (cfg.isDev) {
-            if (ctx.log) ctx.logger.debug('Adding koa-json middleware')
+            if (ctx.logger) {
+              ctx.logger.debug('Adding JSON pretty-print middleware')
+            }
             const json = require('koa-json')
             app.use(json({ pretty: true }))
           }
