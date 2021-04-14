@@ -637,18 +637,18 @@
   resolved "https://registry.yarnpkg.com/@generates/merger/-/merger-0.1.3.tgz#6808e51767b45bf75a8354f739d645826de85677"
   integrity sha512-x4KKHexiP4hIfoGZumc3RSac1t9d/aGErxbG9NASHcx59mljW2uyKDt4qP3igi9hszIHV5mjb4TbAYUNFoWg3w==
 
-"@generates/modulizer@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-7.0.1.tgz#46693097a8610141b7d8b39839650d55a3e4050c"
-  integrity sha512-K1mkbc6G97tHOij1G1TX93JM1p8VfdO6NLnc/pzc2QKn516dEpYBClLaAPbuunN4512LH6Bu4BieV/4hkCrEHw==
+"@generates/modulizer@^7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-7.0.2.tgz#d78b864eb117289b637cc4303fec78125ed11e46"
+  integrity sha512-LUt8yaBq/1qQvcvc4KG9K4n8hmN/yifrNjk/r9Mnw8gJV58Y3Oq5ZhqVqur69PM6Jb/Xs6og9hDSEPWGk3XeWg==
   dependencies:
     "@babel/core" "^7.8.6"
-    "@generates/cli" "^1.0.0"
-    "@generates/logger" "^0.1.2"
+    "@generates/cli" "^1.0.3"
+    "@generates/logger" "^1.0.0"
     "@ianwalter/npm-short-name" "^1.0.0"
     "@ianwalter/rollup-plugin-hashbang" "^1.3.0"
     "@rollup/plugin-babel" "^5.3.0"
-    "@rollup/plugin-commonjs" "^17.1.0"
+    "@rollup/plugin-commonjs" "^18.0.0"
     "@rollup/plugin-json" "^4.1.0"
     "@rollup/plugin-node-resolve" "^11.2.0"
     builtin-modules "^3.1.0"
@@ -1140,10 +1140,10 @@
     magic-string "^0.25.7"
     resolve "^1.17.0"
 
-"@rollup/plugin-commonjs@^17.1.0":
-  version "17.1.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-17.1.0.tgz#757ec88737dffa8aa913eb392fade2e45aef2a2d"
-  integrity sha512-PoMdXCw0ZyvjpCMT5aV4nkL0QywxP29sODQsSGeDpr/oI49Qq9tRtAsb/LbYbDzFlOydVEqHmmZWFtXJEAX9ew==
+"@rollup/plugin-commonjs@^18.0.0":
+  version "18.0.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-18.0.0.tgz#50dc7518b5aa9e66a270e529ea85115d269825c4"
+  integrity sha512-fj92shhg8luw7XbA0HowAqz90oo7qtLGwqTKbyZ8pmOyH8ui5e+u0wPEgeHLH3djcVma6gUCUrjY6w5R2o1u6g==
   dependencies:
     "@rollup/pluginutils" "^3.1.0"
     commondir "^1.0.1"
