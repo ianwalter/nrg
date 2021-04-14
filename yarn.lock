@@ -506,34 +506,6 @@
     getopts "^2.2.5"
     read-pkg-up "^7.0.1"
 
-"@generates/cli@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@generates/cli/-/cli-1.0.1.tgz#94a11ffb2449a362ab8f74dfe05ba8ef064dd248"
-  integrity sha512-wd9tAyvFKe21q5V+g/G1NvZEnRbPxVTU2bcd5RU0AhGk4h34DD6j31iSLAHTP7kpn5OCiGJW/UnWBvHUNx9SMQ==
-  dependencies:
-    "@generates/dotter" "^2.0.0"
-    "@generates/logger" "^0.1.2"
-    "@generates/merger" "^0.1.3"
-    camelcase "^6.0.0"
-    common-tags "^1.8.0"
-    decamelize "^4.0.0"
-    getopts "^2.2.5"
-    read-pkg-up "^7.0.1"
-
-"@generates/cli@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@generates/cli/-/cli-1.0.2.tgz#4c32cb0c563763c9262cc3dc4844b4722e926e19"
-  integrity sha512-KFrqzroWwuKNOdFuG0kiPo8D7iUx2XH7erarA0Ouc1sMzUwiFFwB+Fj9DR/XSN7E/TTlZ7E4krGCMjyEqSbCuQ==
-  dependencies:
-    "@generates/dotter" "^2.0.0"
-    "@generates/logger" "^0.1.2"
-    "@generates/merger" "^0.1.3"
-    camelcase "^6.0.0"
-    common-tags "^1.8.0"
-    decamelize "^4.0.0"
-    getopts "^2.2.5"
-    read-pkg-up "^7.0.1"
-
 "@generates/cli@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@generates/cli/-/cli-1.0.3.tgz#21785859b35a126fc50ea7ea6a098987edd5308c"
@@ -593,24 +565,6 @@
     has-ansi "^4.0.0"
     has-emoji "^1.1.0"
     marked "^1.1.1"
-    marked-terminal "^4.1.0"
-    strip-ansi "^6.0.0"
-
-"@generates/logger@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@generates/logger/-/logger-0.1.2.tgz#fcf9d9ee60323a092ce51c3bb0baff4f5d6e5e09"
-  integrity sha512-tTQdLa5luH79IWaDx3pZGe5+qGjflQPewDm11dIGXXFw+MLt99Nz8tUlgQa71KLtOY51wcR2XmuVpXCNWjErsQ==
-  dependencies:
-    "@generates/cli" "^1.0.0"
-    "@generates/dotter" "^2.0.0"
-    "@generates/merger" "^0.1.0"
-    "@ianwalter/chromafi" "^1.0.1"
-    "@ianwalter/clone" "^6.0.1"
-    "@ianwalter/cloneable" "^2.0.0"
-    chalk "^4.1.0"
-    has-ansi "^4.0.0"
-    has-emoji "^1.1.0"
-    marked "^2.0.0"
     marked-terminal "^4.1.0"
     strip-ansi "^6.0.0"
 
