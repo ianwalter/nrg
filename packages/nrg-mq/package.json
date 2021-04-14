@@ -35,7 +35,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@generates/logger": "^0.1.2",
+    "@generates/logger": "^1.0.0",
     "amqp-connection-manager": "^3.2.2",
     "amqplib": "^0.7.1"
   }
