@@ -1,5 +1,19 @@
 # @ianwalter/nrg-sentry
 
+## 1.2.3
+
+### Patch Changes
+
+- 7894e14: Cleaning up config debug logs
+- Updated dependencies [f1a0337]
+- Updated dependencies [948bf54]
+- Updated dependencies [d3f4003]
+- Updated dependencies [ab91ee5]
+- Updated dependencies [903a7a1]
+- Updated dependencies [7894e14]
+- Updated dependencies [eca4bc9]
+  - @ianwalter/nrg@0.20.3
+
 ## 1.2.2
 
 ### Patch Changes
