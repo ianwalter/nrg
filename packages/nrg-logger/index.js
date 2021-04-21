@@ -8,12 +8,14 @@ function formatTimestamp (date) {
   return chalk.white.bold(`${str} ${second}.${ms}${meridiem.toLowerCase()}`)
 }
 
-module.exports = function nrgLogger (options = {}) {
-  const logger = createLogger(options)
+module.exports = function nrgLogger (plug) {
+  plug.in('plugin', function logger (app, next) {
+    app.logger = app.context.logger = createLogger(app.config.log)
+    return next()
+  })
 
-  return {
-    logger,
-    middleware: async function nrgLoggerMiddleware (ctx, next) {
+  plug.in('middleware', function logger (app, next) {
+    app.use(async function nrgLoggerMiddleware (ctx, next) {
       const timer = createTimer()
       const request = {
         id: ctx.req.id,
@@ -22,11 +24,11 @@ module.exports = function nrgLogger (options = {}) {
         timestamp: new Date()
       }
       const shouldLog = ctx.path !== ctx.cfg.healthEndpoint ||
-        options.logHealthRequests
+        app.config.log.logHealthRequests
       ctx.state.log = Object.assign(request, ctx.state.log)
 
-      ctx.logger = logger.create({
-        ...options,
+      ctx.logger = ctx.logger.create({
+        ...app.config.log,
         get extraJson () {
           return ctx.state.log
         },
@@ -51,12 +53,14 @@ module.exports = function nrgLogger (options = {}) {
 
         ctx.state.log.responseTime = timer.duration()
 
-        if (!options.ndjson) {
+        if (!app.config.log.ndjson) {
           entry += ` ${chalk.dim(`in ${ctx.state.log.responseTime}`)}`
         }
 
         if (shouldLog) ctx.logger.log(entry)
       }
-    }
-  }
+    })
+
+    return next()
+  })
 }

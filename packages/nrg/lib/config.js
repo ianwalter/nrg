@@ -111,42 +111,45 @@ module.exports = function config (options = {}) {
     // check endpoint or false if the endpoint shouldn't be registered.
     healthEndpoint: '/health',
     // [Object] Key-value entries of plugins the application will use.
-    get plugins () {
-      const plugins = {
-        // Adds a logger instance to the app and ctx. Enabled by default if the
-        // log option Object is not falsy.
-        logger (app, ctx) {
-          if (cfg.log) {
-            const nrgLogger = require('@ianwalter/nrg-logger')
-            const { logger, middleware } = nrgLogger(cfg.log)
-            logger.ns('nrg.plugins').debug('Adding nrg-logger')
-            app.logger = app.context.logger = logger
-            ctx.logger = logger.ns('nrg.plugins')
-            ctx.logMiddleware = middleware
-          }
-        },
-        // Middleware that logs and builds responses for errors thrown in
-        // subsequent middleware. Enabled by default.
-        error (app, ctx) {
-          if (ctx.logger) ctx.logger.debug('Adding error middleware')
-          const { handleError } = require('./middleware/error')
-          app.use(handleError)
-        },
-        // Middleware for setting a unique identifier for each request using
-        // nanoid so that request logs are easier to trace. Enabled by default.
-        requestId (app, ctx) {
-          if (ctx.logger) ctx.logger.debug('Adding request ID middleware')
+    plugins: {
+      // Middleware for setting a unique identifier for each request using
+      // nanoid so that request logs are easier to trace. Enabled by default.
+      requestId (plug) {
+        plug.in('middleware', function requestId (app, next) {
           const { setRequestId } = require('./middleware/requestId')
           app.use(setRequestId)
-        },
-        // If enabled, add a redis instance to the app and server context.
-        redis (app, ctx) {
-          if (cfg.redis?.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding Redis')
-            const redisStore = require('koa-redis')
-            app.redis = app.context.redis = redisStore(cfg.redis.connection)
-          }
-        },
+          return next()
+        })
+      },
+      // Adds a logger instance to the app and ctx. Enabled by default if the
+      // log option Object is not falsy.
+      logger: require('@ianwalter/nrg-logger'),
+      // Middleware that logs and builds responses for errors thrown in
+      // subsequent middleware. Enabled by default.
+      error (plug) {
+        plug.in('middleware', function error (app, next) {
+          const { handleError } = require('./middleware/error')
+          app.use(handleError)
+          return next()
+        })
+      },
+      // Middleware for redirecting requests using the http protocol to a
+      // version of the URL that uses the https protocol when a request has
+      // the X-Forwarded-Proto header. Enabled by default if application is in
+      // production mode.
+      httpsRedirect (plug) {
+        plug
+          .if(app =>
+            app.config.isProd && !app.config.isCli && !app.config.next.enabled
+          )
+          .in('middleware',  function httpsRedirect (app, next) {
+            const { httpsRedirect } = require('./middleware/httpsRedirect')
+            app.use(httpsRedirect)
+            return next()
+          })
+      },
+    }
+
         // Middleware for enabling server-side user sessions using
         // @ianwalter/nrg-session. Enabled by default if keys used to generate
         // the session keys are passed as options.
@@ -157,35 +160,7 @@ module.exports = function config (options = {}) {
             app.use(nrgSession({ store: app.redis, ...cfg.sessions }, app))
           }
         },
-        // Middleware for logging request/responses. Enabled by default if
-        // logMiddleware has been added to ctx.
-        log (app, ctx) {
-          if (ctx.logMiddleware) {
-            if (ctx.logger) ctx.logger.debug('Adding log middleware')
-            app.use(ctx.logMiddleware)
-          }
-        },
-        // Add Cross-Site Request Forgery (CSRF) middleware that will allow
-        // other middleware to generate CSRF tokens using the
-        // ctx.generateCsrfToken method. Also add CSRF protection middleware to
-        // the ctx so the router plugin can use it to protect relevant
-        // endpoints.
-        csrf (app, ctx) {
-          if (cfg.keys?.length && cfg.sessions.csrf && !cfg.isCli) {
-            require('@ianwalter/nrg-csrf').install(app, ctx)
-          }
-        },
-        // Middleware for redirecting requests using the http protocol to a
-        // version of the URL that uses the https protocol when a request has
-        // the X-Forwarded-Proto header. Enabled by default if application is in
-        // production mode.
-        httpsRedirect (app, ctx) {
-          if (cfg.isProd && !cfg.isCli && !cfg.next.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding https redirect middleware')
-            const { httpsRedirect } = require('./middleware/httpsRedirect')
-            app.use(httpsRedirect)
-          }
-        },
+
         // Middleware for serving static files using koa-send. Not enabled by
         // default.
         static (app, ctx) {
@@ -195,24 +170,8 @@ module.exports = function config (options = {}) {
             app.use(serveStatic)
           }
         },
-        // Middleware for enabling app-wide IP-based rate limiting using
-        // node-rate-limiter-flexible.
-        rateLimit (app, ctx) {
-          if (cfg.rateLimit.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding rate limit middleware')
-            const { rateLimit } = require('./middleware/rateLimit')
-            app.use(rateLimit(cfg.rateLimit, app))
-          }
-        },
-        // Middleware for enabling OAuth authentication using simov/grant. Not
-        // enabled by default.
-        oauth (app, ctx) {
-          if (cfg.oauth.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding OAuth middleware')
-            const grant = require('grant').koa()
-            app.use(grant(cfg.oauth))
-          }
-        },
+
+
         // Middleware for parsing request bodies into a format that's easier to
         // work with (e.g. JSON String to JS Object) using koa-bodyParser.
         // Enabled by default for 'json', 'form', and 'text'.
