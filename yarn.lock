@@ -612,6 +612,15 @@
     rollup "^2.39.0"
     rollup-plugin-terser "^7.0.0"
 
+"@generates/plug@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@generates/plug/-/plug-0.0.2.tgz#a663d1f5defaa305fe7cd6d0696df7d66b6e7ed0"
+  integrity sha512-aHRc8LfrbN5Su12gCHTbVw6CgbxmvepsESZjVk23PGzhd3tv/VNjDw1Mrm1LZLnpxEtHvQOUxNb34Q6hyPt3eA==
+  dependencies:
+    "@generates/logger" "^1.0.0"
+    "@generates/modulizer" "^7.0.2"
+    koa-compose "^4.1.0"
+
 "@hapi/accept@5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@hapi/accept/-/accept-5.0.1.tgz#068553e867f0f63225a506ed74e899441af53e10"
@@ -657,14 +666,15 @@
     p-series "^2.1.0"
     workerpool "^6.1.0"
 
-"@ianwalter/bff@^10.2.0":
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-10.2.0.tgz#812ed0bd5ba8c0a4325a6061b9c1392a70a2f653"
-  integrity sha512-QLp/FwidMLXvIZ1He8NDcWCTu0zZXwHunCIFh3dXBH8H3LAaa6IIgX9JJMtWaY+WJrfHACmXotmcMXSxwcMBpQ==
+"@ianwalter/bff@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/bff/-/bff-11.0.0.tgz#0d494657a6eeb3fbb7d0185a7dd689c4bdf2589b"
+  integrity sha512-VO4AJTj/K95gbuwAMFSluxj5zfaS4zFK/5NLRxt/mmOWad3BWUHcpAXNwknoVgggacR/CYFtZOwhQy2NskeFqQ==
   dependencies:
     "@generates/cli" "^1.0.3"
     "@generates/logger" "^1.0.0"
     "@generates/merger" "^0.1.3"
+    "@generates/plug" "^0.0.2"
     "@ianwalter/clone" "^6.0.1"
     "@ianwalter/cloneable" "^2.0.0"
     "@ianwalter/sleep" "^0.0.1"
@@ -679,7 +689,6 @@
     glob "^7.1.6"
     jest-snapshot "^26.6.2"
     junit-report-builder "^3.0.0"
-    p-series "^2.1.0"
     workerpool "^6.1.3"
 
 "@ianwalter/bff@^9.10.0":

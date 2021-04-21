@@ -29,7 +29,7 @@
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^10.2.0"
+    "@ianwalter/bff": "^11.0.0"
   },
   "keywords": [
     "schema",

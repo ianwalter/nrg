@@ -44,6 +44,6 @@
     "csrf": "^3.1.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^10.2.0"
+    "@ianwalter/bff": "^11.0.0"
   }
 }
