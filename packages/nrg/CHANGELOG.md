@@ -1,5 +1,23 @@
 # @ianwalter/nrg
 
+## 0.20.3
+
+### Patch Changes
+
+- f1a0337: Update dependency ioredis to ^4.26.0
+- 948bf54: Update dependency @generates/modulizer to ^7.0.2
+- d3f4003: Update dependency pg to ^8.6.0
+- ab91ee5: Update dependency grant to ^5.4.13
+- 903a7a1: Update dependency @generates/logger to v1
+- 7894e14: Cleaning up config debug logs
+- eca4bc9: Update dependency @generates/cli to ^1.0.3
+- Updated dependencies [903a7a1]
+- Updated dependencies [f6ee1a5]
+  - @ianwalter/nrg-logger@0.3.3
+  - @ianwalter/nrg-mq@1.2.7
+  - @ianwalter/nrg-validation@3.0.2
+  - @ianwalter/nrg-session@8.0.0
+
 ## 0.20.2
 
 ### Patch Changes

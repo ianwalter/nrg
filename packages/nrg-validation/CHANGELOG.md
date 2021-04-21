@@ -1,5 +1,11 @@
 # @ianwalter/nrg-validation
 
+## 3.0.2
+
+### Patch Changes
+
+- 903a7a1: Update dependency @generates/logger to v1
+
 ## 3.0.1
 
 ### Patch Changes
