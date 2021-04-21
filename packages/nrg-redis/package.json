@@ -1,0 +1,7 @@
+{
+  "name": "@ianwalter/nrg-redis",
+  "dependencies": {
+    "ioredis": "^4.26.0",
+    "koa-redis": "^4.0.1"
+  }
+}

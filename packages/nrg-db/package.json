@@ -1,0 +1,9 @@
+{
+  "name": "@ianwalter/nrg-db",
+  "version": "0.0.0",
+  "dependencies": {
+    "knex": "^0.95.4",
+    "objection": "^2.2.14",
+    "pg": "^8.6.0"
+  }
+}
