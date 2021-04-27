@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.20.4
+
+### Patch Changes
+
+- 3195865: Adding LOG env vars for changing default log config
+
 ## 0.20.3
 
 ### Patch Changes
