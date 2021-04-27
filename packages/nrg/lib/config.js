@@ -82,11 +82,13 @@ module.exports = function config (options = {}) {
       // 'debug' if in development mode, 'error' if in test mode, or 'info'
       // otherwise.
       get level () {
-        return cfg.isDev ? 'debug' : (cfg.isTest ? 'error' : 'info')
+        return process.env.LOG_LEVEL ||
+          (cfg.isDev ? 'debug' : (cfg.isTest ? 'error' : 'info'))
       },
       namespace: 'nrg.app',
       get ndjson () {
-        return cfg.isProd
+        return process.env.LOG_NDJSON === '1' ||
+          (process.env.LOG_NDJSON !== '0' && cfg.isProd)
       },
       // [Array] A list of request/response properties to redact from being
       // logged. Defaults to nothing if the log level is 'debug' or to cookie
