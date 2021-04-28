@@ -35,9 +35,11 @@ module.exports = function nrgLogger (options = {}) {
           return [formatTimestamp(timestamp), `• ${ctx.req.id} •`]
         }
       })
+      const reqLogger = ctx.logger.ns('nrg.req')
 
       if (shouldLog) {
-        ctx.logger.log(`${ctx.method} ${ctx.state.log.path} Request`)
+        reqLogger.log(`${ctx.method} ${ctx.state.log.path} Request`)
+        reqLogger.debug({ headers: ctx.headers, body: ctx.body })
       }
 
       // Delete the initial (request log) timestamp so that subsequent logs can
