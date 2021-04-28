@@ -39,7 +39,7 @@ module.exports = function nrgLogger (options = {}) {
 
       if (shouldLog) {
         reqLogger.log(`${ctx.method} ${ctx.state.log.path} Request`)
-        reqLogger.debug({ headers: ctx.headers, body: ctx.body })
+        reqLogger.debug('Request headers', ctx.headers)
       }
 
       // Delete the initial (request log) timestamp so that subsequent logs can
