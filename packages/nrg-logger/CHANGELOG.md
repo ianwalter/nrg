@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.4.0
+
+### Minor Changes
+
+- 9e598b4: Adding req logger
+
 ## 0.3.3
 
 ### Patch Changes
