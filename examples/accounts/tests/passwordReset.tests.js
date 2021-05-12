@@ -53,9 +53,17 @@ test('Password Reset • Success', async t => {
     headers: t.expect.any(Object)
   })
 
-  // Reset the test user's password.
-  const payload = { ...testUser, token, password: 'fjioenfkj02kqwmkl606' }
+  // Giving an incorrect password confirmation.
+  const password = 'fjioenfkj02kqwmkl606'
+  const passwordConfirmation = 'fjioenfkjo2kqwmkl606'
+  let payload = { ...testUser, token, password, passwordConfirmation }
   let response = await app.test('/reset-password').post(payload)
+  t.expect(response.statusCode).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
+
+  // Reset the test user's password.
+  payload = { ...testUser, token, password }
+  response = await app.test('/reset-password').post(payload)
   t.expect(response.statusCode).toBe(201)
   t.expect(response.body).toMatchSnapshot({ csrfToken: t.expect.any(String) })
 
