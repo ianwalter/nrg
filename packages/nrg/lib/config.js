@@ -1,6 +1,7 @@
 const path = require('path')
 const { knexSnakeCaseMappers } = require('objection')
 const readPkgUp = require('read-pkg-up')
+const { oneLine } = require('common-tags')
 const {
   SchemaValidator,
   isEmail,
@@ -28,12 +29,20 @@ const token = { isString, trim }
 const password = { isStrongPassword }
 const shouldMatchPassword = {
   validate (input, state, ctx) {
-    return { isValid: input === ctx.input.password }
+    return {
+      isValid: input === ctx.input.password,
+      message: 'The password confirmation must match the password value.'
+    }
   }
 }
 const shouldMatchNewPassword = {
   validate (input, state, ctx) {
-    return { isValid: input === ctx.input.newPassword }
+    return {
+      isValid: input === ctx.input.newPassword,
+      message: oneLine`
+        The new password confirmation must match the new password value.
+      `
+    }
   }
 }
 
@@ -521,9 +530,10 @@ module.exports = function config (options = {}) {
       }),
       get accountUpdate () {
         return new SchemaValidator({
-          ...cfg.accounts.models.Account.updateSchema,
+          email,
           newPassword: { canBeEmpty, isStrongPassword },
-          newPasswordConfirmation: { canBeEmpty, shouldMatchNewPassword }
+          newPasswordConfirmation: { canBeEmpty, shouldMatchNewPassword },
+          ...cfg.accounts.models.Account.updateSchema
         })
       }
     },
