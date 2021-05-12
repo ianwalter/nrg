@@ -27,15 +27,13 @@ const email = { isEmail, trim, lowercase }
 const token = { isString, trim }
 const password = { isStrongPassword }
 const shouldMatchPassword = {
-  validate () {
-    // TODO:
-    return { isValid: true }
+  validate (input, state, ctx) {
+    return { isValid: input === ctx.input.password }
   }
 }
 const shouldMatchNewPassword = {
-  validate () {
-    // TODO:
-    return { isValid: true }
+  validate (input, state, ctx) {
+    return { isValid: input === ctx.input.newPassword }
   }
 }
 
