@@ -30,4 +30,8 @@ function redirect (ctx, next) {
   return ctx.redirect(options.to)
 }
 
-module.exports = { addToResponse, redirect }
+function noContent (ctx) {
+  ctx.status = 204
+}
+
+module.exports = { addToResponse, redirect, noContent }

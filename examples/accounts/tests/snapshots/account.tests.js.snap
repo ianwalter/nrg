@@ -14,11 +14,22 @@ Object {
 
 exports[`Account • Update password 2`] = `
 Object {
-  "message": "Incorrect email or password",
+  "feedback": Object {
+    "newPasswordConfirmation": Array [
+      "The new password confirmation must match the new password value.",
+    ],
+  },
+  "message": "Validation Error",
 }
 `;
 
 exports[`Account • Update password 3`] = `
+Object {
+  "message": "Incorrect email or password",
+}
+`;
+
+exports[`Account • Update password 4`] = `
 Object {
   "email": "change_password_test@example.com",
   "emailVerified": true,

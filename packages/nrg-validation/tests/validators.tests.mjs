@@ -7,7 +7,9 @@ import {
   isEmail,
   isPhone,
   isDate,
-  isStrongPassword
+  isStrongPassword,
+  isObject,
+  isEmpty
 } from '../index.js'
 
 test('isString', t => {
@@ -74,4 +76,27 @@ test('isDate', t => {
 test('isStrongPassword', t => {
   t.expect(isStrongPassword('fj2wfnfw93ivznjiojweQWPMNV')).toBe(true)
   t.expect(isStrongPassword('qwerty')).toBe(false)
+})
+
+test('isObject', t => {
+  t.expect(isObject([])).toBe(false)
+  t.expect(isObject({})).toBe(true)
+  t.expect(isObject(null)).toBe(false)
+  t.expect(isObject({ id: 1 })).toBe(true)
+  t.expect(isObject('string')).toBe(false)
+  t.expect(isObject(1)).toBe(false)
+  t.expect(isObject(new Date())).toBe(false)
+})
+
+test('isEmpty', t => {
+  t.expect(isEmpty({})).toBe(true)
+  t.expect(isEmpty([])).toBe(true)
+  t.expect(isEmpty(null)).toBe(true)
+  t.expect(isEmpty(undefined)).toBe(true)
+  t.expect(isEmpty('')).toBe(true)
+  t.expect(isEmpty(' ')).toBe(false)
+  t.expect(isEmpty([''])).toBe(false)
+  t.expect(isEmpty({ id: undefined })).toBe(false)
+  t.expect(isEmpty(0)).toBe(false)
+  t.expect(isEmpty(new Date())).toBe(false)
 })

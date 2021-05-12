@@ -24,7 +24,7 @@ const {
   handleError
 } = require('./lib/middleware/error')
 
-const { addToResponse, redirect } = require('./lib/middleware/end')
+const { addToResponse, redirect, noContent } = require('./lib/middleware/end')
 
 const { serveStatic, logClientMessage } = require('./lib/middleware/client')
 
@@ -60,7 +60,6 @@ const {
   getAccount,
   reduceAccountForClient,
   validateAccountUpdate,
-  validatePasswordUpdate,
   startEmailUpdate,
   updatePassword,
   updateAccount
@@ -126,6 +125,7 @@ module.exports = {
   // Result:
   addToResponse,
   redirect,
+  noContent,
 
   // Token:
   generateToken,
@@ -254,13 +254,11 @@ module.exports = {
   ],
 
   // Account Update:
-  validatePasswordUpdate,
   validateAccountUpdate,
   startEmailUpdate,
   updateAccount,
   accountUpdate: [
     requireAuthorization,
-    validatePasswordUpdate,
     validateAccountUpdate,
     getAccount,
     comparePasswords,

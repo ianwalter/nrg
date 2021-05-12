@@ -1,6 +1,7 @@
 const decamelize = require('decamelize')
 const { createLogger } = require('@generates/logger')
 const { isEmpty } = require('./validators')
+const { has } = require('@generates/dotter')
 
 const logger = createLogger({ level: 'info', namespace: 'nrg.validation' })
 
@@ -95,7 +96,7 @@ module.exports = class SchemaValidator {
 
       // Add the input to the data map so that the subset of data can be used
       // later.
-      ctx.data[key] = pipe(...field.modifiers)(input[key])
+      if (has(input, key)) ctx.data[key] = pipe(...field.modifiers)(input[key])
 
       const vInput = ctx.data[key]
       const vState = state && state[key]
