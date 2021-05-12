@@ -108,7 +108,7 @@ isEmpty.validate = function validateEmpty (input) {
       input === null ||
       input === '' ||
       (Array.isArray(input) && input.length === 0) ||
-      (isObject(input) && Object.keys(input) === 0)
+      (isObject(input) && Object.keys(input).length === 0)
   }
 }
 

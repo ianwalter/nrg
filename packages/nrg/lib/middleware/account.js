@@ -74,7 +74,7 @@ async function updateAccount (ctx, next) {
   const updates = including(ctx.state.validation?.data, ...props)
   const data = merge(updates, { password })
 
-  ctx.logger.ns('nrg.accounts').debug('account.updateAccount', data)
+  ctx.logger.ns('nrg.accounts').debug('account.updateAccount', { data })
 
   // Update the database and session with the updated account data.
   if (!isEmpty(data)) {
