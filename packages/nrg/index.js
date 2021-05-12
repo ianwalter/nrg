@@ -24,7 +24,7 @@ const {
   handleError
 } = require('./lib/middleware/error')
 
-const { addToResponse, redirect } = require('./lib/middleware/end')
+const { addToResponse, redirect, noContent } = require('./lib/middleware/end')
 
 const { serveStatic, logClientMessage } = require('./lib/middleware/client')
 
@@ -125,6 +125,7 @@ module.exports = {
   // Result:
   addToResponse,
   redirect,
+  noContent,
 
   // Token:
   generateToken,
