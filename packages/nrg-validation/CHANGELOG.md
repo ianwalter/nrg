@@ -1,5 +1,12 @@
 # @ianwalter/nrg-validation
 
+## 3.0.3
+
+### Patch Changes
+
+- 814ec93: Using dotter.has with schemavalidator data
+- 4038918: Fixing isObject validator
+
 ## 3.0.2
 
 ### Patch Changes

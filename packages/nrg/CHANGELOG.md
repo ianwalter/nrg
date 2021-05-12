@@ -1,5 +1,23 @@
 # @ianwalter/nrg
 
+## 0.21.0
+
+### Minor Changes
+
+- fdddf4d: Adding #735: noContent middleware
+
+### Patch Changes
+
+- e70403c: Update dependency nanoid to ^3.1.23
+- 19fca87: Update dependency date-fns to ^2.21.3
+- b56b628: Update dependency @generates/extractor to ^1.1.3
+- 4038918: Consolidating account update validators
+- b0cbd04: Update dependency knex to ^0.95.5
+- 5ef229b: Adding #137: password confirmation logic
+- Updated dependencies [814ec93]
+- Updated dependencies [4038918]
+  - @ianwalter/nrg-validation@3.0.3
+
 ## 0.20.5
 
 ### Patch Changes
