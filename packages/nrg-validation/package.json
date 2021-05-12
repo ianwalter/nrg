@@ -1,6 +1,6 @@
 {
   "name": "@ianwalter/nrg-validation",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Pragmatic validation for Node.js",
   "main": "index.js",
   "scripts": {
