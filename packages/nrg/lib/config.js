@@ -530,7 +530,7 @@ module.exports = function config (options = {}) {
       }),
       get accountUpdate () {
         return new SchemaValidator({
-          email,
+          email: { isEmail, canBeEmpty, trim, lowercase },
           newPassword: { canBeEmpty, isStrongPassword },
           newPasswordConfirmation: { canBeEmpty, shouldMatchNewPassword },
           ...cfg.accounts.models.Account.updateSchema

@@ -3,6 +3,7 @@ const { merge } = require('@generates/merger')
 const { including } = require('@generates/extractor')
 const { startEmailVerification } = require('./emailVerification')
 const { ValidationError } = require('../errors')
+const { isEmpty } = require('@ianwalter/nrg-validation')
 
 /**
  *
@@ -76,11 +77,9 @@ async function updateAccount (ctx, next) {
   ctx.logger.ns('nrg.accounts').debug('account.updateAccount', data)
 
   // Update the database and session with the updated account data.
-  if (Object.keys(data).length) { // FIXME: replace with @ianwalter/correct.
+  if (!isEmpty(data)) {
     const updated = await ctx.cfg.accounts.models.Account
       .query()
-      // Exclude any change to the email address since that will be handled by
-      // the email verification workflow.
       .patchAndFetchById(ctx.session.account.id, data)
 
     if (updated) ctx.session.account = { ...ctx.session.account, ...updated }

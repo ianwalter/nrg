@@ -123,17 +123,17 @@ test('Account • Update read-only data', async t => {
 
   // Verify that the value hasn't changed in the database.
   let updated = await Account.query().findById(readOnlyUser.id)
-  t.expect(updated).toEqual(record)
+  t.expect(updated).toMatchObject({ ...record, updatedAt: t.expect.any(Date) })
   record = updated
 
   // Attempt to update other read-only properties.
-  const data = { createdAt: new Date(), updatedAt: new Date(), enabled: false }
+  const data = { createdAt: new Date(), enabled: false }
   response = await app.test('/account', response).put(data)
   t.expect(response.statusCode).toBe(200)
 
   // Verify that none of the values have changed in the database.
   updated = await Account.query().findById(readOnlyUser.id)
-  t.expect(updated).toEqual(record)
+  t.expect(updated).toMatchObject({ ...record, updatedAt: t.expect.any(Date) })
 })
 
 test('Account • Update email address', async t => {
