@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.20.5
+
+### Patch Changes
+
+- 04dbfdb: Update dependency nodemailer to ^6.6.0
+- Updated dependencies [9e598b4]
+  - @ianwalter/nrg-logger@0.4.0
+
 ## 0.20.4
 
 ### Patch Changes
