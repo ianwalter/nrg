@@ -117,7 +117,7 @@ test('Account • Update password', async t => {
   t.expect(response.body).toMatchSnapshot()
 })
 
-test('Account • Update read-only data', async t => {
+test.only('Account • Update read-only data', async t => {
   // Login.
   let response = await app.test('/login').post({ ...readOnlyUser, password })
   t.expect(response.statusCode).toBe(201)

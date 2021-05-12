@@ -71,16 +71,16 @@ async function updateAccount (ctx, next) {
   // Collect the user data into a single Object.
   const password = ctx.state.hashedPassword
   const props = Object.keys(ctx.cfg.accounts.models.Account.updateSchema)
-  const updates = including(ctx.state.validation?.data, ...props)
-  const data = merge(updates, { password })
+  const extracted = including(ctx.state.validation?.data, ...props)
+  const updates = merge(extracted, { password })
 
-  ctx.logger.ns('nrg.accounts').debug('account.updateAccount', { data })
+  ctx.logger.ns('nrg.accounts').debug('account.updateAccount', { updates })
 
   // Update the database and session with the updated account data.
-  if (!isEmpty(data)) {
+  if (!isEmpty(updates)) {
     const updated = await ctx.cfg.accounts.models.Account
       .query()
-      .patchAndFetchById(ctx.session.account.id, data)
+      .patchAndFetchById(ctx.session.account.id, updates)
 
     if (updated) ctx.session.account = { ...ctx.session.account, ...updated }
   }
