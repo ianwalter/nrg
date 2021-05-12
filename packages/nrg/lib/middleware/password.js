@@ -6,9 +6,8 @@ async function hashPassword (ctx, next) {
   const data = ctx.state.validation?.data
   const password = data?.newPassword || data?.password
   if (password) {
-    ctx.logger
-      .ns('nrg.accounts.password')
-      .debug('password.hashPassword', { password })
+    const logger = ctx.logger.ns('nrg.accounts.password')
+    logger.debug('password.hashPassword', { password })
     const salt = await bcrypt.genSalt(ctx.cfg.hash.rounds)
     ctx.state.hashedPassword = await bcrypt.hash(password, salt)
   }
@@ -16,6 +15,7 @@ async function hashPassword (ctx, next) {
 }
 
 async function comparePasswords (ctx, next) {
+  const logger = ctx.logger.ns('nrg.accounts.password')
   const payload = ctx.state.validation?.data
   if (payload?.password) {
     // Determine the password to compare against.
@@ -28,15 +28,16 @@ async function comparePasswords (ctx, next) {
     const passwordsMatch = await bcrypt.compare(payload.password, password)
 
     // Log the password and whether the passwords match for debugging purposes.
-    ctx.logger
-      .ns('nrg.accounts.password')
-      .debug('password.comparePasswords', { payload, password, passwordsMatch })
+    const debug = { payload, password, passwordsMatch }
+    logger.debug('password.comparePasswords', debug)
 
     if (!passwordsMatch) {
       // The error message must be the same message as the one in
       // session/authenticate.
       throw new BadRequestError('Incorrect email or password')
     }
+  } else {
+    logger.debug('password.comparePasswords skipped since password is empty')
   }
   return next()
 }

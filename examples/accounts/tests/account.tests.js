@@ -86,29 +86,29 @@ test('Account • Update', async t => {
   t.expect(response.statusCode).toBe(201)
 })
 
-test.only('Account • Update password', async t => {
+test('Account • Update password', async t => {
   // Login.
   let payload = { ...changePasswordUser, password }
   let response = await app.test('/login').post(payload)
   t.expect(response.statusCode).toBe(201)
 
   // Updating to a weak password.
-  // payload = { password, newPassword: 'Dadu' }
-  // response = await app.test('/account', response).put(payload)
-  // t.expect(response.statusCode).toBe(400)
-  // t.expect(response.body).toMatchSnapshot()
+  payload = { password, newPassword: 'Dadu' }
+  response = await app.test('/account', response).put(payload)
+  t.expect(response.statusCode).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
 
   // Updating to a strong password but with an incorrect current password.
   const newPassword = 'egroaslk235opieflmkdqwp'
   payload = { password: 'aknasioeg7613bjhfwe', newPassword }
   response = await app.test('/account', response).put(payload)
   t.expect(response.statusCode).toBe(400)
-  t.expect(response.body).toEqual({ message: 'Incorrect email or password' })
+  t.expect(response.body).toMatchSnapshot()
 
   // Updating to a strong password.
-  // response = await app.test('/account', response).put({ password, newPassword })
-  // t.expect(response.statusCode).toBe(200)
-  // t.expect(response.body).toMatchSnapshot()
+  response = await app.test('/account', response).put({ password, newPassword })
+  t.expect(response.statusCode).toBe(200)
+  t.expect(response.body).toMatchSnapshot()
 })
 
 test('Account • Update read-only data', async t => {
