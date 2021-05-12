@@ -26,6 +26,18 @@ require('dotenv').config({ path: path.join(dir, '.env') })
 const email = { isEmail, trim, lowercase }
 const token = { isString, trim }
 const password = { isStrongPassword }
+const shouldMatchPassword = {
+  validate () {
+    // TODO:
+    return { isValid: true }
+  }
+}
+const shouldMatchNewPassword = {
+  validate () {
+    // TODO:
+    return { isValid: true }
+  }
+}
 
 const byBefore = ([_, v]) => v.$pos === 'before'
 const byAfter = ([_, v]) => v.$pos === 'after'
@@ -507,11 +519,14 @@ module.exports = function config (options = {}) {
         email,
         token,
         password,
-        passwordConfirmation: { isString, canBeEmpty }
+        passwordConfirmation: { canBeEmpty, shouldMatchPassword }
       }),
-      passwordUpdate: new SchemaValidator({ password, newPassword: password }),
       get accountUpdate () {
-        return new SchemaValidator(cfg.accounts.models.Account.updateSchema)
+        return new SchemaValidator({
+          ...cfg.accounts.models.Account.updateSchema,
+          newPassword: { canBeEmpty, isStrongPassword },
+          newPasswordConfirmation: { canBeEmpty, shouldMatchNewPassword }
+        })
       }
     },
     next: {

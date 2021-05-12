@@ -60,7 +60,6 @@ const {
   getAccount,
   reduceAccountForClient,
   validateAccountUpdate,
-  validatePasswordUpdate,
   startEmailUpdate,
   updatePassword,
   updateAccount
@@ -254,13 +253,11 @@ module.exports = {
   ],
 
   // Account Update:
-  validatePasswordUpdate,
   validateAccountUpdate,
   startEmailUpdate,
   updateAccount,
   accountUpdate: [
     requireAuthorization,
-    validatePasswordUpdate,
     validateAccountUpdate,
     getAccount,
     comparePasswords,

@@ -34,22 +34,6 @@ function reduceAccountForClient (ctx, next) {
   return next()
 }
 
-async function validatePasswordUpdate (ctx, next) {
-  const body = ctx.request.body || ctx.req.body || {}
-  if (body.newPassword) {
-    ctx.logger
-      .ns('nrg.accounts.password')
-      .debug('account.validatePasswordUpdate', { body })
-    const validation = await ctx.cfg.validators.passwordUpdate.validate(body)
-    if (validation.isValid) {
-      ctx.state.passwordValidation = validation
-    } else {
-      throw new ValidationError(validation)
-    }
-  }
-  return next()
-}
-
 async function validateAccountUpdate (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   ctx.logger.ns('nrg.accounts').debug('account.validateAccountUpdate', { body })
@@ -108,7 +92,6 @@ async function updateAccount (ctx, next) {
 module.exports = {
   getAccount,
   reduceAccountForClient,
-  validatePasswordUpdate,
   validateAccountUpdate,
   startEmailUpdate,
   updatePassword,

@@ -3,7 +3,7 @@ const { BadRequestError } = require('../errors')
 
 async function hashPassword (ctx, next) {
   // Hash the user's password using bcrypt.
-  const data = ctx.state.passwordValidation?.data || ctx.state.validation?.data
+  const data = ctx.state.validation?.data
   const password = data?.newPassword || data?.password
   if (password) {
     ctx.logger
