@@ -49,4 +49,4 @@ jobs:
       - name: Lint
         run: yarn lint
       - name: Test
-        run: yarn test:ci
+        run: yarn test.ci
