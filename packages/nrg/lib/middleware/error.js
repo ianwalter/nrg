@@ -21,4 +21,22 @@ async function handleError (ctx, next) {
   }
 }
 
-module.exports = { enrichAndLogError, addErrorToResponse, handleError }
+class TestError extends Error {
+  constructor () {
+    super('Test')
+    this.name = 'TestError'
+    this.level = 'warn'
+  }
+}
+
+function testError (ctx, next) {
+  if (ctx.query.secret === process.env.ERROR_TEST_SECRET) throw new TestError()
+  return next()
+}
+
+module.exports = {
+  enrichAndLogError,
+  addErrorToResponse,
+  handleError,
+  testError
+}
