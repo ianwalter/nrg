@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.22.1
+
+### Patch Changes
+
+- 94f07b0: Sending headers in addToResponse and relay if configured
+- Updated dependencies [94f07b0]
+  - @ianwalter/nrg-csrf@1.0.1
+
 ## 0.22.0
 
 ### Minor Changes
