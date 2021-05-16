@@ -21,7 +21,8 @@ const {
 const {
   enrichAndLogError,
   addErrorToResponse,
-  handleError
+  handleError,
+  testError
 } = require('./lib/middleware/error')
 
 const { addToResponse, redirect, noContent } = require('./lib/middleware/end')
@@ -118,6 +119,7 @@ module.exports = {
   enrichAndLogError,
   addErrorToResponse,
   handleError,
+  testError,
 
   // Serving:
   serveStatic,

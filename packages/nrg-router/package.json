@@ -10,7 +10,7 @@
   "main": "index.js",
   "scripts": {
     "test": "bff",
-    "example:hello": "node examples/helloWorld"
+    "example.hello": "node examples/helloWorld"
   },
   "files": [
     "index.js"

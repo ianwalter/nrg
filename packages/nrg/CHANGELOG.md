@@ -1,5 +1,15 @@
 # @ianwalter/nrg
 
+## 0.22.0
+
+### Minor Changes
+
+- dc622b6: Adding testError middleware
+
+### Patch Changes
+
+- 0e55ca6: Update dependency ioredis to ^4.27.2
+
 ## 0.21.0
 
 ### Minor Changes
