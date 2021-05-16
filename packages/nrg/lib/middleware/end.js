@@ -9,6 +9,7 @@ function addToResponse (ctx, next) {
       ctx.body = get(ctx.state, namespace)
     }
   }
+  if (ctx.state.headers) ctx.response.headers = ctx.state.headers
   if (ctx.state.status) ctx.status = ctx.state.status
   if (ctx.state.body) {
     ctx.body = ctx.state.body

@@ -31,8 +31,10 @@ function relay (config) {
 
       // Add the response properties to the root state so they can be used in
       // the response.
-      ctx.state.status = ctx.state.relay.response.statusCode
-      ctx.state.body = ctx.state.relay.response.body
+      const { statusCode, headers, body } = ctx.state.relay.response
+      if (config.addHeaders) ctx.state.headers = headers
+      ctx.state.status = statusCode
+      ctx.state.body = body
     } catch (err) {
       // Add the err to the relay state so that it can be used by downstream
       // middleware.

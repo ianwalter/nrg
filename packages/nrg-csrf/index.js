@@ -60,7 +60,7 @@ module.exports = {
   csrfGeneration,
   csrfVerification,
   install (app, ctx) {
-    if (ctx.log) ctx.logger.debug('Adding nrg-csrf middleware')
+    if (ctx.logger) ctx.logger.debug('Adding nrg-csrf middleware')
     app.use(csrfGeneration)
     ctx.csrfVerification = csrfVerification
   }
