@@ -69,14 +69,9 @@ module.exports = class SchemaValidator {
     // Add any other feedback within the validation object to feedback for the
     // field.
     const { feedback } = ctx.validations[key]
-    console.log('ENTER', key, feedback)
     if (feedback) {
       if (isObject(feedback)) {
-        if (isObject(ctx.feedback[key])) {
-          merge(ctx.feedback[key], feedback)
-        } else {
-          ctx.feedback[key] = feedback
-        }
+        ctx.feedback[key] = merge({}, ctx.feedback[key], feedback)
       } else if (isArray(feedback)) {
         ctx.feedback[key] = ctx.feedback[key].concat(feedback)
       } else {
@@ -85,23 +80,18 @@ module.exports = class SchemaValidator {
     }
   }
 
-  async validate (input, state, ctx) {
-    ctx = merge(
-      {},
-      ctx,
-      {
-        state,
-        input,
-        options: this.options,
-        validations: {},
-        feedback: {},
-        data: {},
-        failureCount: 0,
-        get isValid () {
-          return !this.failureCount
-        }
-      }
-    )
+  async validate (
+    input,
+    state,
+    ctx = { get isvalid () { return !this.failureCount } }
+  ) {
+    ctx.failureCount = 0
+    ctx.options = this.options
+    ctx.validations = {}
+    ctx.feedback = {}
+    ctx.data = {}
+    ctx.input = merge({}, ctx.input, input)
+    ctx.state = merge({}, ctx.state, state)
 
     for (const [key, field] of Object.entries(this.fields)) {
       const { canBeEmpty } = field
