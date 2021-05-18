@@ -1,7 +1,8 @@
 const decamelize = require('decamelize')
 const { createLogger } = require('@generates/logger')
-const { isEmpty } = require('./validators')
+const { isEmpty, isObject, isArray } = require('./validators')
 const { has } = require('@generates/dotter')
+const { merge } = require('@generates/merger')
 
 const logger = createLogger({ level: 'info', namespace: 'nrg.validation' })
 
@@ -69,7 +70,13 @@ module.exports = class SchemaValidator {
     // field.
     const { feedback } = ctx.validations[key]
     if (feedback) {
-      if (Array.isArray(feedback)) {
+      if (isObject(feedback)) {
+        if (isObject(ctx.feedback[key])) {
+          merge(ctx.feedback[key], feedback)
+        } else {
+          ctx.feedback[key] = feedback
+        }
+      } else if (isArray(feedback)) {
         ctx.feedback[key] = ctx.feedback[key].concat(feedback)
       } else {
         ctx.feedback[key].push(feedback)
