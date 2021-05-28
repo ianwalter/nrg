@@ -114,10 +114,10 @@ isEmpty.validate = function validateEmpty (input) {
 
 export const canBeEmpty = isEmpty
 
-export function isUsState (input) {
-  return resultIsValid(isUsState.validate(input))
+export function isShortUsState (input) {
+  return resultIsValid(isShortUsState.validate(input))
 }
-isUsState.validate = function validateUsState (input) {
+isShortUsState.validate = function validateUsShortState (input) {
   return {
     isValid: [
       'AL',
@@ -173,4 +173,13 @@ isUsState.validate = function validateUsState (input) {
       'WY'
     ].includes(input)
   }
+}
+
+export const digitsRegex = /^[0-9]+$/
+
+export function isShortUsZip (input) {
+  return resultIsValid(isShortUsZip.validate(input))
+}
+isShortUsZip.validate = function validateUsShortZip (input) {
+  return { isValid: input?.length === 5 && digitsRegex.test(input) }
 }

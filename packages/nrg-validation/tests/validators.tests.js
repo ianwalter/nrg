@@ -10,7 +10,8 @@ import {
   isStrongPassword,
   isObject,
   isEmpty,
-  isUsState
+  isShortUsState,
+  isShortUsZip
 } from '../index.js'
 
 test('isString', t => {
@@ -102,8 +103,16 @@ test('isEmpty', t => {
   t.expect(isEmpty(new Date())).toBe(false)
 })
 
-test('isUsState', t => {
-  t.expect(isUsState('Alabama')).toBe(false)
-  t.expect(isUsState('AL')).toBe(true)
-  t.expect(isUsState('NK')).toBe(false)
+test('isShortUsState', t => {
+  t.expect(isShortUsState('Alabama')).toBe(false)
+  t.expect(isShortUsState('AL')).toBe(true)
+  t.expect(isShortUsState('NK')).toBe(false)
+})
+
+test('isShortUsZip', t => {
+  t.expect(isShortUsZip('05004')).toBe(true)
+  t.expect(isShortUsZip('0O422')).toBe(false)
+  t.expect(isShortUsZip('1202')).toBe(false)
+  t.expect(isShortUsZip('20203-3222')).toBe(false)
+  t.expect(isShortUsZip('234.3')).toBe(false)
 })
