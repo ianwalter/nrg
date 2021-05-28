@@ -1,7 +1,7 @@
-const decamelize = require('decamelize')
-const { createLogger } = require('@generates/logger')
-const { isEmpty } = require('./validators')
-const { has } = require('@generates/dotter')
+import decamelize from 'decamelize'
+import { createLogger } from '@generates/logger'
+import { has } from '@generates/dotter'
+import { isEmpty } from './validators.js'
 
 const logger = createLogger({ level: 'info', namespace: 'nrg.validation' })
 
@@ -10,7 +10,7 @@ const pipe = (...fns) => val => fns.reduce((acc, fn) => fn(acc), val)
 const toValidators = (acc, [key, option]) =>
   option?.validate && key !== 'canBeEmpty' ? acc.concat([option]) : acc
 
-module.exports = class SchemaValidator {
+export default class SchemaValidator {
   constructor (schema, options) {
     this.fields = {}
 
