@@ -9,7 +9,8 @@ import {
   isDate,
   isStrongPassword,
   isObject,
-  isEmpty
+  isEmpty,
+  isUsState
 } from '../index.js'
 
 test('isString', t => {
@@ -99,4 +100,10 @@ test('isEmpty', t => {
   t.expect(isEmpty({ id: undefined })).toBe(false)
   t.expect(isEmpty(0)).toBe(false)
   t.expect(isEmpty(new Date())).toBe(false)
+})
+
+test('isUsState', t => {
+  t.expect(isUsState('Alabama')).toBe(false)
+  t.expect(isUsState('AL')).toBe(true)
+  t.expect(isUsState('NK')).toBe(false)
 })
