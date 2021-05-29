@@ -117,6 +117,12 @@ test('Nested SchemaValidator', async t => {
   validation = await orderValidator.validate({ ...validTop, cart: invalidCart })
   t.expect(validation.isValid).toBe(false)
   t.expect(validation.data.cart.total).toBe(undefined)
+
+  // Test nested feedback.
+  validation = await orderValidator.validate({ userId: '1', cart: invalidCart })
+  t.expect(isArray(validation.feedback.userId[0])).toBeDefined()
+  t.expect(isArray(validation.feedback.consent[0])).toBeDefined()
+  t.expect(isArray(validation.feedback.cart.products[0])).toBeDefined()
 })
 
 test('Validator ctx', async t => {

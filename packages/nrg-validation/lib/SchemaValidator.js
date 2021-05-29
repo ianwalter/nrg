@@ -1,7 +1,8 @@
 const decamelize = require('decamelize')
 const { createLogger } = require('@generates/logger')
-const { isEmpty } = require('./validators')
+const { isEmpty, isObject, isArray } = require('./validators')
 const { has } = require('@generates/dotter')
+const { merge } = require('@generates/merger')
 
 const logger = createLogger({ level: 'info', namespace: 'nrg.validation' })
 
@@ -69,7 +70,9 @@ module.exports = class SchemaValidator {
     // field.
     const { feedback } = ctx.validations[key]
     if (feedback) {
-      if (Array.isArray(feedback)) {
+      if (isObject(feedback)) {
+        ctx.feedback[key] = merge({}, ctx.feedback[key], feedback)
+      } else if (isArray(feedback)) {
         ctx.feedback[key] = ctx.feedback[key].concat(feedback)
       } else {
         ctx.feedback[key].push(feedback)
@@ -77,19 +80,18 @@ module.exports = class SchemaValidator {
     }
   }
 
-  async validate (input, state) {
-    const ctx = {
-      options: this.options,
-      validations: {},
-      feedback: {},
-      data: {},
-      input,
-      state,
-      failureCount: 0,
-      get isValid () {
-        return !this.failureCount
-      }
-    }
+  async validate (
+    input,
+    state,
+    ctx = { get isvalid () { return !this.failureCount } }
+  ) {
+    ctx.failureCount = 0
+    ctx.options = this.options
+    ctx.validations = {}
+    ctx.feedback = {}
+    ctx.data = {}
+    ctx.input = merge({}, ctx.input, input)
+    ctx.state = merge({}, ctx.state, state)
 
     for (const [key, field] of Object.entries(this.fields)) {
       const { canBeEmpty } = field
