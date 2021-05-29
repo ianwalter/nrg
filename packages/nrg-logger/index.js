@@ -43,9 +43,9 @@ module.exports = function nrgLogger (options = {}) {
         },
         get extraItems () {
           return [
-            formatTimestamp(ctx.state.log.timestamp || new Date()), 
-            `• ${ctx.req.id} •`,
-            ...options.logIpAddress ? [`• ${ctx.ip} •`] : []
+            formatTimestamp(ctx.state.log.timestamp || new Date()),
+            ...options.logIpAddress ? [`• ${ctx.ip} •`] : [],
+            `• ${ctx.req.id} •`
           ]
         }
       })
