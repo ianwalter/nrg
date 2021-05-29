@@ -37,6 +37,6 @@
   "dependencies": {
     "@generates/logger": "^1.0.0",
     "amqp-connection-manager": "^3.2.2",
-    "amqplib": "^0.7.1"
+    "amqplib": "^0.8.0"
   }
 }
