@@ -4,8 +4,7 @@ import {
   parseISO,
   isValid,
   parse,
-  differenceInYears,
-  differenceInDays
+  differenceInYears
 } from 'date-fns'
 import zxcvbn from 'zxcvbn'
 import { merge } from '@generates/merger'
