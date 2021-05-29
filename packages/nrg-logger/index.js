@@ -19,7 +19,8 @@ module.exports = function nrgLogger (options = {}) {
         id: ctx.req.id,
         method: ctx.method,
         path: ctx.path,
-        timestamp: new Date()
+        timestamp: new Date(),
+        ...options.logIpAddress ? { ip: ctx.ip } : {}
       }
       const shouldLog = ctx.path !== ctx.cfg.healthEndpoint ||
         options.logHealthRequests
@@ -41,8 +42,11 @@ module.exports = function nrgLogger (options = {}) {
           return data
         },
         get extraItems () {
-          const timestamp = ctx.state.log.timestamp || new Date()
-          return [formatTimestamp(timestamp), `• ${ctx.req.id} •`]
+          return [
+            formatTimestamp(ctx.state.log.timestamp || new Date()), 
+            `• ${ctx.req.id} •`,
+            ...options.logIpAddress ? [`• ${ctx.ip} •`] : []
+          ]
         }
       })
       const reqLogger = ctx.logger.ns('nrg.req')
