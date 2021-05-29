@@ -28,7 +28,17 @@ module.exports = function nrgLogger (options = {}) {
       ctx.logger = logger.create({
         ...options,
         get extraJson () {
-          return ctx.state.log
+          const data = ctx.state.log
+          if (options.ndjson === 'logentry') {
+            switch (this.level) {
+              case 'debug': data.severity = 'DEBUG'; break
+              case 'warn': data.severity = 'WARNING'; break
+              case 'error': data.severity = 'ERROR'; break
+              case 'fatal': data.severity = 'CRITICAL'; break
+              default: data.severity = 'INFO'
+            }
+          }
+          return data
         },
         get extraItems () {
           const timestamp = ctx.state.log.timestamp || new Date()
