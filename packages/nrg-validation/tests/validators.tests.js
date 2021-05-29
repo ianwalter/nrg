@@ -1,4 +1,5 @@
 import { test } from '@ianwalter/bff'
+import { addDays, format } from 'date-fns'
 import {
   isString,
   isBoolean,
@@ -11,7 +12,9 @@ import {
   isObject,
   isEmpty,
   isShortUsState,
-  isShortUsZip
+  isShortUsZip,
+  isDateString,
+  isShortUsDobString
 } from '../index.js'
 
 test('isString', t => {
@@ -115,4 +118,26 @@ test('isShortUsZip', t => {
   t.expect(isShortUsZip('1202')).toBe(false)
   t.expect(isShortUsZip('20203-3222')).toBe(false)
   t.expect(isShortUsZip('234.3')).toBe(false)
+})
+
+test('isDateString', t => {
+  t.expect(isDateString('01/01/2001')).toBe(true)
+  t.expect(isDateString('11/12/2051')).toBe(true)
+  t.expect(isDateString('05/30/945')).toBe(true)
+  t.expect(isDateString('11/32/2010')).toBe(false)
+  t.expect(isDateString('00/14/2008')).toBe(false)
+  t.expect(isDateString('2002-04-06')).toBe(false)
+  t.expect(isDateString('2002-04-06', 'yyyy-MM-dd')).toBe(true)
+})
+
+test('isShortUsDobString', t => {
+  t.expect(isShortUsDobString('01/01/2001')).toBe(true)
+  t.expect(isShortUsDobString('11/12/2051')).toBe(false)
+  t.expect(isShortUsDobString('05/30/1945')).toBe(true)
+  t.expect(isShortUsDobString('05/30/1945', 50)).toBe(false)
+  t.expect(isShortUsDobString('05/28/2021')).toBe(true)
+  const today = new Date()
+  t.expect(isShortUsDobString(format(today, 'MM/dd/yyyy'))).toBe(true)
+  const tomorrow = addDays(today, 1)
+  t.expect(isShortUsDobString(format(tomorrow, 'MM/dd/yyyy'))).toBe(false)
 })

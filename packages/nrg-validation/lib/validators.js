@@ -1,6 +1,12 @@
 import parsePhoneNumber from 'libphonenumber-js'
 import ie from 'isemail'
-import { parseISO, isValid } from 'date-fns'
+import {
+  parseISO,
+  isValid,
+  parse,
+  differenceInYears,
+  differenceInDays
+} from 'date-fns'
 import zxcvbn from 'zxcvbn'
 import { merge } from '@generates/merger'
 
@@ -67,6 +73,35 @@ isDate.validate = function validateDate (input) {
   return {
     isValid: isValid(typeof input === 'string' ? parseISO(input) : input)
   }
+}
+
+export function isDateString (input, format = 'MM/dd/yyyy') {
+  return resultIsValid(isDateString.validate(input, format))
+}
+isDateString.validate = function validateDateString (input, format) {
+  try {
+    const date = parse(input, format, new Date())
+    return { isValid: date instanceof Date && !isNaN(date), date }
+  } catch (err) {
+    // Ignore error.
+  }
+  return { isValid: false }
+}
+
+export function isShortUsDobString (input, max) {
+  return resultIsValid(isShortUsDobString.validate(input, max))
+}
+isShortUsDobString.validate = function validateShortUsDobString (input, max) {
+  const { date, isValid } = isDateString.validate(input, 'MM/dd/yyyy')
+  if (isValid) {
+    const today = new Date()
+    const years = differenceInYears(today, date)
+    const diff = today.getTime() - date.getTime()
+    if (years >= 0 && diff >= 0 && (!max || years <= max)) {
+      return { isValid: true }
+    }
+  }
+  return { isValid: false }
 }
 
 export function isStrongPassword (password, inputs) {
