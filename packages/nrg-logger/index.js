@@ -57,7 +57,10 @@ module.exports = function nrgLogger (options = {}) {
           entry += ` ${chalk.dim(`in ${ctx.state.log.responseTime}`)}`
         }
 
-        if (shouldLog) ctx.logger.log(entry)
+        if (shouldLog) {
+          ctx.logger.log(entry)
+          if (ctx.body) ctx.logger.debug('Response body', ctx.body)
+        }
       }
     }
   }
