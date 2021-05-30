@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff'
-import app from './app.js'
+import app from './app.mjs'
 
 test('Next Example • GET /api/hello', async t => {
   const response = await app.test('/api/hello').get()

@@ -2,8 +2,13 @@
   "name": "@ianwalter/nrg-validation",
   "version": "3.0.3",
   "description": "Pragmatic validation for Node.js",
-  "main": "index.js",
+  "main": "dist/nrg-validation.cjs",
+  "module": "index.js",
+  "browser": "index.js",
+  "type": "module",
   "scripts": {
+    "build": "modulize --no-esm --no-browser",
+    "pretest": "yarn build",
     "test": "bff"
   },
   "repository": {
@@ -30,6 +35,7 @@
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
+    "@generates/modulizer": "^8.0.2",
     "@ianwalter/bff": "^11.0.0"
   },
   "keywords": [
@@ -37,8 +43,8 @@
     "validation"
   ],
   "files": [
-    "lib",
-    "index.js"
+    "dist",
+    "lib"
   ],
   "publishConfig": {
     "access": "public"
