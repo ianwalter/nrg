@@ -1,5 +1,23 @@
 # @ianwalter/nrg
 
+## 0.22.2
+
+### Patch Changes
+
+- fcb4474: Update dependency nodemailer to ^6.6.1
+- 24bfc6b: Update dependency grant to ^5.4.14
+- 6d5e64d: Update dependency ioredis to ^4.27.3
+- dcc8781: Update dependency date-fns to ^2.22.1
+- Updated dependencies [b0a7c26]
+- Updated dependencies [09cc27b]
+- Updated dependencies [c15a8bc]
+- Updated dependencies [1b6a754]
+- Updated dependencies [dcc8781]
+- Updated dependencies [4ae762c]
+  - @ianwalter/nrg-logger@0.5.0
+  - @ianwalter/nrg-mq@1.2.8
+  - @ianwalter/nrg-validation@4.0.0
+
 ## 0.22.1
 
 ### Patch Changes
