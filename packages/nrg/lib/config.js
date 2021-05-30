@@ -106,7 +106,7 @@ module.exports = function config (options = {}) {
       },
       namespace: 'nrg.app',
       get ndjson () {
-        return process.env.LOG_NDJSON === '1' ||
+        return (process.env.LOG_NDJSON && process.env.LOG_NDJSON !== '0') ||
           (process.env.LOG_NDJSON !== '0' && cfg.isProd)
       },
       // [Array] A list of request/response properties to redact from being
