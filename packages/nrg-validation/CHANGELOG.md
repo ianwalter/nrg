@@ -1,5 +1,20 @@
 # @ianwalter/nrg-validation
 
+## 4.0.0
+
+### Major Changes
+
+- 4ae762c: Switching to ESM by default, adding isUsState validator
+
+### Minor Changes
+
+- c15a8bc: Renaming isUsState to isShortUsState and adding isShortUsZip
+- 1b6a754: Adding date validators
+
+### Patch Changes
+
+- dcc8781: Update dependency date-fns to ^2.22.1
+
 ## 3.0.3
 
 ### Patch Changes

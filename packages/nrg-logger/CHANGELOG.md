@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.5.0
+
+### Minor Changes
+
+- b0a7c26: Adding debug for response body, add support for LogEntry severity, add support for logging ip addresses
+
 ## 0.4.0
 
 ### Minor Changes

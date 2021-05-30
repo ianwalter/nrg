@@ -1,5 +1,11 @@
 # @ianwalter/nrg-mq
 
+## 1.2.8
+
+### Patch Changes
+
+- 09cc27b: Update dependency amqplib to ^0.8.0
+
 ## 1.2.7
 
 ### Patch Changes
