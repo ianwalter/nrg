@@ -9,6 +9,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "lint": "eslit",
+    "build": "ultra -r build",
     "test": "ultra -r test",
     "test.ci": "ultra --raw -r test",
     "test.mq": "npm test --prefix examples/mq",
