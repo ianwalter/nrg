@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.22.3
+
+### Patch Changes
+
+- 3fd070f: Fixing log ndjson config logic
+
 ## 0.22.2
 
 ### Patch Changes
