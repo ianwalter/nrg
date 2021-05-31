@@ -1,5 +1,6 @@
 exports.up = knex => knex.schema.createTable('accounts', t => {
   t.string('id').primary()
+  t.string('username').unique().index()
   t.string('firstName').notNullable()
   t.string('lastName').notNullable()
   t.string('email').unique().notNullable().index()
