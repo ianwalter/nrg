@@ -16,6 +16,8 @@ jobs:
           fetch-depth: 0
       - name: Install
         run: yarn
+      - name: Build
+        run: yarn build
       - name: Changesets
         uses: changesets/action@b3300fad33b6ab794313da28d27424c0e2f78991
         with:
