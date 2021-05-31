@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.22.4
+
+### Patch Changes
+
+- 8b3a325: Fixing release workflow and getApp logic
+- Updated dependencies [8b3a325]
+  - @ianwalter/nrg-validation@4.0.1
+
 ## 0.22.3
 
 ### Patch Changes
