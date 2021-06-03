@@ -1,5 +1,11 @@
 # @ianwalter/nrg-validation
 
+## 4.0.3
+
+### Patch Changes
+
+- 2ad9d13: Including index.js in npm files
+
 ## 4.0.2
 
 ### Patch Changes
