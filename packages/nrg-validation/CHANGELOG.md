@@ -1,5 +1,11 @@
 # @ianwalter/nrg-validation
 
+## 4.0.2
+
+### Patch Changes
+
+- 4e7eddd: Adding sideEffects: false to package.json
+
 ## 4.0.1
 
 ### Patch Changes
