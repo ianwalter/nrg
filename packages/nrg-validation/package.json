@@ -4,8 +4,8 @@
   "description": "Pragmatic validation for Node.js",
   "main": "dist/nrg-validation.cjs",
   "module": "index.js",
-  "browser": "index.js",
   "type": "module",
+  "sideEffects": false,
   "scripts": {
     "build": "modulize --no-esm --no-browser",
     "pretest": "yarn build",
