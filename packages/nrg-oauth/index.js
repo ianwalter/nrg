@@ -1,9 +1,8 @@
-        // Middleware for enabling OAuth authentication using simov/grant. Not
-        // enabled by default.
-        oauth (app, ctx) {
-          if (cfg.oauth.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding OAuth middleware')
-            const grant = require('grant').koa()
-            app.use(grant(cfg.oauth))
-          }
-        },
+// Enable OAuth authentication using simov/grant.
+module.exports = function nrgOauth (plug) {
+  plug.in('middleware', function oauth (app, next) {
+    const grant = require('grant').koa()
+    app.use(grant(app.context.cfg.oauth))
+    return next()
+  })
+}

@@ -1,5 +1,6 @@
 {
   "name": "@ianwalter/nrg-rate-limit",
+  "version": "0.0.0",
   "dependencies": {
     "rate-limiter-flexible": "^2.1.16"
   }

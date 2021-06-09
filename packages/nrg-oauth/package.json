@@ -1,5 +1,6 @@
 {
   "name": "@ianwalter/nrg-oauth",
+  "version": "0.0.0",
   "dependencies": {
     "grant": "^5.4.13"
   }
