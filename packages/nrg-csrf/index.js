@@ -12,56 +12,55 @@ class InvalidCsrfError extends Error {
   }
 }
 
-function csrfGeneration (ctx, next) {
-  ctx.generateCsrfToken = function generateCsrfToken () {
-    const logger = ctx.logger?.ns('nrg.csrf') || { debug: () => {} }
+// Add Cross-Site Request Forgery (CSRF) middleware that will allow
+// other middleware to generate CSRF tokens using the
+// ctx.generateCsrfToken method. Also add CSRF protection middleware to
+// the ctx so the router plugin can use it to protect relevant
+// endpoints.
+module.exports = function nrgCsrf (plug) {
+  plug.in('plugin', function csrf (app, next) {
+    app.context.generateCsrfToken = function generateCsrfToken () {
+      const ctx = this
 
-    // Generate a token secret and add it to the session if it doesn't exist.
-    if (!ctx.session.csrfSecret) ctx.session.csrfSecret = tokens.secretSync()
+      // Generate a token secret and add it to the session if it doesn't exist.
+      if (!ctx.session.csrfSecret) ctx.session.csrfSecret = tokens.secretSync()
 
-    // Create a token using the secret that can be given to the client and used
-    // to validate requests.
-    const token = tokens.create(ctx.session.csrfSecret)
+      // Create a token using the secret that can be given to the client and
+      // used to validate requests.
+      const token = tokens.create(ctx.session.csrfSecret)
 
-    // Log the secret and token for debugging purposes.
-    logger.debug('generateCsrfToken', { secret: ctx.session.csrfSecret, token })
+      // Log the secret and token for debugging purposes.
+      const debug = { secret: ctx.session.csrfSecret, token }
+      ctx.logger.debug('generateCsrfToken', debug)
 
-    // Return the token so it can be given to the client.
-    return token
-  }
+      // Return the token so it can be given to the client.
+      return token
+    }
 
-  // Continue to the next middleware.
-  return next()
-}
+    return next()
+  })
 
-function csrfVerification (ctx, next) {
-  // Continue to the next middleware right away if the request method is in the
-  // ignored list.
-  if (ignoredMethods.includes(ctx.method)) return next()
+  plug.after('session', 'middleware', function csrf (app, next) {
+    app.use(function csrfVerification (ctx, next) {
+      // Continue to the next middleware right away if the request method is in
+      // the ignored list.
+      if (ignoredMethods.includes(ctx.method)) return next()
 
-  const logger = ctx.logger?.ns('nrg.csrf') || { debug: () => {} }
-  const secret = ctx.session.csrfSecret
-  const token = ctx.get('csrf-token')
+      const secret = ctx.session.csrfSecret
+      const token = ctx.get('csrf-token')
 
-  // Continue to the next middleware if the CSRF token contained in the
-  // header matches the CSRF secret stored in the session.
-  if (tokens.verify(secret, token)) return next()
+      // Continue to the next middleware if the CSRF token contained in the
+      // header matches the CSRF secret stored in the session.
+      if (tokens.verify(secret, token)) return next()
 
-  // Output the mismatched secret and token for debugging purposes.
-  logger.debug(`CSRF secret '${secret}' and token '${token}' mismatch`)
+      // Output the mismatched secret and token for debugging purposes.
+      ctx.logger.debug(`CSRF secret '${secret}' and token '${token}' mismatch`)
 
-  // If the CSRF token contained in the request header doesn't match the
-  // CSRF secret stored in the session, throw a InvalidCsrfError.
-  throw new InvalidCsrfError(token)
-}
+      // If the CSRF token contained in the request header doesn't match the
+      // CSRF secret stored in the session, throw a InvalidCsrfError.
+      throw new InvalidCsrfError(token)
+    })
 
-module.exports = {
-  InvalidCsrfError,
-  csrfGeneration,
-  csrfVerification,
-  install (app, ctx) {
-    if (ctx.logger) ctx.logger.debug('Adding nrg-csrf middleware')
-    app.use(csrfGeneration)
-    ctx.csrfVerification = csrfVerification
-  }
+    return next()
+  })
 }

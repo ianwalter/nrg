@@ -7,6 +7,34 @@ const copy = require('copy-to')
 const uid = require('uid-safe')
 const { stripIndent } = require('common-tags')
 
+keys: process.env.APP_KEYS?.split(','),
+sessions: {
+  // Tells the router to use CSRF middleware.
+  csrf: true,
+  // Resets the session age on each new request.
+  rolling: true,
+  // The remember me option which will set the cookie.maxAge to null if
+  // selected is enabled by default.
+  rememberMe: true,
+  cookie: {
+    // Set the default session max age (essentially the idle timeout if
+    // using rolling = true) to 30 minutes in milliseconds.
+    // See: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#session-expiration
+    maxAge: 30 * 60 * 1000
+  }
+},
+
+        // Middleware for enabling server-side user sessions using
+        // @ianwalter/nrg-session. Enabled by default if keys used to generate
+        // the session keys are passed as options.
+        session (app, ctx) {
+          if (cfg.keys?.length && !cfg.isCli) {
+            if (ctx.logger) ctx.logger.debug('Adding nrg-session middleware')
+            const nrgSession = require('@ianwalter/nrg-session')
+            app.use(nrgSession({ store: app.redis, ...cfg.sessions }, app))
+          }
+        },
+
 // Warning message for `MemoryStore` usage in production.
 const warning = stripIndent`
   Warning: nrg-session's MemoryStore is not designed for a production

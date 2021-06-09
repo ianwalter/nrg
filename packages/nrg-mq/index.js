@@ -4,6 +4,21 @@ const { createLogger } = require('@generates/logger')
 const ns = 'nrg.mq'
 const level = 'info'
 
+        // Set up the message queue client if enabled.
+        // mq (app, ctx) {
+        //   if (cfg.mq.enabled) {
+        //     if (ctx.logger) ctx.logger.debug('Adding nrg-mq')
+        //     const { install } = require('@ianwalter/nrg-mq')
+        //     install(app, ctx, cfg)
+        //   }
+        // },
+
+        mq: {
+          get enabled () {
+            return !!(this.urls || this.queues)
+          }
+        },
+
 function install (app, ctx, cfg) {
   if (ctx.logger) ctx.logger.debug('Adding mq')
 

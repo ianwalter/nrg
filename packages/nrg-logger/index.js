@@ -8,12 +8,45 @@ function formatTimestamp (date) {
   return chalk.white.bold(`${str} ${second}.${ms}${meridiem.toLowerCase()}`)
 }
 
-module.exports = function nrgLogger (options = {}) {
-  const logger = createLogger(options)
 
-  return {
-    logger,
-    middleware: async function nrgLoggerMiddleware (ctx, next) {
+    // [Object] Log related settings.
+    log: {
+      // FIXME: Need a setting to indicate request/response logging is enabled.
+      // [String] The minimum severity log level that gets logged. Defaults to
+      // 'debug' if in development mode, 'error' if in test mode, or 'info'
+      // otherwise.
+      get level () {
+        return process.env.LOG_LEVEL ||
+          (cfg.isDev ? 'debug' : (cfg.isTest ? 'error' : 'info'))
+      },
+      namespace: 'nrg.app',
+      get ndjson () {
+        return (process.env.LOG_NDJSON && process.env.LOG_NDJSON !== '0') ||
+          (process.env.LOG_NDJSON !== '0' && cfg.isProd)
+      },
+      // [Array] A list of request/response properties to redact from being
+      // logged. Defaults to nothing if the log level is 'debug' or to cookie
+      // request headers and set-cookie response headers otherwise.
+      get redact () {
+        return this.level !== 'debug'
+          ? ['req.headers.cookie', 'res.headers.set-cookie']
+          : []
+      },
+      // [Boolean] Whether or not to add event handlers for 'unhandledRejection'
+      // and 'unhandledException' events that log the errors. Defaults to true.
+      unhandled: true,
+      // [Boolean] Whether to log health check requests like normal requests.
+      logHealthRequests: false
+    },
+
+module.exports = function nrgLogger (plug) {
+  plug.in('plugin', function logger (app, next) {
+    app.logger = app.context.logger = createLogger(app.config.log)
+    return next()
+  })
+
+  plug.in('middleware', function logger (app, next) {
+    app.use(async function nrgLoggerMiddleware (ctx, next) {
       const timer = createTimer()
       const request = {
         id: ctx.req.id,
@@ -23,11 +56,11 @@ module.exports = function nrgLogger (options = {}) {
         ...options.logIpAddress ? { ip: ctx.ip } : {}
       }
       const shouldLog = ctx.path !== ctx.cfg.healthEndpoint ||
-        options.logHealthRequests
+        app.config.log.logHealthRequests
       ctx.state.log = Object.assign(request, ctx.state.log)
 
-      ctx.logger = logger.create({
-        ...options,
+      ctx.logger = ctx.logger.create({
+        ...app.config.log,
         get extraJson () {
           const data = ctx.state.log
           if (options.ndjson === 'logentry') {
@@ -67,7 +100,7 @@ module.exports = function nrgLogger (options = {}) {
 
         ctx.state.log.responseTime = timer.duration()
 
-        if (!options.ndjson) {
+        if (!app.config.log.ndjson) {
           entry += ` ${chalk.dim(`in ${ctx.state.log.responseTime}`)}`
         }
 
@@ -76,6 +109,8 @@ module.exports = function nrgLogger (options = {}) {
           if (ctx.body) ctx.logger.debug('Response body', ctx.body)
         }
       }
-    }
-  }
+    })
+
+    return next()
+  })
 }

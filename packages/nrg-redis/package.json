@@ -1,0 +1,8 @@
+{
+  "name": "@ianwalter/nrg-redis",
+  "version": "0.0.0",
+  "dependencies": {
+    "ioredis": "^4.26.0",
+    "koa-redis": "^4.0.1"
+  }
+}
