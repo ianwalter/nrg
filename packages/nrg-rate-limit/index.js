@@ -7,3 +7,10 @@ module.exports = function nrgRateLimit (plug) {
     return next()
   })
 }
+
+rateLimit: {
+  get enabled () {
+    return this.points !== undefined && this.duration !== undefined
+  },
+  storeType: 'knex'
+},

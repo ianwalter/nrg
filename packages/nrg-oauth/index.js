@@ -6,3 +6,15 @@ module.exports = function nrgOauth (plug) {
     return next()
   })
 }
+
+oauth: {
+  get enabled () {
+    return Object.keys(this).some(key => oauthProviders[key])
+  },
+  defaults: {
+    get origin () {
+      return cfg.baseUrl
+    },
+    transport: 'session'
+  }
+},

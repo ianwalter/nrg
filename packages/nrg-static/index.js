@@ -7,3 +7,13 @@
             app.use(serveStatic)
           }
         },
+
+        static: {
+          get enabled () {
+            return !!(cfg.isProd && options.static?.root)
+          },
+          prefix: '/static',
+          fallback (ctx) {
+            ctx.status = 404
+          }
+        },

@@ -13,6 +13,12 @@ const level = 'info'
         //   }
         // },
 
+        mq: {
+          get enabled () {
+            return !!(this.urls || this.queues)
+          }
+        },
+
 function install (app, ctx, cfg) {
   if (ctx.logger) ctx.logger.debug('Adding mq')
 
