@@ -204,15 +204,18 @@ module.exports = function config (options = {}) {
       test: require('@ianwalter/nrg-test')
         // if (!cfg.isProd) app.test = require('@ianwalter/nrg-test')(app, cfg)
       // },
+      // Add a utility that allows closing any connections opened when the app
+      // was created.
+      serve (plug) {
+        plug
+          .if(app => !app.config.next?.enabled)
+          .in('plugins', function close (app, next) {
+            app.close = require('./app/close')
+            return next()
+          })
+      },
     }
 
-
-        // Add a utility that allows closing any connections opened when the app
-        // was created.
-        close (app) {
-          app.close = require('./app/close')
-        }
-      }
 
       // Deconstruct user-supplied plugins into a key-value collection.
       const userPlugins = Object.entries(options.plugins || {})

@@ -1,5 +1,13 @@
 {
   "name": "@ianwalter/nrg-accounts",
+  "description": "TODO",
   "version": "0.0.0",
-  "dependencies": {}
+  "dependencies": {
+    "@ianwalter/nrg-redis": "^0.0.0",
+    "@ianwalter/nrg-session": "^0.0.0",
+    "@ianwalter/nrg-csrf": "^0.0.0",
+    "@ianwalter/nrg-rate-limit": "^0.0.0",
+    "@ianwalter/nrg-db": "^0.0.0",
+    "@ianwalter/nrg-email": "^0.0.0"
+  }
 }
