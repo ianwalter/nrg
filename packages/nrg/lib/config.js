@@ -182,15 +182,7 @@ module.exports = function config (options = {}) {
           }
         },
 
-        // Middleware for serving static files using koa-send. Not enabled by
-        // default.
-        static (app, ctx) {
-          if (cfg.static.enabled && !cfg.isCli) {
-            if (ctx.logger) ctx.logger.debug('Adding static middleware')
-            const { serveStatic } = require('./middleware/client')
-            app.use(serveStatic)
-          }
-        },
+
 
 
         // Middleware for parsing request bodies into a format that's easier to
@@ -223,52 +215,11 @@ module.exports = function config (options = {}) {
             app.use(json({ pretty: true }))
           }
         },
-        // If the Next.js integration is enabled, add the Next.js adapter
-        // middleware so that you can execute some logic from a page's
-        // getServerSideProps function with the nrg request context.
-        adaptNext (app, ctx) {
-          if (cfg.next.enabled) {
-            if (ctx.logger) {
-              ctx.logger.debug('Adding Next.js adapter middleware')
-            }
-            const { adaptNext } = require('./middleware/next')
-            app.use(adaptNext)
-          }
-        },
+
         // Plugin for adding nrg-router which allows assigning middleware to
         // be executed when a request URL matches a given path.
         router: require('@ianwalter/nrg-router'),
-        // Add a knex database instance to the server context and tell Objection
-        // to use that instance.
-        db (app, ctx) {
-          if (cfg.db.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding Objection.js')
-            const knex = require('knex')
-            const { Model } = require('objection')
-            app.db = app.context.db = knex(cfg.db)
-            Model.knex(app.db)
-          }
-        },
-        // Set up the message queue client if enabled.
-        mq (app, ctx) {
-          if (cfg.mq.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding nrg-mq')
-            const { install } = require('@ianwalter/nrg-mq')
-            install(app, ctx, cfg)
-          }
-        },
-        // If email is enabled, set up instances of Mailgen to generate emails
-        // and Nodemailer to send them.
-        email (app, ctx) {
-          if (cfg.email.enabled) {
-            if (ctx.logger) ctx.logger.debug('Adding Nodemailer and Mailgen')
-            const nodemailer = require('nodemailer')
-            const Mailgen = require('mailgen')
-            const { transport } = cfg.email
-            app.context.nodemailer = nodemailer.createTransport(transport)
-            app.context.mailgen = new Mailgen(cfg.email.mailgen)
-          }
-        },
+
         // Plugin for adding a simple health check endpoint if the application
         // has been configured with a router.
         healthEndpoint (app) {
@@ -289,12 +240,6 @@ module.exports = function config (options = {}) {
         // was created.
         close (app) {
           app.close = require('./app/close')
-        },
-        // If the Next.js integration is enabled, add a "next" app method to
-        // allow you to get the result of "nextAdapter" middleware and use it to
-        // pass data to the page component.
-        next (app) {
-          if (cfg.next.enabled) app.next = require('./app/next')
         }
       }
 
