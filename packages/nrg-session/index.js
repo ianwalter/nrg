@@ -18,7 +18,8 @@ const defaultCookie = {
   path: '/',
   overwrite: true,
   signed: true,
-  maxAge: 24 * 60 * 60 * 1000 // One day in ms
+  maxAge: 24 * 60 * 60 * 1000, // One day in ms
+  sameSite: 'Lax'
 }
 
 /**

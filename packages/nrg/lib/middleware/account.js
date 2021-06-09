@@ -1,8 +1,9 @@
 const compose = require('koa-compose')
 const { merge } = require('@generates/merger')
-const { excluding } = require('@generates/extractor')
+const { including } = require('@generates/extractor')
 const { startEmailVerification } = require('./emailVerification')
 const { ValidationError } = require('../errors')
+const { isEmpty } = require('@ianwalter/nrg-validation')
 
 /**
  *
@@ -30,22 +31,6 @@ function reduceAccountForClient (ctx, next) {
     const { Account } = ctx.cfg.accounts.models
     const account = Account.extractClientData(entireAccount)
     ctx.state.body = ctx.state.body ? { ...ctx.state.body, account } : account
-  }
-  return next()
-}
-
-async function validatePasswordUpdate (ctx, next) {
-  const body = ctx.request.body || ctx.req.body || {}
-  if (body.newPassword) {
-    ctx.logger
-      .ns('nrg.accounts.password')
-      .debug('account.validatePasswordUpdate', { body })
-    const validation = await ctx.cfg.validators.passwordUpdate.validate(body)
-    if (validation.isValid) {
-      ctx.state.passwordValidation = validation
-    } else {
-      throw new ValidationError(validation)
-    }
   }
   return next()
 }
@@ -85,19 +70,17 @@ async function updatePassword (ctx, next) {
 async function updateAccount (ctx, next) {
   // Collect the user data into a single Object.
   const password = ctx.state.hashedPassword
-  const payload = ctx.state.validation?.data
-  const data = excluding(merge({}, payload, { password }), 'email')
+  const props = Object.keys(ctx.cfg.accounts.models.Account.updateSchema)
+  const extracted = including(ctx.state.validation?.data, ...props)
+  const updates = merge(extracted, { password })
 
-  const logger = ctx.logger.ns('nrg.accounts')
-  logger.debug('account.updateAccount', { payload, data })
+  ctx.logger.ns('nrg.accounts').debug('account.updateAccount', { updates })
 
   // Update the database and session with the updated account data.
-  if (Object.keys(data).length) { // FIXME: replace with @ianwalter/correct.
+  if (!isEmpty(updates)) {
     const updated = await ctx.cfg.accounts.models.Account
       .query()
-      // Exclude any change to the email address since that will be handled by
-      // the email verification workflow.
-      .patchAndFetchById(ctx.session.account.id, data)
+      .patchAndFetchById(ctx.session.account.id, updates)
 
     if (updated) ctx.session.account = { ...ctx.session.account, ...updated }
   }
@@ -108,7 +91,6 @@ async function updateAccount (ctx, next) {
 module.exports = {
   getAccount,
   reduceAccountForClient,
-  validatePasswordUpdate,
   validateAccountUpdate,
   startEmailUpdate,
   updatePassword,

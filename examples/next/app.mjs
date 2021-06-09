@@ -1,5 +1,5 @@
 import nrg from '@ianwalter/nrg'
-import hello from './api/hello.js'
+import hello from './api/hello.mjs'
 
 // Create the nrg app instance.
 const app = nrg.createApp({

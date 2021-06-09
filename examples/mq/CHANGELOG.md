@@ -1,5 +1,26 @@
 # mq-example
 
+## 1.1.12
+
+### Patch Changes
+
+- Updated dependencies [dc622b6]
+- Updated dependencies [0e55ca6]
+  - @ianwalter/nrg@0.22.0
+
+## 1.1.11
+
+### Patch Changes
+
+- Updated dependencies [e70403c]
+- Updated dependencies [19fca87]
+- Updated dependencies [b56b628]
+- Updated dependencies [4038918]
+- Updated dependencies [b0cbd04]
+- Updated dependencies [fdddf4d]
+- Updated dependencies [5ef229b]
+  - @ianwalter/nrg@0.21.0
+
 ## 1.1.10
 
 ### Patch Changes

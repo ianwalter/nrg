@@ -1,8 +1,7 @@
 {
   "private": true,
   "name": "next-example",
-  "version": "2.0.15",
-  "type": "module",
+  "version": "2.0.17",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
@@ -12,14 +11,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "pretest": "echo next build",
-    "test": "echo 'TODO: Fix Next.js import outside root issue'"
+    "pretest": "yarn build",
+    "test": "bff"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.20.0",
-    "next": "^10.0.6",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "@ianwalter/nrg": "^0.22.0",
+    "next": "^10.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@ianwalter/bff": "^10.0.5",
@@ -28,7 +27,7 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@ianwalter/eslint-config-react/preact"
+      "@ianwalter/react"
     ],
     "rules": {
       "react/react-in-jsx-scope": 0

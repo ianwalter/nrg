@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: node:15.4-buster
+      image: node:14-buster-slim
     timeout-minutes: 10
     env:
       DB_HOST: postgres
@@ -48,5 +48,7 @@ jobs:
         run: yarn
       - name: Lint
         run: yarn lint
+      - name: Build
+        run: yarn build
       - name: Test
-        run: yarn test:ci
+        run: yarn test.ci

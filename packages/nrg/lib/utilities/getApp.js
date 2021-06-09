@@ -16,9 +16,13 @@ module.exports = async function getApp (input) {
   if (appPath.includes('.mjs') || input.packageJson.type === 'module') {
     const modulize = require('@generates/modulizer')
     const requireFromString = require('require-from-string')
-    const cwd = path.dirname(appPath)
-    const { cjs } = await modulize({ input: appPath, cjs: true, cwd })
-    return requireFromString(cjs[1], appPath)
+    const [cjs] = await modulize({
+      input: appPath,
+      cjs: true,
+      cwd: path.dirname(appPath),
+      skipWrite: true
+    })
+    return requireFromString(cjs.source, appPath)
   }
   return require(appPath)
 }

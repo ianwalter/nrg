@@ -9,6 +9,7 @@ function addToResponse (ctx, next) {
       ctx.body = get(ctx.state, namespace)
     }
   }
+  if (ctx.state.headers) ctx.response.headers = ctx.state.headers
   if (ctx.state.status) ctx.status = ctx.state.status
   if (ctx.state.body) {
     ctx.body = ctx.state.body
@@ -30,4 +31,8 @@ function redirect (ctx, next) {
   return ctx.redirect(options.to)
 }
 
-module.exports = { addToResponse, redirect }
+function noContent (ctx) {
+  ctx.status = 204
+}
+
+module.exports = { addToResponse, redirect, noContent }

@@ -98,8 +98,14 @@ test('Account • Update password', async t => {
   t.expect(response.statusCode).toBe(400)
   t.expect(response.body).toMatchSnapshot()
 
-  // Updating to a strong password but with an incorrect current password.
+  // Giving an incorrect new password confirmation.
   const newPassword = 'egroaslk235opieflmkdqwp'
+  payload = { password, newPassword, newPasswordConfirmation: 'egroaslk235opi' }
+  response = await app.test('/account', response).put(payload)
+  t.expect(response.statusCode).toBe(400)
+  t.expect(response.body).toMatchSnapshot()
+
+  // Updating to a strong password but with an incorrect current password.
   payload = { password: 'aknasioeg7613bjhfwe', newPassword }
   response = await app.test('/account', response).put(payload)
   t.expect(response.statusCode).toBe(400)

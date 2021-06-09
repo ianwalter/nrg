@@ -1,5 +1,51 @@
 # @ianwalter/nrg-validation
 
+## 4.0.3
+
+### Patch Changes
+
+- 2ad9d13: Including index.js in npm files
+
+## 4.0.2
+
+### Patch Changes
+
+- 4e7eddd: Adding sideEffects: false to package.json
+
+## 4.0.1
+
+### Patch Changes
+
+- 8b3a325: Fixing release workflow and getApp logic
+
+## 4.0.0
+
+### Major Changes
+
+- 4ae762c: Switching to ESM by default, adding isUsState validator
+
+### Minor Changes
+
+- c15a8bc: Renaming isUsState to isShortUsState and adding isShortUsZip
+- 1b6a754: Adding date validators
+
+### Patch Changes
+
+- dcc8781: Update dependency date-fns to ^2.22.1
+
+## 3.0.3
+
+### Patch Changes
+
+- 814ec93: Using dotter.has with schemavalidator data
+- 4038918: Fixing isObject validator
+
+## 3.0.2
+
+### Patch Changes
+
+- 903a7a1: Update dependency @generates/logger to v1
+
 ## 3.0.1
 
 ### Patch Changes

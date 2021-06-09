@@ -1,4 +1,8 @@
 version: '3'
+
+volumes:
+  pgdata:
+
 services:
 
   redis:
@@ -15,6 +19,8 @@ services:
       POSTGRES_DB: nrg
       POSTGRES_USER: nrg
       POSTGRES_PASSWORD: gottaLottaEnemies
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
   maildev:
     image: djfarrelly/maildev:1.1.0

@@ -21,7 +21,8 @@ module.exports = function nrgLogger (plug) {
         id: ctx.req.id,
         method: ctx.method,
         path: ctx.path,
-        timestamp: new Date()
+        timestamp: new Date(),
+        ...options.logIpAddress ? { ip: ctx.ip } : {}
       }
       const shouldLog = ctx.path !== ctx.cfg.healthEndpoint ||
         app.config.log.logHealthRequests
@@ -30,16 +31,31 @@ module.exports = function nrgLogger (plug) {
       ctx.logger = ctx.logger.create({
         ...app.config.log,
         get extraJson () {
-          return ctx.state.log
+          const data = ctx.state.log
+          if (options.ndjson === 'logentry') {
+            switch (this.level) {
+              case 'debug': data.severity = 'DEBUG'; break
+              case 'warn': data.severity = 'WARNING'; break
+              case 'error': data.severity = 'ERROR'; break
+              case 'fatal': data.severity = 'CRITICAL'; break
+              default: data.severity = 'INFO'
+            }
+          }
+          return data
         },
         get extraItems () {
-          const timestamp = ctx.state.log.timestamp || new Date()
-          return [formatTimestamp(timestamp), `• ${ctx.req.id} •`]
+          return [
+            formatTimestamp(ctx.state.log.timestamp || new Date()),
+            ...options.logIpAddress ? [`• ${ctx.ip} •`] : [],
+            `• ${ctx.req.id} •`
+          ]
         }
       })
+      const reqLogger = ctx.logger.ns('nrg.req')
 
       if (shouldLog) {
-        ctx.logger.log(`${ctx.method} ${ctx.state.log.path} Request`)
+        reqLogger.log(`${ctx.method} ${ctx.state.log.path} Request`)
+        reqLogger.debug('Request headers', ctx.headers)
       }
 
       // Delete the initial (request log) timestamp so that subsequent logs can
@@ -57,7 +73,10 @@ module.exports = function nrgLogger (plug) {
           entry += ` ${chalk.dim(`in ${ctx.state.log.responseTime}`)}`
         }
 
-        if (shouldLog) ctx.logger.log(entry)
+        if (shouldLog) {
+          ctx.logger.log(entry)
+          if (ctx.body) ctx.logger.debug('Response body', ctx.body)
+        }
       }
     })
 

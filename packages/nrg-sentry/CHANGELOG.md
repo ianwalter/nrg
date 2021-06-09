@@ -1,5 +1,40 @@
 # @ianwalter/nrg-sentry
 
+## 1.2.5
+
+### Patch Changes
+
+- Updated dependencies [dc622b6]
+- Updated dependencies [0e55ca6]
+  - @ianwalter/nrg@0.22.0
+
+## 1.2.4
+
+### Patch Changes
+
+- Updated dependencies [e70403c]
+- Updated dependencies [19fca87]
+- Updated dependencies [b56b628]
+- Updated dependencies [4038918]
+- Updated dependencies [b0cbd04]
+- Updated dependencies [fdddf4d]
+- Updated dependencies [5ef229b]
+  - @ianwalter/nrg@0.21.0
+
+## 1.2.3
+
+### Patch Changes
+
+- 7894e14: Cleaning up config debug logs
+- Updated dependencies [f1a0337]
+- Updated dependencies [948bf54]
+- Updated dependencies [d3f4003]
+- Updated dependencies [ab91ee5]
+- Updated dependencies [903a7a1]
+- Updated dependencies [7894e14]
+- Updated dependencies [eca4bc9]
+  - @ianwalter/nrg@0.20.3
+
 ## 1.2.2
 
 ### Patch Changes

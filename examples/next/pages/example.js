@@ -1,4 +1,4 @@
-import app from '../app'
+import app from '../app.mjs'
 
 // An example of how to extract data from the nrg request context and pass it
 // to the component during SSR.

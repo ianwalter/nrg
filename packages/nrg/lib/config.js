@@ -1,6 +1,7 @@
 const path = require('path')
 const { knexSnakeCaseMappers } = require('objection')
 const readPkgUp = require('read-pkg-up')
+const { oneLine } = require('common-tags')
 const {
   SchemaValidator,
   isEmail,
@@ -26,6 +27,24 @@ require('dotenv').config({ path: path.join(dir, '.env') })
 const email = { isEmail, trim, lowercase }
 const token = { isString, trim }
 const password = { isStrongPassword }
+const shouldMatchPassword = {
+  validate (input, state, ctx) {
+    return {
+      isValid: input === ctx.input.password,
+      message: 'The password confirmation must match the password value.'
+    }
+  }
+}
+const shouldMatchNewPassword = {
+  validate (input, state, ctx) {
+    return {
+      isValid: input === ctx.input.newPassword,
+      message: oneLine`
+        The new password confirmation must match the new password value.
+      `
+    }
+  }
+}
 
 const byBefore = ([_, v]) => v.$pos === 'before'
 const byAfter = ([_, v]) => v.$pos === 'after'
@@ -82,11 +101,13 @@ module.exports = function config (options = {}) {
       // 'debug' if in development mode, 'error' if in test mode, or 'info'
       // otherwise.
       get level () {
-        return cfg.isDev ? 'debug' : (cfg.isTest ? 'error' : 'info')
+        return process.env.LOG_LEVEL ||
+          (cfg.isDev ? 'debug' : (cfg.isTest ? 'error' : 'info'))
       },
       namespace: 'nrg.app',
       get ndjson () {
-        return cfg.isProd
+        return (process.env.LOG_NDJSON && process.env.LOG_NDJSON !== '0') ||
+          (process.env.LOG_NDJSON !== '0' && cfg.isProd)
       },
       // [Array] A list of request/response properties to redact from being
       // logged. Defaults to nothing if the log level is 'debug' or to cookie
@@ -464,11 +485,15 @@ module.exports = function config (options = {}) {
         email,
         token,
         password,
-        passwordConfirmation: { isString, canBeEmpty }
+        passwordConfirmation: { canBeEmpty, shouldMatchPassword }
       }),
-      passwordUpdate: new SchemaValidator({ password, newPassword: password }),
       get accountUpdate () {
-        return new SchemaValidator(cfg.accounts.models.Account.updateSchema)
+        return new SchemaValidator({
+          email: { isEmail, canBeEmpty, trim, lowercase },
+          newPassword: { canBeEmpty, isStrongPassword },
+          newPasswordConfirmation: { canBeEmpty, shouldMatchNewPassword },
+          ...cfg.accounts.models.Account.updateSchema
+        })
       }
     },
     next: {

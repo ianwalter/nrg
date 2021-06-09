@@ -35,7 +35,6 @@ module.exports = class Account extends Base {
     return {
       firstName: { isString, canBeEmpty, trim },
       lastName: { isString, canBeEmpty, trim },
-      email: { isEmail, canBeEmpty, trim, lowercase },
       password: { isStrongPassword, canBeEmpty }
     }
   }

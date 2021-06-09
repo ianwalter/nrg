@@ -1,5 +1,119 @@
 # @ianwalter/nrg
 
+## 0.22.6
+
+### Patch Changes
+
+- Updated dependencies [2ad9d13]
+  - @ianwalter/nrg-validation@4.0.3
+
+## 0.22.5
+
+### Patch Changes
+
+- Updated dependencies [4e7eddd]
+  - @ianwalter/nrg-validation@4.0.2
+
+## 0.22.4
+
+### Patch Changes
+
+- 8b3a325: Fixing release workflow and getApp logic
+- Updated dependencies [8b3a325]
+  - @ianwalter/nrg-validation@4.0.1
+
+## 0.22.3
+
+### Patch Changes
+
+- 3fd070f: Fixing log ndjson config logic
+
+## 0.22.2
+
+### Patch Changes
+
+- fcb4474: Update dependency nodemailer to ^6.6.1
+- 24bfc6b: Update dependency grant to ^5.4.14
+- 6d5e64d: Update dependency ioredis to ^4.27.3
+- dcc8781: Update dependency date-fns to ^2.22.1
+- Updated dependencies [b0a7c26]
+- Updated dependencies [09cc27b]
+- Updated dependencies [c15a8bc]
+- Updated dependencies [1b6a754]
+- Updated dependencies [dcc8781]
+- Updated dependencies [4ae762c]
+  - @ianwalter/nrg-logger@0.5.0
+  - @ianwalter/nrg-mq@1.2.8
+  - @ianwalter/nrg-validation@4.0.0
+
+## 0.22.1
+
+### Patch Changes
+
+- 94f07b0: Sending headers in addToResponse and relay if configured
+- Updated dependencies [94f07b0]
+  - @ianwalter/nrg-csrf@1.0.1
+
+## 0.22.0
+
+### Minor Changes
+
+- dc622b6: Adding testError middleware
+
+### Patch Changes
+
+- 0e55ca6: Update dependency ioredis to ^4.27.2
+
+## 0.21.0
+
+### Minor Changes
+
+- fdddf4d: Adding #735: noContent middleware
+
+### Patch Changes
+
+- e70403c: Update dependency nanoid to ^3.1.23
+- 19fca87: Update dependency date-fns to ^2.21.3
+- b56b628: Update dependency @generates/extractor to ^1.1.3
+- 4038918: Consolidating account update validators
+- b0cbd04: Update dependency knex to ^0.95.5
+- 5ef229b: Adding #137: password confirmation logic
+- Updated dependencies [814ec93]
+- Updated dependencies [4038918]
+  - @ianwalter/nrg-validation@3.0.3
+
+## 0.20.5
+
+### Patch Changes
+
+- 04dbfdb: Update dependency nodemailer to ^6.6.0
+- Updated dependencies [9e598b4]
+  - @ianwalter/nrg-logger@0.4.0
+
+## 0.20.4
+
+### Patch Changes
+
+- 3195865: Adding LOG env vars for changing default log config
+
+## 0.20.3
+
+### Patch Changes
+
+- f1a0337: Update dependency ioredis to ^4.26.0
+- 948bf54: Update dependency @generates/modulizer to ^7.0.2
+- d3f4003: Update dependency pg to ^8.6.0
+- ab91ee5: Update dependency grant to ^5.4.13
+- 903a7a1: Update dependency @generates/logger to v1
+- 7894e14: Cleaning up config debug logs
+- eca4bc9: Update dependency @generates/cli to ^1.0.3
+- Updated dependencies [903a7a1]
+- Updated dependencies [f6ee1a5]
+  - @ianwalter/nrg-logger@0.3.3
+  - @ianwalter/nrg-mq@1.2.7
+  - @ianwalter/nrg-validation@3.0.2
+  - @ianwalter/nrg-session@8.0.0
+
 ## 0.20.2
 
 ### Patch Changes

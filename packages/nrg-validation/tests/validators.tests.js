@@ -1,4 +1,5 @@
 import { test } from '@ianwalter/bff'
+import { addDays, format } from 'date-fns'
 import {
   isString,
   isBoolean,
@@ -7,7 +8,13 @@ import {
   isEmail,
   isPhone,
   isDate,
-  isStrongPassword
+  isStrongPassword,
+  isObject,
+  isEmpty,
+  isShortUsState,
+  isShortUsZip,
+  isDateString,
+  isShortUsDobString
 } from '../index.js'
 
 test('isString', t => {
@@ -74,4 +81,63 @@ test('isDate', t => {
 test('isStrongPassword', t => {
   t.expect(isStrongPassword('fj2wfnfw93ivznjiojweQWPMNV')).toBe(true)
   t.expect(isStrongPassword('qwerty')).toBe(false)
+})
+
+test('isObject', t => {
+  t.expect(isObject([])).toBe(false)
+  t.expect(isObject({})).toBe(true)
+  t.expect(isObject(null)).toBe(false)
+  t.expect(isObject({ id: 1 })).toBe(true)
+  t.expect(isObject('string')).toBe(false)
+  t.expect(isObject(1)).toBe(false)
+  t.expect(isObject(new Date())).toBe(false)
+})
+
+test('isEmpty', t => {
+  t.expect(isEmpty({})).toBe(true)
+  t.expect(isEmpty([])).toBe(true)
+  t.expect(isEmpty(null)).toBe(true)
+  t.expect(isEmpty(undefined)).toBe(true)
+  t.expect(isEmpty('')).toBe(true)
+  t.expect(isEmpty(' ')).toBe(false)
+  t.expect(isEmpty([''])).toBe(false)
+  t.expect(isEmpty({ id: undefined })).toBe(false)
+  t.expect(isEmpty(0)).toBe(false)
+  t.expect(isEmpty(new Date())).toBe(false)
+})
+
+test('isShortUsState', t => {
+  t.expect(isShortUsState('Alabama')).toBe(false)
+  t.expect(isShortUsState('AL')).toBe(true)
+  t.expect(isShortUsState('NK')).toBe(false)
+})
+
+test('isShortUsZip', t => {
+  t.expect(isShortUsZip('05004')).toBe(true)
+  t.expect(isShortUsZip('0O422')).toBe(false)
+  t.expect(isShortUsZip('1202')).toBe(false)
+  t.expect(isShortUsZip('20203-3222')).toBe(false)
+  t.expect(isShortUsZip('234.3')).toBe(false)
+})
+
+test('isDateString', t => {
+  t.expect(isDateString('01/01/2001')).toBe(true)
+  t.expect(isDateString('11/12/2051')).toBe(true)
+  t.expect(isDateString('05/30/945')).toBe(true)
+  t.expect(isDateString('11/32/2010')).toBe(false)
+  t.expect(isDateString('00/14/2008')).toBe(false)
+  t.expect(isDateString('2002-04-06')).toBe(false)
+  t.expect(isDateString('2002-04-06', 'yyyy-MM-dd')).toBe(true)
+})
+
+test('isShortUsDobString', t => {
+  t.expect(isShortUsDobString('01/01/2001')).toBe(true)
+  t.expect(isShortUsDobString('11/12/2051')).toBe(false)
+  t.expect(isShortUsDobString('05/30/1945')).toBe(true)
+  t.expect(isShortUsDobString('05/30/1945', 50)).toBe(false)
+  t.expect(isShortUsDobString('05/28/2021')).toBe(true)
+  const today = new Date()
+  t.expect(isShortUsDobString(format(today, 'MM/dd/yyyy'))).toBe(true)
+  const tomorrow = addDays(today, 1)
+  t.expect(isShortUsDobString(format(tomorrow, 'MM/dd/yyyy'))).toBe(false)
 })

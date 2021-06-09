@@ -1,9 +1,14 @@
 {
   "name": "@ianwalter/nrg-validation",
-  "version": "3.0.1",
+  "version": "4.0.3",
   "description": "Pragmatic validation for Node.js",
-  "main": "index.js",
+  "main": "dist/nrg-validation.cjs",
+  "module": "index.js",
+  "type": "module",
+  "sideEffects": false,
   "scripts": {
+    "build": "modulize --no-esm --no-browser",
+    "pretest": "yarn build",
     "test": "bff"
   },
   "repository": {
@@ -20,15 +25,17 @@
   },
   "homepage": "https://github.com/ianwalter/nrg/blob/main/packages/nrg-validation#readme",
   "dependencies": {
+    "@generates/dotter": "^2.0.0",
     "@generates/logger": "^1.0.0",
     "@generates/merger": "^0.1.3",
-    "date-fns": "^2.19.0",
+    "date-fns": "^2.22.1",
     "decamelize": "^4.0.0",
     "isemail": "^3.2.0",
     "libphonenumber-js": "^1.9.14",
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
+    "@generates/modulizer": "^8.0.2",
     "@ianwalter/bff": "^11.0.0"
   },
   "keywords": [
@@ -36,6 +43,7 @@
     "validation"
   ],
   "files": [
+    "dist",
     "lib",
     "index.js"
   ],

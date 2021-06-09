@@ -1,5 +1,11 @@
 # @ianwalter/nrg-session
 
+## 8.0.0
+
+### Major Changes
+
+- f6ee1a5: Set sameSite to Lax in session cookie by default
+
 ## 7.0.2
 
 ### Patch Changes
