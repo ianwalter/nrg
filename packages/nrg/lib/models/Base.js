@@ -1,4 +1,4 @@
-const { Model } = require('objection')
+const { Model, raw } = require('objection')
 const { nanoid } = require('nanoid')
 
 module.exports = class Base extends Model {
@@ -8,9 +8,8 @@ module.exports = class Base extends Model {
   }
 
   $beforeInsert () {
-    const timestamp = new Date().toISOString()
-    this.createdAt = timestamp
-    this.updatedAt = timestamp
+    this.createdAt = raw('NOW()')
+    this.updatedAt = raw('NOW()')
 
     // If no primary key value was specified, generate one using nanoid.
     const idColumn = this.constructor.idColumn
@@ -18,6 +17,6 @@ module.exports = class Base extends Model {
   }
 
   $beforeUpdate () {
-    this.updatedAt = new Date().toISOString()
+    this.updatedAt = raw('NOW()')
   }
 }
