@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "next-example",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
@@ -15,7 +15,7 @@
     "test": "bff"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.22.0",
+    "@ianwalter/nrg": "^0.23.0",
     "next": "^10.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

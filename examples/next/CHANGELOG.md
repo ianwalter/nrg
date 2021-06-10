@@ -1,5 +1,14 @@
 # next-example
 
+## 2.0.18
+
+### Patch Changes
+
+- Updated dependencies [bc4755a]
+- Updated dependencies [9a6ce23]
+- Updated dependencies [95e2f84]
+  - @ianwalter/nrg@0.23.0
+
 ## 2.0.17
 
 ### Patch Changes
