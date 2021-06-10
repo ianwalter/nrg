@@ -1,5 +1,16 @@
 # @ianwalter/nrg
 
+## 0.23.0
+
+### Minor Changes
+
+- bc4755a: Support .mjs files in seed and migrate
+
+### Patch Changes
+
+- 9a6ce23: Update dependency ioredis to ^4.27.4
+- 95e2f84: Update dependency ioredis to ^4.27.5
+
 ## 0.22.6
 
 ### Patch Changes

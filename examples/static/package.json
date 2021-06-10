@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "static-example",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "",
   "author": {
     "name": "Ian Walter",
@@ -12,7 +12,7 @@
     "test": "bff"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.22.0"
+    "@ianwalter/nrg": "^0.23.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^9.10.0"
