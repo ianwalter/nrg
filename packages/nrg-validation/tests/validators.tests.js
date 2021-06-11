@@ -64,6 +64,7 @@ test('isEmail', t => {
 test('isPhone', t => {
   t.expect(isPhone('617-777-9501', 'US')).toBe(true)
   t.expect(isPhone('+16177779501')).toBe(true)
+  t.expect(isPhone('2018889999')).toBe(true)
   t.expect(isPhone('07011 123456', 'GB')).toBe(true)
   t.expect(isPhone('340 777 9501', 'US')).toBe(true)
   t.expect(isPhone('(787) 777-9501', 'US')).toBe(true)

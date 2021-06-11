@@ -116,7 +116,7 @@ isStrongPassword.validate = function validateStrongPassword (password, inputs) {
   }
 }
 
-export function isPhone (input, country) {
+export function isPhone (input, country = 'US') {
   return resultIsValid(isPhone.validate(input, country))
 }
 isPhone.validate = function validatePhone (input, country) {
