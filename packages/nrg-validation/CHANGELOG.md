@@ -1,5 +1,11 @@
 # @ianwalter/nrg-validation
 
+## 4.0.4
+
+### Patch Changes
+
+- 41cef5a: Making isPhone country default to US
+
 ## 4.0.3
 
 ### Patch Changes
