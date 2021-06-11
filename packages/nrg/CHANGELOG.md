@@ -1,5 +1,13 @@
 # @ianwalter/nrg
 
+## 0.23.1
+
+### Patch Changes
+
+- 6d087e8: Improving Base model timestamp logic
+- Updated dependencies [41cef5a]
+  - @ianwalter/nrg-validation@4.0.4
+
 ## 0.23.0
 
 ### Minor Changes
