@@ -1,5 +1,14 @@
 # @ianwalter/nrg
 
+## 0.23.2
+
+### Patch Changes
+
+- 124e18e: Update dependency @generates/dotter to ^2.0.1
+- Updated dependencies [124e18e]
+- Updated dependencies [7643b38]
+  - @ianwalter/nrg-validation@4.1.0
+
 ## 0.23.1
 
 ### Patch Changes
