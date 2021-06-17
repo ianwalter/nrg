@@ -1,5 +1,15 @@
 # @ianwalter/nrg-validation
 
+## 4.1.0
+
+### Minor Changes
+
+- 7643b38: Adding isUrl validator and toUrl modifier
+
+### Patch Changes
+
+- 124e18e: Update dependency @generates/dotter to ^2.0.1
+
 ## 4.0.4
 
 ### Patch Changes
