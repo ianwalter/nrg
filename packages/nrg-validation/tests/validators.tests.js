@@ -14,7 +14,8 @@ import {
   isShortUsState,
   isShortUsZip,
   isDateString,
-  isShortUsDobString
+  isShortUsDobString,
+  isUrl
 } from '../index.js'
 
 test('isString', t => {
@@ -141,4 +142,12 @@ test('isShortUsDobString', t => {
   t.expect(isShortUsDobString(format(today, 'MM/dd/yyyy'))).toBe(true)
   const tomorrow = addDays(today, 1)
   t.expect(isShortUsDobString(format(tomorrow, 'MM/dd/yyyy'))).toBe(false)
+})
+
+test('isUrl', t => {
+  t.expect(isUrl('a')).toBe(false)
+  t.expect(isUrl('http://ianwalter.dev?key=value&is=true')).toBe(true)
+  t.expect(isUrl('http//ianwalter.dev')).toBe(false)
+  t.expect(isUrl('http://localhost')).toBe(true)
+  t.expect(isUrl('http://localhost:8080/admin')).toBe(true)
 })

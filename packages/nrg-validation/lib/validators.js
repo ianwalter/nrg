@@ -217,3 +217,16 @@ export function isShortUsZip (input) {
 isShortUsZip.validate = function validateUsShortZip (input) {
   return { isValid: input?.length === 5 && digitsRegex.test(input) }
 }
+
+export function isUrl (input) {
+  return resultIsValid(isUrl.validate(input))
+}
+isUrl.validate = function validateUrl (input) {
+  let url
+  try {
+    url = new URL(input)
+  } catch (err) {
+    // Ignore error
+  }
+  return { isValid: !!url, url }
+}
