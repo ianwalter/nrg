@@ -55,6 +55,7 @@
     "@ianwalter/url": "^2.0.0",
     "bcrypt": "5.0.0",
     "cheerio": "^1.0.0-rc.10",
+    "common-tags": "^1.8.0",
     "date-fns": "^2.22.1",
     "devalue": "^2.0.1",
     "dotenv": "^10.0.0",
