@@ -1,5 +1,11 @@
 # @ianwalter/nrg
 
+## 0.24.0
+
+### Minor Changes
+
+- 1c3c48c: Adding disabled middleware
+
 ## 0.23.2
 
 ### Patch Changes

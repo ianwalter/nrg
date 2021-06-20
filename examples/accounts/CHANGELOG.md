@@ -1,5 +1,12 @@
 # accounts-example
 
+## 1.1.16
+
+### Patch Changes
+
+- Updated dependencies [1c3c48c]
+  - @ianwalter/nrg@0.24.0
+
 ## 1.1.15
 
 ### Patch Changes
