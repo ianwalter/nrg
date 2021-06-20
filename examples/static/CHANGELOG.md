@@ -1,5 +1,12 @@
 # static-example
 
+## 1.0.23
+
+### Patch Changes
+
+- Updated dependencies [1c3c48c]
+  - @ianwalter/nrg@0.24.0
+
 ## 1.0.22
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @ianwalter/nrg-sentry
 
+## 1.2.7
+
+### Patch Changes
+
+- Updated dependencies [1c3c48c]
+  - @ianwalter/nrg@0.24.0
+
 ## 1.2.6
 
 ### Patch Changes
