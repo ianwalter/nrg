@@ -4686,10 +4686,10 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.5, graceful-fs@^4.1.6, graceful-fs@^4.2.0, 
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
   integrity sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
 
-grant@^5.4.14:
-  version "5.4.14"
-  resolved "https://registry.yarnpkg.com/grant/-/grant-5.4.14.tgz#5ba47df3bfd5b83ad84026f15ffb370a2ad4fb2c"
-  integrity sha512-O7MgWrWA3Gi1wzFYhGw2wZ2lG2wixk6VMBJCSXiI8SrFH3nAA2Kw2O4gZa0Zu8+BBs6cmXhj4Ukjs5eGXlrWmg==
+grant@^5.4.15:
+  version "5.4.15"
+  resolved "https://registry.yarnpkg.com/grant/-/grant-5.4.15.tgz#4bc19b6e3ab67ac33135a7d176460dafb8e38fb7"
+  integrity sha512-P2DQAgOKD4ySa+82c3DNDRLma74w/DtdJ60KsNd056oywvEAHTCCXaDBVct2vM4LPSoP8OVD/HctJEQyhExl7Q==
   dependencies:
     qs "^6.10.1"
     request-compose "^2.1.4"
