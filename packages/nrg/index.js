@@ -92,6 +92,8 @@ const { adaptNext } = require('./lib/middleware/next')
 
 const { relay } = require('./lib/middleware/relay')
 
+const { disabled } = require('./lib/middleware/disabled')
+
 const swap = require('./lib/utilities/swap')
 const getRandomTimeout = require('./lib/utilities/getRandomTimeout')
 const getTestEmail = require('./lib/utilities/getTestEmail')
@@ -289,6 +291,9 @@ module.exports = {
 
   // Relay requests to other servers.
   relay,
+
+  // A quick and easy way to disable an endpoint.
+  disabled,
 
   /**
    * Error classes:
