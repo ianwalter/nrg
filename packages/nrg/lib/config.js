@@ -457,7 +457,13 @@ module.exports = function config (options = {}) {
           pool: cfg.isProd,
           ignoreTLS: cfg.isDev || cfg.isTest,
           host: process.env.SMTP_HOST,
-          port: process.env.SMTP_PORT
+          port: process.env.SMTP_PORT,
+          ...(process.env.SMTP_USER || process.env.SMTP_PASS) && {
+            auth: {
+              ...process.env.SMTP_USER && { user: process.env.SMTP_USER },
+              ...process.env.SMTP_PASS && { pass: process.env.SMTP_PASS }
+            }
+          }
         }
       },
       get replyTo () {
