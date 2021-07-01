@@ -105,10 +105,7 @@ module.exports = function config (options = {}) {
           (cfg.isDev ? 'debug' : (cfg.isTest ? 'error' : 'info'))
       },
       namespace: 'nrg.app',
-      get ndjson () {
-        return (process.env.LOG_NDJSON && process.env.LOG_NDJSON !== '0') ||
-          (process.env.LOG_NDJSON !== '0' && cfg.isProd)
-      },
+      ndjson: process.env.LOG_NDJSON && process.env.LOG_NDJSON !== '0',
       // [Array] A list of request/response properties to redact from being
       // logged. Defaults to nothing if the log level is 'debug' or to cookie
       // request headers and set-cookie response headers otherwise.
