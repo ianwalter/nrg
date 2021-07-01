@@ -130,7 +130,7 @@ module.exports = function config (options = {}) {
     },
     // [String|Boolean] The path that should be used to register the health
     // check endpoint or false if the endpoint shouldn't be registered.
-    healthEndpoint: '/health',
+    healthEndpoint: '/healthz',
     // [Object] Key-value entries of plugins the application will use.
     get plugins () {
       const plugins = {
