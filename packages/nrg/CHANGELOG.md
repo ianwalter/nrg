@@ -1,5 +1,12 @@
 # @ianwalter/nrg
 
+## 0.24.1
+
+### Patch Changes
+
+- 79783de: Update dependency grant to ^5.4.15
+- 106cfa7: Adding config for SMTP_USER and SMTP_PASS
+
 ## 0.24.0
 
 ### Minor Changes
