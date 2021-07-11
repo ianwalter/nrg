@@ -16,7 +16,7 @@ test('Test Server 1', async t => {
 
 test('Test Server 2', async t => {
   const server = await app.serve()
-  const response = await requester.get(`${server.url}/health`)
+  const response = await requester.get(`${server.url}/healthz`)
   t.expect(response.statusCode).toBe(200)
   await server.destroy()
 })

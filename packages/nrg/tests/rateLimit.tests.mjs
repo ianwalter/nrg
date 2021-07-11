@@ -9,11 +9,11 @@ test('Rate limit', async t => {
     }
   })
 
-  let response = await app.test('/health').get()
+  let response = await app.test('/healthz').get()
   t.expect(response.statusCode).toBe(200)
   t.expect(response.body).toBe('OK')
 
-  response = await app.test('/health').get()
+  response = await app.test('/healthz').get()
   t.expect(response.statusCode).toBe(429)
   t.expect(response.body).toBe('Too Many Requests')
 })
