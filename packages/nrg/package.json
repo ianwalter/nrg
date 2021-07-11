@@ -69,7 +69,7 @@
     "koa-json": "^2.0.2",
     "koa-redis": "^4.0.1",
     "koa-send": "^5.0.1",
-    "mailgen": "^2.0.13",
+    "mailgen": "^2.0.15",
     "nanoid": "^3.1.23",
     "nodemailer": "^6.6.1",
     "objection": "^2.2.14",
