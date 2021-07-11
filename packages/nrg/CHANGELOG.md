@@ -1,5 +1,17 @@
 # @ianwalter/nrg
 
+## 0.25.0
+
+### Minor Changes
+
+- b9264e1: Setting log.ndjson to false by default and removing isProd logic
+- 91f4816: Changing default healthcheck endpoint from /health from /healthz
+
+### Patch Changes
+
+- 91ea253: Fix #807: Fix error message for change password with incorrect password
+- 3b6d7e6: Update dependency knex to ^0.95.7
+
 ## 0.24.1
 
 ### Patch Changes
