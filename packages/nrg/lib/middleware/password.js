@@ -31,10 +31,12 @@ async function comparePasswords (ctx, next) {
     const debug = { payload, password, passwordsMatch }
     logger.debug('password.comparePasswords', debug)
 
-    if (!passwordsMatch) {
+    if (!passwordsMatch && payload.email) {
       // The error message must be the same message as the one in
       // session/authenticate.
       throw new BadRequestError('Incorrect email or password')
+    } else if (!passwordsMatch) {
+      throw new BadRequestError('Incorrect password')
     }
   } else {
     logger.debug('password.comparePasswords skipped since password is empty')
