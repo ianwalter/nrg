@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@generates/modulizer": "^8.0.2",
-    "@ianwalter/bff": "^11.0.0"
+    "@ianwalter/bff": "^11.1.0"
   },
   "keywords": [
     "schema",
