@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.5.1
+
+### Patch Changes
+
+- 9d681a7: Only logging response body in development if json
+
 ## 0.5.0
 
 ### Minor Changes
