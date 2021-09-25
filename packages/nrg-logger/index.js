@@ -73,7 +73,10 @@ module.exports = function nrgLogger (options = {}) {
 
         if (shouldLog) {
           ctx.logger.log(entry)
-          if (ctx.body) ctx.logger.debug('Response body', ctx.body)
+          const contentType = ctx.response.get('content-type')
+          if (ctx.body && contentType.includes('application/json')) {
+            ctx.logger.debug('Response body', ctx.body)
+          }
         }
       }
     }
