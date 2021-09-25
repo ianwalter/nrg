@@ -1,5 +1,11 @@
 # @ianwalter/nrg-router
 
+## 1.2.0
+
+### Minor Changes
+
+- 543aceb: Adding .all method to app to response to all request methods
+
 ## 1.1.2
 
 ### Patch Changes
