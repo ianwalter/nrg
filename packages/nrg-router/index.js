@@ -51,4 +51,9 @@ module.exports = function nrgRouter (app, ctx) {
       app.addRoute(method, path, ...middleware)
     }
   })
+
+  // Add a method to the app that will allow adding an endpoint for all methods.
+  app.all = (path, ...middleware) => {
+    for (const method of methods) app.addRoute(method, path, ...middleware)
+  }
 }

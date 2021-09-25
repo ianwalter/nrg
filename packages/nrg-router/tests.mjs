@@ -23,3 +23,13 @@ test('post', async t => {
   const response = await app.test('/data').post({ message })
   t.expect(response.body).toBe(message)
 })
+
+test('all', async t => {
+  const message = 'Orange Soda'
+  app.all('/data', ctx => (ctx.body = message))
+
+  let response = await app.test('/data').get()
+  t.expect(response.body).toBe(message)
+  response = await app.test('/data').post()
+  t.expect(response.body).toBe(message)
+})
