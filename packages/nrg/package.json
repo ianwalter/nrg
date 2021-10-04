@@ -65,7 +65,7 @@
     "knex": "^0.95.7",
     "koa": "^2.13.3",
     "koa-bodyparser": "^4.3.0",
-    "koa-compress": "^5.0.1",
+    "koa-compress": "^5.1.0",
     "koa-json": "^2.0.2",
     "koa-redis": "^4.0.1",
     "koa-send": "^5.0.1",
