@@ -70,7 +70,7 @@
     "koa-redis": "^4.0.1",
     "koa-send": "^5.0.1",
     "mailgen": "^2.0.13",
-    "nanoid": "^3.1.23",
+    "nanoid": "^3.1.28",
     "nodemailer": "^6.6.1",
     "objection": "^2.2.14",
     "pg": "^8.6.0",
