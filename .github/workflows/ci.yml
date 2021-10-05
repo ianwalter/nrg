@@ -51,4 +51,4 @@ jobs:
       - name: Build
         run: yarn build
       - name: Test
-        run: yarn test.ci
+        run: yarn test
