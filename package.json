@@ -9,9 +9,8 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "lint": "eslit",
-    "build": "ultra -r build",
-    "test": "ultra -r test",
-    "test.ci": "ultra --raw -r test",
+    "build": "mr build",
+    "test": "mr test",
     "test.mq": "npm test --prefix examples/mq",
     "test.static": "npm test --prefix examples/static",
     "test.next": "npm test --prefix examples/next",
@@ -53,12 +52,12 @@
   },
   "devDependencies": {
     "@changesets/cli": "2.17.0",
+    "@generates/mister": "^0.0.1",
     "@generates/skrt": "^0.0.7",
     "@ianwalter/eslint-config": "^6.2.0",
     "@ianwalter/eslit": "^1.0.1",
     "@ianwalter/renovate-config": "^1.4.5",
-    "npm-run-all": "^4.1.5",
-    "ultra-runner": "^3.10.5"
+    "npm-run-all": "^4.1.5"
   },
   "nrg": {
     "app": "examples/accounts/app"
