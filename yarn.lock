@@ -1748,7 +1748,7 @@
   resolved "https://registry.yarnpkg.com/@generates/merger/-/merger-0.1.3.tgz#6808e51767b45bf75a8354f739d645826de85677"
   integrity sha512-x4KKHexiP4hIfoGZumc3RSac1t9d/aGErxbG9NASHcx59mljW2uyKDt4qP3igi9hszIHV5mjb4TbAYUNFoWg3w==
 
-"@generates/modulizer@^8.0.0", "@generates/modulizer@^8.0.2":
+"@generates/modulizer@^8.0.0":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-8.0.2.tgz#e1ef7b174ca4cccd65513d9b932632b49401e394"
   integrity sha512-fMxgyO1tx1cjNsXlMbs7HlIjXBDcv6oG6qrOw3AaqBrbjADW3EHFdQiVKI/2LbpbpsrIMJR0P7jmXOkE/ZP0rQ==
@@ -1756,6 +1756,27 @@
     "@babel/core" "^7.8.6"
     "@generates/cli" "^1.0.3"
     "@generates/logger" "^1.0.0"
+    "@ianwalter/npm-short-name" "^1.0.0"
+    "@ianwalter/rollup-plugin-hashbang" "^1.3.0"
+    "@rollup/plugin-babel" "^5.3.0"
+    "@rollup/plugin-commonjs" "^19.0.0"
+    "@rollup/plugin-json" "^4.1.0"
+    "@rollup/plugin-node-resolve" "^11.2.0"
+    builtin-modules "^3.1.0"
+    p-settle "^4.0.0"
+    read-pkg-up "^6.0.0"
+    require-from-string "^2.0.2"
+    rollup "^2.39.0"
+    rollup-plugin-terser "^7.0.0"
+
+"@generates/modulizer@^8.0.3":
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-8.0.3.tgz#9c1375cb13b57d249dfb493f46f1ac4a3d23b91b"
+  integrity sha512-yxPOka2BPKZU4sqYqYIwVKTJ1FwneQVOVWDkdRAjGRVrjVjLjdrggUNvdJYUnYdjGkkra6Y+cR1StC8lMs/Q1A==
+  dependencies:
+    "@babel/core" "^7.8.6"
+    "@generates/cli" "^2.0.0"
+    "@generates/logger" "^2.0.0"
     "@ianwalter/npm-short-name" "^1.0.0"
     "@ianwalter/rollup-plugin-hashbang" "^1.3.0"
     "@rollup/plugin-babel" "^5.3.0"
@@ -9101,6 +9122,11 @@ nanoid@^3.1.23:
   version "3.1.23"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.23.tgz#f744086ce7c2bc47ee0a8472574d5c78e4183a81"
   integrity sha512-FiB0kzdP0FFVGDKlRLEQ1BgDzU87dy5NnzjeW9YZNt+/c3+q82EQDUwniSAUxp/F0gFNI1ZhKU1FqYsMuqZVnw==
+
+nanoid@^3.1.28:
+  version "3.1.28"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.28.tgz#3c01bac14cb6c5680569014cc65a2f26424c6bd4"
+  integrity sha512-gSu9VZ2HtmoKYe/lmyPFES5nknFrHa+/DT9muUFWFMi6Jh9E1I7bkvlQ8xxf1Kos9pi9o8lBnIOkatMhKX/YUw==
 
 nanomatch@^1.2.9:
   version "1.2.13"
