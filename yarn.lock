@@ -1776,28 +1776,7 @@
   dependencies:
     "@generates/cli" "^2.0.0"
 
-"@generates/modulizer@^8.0.2":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-8.0.2.tgz#e1ef7b174ca4cccd65513d9b932632b49401e394"
-  integrity sha512-fMxgyO1tx1cjNsXlMbs7HlIjXBDcv6oG6qrOw3AaqBrbjADW3EHFdQiVKI/2LbpbpsrIMJR0P7jmXOkE/ZP0rQ==
-  dependencies:
-    "@babel/core" "^7.8.6"
-    "@generates/cli" "^1.0.3"
-    "@generates/logger" "^1.0.0"
-    "@ianwalter/npm-short-name" "^1.0.0"
-    "@ianwalter/rollup-plugin-hashbang" "^1.3.0"
-    "@rollup/plugin-babel" "^5.3.0"
-    "@rollup/plugin-commonjs" "^19.0.0"
-    "@rollup/plugin-json" "^4.1.0"
-    "@rollup/plugin-node-resolve" "^11.2.0"
-    builtin-modules "^3.1.0"
-    p-settle "^4.0.0"
-    read-pkg-up "^6.0.0"
-    require-from-string "^2.0.2"
-    rollup "^2.39.0"
-    rollup-plugin-terser "^7.0.0"
-
-"@generates/modulizer@^8.0.3":
+"@generates/modulizer@^8.0.3", "@generates/modulizer@^8.0.4":
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-8.0.4.tgz#2945fa9bc53cef520fdcddab6e5929d1b70437ef"
   integrity sha512-kZP0j/q8e4UqBya/PxVRWUMFj1AgEH4SbiCdTh/tE2e5N6e19t2pe1buDb6bHe2dREyMG8kXesqXkUuoikOlNQ==
@@ -2418,19 +2397,6 @@
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-16.0.0.tgz#169004d56cd0f0a1d0f35915d31a036b0efe281f"
   integrity sha512-LuNyypCP3msCGVQJ7ki8PqYdpjfEkE/xtFa5DqlF+7IBD0JsfMZ87C58heSwIMint58sAUZbt3ITqOmdQv/dXw==
-  dependencies:
-    "@rollup/pluginutils" "^3.1.0"
-    commondir "^1.0.1"
-    estree-walker "^2.0.1"
-    glob "^7.1.6"
-    is-reference "^1.2.1"
-    magic-string "^0.25.7"
-    resolve "^1.17.0"
-
-"@rollup/plugin-commonjs@^19.0.0":
-  version "19.0.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-19.0.0.tgz#8c3e71f9a66908e60d70cc1be205834ef3e45f71"
-  integrity sha512-adTpD6ATGbehdaQoZQ6ipDFhdjqsTgpOAhFiPwl+dzre4pPshsecptDPyEFb61JMJ1+mGljktaC4jI8ARMSNyw==
   dependencies:
     "@rollup/pluginutils" "^3.1.0"
     commondir "^1.0.1"
