@@ -1,5 +1,11 @@
 # @ianwalter/nrg-mq
 
+## 1.2.9
+
+### Patch Changes
+
+- e4236e9: Update dependency amqp-connection-manager to ^3.7.0
+
 ## 1.2.8
 
 ### Patch Changes
