@@ -1,5 +1,30 @@
 # @ianwalter/nrg
 
+## 0.25.1
+
+### Patch Changes
+
+- 26f0eb4: Update dependency nanoid to ^3.1.28
+- e85e29c: Update dependency koa-compress to ^5.1.0
+- 0ec25a7: Update dependency replace-string to v4
+- 9c65b68: Update dependency nodemailer to ^6.6.5
+- 1f1c8c0: Update dependency grant to ^5.4.17
+- d7d3b45: Update dependency rate-limiter-flexible to ^2.3.1
+- 86111c1: Update dependency objection to ^2.2.17
+- c4d9e79: Update dependency koa to ^2.13.3
+- fe9efe9: Update dependency pg to ^8.7.1
+- 63942c2: Update dependency knex to ^0.95.11
+- b8b758b: Update dependency date-fns to ^2.25.0
+- 4502573: Update dependency nanoid to ^3.1.29
+- ffcc07b: Update dependency pkg-dir to v6
+- 0ae5a34: Update dependency ioredis to ^4.27.10
+- Updated dependencies [31d0dc4]
+- Updated dependencies [e4236e9]
+- Updated dependencies [b5e7c6e]
+- Updated dependencies [b8b758b]
+  - @ianwalter/nrg-validation@4.1.1
+  - @ianwalter/nrg-mq@1.2.9
+
 ## 0.25.0
 
 ### Minor Changes
