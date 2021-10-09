@@ -45,7 +45,7 @@
     "@sentry/tracing": "^5.30.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^11.1.0",
+    "@ianwalter/bff": "^11.1.1",
     "@sentry/integrations": "^5.30.0",
     "sentry-testkit": "^3.3.0"
   }
