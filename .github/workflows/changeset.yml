@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Add Changeset
-        uses: generates/changeset-action@02411370d10f09c1f0281a53875ddfab8203ae74
+        uses: generates/changeset-action@b134b46d61041218a68dc3dd8580019aa51f5e9d
         with:
           token: ${{ secrets.GH_PAT }}
       - name: Commit Changes
