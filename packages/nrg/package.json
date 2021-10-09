@@ -77,7 +77,7 @@
     "pkg-dir": "^6.0.1",
     "rate-limiter-flexible": "^2.1.16",
     "read-pkg-up": "^7.0.1",
-    "replace-string": "^3.1.0",
+    "replace-string": "^4.0.0",
     "require-from-string": "^2.0.2"
   },
   "devDependencies": {
