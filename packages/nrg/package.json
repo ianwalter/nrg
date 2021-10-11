@@ -71,7 +71,7 @@
     "koa-send": "^5.0.1",
     "mailgen": "^2.0.13",
     "nanoid": "^3.1.29",
-    "nodemailer": "^6.6.5",
+    "nodemailer": "^6.7.0",
     "objection": "^2.2.17",
     "pg": "^8.7.1",
     "pkg-dir": "^6.0.1",
