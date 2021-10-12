@@ -1804,12 +1804,12 @@
   resolved "https://registry.yarnpkg.com/@generates/merger/-/merger-0.1.3.tgz#6808e51767b45bf75a8354f739d645826de85677"
   integrity sha512-x4KKHexiP4hIfoGZumc3RSac1t9d/aGErxbG9NASHcx59mljW2uyKDt4qP3igi9hszIHV5mjb4TbAYUNFoWg3w==
 
-"@generates/mister@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@generates/mister/-/mister-0.0.1.tgz#00a24d87c4f1178b077f5f1305ed01405a84e16b"
-  integrity sha512-hzITFmXtvTBRqD/MI6CNOnLr/JNS918rxpEjbHa8YfBgLgtsYFwHgfD9rPXugk2wtPVsz+Md6W3qLnA/ajOToA==
+"@generates/mister@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@generates/mister/-/mister-0.0.2.tgz#711e10c16fd98150f2367673133951dc904583f4"
+  integrity sha512-YlYJaeviX0NdttQ3pgCPAccArBMlxF5J1J133rww1+ebn/A8sEDviqTkNcRN3q5wRuQ/heUcyIcnmOrq3OJuMw==
   dependencies:
-    "@generates/cli" "^2.0.0"
+    "@generates/cli" "^2.0.1"
 
 "@generates/modulizer@^8.0.3":
   version "8.0.4"
