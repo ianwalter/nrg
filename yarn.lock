@@ -1633,6 +1633,20 @@
     getopts "^2.2.5"
     read-pkg-up "^7.0.1"
 
+"@generates/cli@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@generates/cli/-/cli-2.0.1.tgz#946de4bcf17575f31720b21eeb79490ede6fee78"
+  integrity sha512-Z/bwZUySktAJq6Z3EWTwNC8YdIrXcUVKx7YpsioMIuAF8MQigWVTpV2hPm7dzG4Xr+i8hc/Tyh8M6KQR7+W6rw==
+  dependencies:
+    "@generates/dotter" "^2.0.0"
+    "@generates/logger" "^2.0.2"
+    "@generates/merger" "^0.1.3"
+    camelcase "^6.0.0"
+    common-tags "^1.8.0"
+    decamelize "^6.0.0"
+    getopts "^2.2.5"
+    read-pkg-up "^7.0.1"
+
 "@generates/dotter@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@generates/dotter/-/dotter-2.0.0.tgz#680523dbe6782ad8b924082258898378472106e5"
@@ -1764,6 +1778,27 @@
     marked-terminal "^4.1.0"
     strip-ansi "^7.0.0"
 
+"@generates/logger@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@generates/logger/-/logger-2.0.2.tgz#c8e95e607aeba273d56a81e20b4c88f9de99cbbd"
+  integrity sha512-7fPhjfSU896/nrt7uTMYK9lwoa96jDnukjrO4NnBGCdDjWFhbX1p9ZlQ5FElsH1YZpSb4hToYTYEcCCmmF+bEA==
+  dependencies:
+    "@generates/cli" "^2.0.1"
+    "@generates/dotter" "^2.0.0"
+    "@generates/merger" "^0.1.0"
+    "@generates/number-lines" "^0.0.1"
+    chalk "^4.1.0"
+    common-tags "^1.8.0"
+    emphasize "^5.0.0"
+    get-own-enumerable-property-symbols "^3.0.2"
+    has-ansi "^5.0.0"
+    has-emoji "^2.0.0"
+    is-obj "^3.0.0"
+    is-regexp "^3.0.0"
+    marked "^3.0.0"
+    marked-terminal "^4.1.0"
+    strip-ansi "^7.0.0"
+
 "@generates/merger@^0.1.0", "@generates/merger@^0.1.1", "@generates/merger@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@generates/merger/-/merger-0.1.3.tgz#6808e51767b45bf75a8354f739d645826de85677"
@@ -1776,7 +1811,7 @@
   dependencies:
     "@generates/cli" "^2.0.0"
 
-"@generates/modulizer@^8.0.3", "@generates/modulizer@^8.0.4":
+"@generates/modulizer@^8.0.3":
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-8.0.4.tgz#2945fa9bc53cef520fdcddab6e5929d1b70437ef"
   integrity sha512-kZP0j/q8e4UqBya/PxVRWUMFj1AgEH4SbiCdTh/tE2e5N6e19t2pe1buDb6bHe2dREyMG8kXesqXkUuoikOlNQ==
@@ -1792,6 +1827,26 @@
     "@rollup/plugin-node-resolve" "^11.2.0"
     builtin-modules "^3.1.0"
     p-settle "^4.0.0"
+    read-pkg-up "^6.0.0"
+    require-from-string "^2.0.2"
+    rollup "^2.39.0"
+    rollup-plugin-terser "^7.0.0"
+
+"@generates/modulizer@^8.0.5":
+  version "8.0.5"
+  resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-8.0.5.tgz#e265a84bea38c24838db1ebce45423daaa0b901b"
+  integrity sha512-wP+Tm+3LahJ+29mUYby65faUj8TrVmAy3EnNhqm8XcxdZRgZTlhraTI16FUpiici7IkgLGxaOQxzyBOuTmQnqw==
+  dependencies:
+    "@babel/core" "^7.8.6"
+    "@generates/cli" "^2.0.1"
+    "@generates/logger" "^2.0.2"
+    "@ianwalter/npm-short-name" "^1.0.0"
+    "@ianwalter/rollup-plugin-hashbang" "^1.3.0"
+    "@rollup/plugin-babel" "^5.3.0"
+    "@rollup/plugin-commonjs" "^21.0.0"
+    "@rollup/plugin-json" "^4.1.0"
+    "@rollup/plugin-node-resolve" "^11.2.0"
+    builtin-modules "^3.1.0"
     read-pkg-up "^6.0.0"
     require-from-string "^2.0.2"
     rollup "^2.39.0"
@@ -5298,6 +5353,11 @@ emoji-regex@^8.0.0:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
 
+emoji-regex@^9.2.2:
+  version "9.2.2"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-9.2.2.tgz#840c8803b0d8047f4ff0cf963176b32d4ef3ed72"
+  integrity sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==
+
 emojis-list@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
@@ -6563,6 +6623,13 @@ has-emoji@^1.1.0:
   integrity sha512-5V4f0i0shdp6BzSE5WLBKh0EJky6wAo+b1pRS2Azm8cyJCekNxXhhAQJopYto3iMluh5rKD9n+vjQLZb7iR6+g==
   dependencies:
     emoji-regex "^8.0.0"
+
+has-emoji@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/has-emoji/-/has-emoji-2.0.0.tgz#d20d475f98528af0dd9846acbe58521d4739dac6"
+  integrity sha512-COSqC/JZX2WXxWNSJ1JIzcp5E0/pbOv3DBKtCgswNOEVIxXD2532aWxuzGu1Qcm0izJf7NcqVMuQttpOXqDeiA==
+  dependencies:
+    emoji-regex "^9.2.2"
 
 has-flag@^3.0.0:
   version "3.0.0"
