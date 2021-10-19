@@ -48,7 +48,7 @@
     "@ianwalter/bff": "^11.1.1",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
-    "koa": "^2.13.3",
+    "koa": "^2.13.4",
     "koa-redis": "^4.0.1",
     "mm": "^3.2.0",
     "mocha": "^8.2.1",
