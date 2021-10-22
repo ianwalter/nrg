@@ -63,7 +63,7 @@
     "grant": "^5.4.18",
     "ioredis": "^4.27.11",
     "knex": "^0.95.11",
-    "koa": "^2.13.3",
+    "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
     "koa-compress": "^5.1.0",
     "koa-json": "^2.0.2",
