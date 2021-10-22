@@ -1657,12 +1657,17 @@
   resolved "https://registry.yarnpkg.com/@generates/dotter/-/dotter-2.0.2.tgz#678590268511cf36beedeeb4b907dde67167ae93"
   integrity sha512-6zQKL6vZgDqKiGkOXRo6lN4jIH91cCaZIxZQ4JN0rent1KP4F+tKnJIgGQzRrCbZCxwYJ2fWo6UjuOATxGzHqg==
 
-"@generates/extractor@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@generates/extractor/-/extractor-1.3.0.tgz#61ac4884ae0065f48c6895069189410ea2bfc933"
-  integrity sha512-/jQky3axwIoj48vwv5Z30SaX/YGKZBztMyxGO3Mf9LecYXKmTubRhmt0FWHKMMqdoEVxuPYmAWy4V26FaV6omw==
+"@generates/dotter@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@generates/dotter/-/dotter-2.0.3.tgz#a03dc32151291e5b84cc2bddc831a8d10e1a9c50"
+  integrity sha512-c6Wdfn4+1YKR9J+dg2Eenogd7halDT98oRyIKCyQmlyxTpSaX+CFFxA24krFPKUQOrPiHwLNx1MoWWoDw0x/LQ==
+
+"@generates/extractor@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@generates/extractor/-/extractor-1.3.1.tgz#e75d7b9cebc154fa8753406c55e03cbf1ae199bf"
+  integrity sha512-fsxtja2sRHzVB96d6i4eBGHB6J1JcDfgo4iL5x2xqpU1EYnVtgnBwdlIkUdliuuDnyVqAe4JzddSWFfSRuwheg==
   dependencies:
-    "@generates/dotter" "^2.0.0"
+    "@generates/dotter" "^2.0.3"
 
 "@generates/logger@^0.0.9":
   version "0.0.9"
