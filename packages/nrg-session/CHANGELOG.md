@@ -1,5 +1,11 @@
 # @ianwalter/nrg-session
 
+## 8.0.1
+
+### Patch Changes
+
+- 328e490: Update dependency koa to ^2.13.4
+
 ## 8.0.0
 
 ### Major Changes
