@@ -1,5 +1,24 @@
 # @ianwalter/nrg
 
+## 0.25.2
+
+### Patch Changes
+
+- b36c477: Update dependency grant to ^5.4.18
+- 3d13cd0: Update dependency @generates/extractor to ^1.3.1
+- 328e490: Update dependency koa to ^2.13.4
+- da210e7: Update dependency nanoid to ^3.1.30
+- 3a8ebbb: Update dependency nodemailer to ^6.7.0
+- 3f212a5: Update dependency @generates/dotter to ^2.0.3
+- 664bb54: Update dependency ioredis to ^4.28.0
+- 2b22186: Update dependency ioredis to ^4.27.11
+- d4d7e89: Update dependency rate-limiter-flexible to ^2.3.2
+- Updated dependencies [328e490]
+- Updated dependencies [3f212a5]
+- Updated dependencies [f732f35]
+  - @ianwalter/nrg-session@8.0.1
+  - @ianwalter/nrg-validation@4.1.2
+
 ## 0.25.1
 
 ### Patch Changes

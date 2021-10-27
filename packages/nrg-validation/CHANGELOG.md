@@ -1,5 +1,12 @@
 # @ianwalter/nrg-validation
 
+## 4.1.2
+
+### Patch Changes
+
+- 3f212a5: Update dependency @generates/dotter to ^2.0.3
+- f732f35: Update dependency libphonenumber-js to ^1.9.38
+
 ## 4.1.1
 
 ### Patch Changes
