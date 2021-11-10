@@ -2112,10 +2112,10 @@
     marked-terminal "^4.0.0"
     strip-ansi "^6.0.0"
 
-"@ianwalter/renovate-config@^1.4.5":
-  version "1.4.5"
-  resolved "https://registry.yarnpkg.com/@ianwalter/renovate-config/-/renovate-config-1.4.5.tgz#8e7df0446b176af3c4d88df0a71ad196b8b6bda6"
-  integrity sha512-a0rH8J/3Twqxxi+kVs0UuGq/jn7Z5jk5zIvPuLe79w0VWqXsQAvLjHT/+oiXERq+g3Dn8rHzm+zmoSVHcb94og==
+"@ianwalter/renovate-config@^1.4.6":
+  version "1.4.6"
+  resolved "https://registry.yarnpkg.com/@ianwalter/renovate-config/-/renovate-config-1.4.6.tgz#ed50208a5cbcf9e716676d6e713cb2a26260c83f"
+  integrity sha512-lZz13NhGS8C8WCiVP2/7jFMwT5PX9QD/EbzRWC26x24E9grCh/yEe/IEvRY5wsZAMBMz40SSVgC4ySGC7O6+jg==
 
 "@ianwalter/requester@^2.5.0":
   version "2.5.0"
