@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: yarn build
       - name: Changesets
-        uses: changesets/action@b98cec97583b917ff1dc6179dd4d230d3e439894
+        uses: changesets/action@21240c3cd1d2efa2672d64e0235a03cf139b83e6
         with:
           publish: yarn changeset publish
         env:
