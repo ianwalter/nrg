@@ -1,6 +1,5 @@
 const clone = require('@ianwalter/clone')
 const cheerio = require('cheerio')
-const replaceAll = require('replace-string')
 const getTestEmail = require('./getTestEmail')
 
 async function extractEmailToken (byEmail, selector = '.button') {
@@ -12,7 +11,7 @@ async function extractEmailToken (byEmail, selector = '.button') {
 
   // Replace the token string with an arbitrary string so that the email body
   // can more easily be used with a snapshot matcher.
-  email.html = replaceAll(email.html, token, '<~ TOKEN WAS HERE ~>')
+  email.html = email.html.replaceAll(token, '<~ TOKEN WAS HERE ~>')
 
   return { email, token }
 }

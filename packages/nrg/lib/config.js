@@ -11,7 +11,7 @@ const {
   isBoolean,
   trim,
   lowercase
-} = require('@ianwalter/nrg-validation')
+} = require('@ianwalter/nrg-validation/cjs.cjs')
 const oauthProviders = require('grant/config/oauth.json')
 
 // Get the end-user's package.json data so that it can be used to provide

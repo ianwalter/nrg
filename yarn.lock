@@ -10854,11 +10854,6 @@ repeat-string@^1.5.4, repeat-string@^1.6.1:
   resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
   integrity sha1-jcrkcOHIirwtYA//Sndihtp15jc=
 
-replace-string@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/replace-string/-/replace-string-4.0.0.tgz#2f7270b3e38d118a00ff328481305561c7fe74cf"
-  integrity sha512-fcgyZ62o26oBaihEC302pZQ2WectvmZ4sGOq4Lwa8ad12lPbhIlZCvLpgpI1sOAsbN83kpXiH5KCcr3pcZa8bA==
-
 request-compose@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/request-compose/-/request-compose-2.1.4.tgz#d427d614d31c0300e5893cbeaf86e51da1dff445"

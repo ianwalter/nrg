@@ -2,12 +2,12 @@
   "name": "@ianwalter/nrg-validation",
   "version": "4.1.3",
   "description": "Pragmatic validation for Node.js",
-  "main": "dist/nrg-validation.cjs",
+  "main": "cjs.cjs",
   "module": "index.js",
   "type": "module",
   "sideEffects": false,
   "scripts": {
-    "build": "modulize --no-esm --no-browser",
+    "build": "modulize --cjs cjs.cjs --inline",
     "pretest": "yarn build",
     "test": "bff"
   },
@@ -43,9 +43,9 @@
     "validation"
   ],
   "files": [
-    "dist",
     "lib",
-    "index.js"
+    "index.js",
+    "cjs.cjs"
   ],
   "publishConfig": {
     "access": "public"
