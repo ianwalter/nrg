@@ -1,5 +1,27 @@
 # @ianwalter/nrg
 
+## 0.26.0
+
+### Minor Changes
+
+- 6a741ea: Update dependency objection to v3
+
+### Patch Changes
+
+- 3724b81: Update dependency rate-limiter-flexible to ^2.3.4
+- ae61b6c: Update dependency knex to ^0.95.14
+- 4918ade: Update dependency date-fns to ^2.26.0
+- 3fa1290: Update dependency common-tags to ^1.8.1
+- ae64eaf: Update dependency common-tags to ^1.8.2
+- e511b13: Update dependency nodemailer to ^6.7.1
+- 11fe6b4: Update dependency mailgen to ^2.0.16
+- Updated dependencies [4918ade]
+- Updated dependencies [3fa1290]
+- Updated dependencies [ae64eaf]
+- Updated dependencies [34a5d2b]
+  - @ianwalter/nrg-validation@4.1.3
+  - @ianwalter/nrg-session@8.0.2
+
 ## 0.25.2
 
 ### Patch Changes
