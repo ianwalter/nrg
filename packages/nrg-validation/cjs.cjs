@@ -82168,7 +82168,7 @@ class SchemaValidator {
     // Convert the fields in the schema definition to objects that can be used
     // to validate data.
     for (const [field, options] of Object.entries(schema)) {
-      const defaultName = decamelize(field, ' ');
+      const defaultName = decamelize(field, { separator: ' ' });
       this.fields[field] = {
         ...options,
         name: options.name && !options.validate ? options.name : defaultName,
