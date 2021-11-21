@@ -1,5 +1,12 @@
 # @ianwalter/nrg-session
 
+## 8.0.2
+
+### Patch Changes
+
+- 3fa1290: Update dependency common-tags to ^1.8.1
+- ae64eaf: Update dependency common-tags to ^1.8.2
+
 ## 8.0.1
 
 ### Patch Changes

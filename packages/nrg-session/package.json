@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/nrg-session",
   "description": "Session middleware for the nrg web framework",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "license": "SEE LICENSE IN LICENSE",
   "author": {
     "name": "Ian Walter",
