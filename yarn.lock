@@ -8240,10 +8240,10 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-libphonenumber-js@^1.9.38:
-  version "1.9.38"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.38.tgz#d0388deebc95a8691382313d2f7dac2de2219387"
-  integrity sha512-7CCl9NZPYtX4JNXdvV5RnrQqrXp7LsLOTpYSUfEJBiySEnC5hysdwouXAuWgPDB55D/fpKm4RjM2/tUUh8kuoA==
+libphonenumber-js@^1.9.43:
+  version "1.9.43"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.43.tgz#2371e4383e6780990381d5b900b8c22666221cbb"
+  integrity sha512-tNB87ZutAiAkl3DE/Bo0Mxqn/XZbNxhPg4v9bYBwQQW4dlhBGqXl1vtmPxeDWbrijzwOA9vRjOOFm5V9SK/W3w==
 
 lie@3.1.1:
   version "3.1.1"
