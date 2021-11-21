@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "2.18.0",
-    "@generates/mister": "^0.0.2",
+    "@generates/mister": "^0.0.3",
     "@generates/skrt": "^0.0.7",
     "@ianwalter/eslint-config-react": "^5.1.1",
     "@ianwalter/renovate-config": "^1.4.6",
