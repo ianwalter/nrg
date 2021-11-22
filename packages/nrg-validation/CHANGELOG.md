@@ -1,5 +1,11 @@
 # @ianwalter/nrg-validation
 
+## 4.1.4
+
+### Patch Changes
+
+- b662194: Updating generates/logger to 2.0.2
+
 ## 4.1.3
 
 ### Patch Changes

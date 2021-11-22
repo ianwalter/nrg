@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.5.2
+
+### Patch Changes
+
+- d90945f: Updating generates/logger to 2.0.3
+
 ## 0.5.1
 
 ### Patch Changes
