@@ -40,7 +40,7 @@
     "@generates/cli": "^1.0.3",
     "@generates/dotter": "^2.0.3",
     "@generates/extractor": "^1.3.1",
-    "@generates/logger": "^1.0.0",
+    "@generates/logger": "^2.0.4",
     "@generates/merger": "^0.1.3",
     "@generates/modulizer": "^8.0.5",
     "@ianwalter/cloneable": "^2.0.0",

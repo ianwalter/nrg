@@ -1786,10 +1786,10 @@
     marked-terminal "^4.1.0"
     strip-ansi "^7.0.0"
 
-"@generates/logger@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@generates/logger/-/logger-2.0.3.tgz#71a93f7bacb10d457b83f21be4c67903f9092088"
-  integrity sha512-0fJxmsXrHl1gZ3naY6NJ+1fNraPnxA6YVbej/44mNw0WTSa2yIOl0u68BSxn/TQvG/9UXKlntmoWPNXphYtAag==
+"@generates/logger@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@generates/logger/-/logger-2.0.4.tgz#d4e91195000235d3f1c01915a212ceb17d5d6bb7"
+  integrity sha512-hyGJ0hFb0lWYTby/igXyIxTE8pL0EOfPY+iBUeaDd+vPQJ+RKj3n02p3vj8z+xCfFukRid4IJ4w0W6EHuNwtWg==
   dependencies:
     "@generates/cli" "^2.0.1"
     "@generates/dotter" "^2.0.0"
