@@ -47,6 +47,6 @@
     "amqplib": "^0.8.0"
   },
   "devDependencies": {
-    "@generates/modulizer": "^8.0.5"
+    "@generates/modulizer": "^8.0.6"
   }
 }
