@@ -1,6 +1,7 @@
-const { test } = require('@ianwalter/bff')
-const app = require('../app')
-const { accounts, password } = require('../seeds/01_accounts')
+import { test } from '@ianwalter/bff'
+import app from '../app/index.js'
+import { accounts, password } from '../seeds/01_accounts.js'
+
 const generalUser = accounts.find(a => a.firstName === 'General')
 
 test('Session • Expiration', async t => {

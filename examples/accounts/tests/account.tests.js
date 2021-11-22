@@ -1,9 +1,10 @@
-const { test } = require('@ianwalter/bff')
-const { excluding } = require('@generates/extractor')
-const { Account, getTestEmail, extractEmailToken } = require('@ianwalter/nrg')
-const app = require('../app')
-const { accounts, password } = require('../seeds/01_accounts')
+import { test } from '@ianwalter/bff'
+import { excluding } from '@generates/extractor'
+import nrg from '@ianwalter/nrg'
+import app from '../app/index.js'
+import { accounts, password } from '../seeds/01_accounts.js'
 
+const { Account, getTestEmail, extractEmailToken } = nrg
 const generalUser = accounts.find(a => a.firstName === 'General')
 const updateUser = accounts.find(a => a.firstName === 'Account Update')
 const changePasswordUser = accounts.find(a => a.firstName === 'Change Password')

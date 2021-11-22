@@ -1,8 +1,7 @@
-const bcrypt = require('bcrypt')
-const addDays = require('date-fns/addDays')
-const subDays = require('date-fns/subDays')
-const { excluding } = require('@generates/extractor')
-const { accounts } = require('./01_accounts')
+import bcrypt from 'bcrypt'
+import { addDays, subDays } from 'date-fns'
+import { excluding } from '@generates/extractor'
+import { accounts } from './01_accounts.js'
 
 const salt = bcrypt.genSaltSync(12)
 const previousEmailUser = accounts.find(a => a.firstName === 'Previous Email')
@@ -10,7 +9,7 @@ const expiredEmailUser = accounts.find(a => a.firstName === 'Expired Email')
 const wrongEmailUser = accounts.find(a => a.firstName === 'Wrong Email')
 const mismatchEmailUser = accounts.find(a => a.firstName === 'Mismatch Email')
 const readOnlyUser = accounts.find(a => a.firstName === 'Read Only')
-const tokens = [
+export const tokens = [
   {
     id: 'previous',
     token: 'iJustC4n7!gnore',
@@ -58,10 +57,7 @@ const tokens = [
   }
 ]
 
-module.exports = {
-  tokens,
-  seed: async knex => {
-    await knex.raw('TRUNCATE TABLE tokens CASCADE')
-    return knex('tokens').insert(tokens.map(t => excluding(t, 'token')))
-  }
+export async function seed (knex) {
+  await knex.raw('TRUNCATE TABLE tokens CASCADE')
+  return knex('tokens').insert(tokens.map(t => excluding(t, 'token')))
 }

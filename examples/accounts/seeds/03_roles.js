@@ -1,4 +1,4 @@
-const roles = [
+export const roles = [
   {
     id: 'owner',
     name: 'owner'
@@ -9,10 +9,7 @@ const roles = [
   }
 ]
 
-module.exports = {
-  roles,
-  seed: async knex => {
-    await knex.raw('TRUNCATE TABLE roles CASCADE')
-    return knex('roles').insert(roles)
-  }
+export async function seed (knex) {
+  await knex.raw('TRUNCATE TABLE roles CASCADE')
+  return knex('roles').insert(roles)
 }

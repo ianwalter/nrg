@@ -1,4 +1,4 @@
-const nrg = require('@ianwalter/nrg')
+import nrg from '@ianwalter/nrg'
 
 const app = nrg.createApp({
   name: 'Accounts Example',
@@ -73,4 +73,4 @@ app.delete('/session', nrg.disableCsrf, ...nrg.logout)
 // Endpoint to test error handling.
 app.get('/test-error', nrg.testError)
 
-module.exports = app
+export default app

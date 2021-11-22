@@ -1,9 +1,10 @@
-const { test } = require('@ianwalter/bff')
-const { Account, getTestEmail, extractEmailToken } = require('@ianwalter/nrg')
-const app = require('../app')
-const { accounts } = require('../seeds/01_accounts')
-const { tokens } = require('../seeds/02_tokens')
+import { test } from '@ianwalter/bff'
+import nrg from '@ianwalter/nrg'
+import app from '../app/index.js'
+import { accounts } from '../seeds/01_accounts.js'
+import { tokens } from '../seeds/02_tokens.js'
 
+const { Account, getTestEmail, extractEmailToken } = nrg
 const willVerifyUser = accounts.find(a => a.firstName === 'Will Verify')
 const previousEmailUser = accounts.find(a => a.firstName === 'Previous Email')
 const expiredEmailUser = accounts.find(a => a.firstName === 'Expired Email')

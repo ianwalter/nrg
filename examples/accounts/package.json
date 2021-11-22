@@ -8,6 +8,7 @@
     "url": "https://ianwalter.dev"
   },
   "license": "SEE LICENSE IN LICENSE",
+  "type": "module",
   "scripts": {
     "pretest": "yarn nrg migrate && yarn nrg seed && yarn nrg run deleteAllEmail",
     "test": "NODE_ENV=test bff"
@@ -16,6 +17,6 @@
     "@ianwalter/nrg": "^0.26.0"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.10.0"
+    "@ianwalter/bff": "^11.2.1"
   }
 }
