@@ -48,7 +48,7 @@
     "@ianwalter/timer": "^2.0.2"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^11.2.0",
+    "@ianwalter/bff": "^11.2.1",
     "execa": "^5.1.1"
   }
 }
