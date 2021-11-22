@@ -89,7 +89,9 @@ Object {
                 <!-- Body content -->
                 <tr>
                   <td class=\\"content-cell\\" style=\\"font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 35px;\\">
-                    <h1 style=\\"margin-top: 0; color: #2F3133; font-size: 19px; font-weight: bold; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; -webkit-box-sizing: border-box; box-sizing: border-box;\\">Hi Will Verify,</h1>
+                    
+                      <h1 style=\\"margin-top: 0; color: #2F3133; font-size: 19px; font-weight: bold; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; -webkit-box-sizing: border-box; box-sizing: border-box;\\">Hi Will Verify,</h1>
+                    
                     
 
                     <!-- Dictionary -->
