@@ -7,9 +7,16 @@
     "url": "https://ianwalter.dev"
   },
   "license": "SEE LICENSE IN LICENSE",
-  "main": "index.js",
+  "type": "module",
+  "main": "cjs.cjs",
+  "module": "index.js",
+  "scripts": {
+    "build": "modulize --cjs cjs.cjs --inline",
+    "pretest": "yarn build"
+  },
   "files": [
-    "index.js"
+    "index.js",
+    "cjs.cjs"
   ],
   "homepage": "https://github.com/ianwalter/nrg/blob/main/packages/nrg-mq#readme",
   "repository": {
@@ -35,8 +42,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@generates/logger": "^1.0.0",
+    "@generates/logger": "^2.0.2",
     "amqp-connection-manager": "^3.7.0",
     "amqplib": "^0.8.0"
+  },
+  "devDependencies": {
+    "@generates/modulizer": "^8.0.5"
   }
 }

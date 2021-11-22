@@ -1,10 +1,10 @@
-const amqp = require('amqp-connection-manager')
-const { createLogger } = require('@generates/logger')
+import amqp from 'amqp-connection-manager'
+import { createLogger } from '@generates/logger'
 
 const ns = 'nrg.mq'
 const level = 'info'
 
-function install (app, ctx, cfg) {
+export function install (app, ctx, cfg) {
   if (ctx.logger) ctx.logger.debug('Adding mq')
 
   const logger = app?.logger?.ns(ns) || createLogger({ level, namespace: ns })
@@ -80,5 +80,3 @@ function install (app, ctx, cfg) {
   // Add the mq instance to the app and ctx.
   app.mq = app.context.mq = { connection, channel, pub, sub, ...queues }
 }
-
-module.exports = { install }
