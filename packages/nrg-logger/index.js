@@ -1,5 +1,5 @@
-const { createLogger, chalk } = require('@generates/logger')
-const createTimer = require('@ianwalter/timer')
+import { createLogger, chalk } from '@generates/logger'
+import createTimer from '@ianwalter/timer'
 
 function formatTimestamp (date) {
   const [second, meridiem] = date.toLocaleTimeString().split(' ')
@@ -8,7 +8,7 @@ function formatTimestamp (date) {
   return chalk.white.bold(`${str} ${second}.${ms}${meridiem.toLowerCase()}`)
 }
 
-module.exports = function nrgLogger (options = {}) {
+export default function nrgLogger (options = {}) {
   const logger = createLogger(options)
 
   return {

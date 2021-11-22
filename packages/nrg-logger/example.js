@@ -1,6 +1,6 @@
-const { createApp } = require('@ianwalter/nrg')
+import nrg from '@ianwalter/nrg'
 
-const app = createApp()
+const app = nrg.createApp()
 
 app.logger.info('Hello!', { data: 123 })
 

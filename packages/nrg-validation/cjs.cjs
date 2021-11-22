@@ -35014,13 +35014,6 @@ function isObject$2(value) {
 	return value !== null && (type === 'object' || type === 'function');
 }
 
-var lib$1 = {};
-
-Object.defineProperty(lib$1, "__esModule", { value: true });
-var _default$1 = lib$1.default = (object) => Object
-    .getOwnPropertySymbols(object)
-    .filter((keySymbol) => Object.prototype.propertyIsEnumerable.call(object, keySymbol));
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['', ''], ['', '']);
@@ -35384,6 +35377,13 @@ new TemplateTag(stripIndentTransformer('all'), trimResultTransformer);
 
 // Modified from: https://github.com/yeoman/stringify-object
 
+// Modified from: https://github.com/mightyiam/get-own-enumerable-property-symbols
+function getOwnEnumPropSymbols (obj) {
+  return Object
+    .getOwnPropertySymbols(obj)
+    .filter(key => Object.prototype.propertyIsEnumerable.call(obj, key))
+}
+
 function stringify (input, options, pad) {
   const seen = [];
 
@@ -35447,7 +35447,7 @@ function stringify (input, options, pad) {
     if (isObject$2(input)) {
       let objectKeys = [
         ...Object.keys(input),
-        ..._default$1.default(input)
+        ...getOwnEnumPropSymbols(input)
       ];
 
       if (options.filter) {
@@ -38573,7 +38573,7 @@ function parsePhoneNumberFromString$2() {
 	return withMetadata(parsePhoneNumberFromString$1, arguments)
 }
 
-var lib$2 = {};
+var lib$1 = {};
 
 // Load modules
 
@@ -38935,7 +38935,7 @@ internals.hasDomainLiteralThenAtom = function (domainAtoms) {
  * @return {*}
  */
 
-lib$2.validate = internals.validate = function (email, options, callback) {
+lib$1.validate = internals.validate = function (email, options, callback) {
 
     options = options || {};
 
@@ -40058,7 +40058,7 @@ lib$2.validate = internals.validate = function (email, options, callback) {
 };
 
 
-lib$2.diagnoses = internals.validate.diagnoses = (function () {
+lib$1.diagnoses = internals.validate.diagnoses = (function () {
 
     const diag = {};
     const keys = Object.keys(internals.diagnoses);
@@ -40071,7 +40071,7 @@ lib$2.diagnoses = internals.validate.diagnoses = (function () {
 })();
 
 
-lib$2.normalize = internals.normalize;
+lib$1.normalize = internals.normalize;
 
 function toInteger(dirtyNumber) {
   if (dirtyNumber === null || dirtyNumber === true || dirtyNumber === false) {
@@ -45319,7 +45319,7 @@ function isEmail (input, options) {
 }
 isEmail.validate = function validateEmail (input, options) {
   return {
-    isValid: lib$2.validate(input, merge$3({}, defaultEmailOptions, options))
+    isValid: lib$1.validate(input, merge$3({}, defaultEmailOptions, options))
   }
 };
 

@@ -42,7 +42,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@generates/logger": "^2.0.2",
+    "@generates/logger": "^2.0.3",
     "amqp-connection-manager": "^3.7.0",
     "amqplib": "^0.8.0"
   },
