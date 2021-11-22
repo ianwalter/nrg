@@ -1,5 +1,11 @@
 # @ianwalter/nrg-mq
 
+## 1.2.10
+
+### Patch Changes
+
+- 1c8be69: Updating generates/logger to 2.0.2
+
 ## 1.2.9
 
 ### Patch Changes
