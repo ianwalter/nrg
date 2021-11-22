@@ -1791,10 +1791,10 @@
   resolved "https://registry.yarnpkg.com/@generates/merger/-/merger-0.1.3.tgz#6808e51767b45bf75a8354f739d645826de85677"
   integrity sha512-x4KKHexiP4hIfoGZumc3RSac1t9d/aGErxbG9NASHcx59mljW2uyKDt4qP3igi9hszIHV5mjb4TbAYUNFoWg3w==
 
-"@generates/mister@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@generates/mister/-/mister-0.0.2.tgz#711e10c16fd98150f2367673133951dc904583f4"
-  integrity sha512-YlYJaeviX0NdttQ3pgCPAccArBMlxF5J1J133rww1+ebn/A8sEDviqTkNcRN3q5wRuQ/heUcyIcnmOrq3OJuMw==
+"@generates/mister@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@generates/mister/-/mister-0.0.3.tgz#c30fb658a72ca1a4baf6631fa9657fdca02593f8"
+  integrity sha512-tKNG7erO0qoF8KBVa7aNwJHeKysJ2JOwmAkF/631WB3b0aKZGggm+huo7vF9vfAdOYtlnS/vUN31Njuay4f5mg==
   dependencies:
     "@generates/cli" "^2.0.1"
 
