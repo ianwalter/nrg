@@ -1,5 +1,5 @@
 ---
-"@ianwalter/nrg": patch
+"@ianwalter/nrg": minor
 "@ianwalter/nrg-logger": patch
 "@ianwalter/nrg-mq": patch
 "@ianwalter/nrg-validation": patch
