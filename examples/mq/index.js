@@ -1,9 +1,9 @@
-const { createApp } = require('@ianwalter/nrg')
+import nrg from '@ianwalter/nrg'
 
 let num = 0
 const host = process.env.MQ_HOST || 'localhost'
 const port = process.env.MQ_PORT || 25672
-const app = createApp({
+const app = nrg.createApp({
   mq: {
     urls: [
       `amqp://nrg:gottaLottaEnemies@${host}:${port}`
@@ -37,4 +37,4 @@ app.use(async ctx => {
   ctx.body = msg
 })
 
-module.exports = app
+export default app

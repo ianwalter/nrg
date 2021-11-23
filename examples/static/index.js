@@ -1,10 +1,11 @@
-const path = require('path')
-const { createApp } = require('@ianwalter/nrg')
+import nrg from '@ianwalter/nrg'
 
-module.exports = createApp({
+console.log('PATH', new URL('dist', import.meta.url).pathname)
+
+export default nrg.createApp({
   static: {
     enabled: true, // Only necessary since NODE_ENV is not production.
-    root: path.join(__dirname, 'dist'),
+    root: new URL('dist', import.meta.url).pathname,
     fallback (ctx) {
       ctx.body = 'I Wish I Could'
     }
