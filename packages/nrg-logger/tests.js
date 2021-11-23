@@ -1,5 +1,5 @@
 import { test } from '@ianwalter/bff'
-import execa from 'execa'
+import { execa } from 'execa'
 import stripAnsi from 'strip-ansi'
 
 const outputs = [
