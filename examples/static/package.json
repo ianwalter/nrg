@@ -2,12 +2,12 @@
   "private": true,
   "name": "static-example",
   "version": "1.0.25",
-  "description": "",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
   },
   "license": "UNLICENSED",
+  "type": "module",
   "scripts": {
     "test": "bff"
   },
