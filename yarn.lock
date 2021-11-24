@@ -1836,10 +1836,10 @@
     glob "^7.2.0"
     read-pkg "^7.0.0"
 
-"@generates/modulizer@^8.0.6":
-  version "8.0.6"
-  resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-8.0.6.tgz#6bd82308fa6cddd3af44bd82e6f12d733c193898"
-  integrity sha512-aGnD5zjMCjhKfGdmA/7FzvNtA/jx4dMolQHM1pekBlvhBgCDJ6enK5J85/JTjdwBjfPTmu3ibwsiUSts/j5Ddg==
+"@generates/modulizer@^8.0.7":
+  version "8.0.7"
+  resolved "https://registry.yarnpkg.com/@generates/modulizer/-/modulizer-8.0.7.tgz#379ddcaf4b1a390db2b8e86277e1d97ca386b41e"
+  integrity sha512-vD8y/1d22MRM+a+46jAsqJZrX/1w9BwQ84PQc1zgkqFd74cbrVYXxsXegfWxmgp1FZZHfB4HoDPlzCoUlqc04w==
   dependencies:
     "@babel/core" "^7.8.6"
     "@generates/cli" "^2.0.3"

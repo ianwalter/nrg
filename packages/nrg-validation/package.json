@@ -35,7 +35,7 @@
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
-    "@generates/modulizer": "^8.0.6",
+    "@generates/modulizer": "^8.0.7",
     "@ianwalter/bff": "^11.2.2"
   },
   "keywords": [
