@@ -1,4 +1,4 @@
-import { Requester } from '@ianwalter/requester'
+import { Requester } from '@generates/requester'
 import { oneLine } from 'common-tags'
 import createUrl from '@ianwalter/url'
 import { createLogger } from '@generates/logger'
