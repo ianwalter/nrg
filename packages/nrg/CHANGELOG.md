@@ -1,5 +1,20 @@
 # @ianwalter/nrg
 
+## 0.27.0
+
+### Minor Changes
+
+- ce7178f: Bumping generates/logger to 2.0.4
+
+### Patch Changes
+
+- b1c15c7: Update dependency ioredis to ^4.28.1
+- 9389a94: Updating modulizer to 8.0.7
+- Updated dependencies [ce7178f]
+  - @ianwalter/nrg-logger@0.5.3
+  - @ianwalter/nrg-mq@1.2.11
+  - @ianwalter/nrg-validation@4.1.5
+
 ## 0.26.1
 
 ### Patch Changes

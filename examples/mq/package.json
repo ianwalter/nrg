@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "mq-example",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "author": {
     "name": "Ian Walter",
     "url": "https://ianwalter.dev"
@@ -12,7 +12,7 @@
     "test": "bff"
   },
   "dependencies": {
-    "@ianwalter/nrg": "^0.26.0"
+    "@ianwalter/nrg": "^0.27.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^11.2.1"

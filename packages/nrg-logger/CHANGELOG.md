@@ -1,5 +1,11 @@
 # @ianwalter/nrg-logger
 
+## 0.5.3
+
+### Patch Changes
+
+- ce7178f: Bumping generates/logger to 2.0.4
+
 ## 0.5.2
 
 ### Patch Changes
