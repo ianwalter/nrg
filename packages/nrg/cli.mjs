@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-const cli = require('@generates/cli')
-const { createLogger } = require('@generates/logger')
-const healthcheck = require('./lib/commands/healthcheck')
-const copyMigrations = require('./lib/commands/copyMigrations')
-const migrate = require('./lib/commands/migrate')
-const newId = require('./lib/commands/newId')
-const newMigration = require('./lib/commands/newMigration')
-const newSeed = require('./lib/commands/newSeed')
-const seed = require('./lib/commands/seed')
-const run = require('./lib/commands/run')
-const printConfig = require('./lib/commands/printConfig')
+import cli from '@generates/cli'
+import { createLogger } from '@generates/logger'
+import healthcheck from './lib/commands/healthcheck.mjs'
+import copyMigrations from './lib/commands/copyMigrations.js'
+import migrate from './lib/commands/migrate.js'
+import newId from './lib/commands/newId.js'
+import newMigration from './lib/commands/newMigration.js'
+import newSeed from './lib/commands/newSeed.js'
+import seed from './lib/commands/seed.js'
+import run from './lib/commands/run.js'
+import printConfig from './lib/commands/printConfig.js'
 
 const logger = createLogger({ level: 'info', namespace: 'nrg.cli' })
 
