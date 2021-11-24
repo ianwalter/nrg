@@ -1,5 +1,11 @@
 # @ianwalter/nrg-mq
 
+## 1.2.11
+
+### Patch Changes
+
+- ce7178f: Bumping generates/logger to 2.0.4
+
 ## 1.2.10
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @ianwalter/nrg-validation
 
+## 4.1.5
+
+### Patch Changes
+
+- ce7178f: Bumping generates/logger to 2.0.4
+
 ## 4.1.4
 
 ### Patch Changes
