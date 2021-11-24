@@ -84,6 +84,8 @@ const {
   getPasswordTokens
 } = require('./lib/middleware/passwordReset')
 
+const { verifyInvite } = require('./lib/middleware/invites.js')
+
 const { slowDown } = require('./lib/middleware/slowDown')
 
 const { httpsRedirect } = require('./lib/middleware/httpsRedirect')
@@ -178,10 +180,12 @@ module.exports = {
 
   // Registration:
   validateRegistration,
+  verifyInvite,
   createAccount,
   registration: [
     disableCsrf,
     validateRegistration,
+    verifyInvite,
     hashPassword,
     createAccount,
     ...startEmailVerification,

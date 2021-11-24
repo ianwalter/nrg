@@ -27,7 +27,8 @@ module.exports = class Account extends Base {
       firstName: { isString, trim },
       lastName: { isString, trim },
       email: { isEmail, trim, lowercase },
-      password: { isStrongPassword }
+      password: { isStrongPassword },
+      inviteCode: { isString, canBeEmpty }
     }
   }
 
