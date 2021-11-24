@@ -17,13 +17,14 @@ module.exports = class Account extends Base {
 
   static get loginSchema () {
     return {
-      email: { isEmail, trim, lowercase },
+      username: { trim, lowercase },
       password: { isString }
     }
   }
 
   static get registrationSchema () {
     return {
+      username: { isString, canBeEmpty, trim },
       firstName: { isString, trim },
       lastName: { isString, trim },
       email: { isEmail, trim, lowercase },
@@ -33,6 +34,7 @@ module.exports = class Account extends Base {
 
   static get updateSchema () {
     return {
+      username: { isString, canBeEmpty, trim },
       firstName: { isString, canBeEmpty, trim },
       lastName: { isString, canBeEmpty, trim },
       password: { isStrongPassword, canBeEmpty }
@@ -64,7 +66,7 @@ module.exports = class Account extends Base {
   static extractClientData (source) {
     return including(
       source,
-      ...['id', 'firstName', 'lastName', 'email', 'emailVerified']
+      ...['id', 'username', 'firstName', 'lastName', 'email', 'emailVerified']
     )
   }
 

@@ -9,10 +9,17 @@ const { isEmpty } = require('@ianwalter/nrg-validation')
  *
  */
 async function getAccount (ctx, next) {
-  const email = ctx.session.account?.email || ctx.state.validation?.data?.email
-  if (email) {
+  const { account } = ctx.session
+
+  // For looking up the account, use the email if there is a session, otherwise
+  // use the username value which should allow either email or username.
+  const username = account?.email || ctx.state.validation?.data?.username
+  if (username) {
     const { Account } = ctx.cfg.accounts.models
-    const query = Account.query().findOne({ email, enabled: true })
+    const query = Account.query()
+      .where('enabled', true)
+      .where(builder => builder.where({ username }).orWhere('email', username))
+      .first()
 
     // Also query the account roles if a relation is defined on the Account
     // model.
@@ -20,8 +27,8 @@ async function getAccount (ctx, next) {
 
     ctx.state.account = await query
   }
-  const { account } = ctx.state
-  ctx.logger.ns('nrg.accounts').debug('account.getAccount', { email, account })
+  const logger = ctx.logger.ns('nrg.accounts')
+  logger.debug('account.getAccount', { username, account: ctx.state.account })
   return next()
 }
 
