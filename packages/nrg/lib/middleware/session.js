@@ -7,7 +7,7 @@ const { ValidationError, BadRequestError } = require('../errors')
 async function validateLogin (ctx, next) {
   const body = ctx.request.body || ctx.req.body || {}
   const validation = await ctx.cfg.validators.login.validate(body)
-  const logger = ctx.logger.ns('nrg.accounts.session')
+  const logger = ctx.logger.ns('nrg.session.user')
   logger.debug('session.validateLogin', validation)
   if (validation.isValid) {
     ctx.state.validation = validation
@@ -17,7 +17,7 @@ async function validateLogin (ctx, next) {
 }
 
 async function createUserSession (ctx, next) {
-  const logger = ctx.logger.ns('nrg.accounts.session')
+  const logger = ctx.logger.ns('nrg.session.user')
   const { account } = ctx.state
   logger.debug('session.createUserSession', { account })
 
@@ -41,13 +41,6 @@ async function createUserSession (ctx, next) {
     // Set the status to 201 to indicate a new user session was created.
     ctx.state.status = 201
 
-    // Add a CSRF token to the body (if it wasn't already added by clearSession)
-    // so that the login response is consistent whether you are already logged
-    // in or not.
-    if (!ctx.state.body?.csrfToken) {
-      ctx.state.body = { csrfToken: ctx.generateCsrfToken() }
-    }
-
     // Continue to the next middleware.
     return next()
   } else if (account) {
@@ -58,18 +51,21 @@ async function createUserSession (ctx, next) {
   throw new BadRequestError('Incorrect email or password')
 }
 
-async function clearSession (ctx, next) {
-  const logger = ctx.logger.ns('nrg.accounts.session')
+async function regenerateSession (ctx, next) {
+  const logger = ctx.logger.ns('nrg.session')
 
-  // Regenerate the session if this is a logout endpoint (no account on
-  // ctx.state) or if this is a login endpoint but there is already a user
-  // session.
-  if (!ctx.state.account || ctx.session.account) {
-    if (!ctx.session.account) logger.info('clearSession')
-    if (ctx.session.account) logger.info('clearSession • Existing session')
-    await ctx.regenerateSession()
+  const accountId = `• Account ${ctx.session.account?.id}`
+  logger.info('Regenerate session', ctx.session.account?.id ? accountId : '')
+
+  // Destroy the existing session and create a new session for the request's
+  // client.
+  await ctx.regenerateSession()
+
+  // Generate a new CSRF token for the new session.
+  if (ctx.cfg.sessions.csrf) {
     ctx.state.body = { csrfToken: ctx.generateCsrfToken() }
   }
+
   return next()
 }
 
@@ -84,14 +80,14 @@ function resetSession (ctx, next) {
   return next()
 }
 
-function disableCsrf (ctx, next) {
+function disableCsrf (_, next) {
   return next()
 }
 
 module.exports = {
   validateLogin,
   createUserSession,
-  clearSession,
+  regenerateSession,
   getSession,
   resetSession,
   disableCsrf
