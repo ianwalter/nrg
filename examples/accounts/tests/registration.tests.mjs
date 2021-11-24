@@ -1,8 +1,9 @@
-const { test } = require('@ianwalter/bff')
-const { Account, getTestEmail, extractEmailToken } = require('@ianwalter/nrg')
-const app = require('../app')
-const { accounts } = require('../seeds/01_accounts')
+import { test } from '@ianwalter/bff'
+import nrg from '@ianwalter/nrg'
+import app from '../app/index.js'
+import { accounts } from '../seeds/01_accounts.js'
 
+const { Account, getTestEmail, extractEmailToken } = nrg
 const firstName = 'Bilbo'
 const lastName = 'Baggins'
 const email = 'bilbo@example.com'
