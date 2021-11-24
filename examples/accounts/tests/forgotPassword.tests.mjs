@@ -1,8 +1,9 @@
-const { test } = require('@ianwalter/bff')
-const { Token, getTestEmail, extractEmailToken } = require('@ianwalter/nrg')
-const app = require('../app')
-const { accounts } = require('../seeds/01_accounts')
+import { test } from '@ianwalter/bff'
+import nrg from '@ianwalter/nrg'
+import app from '../app/index.js'
+import { accounts } from '../seeds/01_accounts.js'
 
+const { Token, getTestEmail, extractEmailToken } = nrg
 const generalUser = accounts.find(a => a.firstName === 'General')
 const disabledUser = accounts.find(a => a.firstName === 'Disabled')
 
