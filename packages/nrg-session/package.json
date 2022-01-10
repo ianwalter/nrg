@@ -54,7 +54,7 @@
     "mocha": "^8.2.1",
     "mz-modules": "^2.1.0",
     "pedding": "^1.1.0",
-    "should": "^11.2.1",
+    "should": "^13.2.3",
     "supertest": "^6.1.3"
   }
 }
