@@ -49,6 +49,6 @@
   },
   "devDependencies": {
     "@ianwalter/bff": "^11.2.2",
-    "execa": "^6.0.0"
+    "execa": "^6.1.0"
   }
 }
