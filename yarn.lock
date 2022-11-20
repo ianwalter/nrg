@@ -7889,10 +7889,10 @@ magic-string@^0.25.2, magic-string@^0.25.7:
   dependencies:
     sourcemap-codec "^1.4.4"
 
-mailgen@^2.0.16:
-  version "2.0.16"
-  resolved "https://registry.yarnpkg.com/mailgen/-/mailgen-2.0.16.tgz#d5c4c27212133c2e55c2aca9c37fced400c29fa5"
-  integrity sha512-XQQ8w/Bnyw287jLPWg1xnpm1ko7rfZsOLupFJkn5Og/Z1hpJOeNE8TpDB5R6378qfMYTw6XUo4z9U37axy1zdQ==
+mailgen@^2.0.27:
+  version "2.0.27"
+  resolved "https://registry.yarnpkg.com/mailgen/-/mailgen-2.0.27.tgz#aa4a6eb67bc97568288286025f535bef394f23aa"
+  integrity sha512-k+Q02hK/gI224JRw9FFW/yKgo3SbYOCTbfE0MsXx0YFOR9XMsdOPBhAbHH6fKvyDX6y1r4zvw9QIponQOippFQ==
   dependencies:
     ejs "^3.1.6"
     he "^1.2.0"
