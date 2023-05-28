@@ -8243,13 +8243,12 @@ mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.5:
   dependencies:
     minimist "^1.2.5"
 
-mm@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/mm/-/mm-3.2.0.tgz#509cc2477c24376f4c441229ddf8ddd3d80b5fcc"
-  integrity sha512-/VCj1KbfQHqY5YfAQZY0YVoU8QyTvFDdRnGfAQ1SzILtwgns2fl+SXiIMH+/7GW/5DEr69ffmGVP2pouUIKlaA==
+mm@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/mm/-/mm-3.3.0.tgz#51ea0e533e9c16e82eaea92d76d5cdcbac1806a6"
+  integrity sha512-oR7N3mhs1ccWqK9HpVhhWjYIJneH4k4+HKPODyZ3HWPal8Vh+4HIb+v8jGmqJVg0fZmy0v554SuS7ZdyL7ejWQ==
   dependencies:
     is-type-of "^1.2.1"
-    ko-sleep "^1.0.3"
     muk-prop "^1.2.1"
     thenify "^3.3.0"
 
