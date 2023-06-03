@@ -35,7 +35,7 @@ jobs:
         image: redis:5.0
         options: --entrypoint redis-server
       rabbitmq:
-        image: rabbitmq:3.8
+        image: rabbitmq:3.12
         env:
           RABBITMQ_DEFAULT_USER: nrg
           RABBITMQ_DEFAULT_PASS: gottaLottaEnemies

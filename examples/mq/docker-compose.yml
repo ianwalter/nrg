@@ -2,7 +2,7 @@ version: '3'
 services:
 
   mq:
-    image: rabbitmq:3.8-management
+    image: rabbitmq:3.12-management
     ports:
       - $MQ_PORT:5672
       - $MQ_ADMIN_PORT:15672
