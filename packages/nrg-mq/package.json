@@ -44,7 +44,7 @@
   "dependencies": {
     "@generates/logger": "^2.0.4",
     "amqp-connection-manager": "^3.7.0",
-    "amqplib": "^0.8.0"
+    "amqplib": "^0.10.3"
   },
   "devDependencies": {
     "@generates/modulizer": "^8.0.7"
