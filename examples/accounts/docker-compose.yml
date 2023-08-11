@@ -11,7 +11,7 @@ services:
       - $REDIS_PORT:6379
 
   db:
-    image: postgres:12.3
+    image: postgres:15.4
     stop_signal: SIGINT
     ports:
       - $DB_PORT:5432
