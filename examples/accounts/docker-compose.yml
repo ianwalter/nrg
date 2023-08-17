@@ -6,7 +6,7 @@ volumes:
 services:
 
   redis:
-    image: redis:5.0
+    image: redis:7.2
     ports:
       - $REDIS_PORT:6379
 
