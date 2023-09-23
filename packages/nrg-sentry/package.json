@@ -47,6 +47,6 @@
   "devDependencies": {
     "@ianwalter/bff": "^11.2.2",
     "@sentry/integrations": "^5.30.0",
-    "sentry-testkit": "^3.3.7"
+    "sentry-testkit": "^5.0.6"
   }
 }
